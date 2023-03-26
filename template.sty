@@ -28,3 +28,34 @@
 \newfont{\chapterNumber}{pplr9d scaled 7000}
 	\RequirePackage{microtype} %
 	
+% ********************************************************************
+% Textblock size
+% ********************************************************************
+\RequirePackage{typearea}%
+	\areaset[current]{336pt}{690pt}
+	\setlength{\marginparwidth}{7em}%
+	\setlength{\marginparsep}{2em}%
+	\setlength{\headheight}{42pt}	
+
+
+% ********************************************************************
+% Own Stuff
+% ********************************************************************
+% Disable single lines at the start of a paragraph (Schusterjungen)
+\clubpenalty = 10000
+% Disable single lines at the end of a paragraph (Hurenkinder)
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000 % formulas
+
+
+\def\graffito@setup{%
+	\itshape\footnotesize\leavevmode\color{Black}%
+	\parindent=0pt \lineskip=0pt \lineskiplimit=0pt %
+	\tolerance=2000 \hyphenpenalty=300 \exhyphenpenalty=300%
+	\doublehyphendemerits=100000%
+	\finalhyphendemerits=\doublehyphendemerits}
+
+\let\oldmarginpar\marginpar
+\renewcommand{\marginpar}[1]{\oldmarginpar%
+	[\graffito@setup\raggedleft\hspace{0pt}{#1}]%
+	{\graffito@setup\raggedright\hspace{0pt}{#1}}}
