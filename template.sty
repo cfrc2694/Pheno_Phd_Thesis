@@ -173,3 +173,95 @@
 \titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
 \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
 \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
+
+% ********************************************************************                
+% layout of the TOC, LOF and LOT (LOL-workaround see next section)
+% ********************************************************************
+\PassOptionsToPackage{titles}{tocloft}
+\RequirePackage{tocloft}
+% avoid page numbers being right-aligned in fixed-size box              
+\newlength{\newnumberwidth}
+% yields overfull hbox warnings for pages > 999
+\settowidth{\newnumberwidth}{999} 
+\cftsetpnumwidth{\newnumberwidth}
+
+% have the bib neatly positioned after the rest
+\newlength{\beforebibskip}  
+\setlength{\beforebibskip}{0em}
+
+% space for more than nine chapters
+\newlength{\newchnumberwidth}
+\settowidth{\newchnumberwidth}{.} % <- tweak if need more space 
+\addtolength{\cftchapnumwidth}{\newchnumberwidth}%
+\addtolength{\cftsecnumwidth}{\newchnumberwidth}
+\addtolength{\cftsecindent}{\newchnumberwidth}
+\addtolength{\cftsubsecnumwidth}{\newchnumberwidth}
+\addtolength{\cftsubsecindent}{2\newchnumberwidth}
+\addtolength{\cftsubsubsecnumwidth}{\newchnumberwidth}
+
+% parts
+\renewcommand{\thepart}{\Roman{part}}%
+\renewcommand{\cftpartpresnum}{\scshape}
+\renewcommand{\cftpartfont}{\bfseries}%
+\renewcommand{\cftpartpagefont}{\bfseries}%
+
+\setlength{\cftbeforepartskip}{1em}%
+\setlength{\cftbeforechapskip}{.1em}%
+
+
+% chapters
+\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftchapfont}{\normalfont}%
+\renewcommand{\cftchappagefont}{\normalfont}%
+\setlength{\cftbeforechapskip}{.1em}%           
+
+% section
+\renewcommand{\cftsecpresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftsecfont}{\normalfont}%
+\renewcommand{\cftsecpagefont}{\normalfont}%
+
+% subsections
+\renewcommand{\cftsubsecpresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftsubsecfont}{\normalfont}%
+
+% subsubsections
+\renewcommand{\cftsubsubsecpresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftsubsubsecfont}{\normalfont}%
+
+\AtBeginDocument{%
+	\addtocontents{toc}{\protect\vspace{-\cftbeforepartskip}}
+	}
+\AtBeginDocument{%
+	\addtocontents{toc}{\protect\vspace{-\cftbeforechapskip}}
+	}
+
+
+%% use modified \chapter and \part to add correctly toc
+\let\oldchap=\chapter
+\renewcommand*{\chapter}{%
+	\secdef{\Chap}{\ChapS}%
+}
+\newcommand\ChapS[1]{\oldchap*{#1}}%
+\newcommand\Chap[2][]{%
+\oldchap[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}%
+}%
+
+
+\let\oldpart=\part%
+\renewcommand*{\part}{%
+	\secdef{\Part}{\PartS}%
+}%
+\newcommand\PartS[1]{\oldpart*{#1}}%
+\newcommand\Part[2][]{%
+	\pdfstringdefDisableCommands{\let\thepart\@gobbletwo}%
+	% spacedallcaps spacedlowsmallcaps
+	\oldpart[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}
+	\ctparttext{\relax}%
+}%
+
+\def\ttl@tocpart{%
+	\def\ttl@a{\protect\numberline{\thepart}\hspace{2em}\@gobble{}}}%
+
+\newcommand{\tocEntry}[1]{% for bib, etc.
+	\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}%
+}
