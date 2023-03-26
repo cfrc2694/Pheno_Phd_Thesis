@@ -59,3 +59,57 @@
 \renewcommand{\marginpar}[1]{\oldmarginpar%
 	[\graffito@setup\raggedleft\hspace{0pt}{#1}]%
 	{\graffito@setup\raggedright\hspace{0pt}{#1}}}
+
+% ********************************************************************
+% Fancy Stuff
+% ********************************************************************
+\PassOptionsToPackage{dvipsnames}{xcolor}
+	\RequirePackage{xcolor}
+	\definecolor{miverde}{RGB}{44,162,67}
+	\definecolor{azulF}{rgb}{.0,.0,.3}
+	\definecolor{halfgray}{gray}{0.55} 
+	\definecolor{webgreen}{rgb}{0,.5,0}
+	\definecolor{webbrown}{rgb}{.6,0,0}
+\RequirePackage[
+	colorlinks=true,
+	linkcolor=azulF,
+	urlcolor=azulF,
+	citecolor=azulF,
+	bookmarks=false]{hyperref}
+\PassOptionsToPackage{small,bf}{caption}
+	\RequirePackage{caption}
+\RequirePackage{booktabs} % for better rules in tables
+\RequirePackage{textcase} % for \MakeTextUppercase
+\DeclareRobustCommand{\spacedallcaps}[1]{%
+	\textls[160]{%
+		\MakeTextUppercase{#1}
+		}
+	}
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{%
+	\textls[80]{%
+		\scshape\MakeTextLowercase{#1}
+		}
+	}
+	
+% ********************************************************************
+% Headlines
+% ********************************************************************
+\PassOptionsToPackage{automark}{scrlayer-scrpage}
+\RequirePackage{scrlayer-scrpage} %
+\clearscrheadings
+\renewcommand{\chaptermark}[1]{%
+	\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}
+	}
+\renewcommand{\sectionmark}[1]{%
+	\markright{\thesection\enspace\spacedlowsmallcaps{#1}}
+	} 
+\lehead{%
+	\mbox{\llap{\small\thepage\kern2em}\headmark\hfil}
+	}
+\rohead{%
+	\mbox{\hfil{\headmark}\rlap{\small\kern2em\thepage}}
+	}
+\renewcommand{\headfont}{\small}  
+\def\toc@heading{%
+	\chapter*{\contentsname}
+	\@mkboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}}
