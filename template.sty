@@ -265,3 +265,21 @@
 \newcommand{\tocEntry}[1]{% for bib, etc.
 	\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}%
 }
+
+% ********************************************************************
+% footnotes setup   
+% ********************************************************************   
+\ifdefined\deffootnote
+	\deffootnote{0em}{0em}{\thefootnotemark\hspace*{.5em}}%
+\else
+	\PassOptionsToPackage{flushmargin}{footmisc}%
+		\RequirePackage{footmisc}%
+		\setlength{\footnotemargin}{-.5em}%
+\fi
+
+% ********************************************************************
+% Backward-compatibility to Classic Thesis template
+% ******************************************************************** 
+\let\myChapter\chapter
+\let\myPart\part
+\let\graffito\marginpar
