@@ -113,3 +113,63 @@
 \def\toc@heading{%
 	\chapter*{\contentsname}
 	\@mkboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}}
+	
+% ********************************************************************
+% Titles Stuff
+% ********************************************************************
+\RequirePackage{titlesec}
+% parts
+\newcommand{\ct@parttext}{\relax}
+\newcommand{\ctparttext}[1]{\renewcommand{\ct@parttext}{#1 \relax}} 
+\titleformat{\part}[display]%
+	{\normalfont\centering\large}%
+	{\thispagestyle{empty}%
+		\partname~\MakeTextUppercase{\thepart}
+	}{1em}%
+	{\color{Maroon}\spacedallcaps}%
+	[%
+		\bigskip%
+		\normalfont%
+		\normalsize%
+		\color{Black}%
+		\begin{quote}\ct@parttext\end{quote}%
+	]
+% chapters
+\titleformat{\chapter}[display]%             
+	{\relax}%
+	{\raggedleft{\color{halfgray}\chapterNumber\thechapter} \\ }%
+	{0pt}%
+	{%
+		\titlerule%
+		\vspace*{.9\baselineskip}%
+		\raggedright\spacedallcaps
+	}%
+	[\normalsize\vspace*{.8\baselineskip}\titlerule]
+% section
+\titleformat{\section}
+	{\relax}%
+	{\textsc{\MakeTextLowercase{\thesection}}}%
+	{1em}%
+	{\spacedlowsmallcaps}
+% subsections
+\titleformat{\subsection}
+	{\relax}%
+	{\textsc{\MakeTextLowercase{\thesubsection}}}%
+	{1em}%
+	{\normalsize\itshape}
+% subsubsections
+\titleformat{\subsubsection}
+	{\relax}%
+	{\textsc{\MakeTextLowercase{\thesubsubsection}}}%
+	{1em}%
+	{\normalsize\itshape}
+% paragraphs
+\titleformat{\paragraph}[runin]
+	{\normalfont\normalsize}{\theparagraph}{0pt}{\spacedlowsmallcaps}  
+
+\renewcommand{\descriptionlabel}[1]%
+	{\hspace*{\labelsep}\spacedlowsmallcaps{#1}}
+\titlespacing*{\chapter}{0pt}{1\baselineskip}{1.2\baselineskip}
+\titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
+\titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
+\titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
