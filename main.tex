@@ -1,0 +1,57 @@
+\documentclass[10pt, letterpaper]{book}%tipo
+
+\usepackage{template}
+\usepackage{lipsum}
+
+\usepackage{
+  amsmath, amsthm, 
+  amssymb,amsfonts,
+  cancel,
+  stmaryrd,esint, 
+  xfrac, upgreek, 
+  braket
+}
+
+\usepackage{multicol}
+\usepackage{bigstrut}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{subcaption}
+\usepackage[detect-all]{siunitx}
+\usepackage{etex, tikz, tikz-3dplot, xcolor}
+\usetikzlibrary{
+  decorations.pathreplacing,
+  decorations.pathmorphing,
+  decorations.markings,
+  arrows, fadings,
+  positioning,
+  shapes, shadows,
+  shapes.geometric,
+  calc
+}
+
+
+\title{title}
+\author{author}
+\date{\today}
+
+\begin{document}
+	
+\frontmatter
+
+\maketitle
+\tableofcontents
+
+\mainmatter
+\include{Chapters/Introduction.tex}
+\include{Chapters/C01.tex}
+\include{Chapters/C02.tex}
+\include{Chapters/C03.tex}
+
+\appendix
+\renewcommand{\theequation}{{\Alph{chapter}.\arabic{equation}}}
+\renewcommand{\thefigure}{{\Alph{chapter}.\arabic{figure}}}
+\renewcommand{\thetable}{{\Alph{chapter}.\arabic{table}}}
+\include{Appendices/A01.tex}
+
+\end{document}
