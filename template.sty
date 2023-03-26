@@ -1,2 +1,285 @@
 % Based on Classic Thesis Style v4.2 by André Miede
 % versioned by cfrc2694
+
+% ********************************************************************
+% Font and Encoder Stuff
+% ********************************************************************   
+% default: Palatino
+
+\PassOptionsToPackage{utf8}{inputenc}
+	\RequirePackage{inputenc}
+\PassOptionsToPackage{T1}{fontenc}
+	\RequirePackage{fontenc}
+%% Spanish options
+%\PassOptionsToPackage{spanish, es-tabla, es-noquoting}{babel}
+%	\RequirePackage{babel}
+%	\spanishdecimal{.}
+
+% English options
+\usepackage[english]{babel}
+
+\PassOptionsToPackage{osf,sc}{mathpazo}%
+	\RequirePackage{mathpazo} 
+\PassOptionsToPackage{osf,sc}{mathpazo}%
+	\RequirePackage{mathpazo} %
+	\linespread{1.05} % a bit more for Palatino
+\PassOptionsToPackage{euler-digits}{eulervm}%
+	\RequirePackage{eulervm}
+\newfont{\chapterNumber}{pplr9d scaled 7000}
+	\RequirePackage{microtype} %
+	
+% ********************************************************************
+% Textblock size
+% ********************************************************************
+\RequirePackage{typearea}%
+	\areaset[current]{336pt}{690pt}
+	\setlength{\marginparwidth}{7em}%
+	\setlength{\marginparsep}{2em}%
+	\setlength{\headheight}{42pt}	
+
+
+% ********************************************************************
+% Own Stuff
+% ********************************************************************
+% Disable single lines at the start of a paragraph (Schusterjungen)
+\clubpenalty = 10000
+% Disable single lines at the end of a paragraph (Hurenkinder)
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000 % formulas
+
+
+\def\graffito@setup{%
+	\itshape\footnotesize\leavevmode\color{Black}%
+	\parindent=0pt \lineskip=0pt \lineskiplimit=0pt %
+	\tolerance=2000 \hyphenpenalty=300 \exhyphenpenalty=300%
+	\doublehyphendemerits=100000%
+	\finalhyphendemerits=\doublehyphendemerits}
+
+\let\oldmarginpar\marginpar
+\renewcommand{\marginpar}[1]{\oldmarginpar%
+	[\graffito@setup\raggedleft\hspace{0pt}{#1}]%
+	{\graffito@setup\raggedright\hspace{0pt}{#1}}}
+
+% ********************************************************************
+% Fancy Stuff
+% ********************************************************************
+\PassOptionsToPackage{dvipsnames}{xcolor}
+	\RequirePackage{xcolor}
+	\definecolor{miverde}{RGB}{44,162,67}
+	\definecolor{azulF}{rgb}{.0,.0,.3}
+	\definecolor{halfgray}{gray}{0.55} 
+	\definecolor{webgreen}{rgb}{0,.5,0}
+	\definecolor{webbrown}{rgb}{.6,0,0}
+\RequirePackage[
+	colorlinks=true,
+	linkcolor=azulF,
+	urlcolor=azulF,
+	citecolor=azulF,
+	bookmarks=false]{hyperref}
+\PassOptionsToPackage{small,bf}{caption}
+	\RequirePackage{caption}
+\RequirePackage{booktabs} % for better rules in tables
+\RequirePackage{textcase} % for \MakeTextUppercase
+\DeclareRobustCommand{\spacedallcaps}[1]{%
+	\textls[160]{%
+		\MakeTextUppercase{#1}
+		}
+	}
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{%
+	\textls[80]{%
+		\scshape\MakeTextLowercase{#1}
+		}
+	}
+	
+% ********************************************************************
+% Headlines
+% ********************************************************************
+\PassOptionsToPackage{automark}{scrlayer-scrpage}
+\RequirePackage{scrlayer-scrpage} %
+\clearscrheadings
+\renewcommand{\chaptermark}[1]{%
+	\markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}
+	}
+\renewcommand{\sectionmark}[1]{%
+	\markright{\thesection\enspace\spacedlowsmallcaps{#1}}
+	} 
+\lehead{%
+	\mbox{\llap{\small\thepage\kern2em}\headmark\hfil}
+	}
+\rohead{%
+	\mbox{\hfil{\headmark}\rlap{\small\kern2em\thepage}}
+	}
+\renewcommand{\headfont}{\small}  
+\def\toc@heading{%
+	\chapter*{\contentsname}
+	\@mkboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}}
+	
+% ********************************************************************
+% Titles Stuff
+% ********************************************************************
+\RequirePackage{titlesec}
+% parts
+\newcommand{\ct@parttext}{\relax}
+\newcommand{\ctparttext}[1]{\renewcommand{\ct@parttext}{#1 \relax}} 
+\titleformat{\part}[display]%
+	{\normalfont\centering\large}%
+	{\thispagestyle{empty}%
+		\partname~\MakeTextUppercase{\thepart}
+	}{1em}%
+	{\color{Maroon}\spacedallcaps}%
+	[%
+		\bigskip%
+		\normalfont%
+		\normalsize%
+		\color{Black}%
+		\begin{quote}\ct@parttext\end{quote}%
+	]
+% chapters
+\titleformat{\chapter}[display]%             
+	{\relax}%
+	{\raggedleft{\color{halfgray}\chapterNumber\thechapter} \\ }%
+	{0pt}%
+	{%
+		\titlerule%
+		\vspace*{.9\baselineskip}%
+		\raggedright\spacedallcaps
+	}%
+	[\normalsize\vspace*{.8\baselineskip}\titlerule]
+% section
+\titleformat{\section}
+	{\relax}%
+	{\textsc{\MakeTextLowercase{\thesection}}}%
+	{1em}%
+	{\spacedlowsmallcaps}
+% subsections
+\titleformat{\subsection}
+	{\relax}%
+	{\textsc{\MakeTextLowercase{\thesubsection}}}%
+	{1em}%
+	{\normalsize\itshape}
+% subsubsections
+\titleformat{\subsubsection}
+	{\relax}%
+	{\textsc{\MakeTextLowercase{\thesubsubsection}}}%
+	{1em}%
+	{\normalsize\itshape}
+% paragraphs
+\titleformat{\paragraph}[runin]
+	{\normalfont\normalsize}{\theparagraph}{0pt}{\spacedlowsmallcaps}  
+
+\renewcommand{\descriptionlabel}[1]%
+	{\hspace*{\labelsep}\spacedlowsmallcaps{#1}}
+\titlespacing*{\chapter}{0pt}{1\baselineskip}{1.2\baselineskip}
+\titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
+\titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
+\titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
+
+% ********************************************************************                
+% layout of the TOC, LOF and LOT (LOL-workaround see next section)
+% ********************************************************************
+\PassOptionsToPackage{titles}{tocloft}
+\RequirePackage{tocloft}
+% avoid page numbers being right-aligned in fixed-size box              
+\newlength{\newnumberwidth}
+% yields overfull hbox warnings for pages > 999
+\settowidth{\newnumberwidth}{999} 
+\cftsetpnumwidth{\newnumberwidth}
+
+% have the bib neatly positioned after the rest
+\newlength{\beforebibskip}  
+\setlength{\beforebibskip}{0em}
+
+% space for more than nine chapters
+\newlength{\newchnumberwidth}
+\settowidth{\newchnumberwidth}{.} % <- tweak if need more space 
+\addtolength{\cftchapnumwidth}{\newchnumberwidth}%
+\addtolength{\cftsecnumwidth}{\newchnumberwidth}
+\addtolength{\cftsecindent}{\newchnumberwidth}
+\addtolength{\cftsubsecnumwidth}{\newchnumberwidth}
+\addtolength{\cftsubsecindent}{2\newchnumberwidth}
+\addtolength{\cftsubsubsecnumwidth}{\newchnumberwidth}
+
+% parts
+\renewcommand{\thepart}{\Roman{part}}%
+\renewcommand{\cftpartpresnum}{\scshape}
+\renewcommand{\cftpartfont}{\bfseries}%
+\renewcommand{\cftpartpagefont}{\bfseries}%
+
+\setlength{\cftbeforepartskip}{1em}%
+\setlength{\cftbeforechapskip}{.1em}%
+
+
+% chapters
+\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftchapfont}{\normalfont}%
+\renewcommand{\cftchappagefont}{\normalfont}%
+\setlength{\cftbeforechapskip}{.1em}%           
+
+% section
+\renewcommand{\cftsecpresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftsecfont}{\normalfont}%
+\renewcommand{\cftsecpagefont}{\normalfont}%
+
+% subsections
+\renewcommand{\cftsubsecpresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftsubsecfont}{\normalfont}%
+
+% subsubsections
+\renewcommand{\cftsubsubsecpresnum}{\scshape\MakeTextLowercase}%
+\renewcommand{\cftsubsubsecfont}{\normalfont}%
+
+\AtBeginDocument{%
+	\addtocontents{toc}{\protect\vspace{-\cftbeforepartskip}}
+	}
+\AtBeginDocument{%
+	\addtocontents{toc}{\protect\vspace{-\cftbeforechapskip}}
+	}
+
+
+%% use modified \chapter and \part to add correctly toc
+\let\oldchap=\chapter
+\renewcommand*{\chapter}{%
+	\secdef{\Chap}{\ChapS}%
+}
+\newcommand\ChapS[1]{\oldchap*{#1}}%
+\newcommand\Chap[2][]{%
+\oldchap[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}%
+}%
+
+
+\let\oldpart=\part%
+\renewcommand*{\part}{%
+	\secdef{\Part}{\PartS}%
+}%
+\newcommand\PartS[1]{\oldpart*{#1}}%
+\newcommand\Part[2][]{%
+	\pdfstringdefDisableCommands{\let\thepart\@gobbletwo}%
+	% spacedallcaps spacedlowsmallcaps
+	\oldpart[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}
+	\ctparttext{\relax}%
+}%
+
+\def\ttl@tocpart{%
+	\def\ttl@a{\protect\numberline{\thepart}\hspace{2em}\@gobble{}}}%
+
+\newcommand{\tocEntry}[1]{% for bib, etc.
+	\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}%
+}
+
+% ********************************************************************
+% footnotes setup   
+% ********************************************************************   
+\ifdefined\deffootnote
+	\deffootnote{0em}{0em}{\thefootnotemark\hspace*{.5em}}%
+\else
+	\PassOptionsToPackage{flushmargin}{footmisc}%
+		\RequirePackage{footmisc}%
+		\setlength{\footnotemargin}{-.5em}%
+\fi
+
+% ********************************************************************
+% Backward-compatibility to Classic Thesis template
+% ******************************************************************** 
+\let\myChapter\chapter
+\let\myPart\part
+\let\graffito\marginpar
