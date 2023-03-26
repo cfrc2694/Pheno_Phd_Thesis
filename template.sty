@@ -1,2 +1,29 @@
 % Based on Classic Thesis Style v4.2 by André Miede
 % versioned by cfrc2694
+
+% ********************************************************************
+% Font and Encoder Stuff
+% ********************************************************************   
+% default: Palatino
+
+\PassOptionsToPackage{utf8}{inputenc}
+	\RequirePackage{inputenc}
+\PassOptionsToPackage{T1}{fontenc}
+	\RequirePackage{fontenc}
+%% Spanish options
+%\PassOptionsToPackage{spanish, es-tabla, es-noquoting}{babel}
+%	\RequirePackage{babel}
+%	\spanishdecimal{.}
+
+% English options
+\usepackage[english]{babel}
+
+\PassOptionsToPackage{osf,sc}{mathpazo}%
+	\RequirePackage{mathpazo} 
+\PassOptionsToPackage{osf,sc}{mathpazo}%
+	\RequirePackage{mathpazo} %
+	\linespread{1.05} % a bit more for Palatino
+\PassOptionsToPackage{euler-digits}{eulervm}%
+	\RequirePackage{eulervm}
+\newfont{\chapterNumber}{pplr9d scaled 7000}
+	\RequirePackage{microtype} %
