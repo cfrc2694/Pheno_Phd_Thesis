@@ -1,0 +1,54 @@
+%==========Comandos Personales y macros===========
+\usepackage{cancel}
+\def\RR{\mathbb{R}}
+\def\NN{\mathbb{N}}
+\def\ZZ{\mathbb{Z}}
+\def\II{\mathbb{I}}
+\def\QQ{\mathbb{Q}}
+\def\CC{\mathbb{C}}
+\DeclareSymbolFont{matha}{OML}{txmi}{m}{it}% txfonts
+\DeclareMathSymbol{\varv}{\mathord}{matha}{118}%var v
+\DeclareMathSymbol{\varl}{\mathord}{matha}{108}%var l
+\def\lag{\mathcal{L}}
+\def\Dcov{\mathcal{D}}
+%-----Derivadas-------
+\def\dy{\,\,d\!y\,}
+\def\dx{\,\,d\!x\,}
+\def\dz{\,\,d\!z\,}
+\def\dv{\,\,d\!\varv\,}
+\def\dt{\,\,d\!t\,}
+\def\ask{\overset{?}=}
+\renewcommand{\check}{
+  \overset{
+    \checkmark\!\!\!\!\!\!\!\checkmark}{\!\!\!=}
+}
+\usepackage{rotating}
+\newcommand{\der}[3] [2]{\frac{d\! #2}{d\! #3}}
+\newcommand{\ders}[3] [2]{\frac{d^2\! #2}{d\! #3^2}}
+\newcommand{\dert}[3] [2]{\frac{d^3\! #2}{d\! #3^3}}
+\newcommand{\derf}[3] [2]{\frac{d^4\! #2}{d\! #3^4}}
+\newcommand{\dern}[3] [2]{\frac{d^n\! #2}{d\! #3^n}}
+\newcommand{\dpr}[3] [2]{\frac{\partial\!\, #2}{\partial\!\, #3}}
+\newcommand{\dprs}[3] [2]{\frac{\partial^2\! #2}{\partial\! #3^2}}
+\newcommand{\dprt}[3] [2]{\frac{\partial^3\! #2}{\partial\! #3^3}}
+\newcommand{\dprf}[3] [2]{\frac{\partial^4\! #2}{\partial\! #3^4}}
+\newcommand{\dprn}[3] [2]{\frac{\partial^n\! #2}{\partial\! #3^n}}
+\newcommand{\dfr}[3] [2]{\frac{\delta\! #2}{\delta\! #3}}
+\newcommand{\dfrs}[3] [2]{\frac{\delta^2\! #2}{\delta\! #3^2}}
+\newcommand{\dfrt}[3] [2]{\frac{\delta^3\! #2}{\delta\! #3^3}}
+\newcommand{\dfrf}[3] [2]{\frac{\delta^4\! #2}{\delta\! #3^4}}
+\newcommand{\dfrn}[3] [2]{\frac{\delta^n\! #2}{\delta\! #3^n}}
+%----otros comandos
+\def\Max{\text{Max}}
+\def\diag{\text{diag}}
+\def\sign{\text{sign}}
+\def\entonces{\;\;\;\,\Longrightarrow\;\;\;\,}
+\newcommand{\Abs}[1]{\left\vert#1\vphantom{y}\right\vert}%
+\newcommand{\abs}[1]{\left\vert#1\vphantom{y}\right\vert}%
+\newcommand{\Eva}[1]{\left.#1\vphantom{\frac yy}\right\vert}%
+\newcommand{\cor}[1]{\left[ #1\vphantom{y}\right]}
+\newcommand{\Fac}[1]{\left( #1\vphantom{y}\right)}
+\newcommand{\fac}[1]{\left( #1\vphantom{y}\right)}
+\def\mode{\displaystyle}
+\newcommand{\vph}{\mode\vphantom{\dfrac{y^y}{y^y}}}
+\newcommand{\cint}{\displaystyle C\kern-1em\int}
