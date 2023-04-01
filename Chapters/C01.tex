@@ -49,46 +49,46 @@ Given a Lagrangian density $\lag(\varphi_i,\partial_\mu \varphi_i)$, a gived fie
 	\delta_G(\theta) \varphi^I\approx i\theta^A(T_A)_{J}^I\varphi^J,
 \end{equation}
 where $\theta^{A}$ are the parameters of the transformation $\mathcal{U}$ and $T_{A}$ are the representations of the generators of a unitary continuos group $G$. This considers an expansion of $U$ at first order in $\theta^{A}$. This group, $G$, support unitary representations of the shape:
-$$
-\mathcal{U}_G\dot=U(\theta)=\exp\fac{i\theta^A T_A}.
-$$
+\begin{equation}
+	\mathcal{U}_G\dot=U(\theta)=\exp\fac{i\theta^A T_A}.
+\end{equation}
 The operators $T_A$ satisfy a commutation relation according to the Lie algebra:
-$$
-\cor{ T_A,T_B }= if_{ab}^{\;\;C}T_C,
-$$
+\begin{equation}
+	\cor{ T_A,T_B }= if_{ab}^{\;\;C}T_C,
+\end{equation}
 where $f_{AB}^{\;\;C}$ are the structure constants of $G$.
 
 If invariance under local symmetry is desired, it is required to replace all the space-time derivatives $\partial_\mu$ that appear in $\lag$ by a new type known as \textit{covariant derivatives} $\mathcal{D}_\mu$, which implicitly bring the coupling of the given fields with new fields $B_\mu$, known as \textit{gauge fields}:
-\begin{equation*}
-	\partial_\mu\longrightarrow \mathcal{D}_\mu=\partial_\mu-
+\begin{equation}
+	\partial_\mu\rightarrow \mathcal{D}_\mu=\partial_\mu-
 	\delta_G(B_\mu)\quad
 	\Longrightarrow
-	\quad\lag(\varphi_i,\partial_\mu\varphi_i)\longrightarrow 
+	\quad\lag(\varphi_i,\partial_\mu\varphi_i)\rightarrow 
 	\lag(\varphi_i,\mathcal{D}_\mu
 	\varphi_i;B_\mu).  
-\end{equation*}
+\end{equation}
 Term $\delta_G(B_\mu)$ is called \textit{connection} and it introduces a \textit{gauge} field $B_\mu^A$ for each generator $T_A$ of $G$ (note that 
 $\delta_T(B_\mu)\equiv iB_\mu^AT_A$).
 The covariant derivative is defined such that its transformation is of the form
-$$
-\Dcov'_\mu=U\Dcov_\mu U^\dagger,
-\entonces \mathcal{D}_\mu (\varphi) \rightarrow U \mathcal{D}_\mu (\varphi).
-$$ 
-For this, it is enough that ${B'}_\mu^c$ transforms as
-\begin{equation*}
-	{B'}_\mu^c={B}_\mu^c+\theta^Af_{AB}^{\;\;\;\;C} B^B_\mu
-	+\partial_\mu \theta^C\;\;
-	\Longrightarrow\;\;
+\begin{equation}
+	\Dcov'_\mu=U\Dcov_\mu U^\dagger,
+	\entonces \mathcal{D}_\mu (\varphi) \rightarrow U \mathcal{D}_\mu (\varphi).
+\end{equation} 
+For this, it is enough that ${B}_\mu^C$ transforms as
+\begin{equation}
 	\delta_G(\theta){B}_\mu^C=\theta^Af_{AB}^{\;\;\;\;C} B^B_\mu
 	+\partial_\mu \theta^C.\label{eq2}
-\end{equation*}
+\end{equation}
 
 Since additional fields have been introduced, and, in order to implement local symmetry, it is necessary to construct a kinetic Lagrangian for such fields. Following the ideas of Yang and Mills based on the antisymmetric curvature tensor which is defined as
-\begin{align*}
-	F_{\mu\nu}^CT_C&=F_{\mu\nu}=-\cor{\Dcov_\mu,\Dcov_\nu}
-	=\fac{\partial_\mu B^C_\nu-\partial_\nu B^C_\mu+f_{AB}^{\;\;\;\;C} 
-		B^A_\mu B^B_\nu}T_C,
-\end{align*}
+\begin{equation}
+	F_{\mu\nu}^CT_C
+		=F_{\mu\nu}
+		=-\cor{\Dcov_\mu,\Dcov_\nu}
+		=\fac{
+			\partial_\mu B^C_\nu-\partial_\nu B^C_\mu+f_{AB}^{\;\;\;\;C}B^A_\mu B^B_\nu
+		}T_C,
+\end{equation}
 and with it the kinetic Lagrangian for gauge fields is generalized as:
 $$
 \lag=-\frac{\delta_{AB}}{4 g^2} F^A_{\nu\mu}F^{\nu\mu B},
@@ -100,24 +100,28 @@ As a way of illustration let us consider a renormalizable theory with a real sca
 	\mathcal L_{\text{free}}=\frac{1}{2} \partial^{\mu} \phi \partial_{\mu} \phi-\frac{1}{2}\mu^2\phi^2+\bar{\psi}(i \gamma_\mu  \partial^\mu-m) \psi
 \end{equation}
 If we want to add globally symmetric interaction terms, the scalar potential must be an expansion in the fields of order four at maximum, so that it remains renormalizable. The linear term of the potential does not contribute to the action, and the quadratic term of the potential is contained by the mass term. Whereas, a fermionic potential is not allowed since the only term renormalizable is precisely the term of mass. A cross term is allowed $\sim \phi\bar\psi\psi$, which is called \textit{Yukawa coupling}, then the globally invariant Lagrangian is
-\begin{equation*}
+\begin{equation}
 	\begin{aligned}
 		\mathcal L_{\text{global}}&=\frac{1}{2} \partial^{\mu} \phi \partial_{\mu} \phi-V(\phi)+\bar{\psi}(i \gamma_\mu  \partial^\mu-m) \psi + k_1 \phi\bar\psi\psi,
 		\\
 		V(\phi)&=\frac{\mu^2}{2!}\phi^2 +\frac{\alpha}{3!}\phi^3+\frac{\lambda}{4!}\phi^4.
 	\end{aligned}
-\end{equation*}
+\end{equation}
 Promoting to local, 
-\begin{equation*}
-	\mathcal L_{\text{local}}=\frac{1}{2} \mathcal D^{\mu} \phi \mathcal D_{\mu} \phi-V(\phi)+\bar{\psi}(i \gamma_\mu  \mathcal D^{\mu}-m) \psi + k_1 \phi\bar\psi\psi-\frac1{4g^2} F_{\mu\nu}F^{\mu\nu},
-\end{equation*}
+\begin{multline}
+	\mathcal L_{\text{local}}=\frac{1}{2} \mathcal D^{\mu} \phi \mathcal D_{\mu} \phi-V(\phi)\\
+	+\bar{\psi}(i \gamma_\mu  \mathcal D^{\mu}-m) \psi 
+	+ k_1 \phi\bar\psi\psi-\frac1{4g^2} F_{\mu\nu}F^{\mu\nu},
+\end{multline}
 where, 
-\begin{equation*}
+\begin{equation}
 	\mathcal D_\mu\varphi=\fac{\partial_{\mu}-ig A_\mu\hat Q }\varphi
 	\Longrightarrow
 	\begin{cases}
 		\mathcal D_\mu\phi=\partial_\mu \phi,\\
 		\mathcal D_\mu\psi=\partial_\mu \psi-ig q A_\mu \psi.
 	\end{cases}
-\end{equation*}
+\end{equation}
 With these ingredients, we are ready to approach the standard model Lagrangian. 
+
+%TO DO -> ADD Feynman Diagrams for this interaction.
