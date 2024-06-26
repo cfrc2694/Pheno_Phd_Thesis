@@ -59,14 +59,19 @@
 \title[]{On the sensitivity reach of vector leptoquark production with preferential couplings to third generation fermions at the LHC}
 \subtitle{}
 \author[Cristian F. Rodríguez]{
-	A. Flórez\inst{1}, C. Rodriguez\inst{1}, J. Peñuela-Parra\inst{1},\\
+	$ $\\
+	Cristian Fernando Rodríguez Cruz\\
+	$ $\\
+	$ $\\
+	Authors:\\
+	A. Flórez\inst{1}, \textcolor{Framableu}{\textbf{C. Rodriguez}}\inst{1}, J. Peñuela-Parra\inst{1},\\
 	J. Jones-Pérez\inst{2}, \\
 	A. Gurrola\inst{3},
 }
 
 \institute[Uniandes]{\inst{1} Universidad de los Andes\and
 \inst{2} Pontificia Universidad Católica del Perú \and 
-Vanderbilt University
+\inst{3} Vanderbilt University
 }
 \date{\today}
 \lstset{language=C++,
@@ -241,239 +246,80 @@ Vanderbilt University
 
 \section{Motivation}
 \subsection{Lepton Flavor Universality in the SM of Particle Physics}
-
 \begin{frame}{Lepton Flavor Universality in the SM of Particle Physics}{What is it?}
-	\begin{multicols*}{2}
-		\begin{center}
-			\includegraphics[width=.45\textwidth]{zoo_2.png}
-		\end{center}
-		\begin{center}
-			\includegraphics[width=.49\textwidth]{Elementary_particle_interactions.png}
-		\end{center}
-	\textbf{Remark:} Weak bosons mix between quarks generation, Weak bosons mix the different generations of quarks via the CKM matrix, but this does not happen for leptons. This property of the model is known as lepton flavor universality (LFU)\footcite{Buonaura_2020}.
-	\end{multicols*}
-
-\end{frame}
-
-\subsection[LFU-V]{Lepton Flavor Universality Violation}
-
-\begin{frame}{New Physics in Lepton Flavor Universality Violation}{Hints on B-Anomalies}
-	\begin{multicols*}{2}
-		\begin{center}
-			\includegraphics[width=.50\textwidth]{LFUV.png}
-		\end{center} 
-	$b \rightarrow s \mu^{+} \mu^{-}$ The fraction of branching ratios from B mesons to Kaons and a different pair lepton-antilepton shows a $5\sigma$ anomalie \footcite{Capdevila_2018,Aebischer2020}
-	$$
-	R_{K^{(*)}}=\frac{\operatorname{BR}\left(B \rightarrow K^{(*)} \mu^{+} \mu^{-}\right)}{\operatorname{BR}\left(B \rightarrow K^{(*)} e^{+} e^{-}\right)}
-	$$
-	$b \rightarrow c \ell \nu$ Similarly to $R\left(K^{(*)}\right)$, the ratios $R\left(D^{(*)}\right)$ show deviations from the SM predictions with a combined significance of about $3 \sigma$\footcite{Amhis_2021}, 
-	$$
-	R_{D^{(*)}}=\frac{\operatorname{BR}\left(B \rightarrow D^{(*)} \tau \nu\right)}{\operatorname{BR}\left(B \rightarrow D^{(*)} \ell^{e\mu} \nu\right)}
-	$$
-	\end{multicols*}
-
-\end{frame}
-
-\begin{frame}{New Physics in Lepton Flavor Universality Violation}{Another Hints}
-	\begin{multicols*}{2}
-		\begin{center}
-			\includegraphics[width=.50\textwidth]{LFUV.png}
-		\end{center} 
-		The measurement of Fermilab's Muon g-2 experiment has presented an apparent discrepancy  with an accuracy of 4.2 $\sigma$ \footcite{arxiv.1311.2198, Abi_2021}.\vfill
-		
-		$q\bar q \mapsto e^+ e^-$ CMS experiment observed more very high-energetic electrons in proton-proton collisions compared to muons than expected \footcite{Sirunyan2021}.\vfill
-		
-		CCA. It has been observed that certain $\beta$decays happen less frequently than expected. This tension, called the Cabibbo Angle anomaly (CAA), displays a significance around $3 \sigma$ \footcite{PhysRevLett.125.111801,PhysRevC.102.045501}. 
-		
-	\end{multicols*}
-	
-\end{frame}
-
-\subsection{Hints on third generation Fermions Physics}
-
-\begin{frame}{Hints for New Physics}{Can we explain the anomalous vertex?}
-	
 	\begin{center}
-		\includegraphics[width=.80\textwidth]{NP.png}
+		\includegraphics[width=.75\linewidth]{SM.png}	
 	\end{center}
-	
+	  Weak bosons mix the different generations of quarks via the CKM matrix, but this does not happen for leptons. This property of the model is known as lepton flavor universality (LFU).
+ \end{frame}
+
+
+\subsection[LFUV]{$R(D)$ and $R(D^*)$ anomalies}
+\begin{frame}{A Hint on Lepton Flavor Universality Violation}{$R(D)$ and $R(D^*)$ anomalies}
+	\begin{center}
+		\includegraphics[width=.75\linewidth]{RDRDst_hflav.pdf}
+	\end{center}
+	\begin{equation}
+		R(D)=\frac{\operatorname{BR}\left(B \rightarrow D \tau \nu\right)}{\operatorname{BR}\left(B \rightarrow D \ell_{(e,\mu)} \nu\right)},
+		\quad
+		R(D^{(*)})=\frac{\operatorname{BR}\left(B \rightarrow D^{(*)} \tau \nu\right)}{\operatorname{BR}\left(B \rightarrow D^{(*)} \ell_{(e,\mu)} \nu\right)}
+	\end{equation}
 \end{frame}
 
-\begin{frame}{Hints for New Physics}{There are several purposes to solve B-Anomalies}
-	In the standard model, the $b\mapsto s \ell\ell $ process is gived by 
-	\begin{center}
-		\includegraphics[width=.55\textwidth]{B_SM_3.png}
+\subsection[LQs]{Leptoquarks and $R(D)$/$R(D^*)$ anomalies}
+\begin{frame}{Leptoquarks and $R(D)$/ $R(D^*)$ anomalies}
+	\begin{multicols}{2}
+		\includegraphics[width=.99\linewidth]{B_SM_1.png}
+		$$ $$
+		\includegraphics[width=.99\linewidth]{B_SM_2.png}
 		\pause
-		\includegraphics[width=.44\textwidth]{B_ZP_3.png}\\
+		\includegraphics[width=.99\linewidth]{B_LQ_1.png}
 		$$ $$
-		$ $\\
-		{\Large Is the $b\mapsto s \ell\ell $ anomaly caused by a Z' Boson?}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Hints for New Physics}{There are several purposes to solve B-Anomalies}
-	In the standard model, the $b\mapsto s \ell\ell $ process is gived by 
-\begin{center}
-	\includegraphics[width=.55\textwidth]{B_SM_3.png}
-	\includegraphics[width=.44\textwidth]{B_LQ_3.png}\\
-	$$ $$
-	$ $\\
-	{\Large Is the anomaly caused by a leptoquark?}
-\end{center}
-
-\end{frame}
-
-\begin{frame}{Hints for New Physics}{There are several purposes to solve B-Anomalies}
-	And the others B-Meson Anomalies?
-	\begin{center}
-		\includegraphics[width=.50\textwidth]{B_SM_1.png}
-		\includegraphics[width=.45\textwidth]{B_LQ_1.png}\\
-		\includegraphics[width=.50\textwidth]{B_SM_2.png}
-		\includegraphics[width=.49\textwidth]{B_LQ_2.png}\\
-		$$ $$
-		$ $\\
-		{\Large Is the $b\mapsto c \ell \nu  $ anomaly caused by a leptoquark?}
-	\end{center}
-\end{frame}
-
-
-\begin{frame}{Hints for New Physics}{There are several purposes to solve B-Anomalies}
-
-	\begin{center}
-		\includegraphics[width=.85\textwidth]{B_WP.png}
-		\\
-		$ $\\
-		{\Large Are the B-menson anomalies caused by a W' Boson?}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Hints for New Physics}{There are several purposes to solve B-Anomalies}
-	\begin{center}
-		\includegraphics[width=.85\textwidth]{B_3LQ.png}
-		\\
-		$ $\\
-		{\Large Are the B-menson anomalies caused by three Leptoquarks?}
-	\end{center}
-	
-\end{frame}
-
-\begin{frame}{Hints for New Physics}{There are several purposes to solve B-Anomalies}
-	\begin{center}
-		\includegraphics[width=.89\textwidth]{B_Axions.png}
-		\\
-		$ $\\
-		{\Large Are the B-menson and $g-2$ anomalies caused by axions?}
-	\end{center}\pause
-	$ $\hfill...and a long proposals' list behind.
-\end{frame}
-
-\begin{frame}{Research Problem}{What to do with these hints?}
-\begin{multicols}{2}
-	{\Large \textit{What production mechanisms have the potential to be observed at the LHC-experiments?}}\vfill
-	\begin{enumerate}
-		\item  Particles with preferred couplings to third generation fermions.\vfill
-		\item  Compare exotic channels with dominant channels. 
-		\vfill
-		\item  We will use Machine Learning algorithms  to optimize data selection.
-	\end{enumerate}
-	
-	\begin{center}
-	\includegraphics[height=0.46\textheight]{pheno_2}
-	\end{center}	
-\end{multicols}
-\end{frame}
-
-
-\section[Searches for New Physics]{Searches for New Physics and Research Problem}
-\begin{frame}{Large Hadron Collider}{How can we test these hypotheses?}
-	\begin{multicols}{2}
-		\includegraphics[width=.99\textwidth]{LHC.png}
+		\includegraphics[width=.99\linewidth]{B_LQ_2.png}
 	\end{multicols}
-\begin{center}
-	
-\end{center}
-\end{frame}
-
-
-\begin{frame}{Multipurpose Detectors}{How can we test these hypotheses?}
+	\pause
 	\begin{center}
-		\includegraphics[width=.99\textwidth]{Detec.png}
+		{\large $ $\\
+		How can we test these hypotheses?
+		}
 	\end{center}
 \end{frame}
 
-\begin{frame}{Kinematic Variables}{How can we test these hypotheses?}
+
+\begin{frame}{Large Hadron Collider}{How can we test the leptoquark hypothesis?}
+	\includegraphics[width=.99\linewidth]{LHC.png}
+\end{frame}
+
+\begin{frame}{Large Hadron Collider}{How can we test the leptoquark hypothesis?}
 	\begin{center}
-		\includegraphics[width=.85\textwidth]{Kinematic_Variables.png}
+		\includegraphics[width=.90\linewidth]{Collision.png}	
 	\end{center}
 \end{frame}
-
-\subsection{Searches for New Physics}
-\begin{frame}{Hunting Peaks and Tails}{Searches for New Physics}
-	\begin{multicols}{2}
-		\includegraphics[width=.51\textwidth]{Higgs_CMS.png}\\
-		$ $\\ \vfill
-		One can construct a test that estimates how significant the deviation from the background in a distribution:
-		$$
-		s_{k}=\frac{N^{(obs)}-N^{(bkg)}}{\sigma_{N^{(bkg)}}}.
-		$$
-		It is said that a new discovery has $s_{k}\sim 5\sigma$.
-		\vfill
-		For MC events, if $S$ is the number of signal events expected and $B$ is the number of events coming from the background, we can then determine the significance of a Poissonic signal via the simple formula
-		$$
-		s_k=\frac{S}{\sqrt{S+B}}.
-		$$
-	\end{multicols}
-
-\end{frame}
-
-\section{Methodology}
 
 \subsection[MC-Method]{Monte Carlo Method}
 \begin{frame}{Montecarlo Generators}
+	
+
+	\begin{center}
+		\includegraphics[scale=0.5]{A1}
+	\end{center}
+
+	Useful to predict what we expect to see under certain conditions:
 	\begin{itemize}
-		\item MonteCarlosimulation used to predict what we expect to see under certain conditions:
 		\item To perform studies before having the data
 		\item To compute event selection efficiency/acceptance
 		\item  To predict the ammount and composition of background events
 		\item To distinguish different signals. 
 	\end{itemize}
-	\begin{center}
-		\includegraphics[scale=0.5]{A1}
-	\end{center}
+	
 \end{frame}
 
-\begin{frame}{Methodology}{What do we hope to simulate?}
-	\begin{center}
-		\includegraphics[width=.99\textwidth]{A2}
-	\end{center}
-\end{frame}
-\subsection{Implementing Models}
-\begin{frame}{The Toolchain}
-	$\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!$\includegraphics[width=1.33\textwidth]{Feynrules.pdf}
-
+\begin{frame}{Feasibility Studies Workflow}
+	\includegraphics[width=1.0\linewidth]{Workflow.png}
 \end{frame}
 
-
-
-
-\subsection[Objectives]{Research Objectives} 
-\begin{frame}{Objectives and Methodology} 
-	\begin{center}
-		{\large Conduct feasibility studies for the LHC associated with the production of new hypothetical particles through different production mechanism and with preferential couplings to third generation fermions. }\pause
-	\end{center}
-\vspace{25pt}
-	\textbf{Activities}
-	\begin{itemize}
-		\item Produce simulations of different background processes from the standard model using the LHC conditions. 
-		\item  Study theoretical models considering the production of leptoquarks, $W'$ and $Z'$ with preferential couplings to third generation fermions. 
-		\item Generate simulations for the production of the new hypothetical particles of interest to determine the production cross section, kinematics, topology under the LHC conditions. 
-		\item Perform feasibility studies for the different signal models using Machine Learning methods.
-	\end{itemize}
-\end{frame}
-
-\section[Leptoquarks]{Single Leptoquark Channel Feasibility}
 \subsection{The Vector Leptoquark Lagrangian}
-\begin{frame}{The Vector Leptoquark Lagrangian}{Single Leptoquark Channel Feasibility}
+\begin{frame}{Vectorial Leptoquark Vertex}
 	\begin{multicols}{2}
 	A leptoquark is defined as a particle with a vertex that mix vectors and quarks.
 	\begin{center}
@@ -481,307 +327,355 @@ Vanderbilt University
 	\end{center}
 	If $U_1$ is a vector leptoquark that preserves the chirality on the vertex, we expect an interaction term like
 	$$
-	\sim U_1^\mu\bar{q}_{L} \gamma_{\mu} \ell_{L}
+	\sim U_1^\mu\bar{q}_{L} \gamma_{\mu} \ell_{L},
 	$$
-	
-	Where the SM charges for the leptoquark must to be 
-	\begin{tabular}{|c|c|c|c|c|}
-		\hline & $\bar{q}_{L}$ & $\ell_{L}^{j}$ & $\bar{q}_{L}\gamma_{\mu} \ell_{L}$ & $U_{1}^{\mu}$ \\
-		\hline$U(1)$ & $-1 / 3$ & $-1 $ & $-4 / 3$ & $+4 / 3$ \\
-		\hline $\mathrm{SU}(2)$ & $\overline{\mathbf 2}$ & $\mathbf{2}$ & $\mathbf{1}$ & $\mathbf{1}$ \\
-		\hline $\mathrm{SU}(3)$ & $\overline{\mathbf 3}$ & $\mathbf{1}$ & $\overline{\mathbf3}$ & $\mathbf{3}$ \\
-		\hline
-	\end{tabular}
-\vfill
-	And these allows a similar interaction term for the right handed currents 
+	and these allows a similar interaction term for the right handed currents 
 	$$
 	\sim U_1^\mu\bar{d}_{R} \gamma_{\mu} e_{R}.
 	$$
-	
 
-	
 	\end{multicols}
-
-	
+	Where the SM charges for the leptoquark, in the $Y=2(Q-T_3)$ convention, are
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline & $\bar{q}_{L}$ & $\ell_{L}^{j}$ & $\bar{q}_{L}\gamma_{\mu} \ell_{L}$ & $U_{1}^{\mu}$ \\
+			\hline$U(1)$ & $-1 / 3$ & $-1 $ & $-4 / 3$ & $+4 / 3$ \\
+			\hline $\mathrm{SU}(2)$ & $\overline{\mathbf 2}$ & $\mathbf{2}$ & $\mathbf{1}$ & $\mathbf{1}$ \\
+			\hline $\mathrm{SU}(3)$ & $\overline{\mathbf 3}$ & $\mathbf{1}$ & $\overline{\mathbf3}$ & $\mathbf{3}$ \\
+			\hline
+		\end{tabular}	
+	\end{center}
+	Then, the leptoquark $U_1 \sim \left(\mathbf{3}_{C}, \mathbf{1}_{I}, 4 / 3_{Y}\right)$, and its covariant derivative is
+	$$
+	\mathcal{D}_\mu U_\nu = \left(\partial_\mu+i g_s T^a G_\mu^a+ i \frac{2}{3} g' B_\mu \right)U_\nu.
+	$$
 \end{frame}
 
-\begin{frame}{The Vector Leptoquark Lagrangian}{Single Leptoquark Channel Feasibility}
+\begin{frame}{The Vector Leptoquark Lagrangian}
 	
-	We consider a vector Leptoquark in a SM-representation  $\left(\mathbf{3}_{C}, \mathbf{1}_{I}, 2 / 3_{Y}\right)$
+	The full Lagrangian for the vector leptoquark is
 	\begin{align*}
 		\mathcal{L}_{U}=&-\frac{1}{2} U_{\mu \nu}^{\dagger} U^{\mu \nu}+M_{U}^{2} U_{\mu}^{\dagger} U^{\mu}\\&-i g_{s}\left(1-\kappa_{c}\right) U_{\mu}^{\dagger} T^{a} U_{\nu} G^{\mu \nu}_a -\frac{2 i}{3} g'\left(1-\kappa_{Y}\right) U_{\mu}^{\dagger} U_{\nu} B^{\mu \nu}\\
 		&+\frac{g_{U}}{\sqrt{2}}\left[U_{1}^{\mu}\left(\beta_{L}^{i j} \bar{q}_{L}^{i} \gamma_{\mu} e_{L}^{j}+\beta_{R}^{i j} \bar{d}_{R}^{i} \gamma_{\mu} e_{R}^{j}
 		%+\beta_{N}^{i} \bar{u}_{R}^{i} \gamma_{\mu} N_{R}
 		\right)+\text { h.c. }\right]
 	\end{align*}
-where $U_{\mu \nu}=\mathcal D_{\mu} U_{\nu}-\mathcal D_{\nu} U_{\mu}$, with $\mathcal D_{\mu}=\partial_{\mu}-i g_{s} G_{\mu}^{a} T^{a}-i \frac{2}{3} g_{Y} B_{\mu}$, and the couplings $\beta_{L}$ and $\beta_{R}$ are complex $3 \times 3$ matrices in flavor space:
+	where $U_{\mu \nu}=\mathcal D_{\mu} U_{\nu}-\mathcal D_{\nu} U_{\mu}$, $\mathcal D_{\mu}=\partial_{\mu}-i g_{s} G_{\mu}^{a} T^{a}-i \frac{2}{3} g_{Y} B_{\mu}$, and the couplings $\beta_{L}$ and $\beta_{R}$ are complex $3 \times 3$ matrices in flavor space. If $U_1$ has a gauge origin $\kappa_{c}=\kappa_{Y}=0$.
+	\pause
+	Defining 
+	$$
+	\psi_{L}^{\mathrm{SM}}=\begin{pmatrix}
+		q_{Lr}\\ q_{Lg}\\ q_{Lb}\\ \ell_L
+	\end{pmatrix}
+	\Longrightarrow\;\;
+	\mathcal{L}_{\text{int}}
+	\sim U_{1\alpha}^\mu \bar{\psi}_{L}^{\mathrm{SM}}\, \gamma_{\mu} T_{+}^{\alpha } \psi_{L}^{\mathrm{SM}} + \text{h.c.},
+	\quad
+	T_{+}^{\alpha}=\begin{pmatrix}
+		0 & 0 & 0 & \delta_{r\alpha}\\
+		0 & 0 & 0 & \delta_{g\alpha}\\
+		0 & 0 & 0 & \delta_{b\alpha}\\
+		0 & 0 & 0 & 0
+	\end{pmatrix},
+	$$
+	we have six generators $T_{\pm}^{\alpha }$ with closure relation,
+	$$
+	\sum_{\alpha} \left[{T_{+}^{\alpha }},{T_{-}^{\alpha}}\right] =
+	3 T_{B-L}=\begin{pmatrix}
+		1 & 0 & 0 & 0\\
+		0 & 1 & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		0 & 0 & 0 & -3
+	\end{pmatrix}.
+	$$
+	So, the gauge group with this leptoquark must include a $U(1)_{B-L}$ symmetry. The right-handed currents also have a similar interaction term.
+\end{frame}
+
+\begin{frame}{Take care, you could need a $Z'$ boson}
+	The generator $T_{B-L}$ is associated with the $U(1)_{B-L}$ symmetry with a $Z'$ boson. The interaction terms for the $Z'$ boson have the form
 	\begin{align*}
-		&\beta_{L}=\left(\begin{array}{ccc}
-			0 & 0 & \beta_{L}^{d \tau} \\
-			0 & \beta_{L}^{s \mu} & \beta_{L}^{s \tau} \\
-			0 & \beta_{L}^{b \mu} & 1
-		\end{array}\right),  \beta_{R}=\left(\begin{array}{ccc}
-			0 & 0 & 0 \\
-			0 & 0 & 0 \\
-			0 & 0 & \beta_{R}^{b \tau}
-		\end{array}\right).
-	\end{align*}
-Where, we assume that the new vectors are coupled dominantly to third generation fermions.
+		\mathcal{L}_{\text{int}} &\sim Z'_\mu\left(\bar{\psi}_{L}^{\mathrm{SM}}\gamma^\mu (3T_{B-L}) \psi_{L}^{\mathrm{SM}}\right)\\
+		&\sim Z'_\mu \left(\bar q_{L} \gamma^\mu q_{L} - 3 \bar \ell_L \gamma^\mu \ell_L\right).
+	\end{align*}\pause
+	so, the full Lagrangian for the $Z'$ boson is
+	\begin{equation}
+		\begin{aligned}
+		\mathcal{L}_{Z^{\prime}}= & -\frac{1}{4} Z_{\mu \nu}^{\prime} Z^{\prime \mu \nu} +\frac{1}{2} M_{Z^{\prime}}^2 Z_\mu^{\prime} Z^{\prime \mu} \\
+		& +\frac{g_{Z^{\prime}} }{2 \sqrt{6}} Z^{\prime \mu}\left(\zeta_q^{i j} \bar{q}_L^i \gamma_\mu q_L^j+\zeta_u^{i j} \bar{u}_R^i \gamma_\mu u_R^j+\zeta_d^{i j} \bar{d}_R^i \gamma_\mu d_R^j-3 \zeta_{\ell}^{i j} \bar{\ell}_L^i \gamma_\mu \ell_L^j-3 \zeta_e^{i j} \bar{e}_R^i \gamma_\mu e_R^j\right),
+		\end{aligned}
+	\end{equation}
+	where the couplings $\zeta$ are complex $3\times 3$ matrices in flavor space.\pause
+
+	\vfill
+	We assume that both, the $Z'$ and the vector leptoquark $U_1$, have preferential couplings to third generation fermions, so $\beta^{33}\gg \beta^{ij}$ and $\zeta^{33}\gg \zeta^{ij}$.
 \end{frame}
 
-\subsection{Parameters to solve B-Anomalies}
-\begin{frame}{Parameters to solve B-Anomalies}{Single Leptoquark Channel Feasibility}
-	From \cite{Cornella2021}
-\begin{center}$ $\hfill
-	\includegraphics[width=.35\textwidth]{../RDwRHC}\hfill
-\includegraphics[width=.35\textwidth]{../RDmixHC}\hfill$ $
-\begin{tabular}{cccc}
-	\hline
-	\multicolumn{1}{c}{Scenario} & Parameter & best fit & 1 $\sigma$ \bigstrut\\
-	\hline
-	\multicolumn{1}{c}{\multirow{4}[2]{*}{max. RH currents\newline{}$\newline{}\left(\beta_{R}^{b \tau}=-1\right)\newline{}$}} & $C_U$ & 0.004  & [0.002,0.006] \bigstrut\\
-	& $\beta_L^{b\mu}$ & -0.21 & [-0.25,-0.14] \bigstrut\\
-	& $\beta_L^{s\tau}$ & 0.21  & [0.12,0.26] \bigstrut\\
-	& $\beta_L^{s\mu}$ & 0.03 & [0.01,0.04] \bigstrut\\
-	\hline
-\end{tabular}%
-\end{center}
-where $C_{U} \equiv g_{U}^{2} v^{2} /\left(4 M_{U}^{2}\right)$.
-\end{frame}
-
-\subsection{Leptoquark Branching Ratios}
-\begin{frame}{Leptoquark Branching Ratios}{Single Leptoquark Channel Feasibility}
-Branching ratios of two body vector-leptoquark decay from the best fit for two scenarios $\beta_{R}^{b \tau}=0$ (left) and $\beta_{R}^{b \tau}=-1$ (right).	
-\begin{center}
-	\includegraphics[width=.49\textwidth]{../BRwRHC}
-	\includegraphics[width=.49\textwidth]{../BRmixHC}
-\end{center} 
-We calculate the decay width for all the process $LQ\mapsto $all all in madgraph width the implementation in feynrules from \cite{Baker2019}.
-\end{frame}
-
-
-\subsection{Production Cross Section}
-\begin{frame}{Production Cross Section}{Single Leptoquark Channel Feasibility}
-	{Cross section for the production of leptoquarks in different channels in the context of the LHC with proton-proton collisions at $\sqrt s$=13TeV in both scenarios $\beta_{R}^{b \tau}=0$ (left) and $\beta_{R}^{b \tau}=-1$ (right).}
+\begin{frame}{Feynrules}
 	\begin{center}
-		\includegraphics[width=.45\textwidth]{../XSwRHC}
-		\includegraphics[width=.45\textwidth]{../XSmixHC}
+		\includegraphics[width=.99\linewidth]{Feynrules.png}
 	\end{center}
-	An additional Jet in single leptoquark has cross section similar to single leptoquark. Would we get a cleaner channel if the signal is associated with a jet?
 \end{frame}
 
-\begin{frame}{VBF-like production}{Single Leptoquark Channel Feasibility}
-	Can we take advantage of the background suppression of a VBF-like channel?
-	
-	{Feynman diagram for a VBF-like production of a single leptoquark.}
-\begin{multicols}{2}
+\begin{frame}{Madgraph-Pythia8-Delphes for the LHC}
 	\begin{center}
-	\includegraphics[width=.45\textwidth]{../d1.pdf}
+		\includegraphics[width=.99\linewidth]{Madgraph.png}
 	\end{center}
-\begin{center}
-	$ $\\
-	$ $\\
-	$ $
-	\begin{tabular}{r|l}
-	\hline \hline { Criteria } & { Constraint }\bigstrut \\
-	$|\eta(b)|,|\eta(\tau)|$ & $<$ 2.5 \bigstrut\\
-	$|\eta(j)|$ & $<$ 5.0 \bigstrut\\
-	$|p_T(j)|,|p_T(b)|$ & $>$ 30 GeV\bigstrut \\		
-	$|p_T(\tau)|$ & $>$ 20 GeV\bigstrut \\		
-	\hline \hline
-\end{tabular}
-\end{center}
-
-\end{multicols}
-	\textbf{Remark}: Baker's implementation is not efficient, we have made modifications to take the dominant terms at the vertices:
-	$$
-	\sim U_1^\mu (\bar b_L \gamma_\mu \tau_L - \bar b_R \gamma_\mu \tau_R) + h.c.
-	$$
-	This in turn allows us to study separately the channels with a single leptoquark and pair production.
-	
-
 \end{frame}
 
-\subsection{Partonic Kinematics}
-\begin{frame}{Partonic Kinematics}
-\begin{center}
-Semi on-Shell Production ($B_W=15$):\\
-\includegraphics[width=.39\textwidth]{../R_mass_parton}
-\includegraphics[width=.39\textwidth]{../eta_j_parton}\\
-Pure on-Shell Production ($B_W=1$):\\
-\includegraphics[width=.39\textwidth]{../R_mass_parton_bw_1}
-\includegraphics[width=.39\textwidth]{../eta_j_parton_bw_1}
-\end{center}
-\end{frame}
-\subsection{Event Selection and signal composition}
-\begin{frame}{Pre-Selection}{Single Leptoquark Channel Feasibility}
-We propose a simple direct selection
-\begin{itemize}
-	\item  1 b-jet.
-	\item  1 light-jet.
-	\item  2 hadronic $\tau$.
-\end{itemize}
-\begin{multicols}{3}
-	Conditions:
-	\begin{enumerate}
-		\item  At least 4 jets
-		\item  At least 1 good jet
-		\item  At least 2 good jets
-		\item  At least 3 good jets
-		\item  At least 4 good jets
-		\item  At least 1 b-jet
-		\item  At least 1 light-jet
-		\item  At least 1 $\tau$-jet
-		\item  At least 2 $\tau$-jet
-	\end{enumerate}
-	\includegraphics[width=.63\textwidth]{../cutflow}
-\end{multicols}
+\begin{frame}{Leptoquark Production at pp Colliders}
+	\begin{center}
+		\includegraphics[width=.30\textwidth]{non_resonant.png}\hfill
+		\includegraphics[width=.30\textwidth]{single_LQ.png}\hfill
+		\includegraphics[width=.30\textwidth]{double_LQ.png}
+	\end{center}\pause
+	\begin{center}
+		\includegraphics[width=.45\textwidth]{XS.png}
+		\includegraphics[width=.45\textwidth]{BR.png}
+	\end{center}
 \end{frame}
 
-\begin{frame}{Efficiency and background composition}{Single Leptoquark Channel Feasibility}
+\begin{frame}{Interferences between the $Z'$ and the Vector Leptoquark}
 
-The dominant backgrounds turn out to be t-tbar, W+jets and Z+jets.
-\begin{center}
-	\includegraphics[width=1.\linewidth]{bkg.png}
-\end{center}
-However, the MC statistic for V+jet events is not sufficient to properly train a discriminator algorithm. We will assume that the efficiency of the ttbar-trained discriminator is extendable to others.
+	\begin{minipage}{.50\linewidth}
+		\includegraphics[width=\linewidth]{Kinematic_Interference_gu_1.0_gzp_1.0_zp_upper_limit_woRHC.pdf}
+	\end{minipage}
+	\begin{minipage}{.48\linewidth}
+		\begin{center}
+			\includegraphics[width=\linewidth]{Zp.png}
+		\end{center}
 
-
+		\begin{equation*}
+			\mathrm{RKI}=\frac{1}{\sigma_{ LQ+Z'}}\left[\frac{d\sigma_{ LQ+Z'}}{dm_{\tau\tau}}-\left(\frac{d\sigma_{ LQ}}{dm_{\tau\tau}}+\frac{d\sigma_{Z'}}{dm_{\tau\tau}}\right)\right]
+		\end{equation*}
+	\end{minipage}	
 \end{frame}
 
-\subsection{Machine Learning Discrimination}
-\begin{frame}{Event Discrimination}{Single Leptoquark Channel Feasibility}
-The differentiation between signal and background is made via the kinematic and topological differences between signal and background. 
-% TODO: \usepackage{graphicx} required
-\begin{figure}
-	\centering
-	\includegraphics[width=0.48\linewidth]{../dPt_b_t1_hadron}
-\includegraphics[width=0.48\linewidth]{../Pt_b_hadron}
-\end{figure}
-For example, pT for the b-jet is boosted due to the leptoquark mass, and this bjet is strongly correlated with the $\tau$'s.
+\begin{frame}{Interferences between the $Z'$ and the Vector Leptoquark}
+	\begin{center}
+		\includegraphics[width=.48\linewidth]{XS_gu_gzp_lower_limit_woRHC.pdf}
+		\includegraphics[width=.48\linewidth]{XS_gu_gzp_upper_limit_woRHC.pdf}
+	\end{center}
+	{\large 
+		For large values of the couplings, the interference between the $Z'$ and the vector leptoquark mainly destructive, so the cross-section is reduced.
+	}
+\end{frame}
+
+\begin{frame}{Tau Desintegration Modes}
+	\begin{center}
+		\includegraphics[width=.99\linewidth]{tau_decays.png}
+		$$ $$\pause
+		\includegraphics[width=.99\linewidth]{tau_decays2.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Kinematic Variables}
+	\begin{center}
+		\includegraphics[width=.99\linewidth]{Kinematic_Variables.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Preselection Criteria}
+	\begin{center}
+		\large
+		\include{Preliminary_selection_criteria.tex}
+	\end{center}
+\end{frame}
+
+\begin{frame}{$S_T^{\text{meT}}=\text{met} + \sum_i\left|p_{T}^i\right|$}
+	\begin{center}
+		\includegraphics[width=.65\linewidth]{sTTeV_semileptonic_sLQ_wRHC.pdf}
+	\end{center}
 	
 \end{frame}
-\begin{frame}{Machine Learning Discrimination}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.8\linewidth]{discr}
-	\end{figure}
+
+\begin{frame}{$\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$}
 	\begin{center}
-	\begin{tabular}{l||rrrrrrrr} 
-		\hline 
-		Mass (GeV)& 500 & 1000 & 1500 & 2000 & 2500 & 3000 & 3500 \\
-		\hline 
-		\hline 
-		$\epsilon_{signal} (\%)$& $89.98$ & $96.40$ & $97.80$ & $98.41$ & $98.30$ & $96.09$ & $83.05$ \\
-		$\epsilon_{ttbar} (\%)$	& $7.73$ & $3.00$ & $1.54$ & $1.28$ & $1.71$ & $3.06$ & $9.60$
-		\\\hline 
-	\end{tabular}
-\end{center}	
+		\includegraphics[width=.65\linewidth]{DeltaR_semileptonic_sLQ_wRHC.pdf}	
+	\end{center}
+	
 \end{frame}
-\subsection{Significance Test}
-\begin{frame}{Significance Test}{Single Leptoquark Channel Feasibility}
-	Our selection with  hadronic taus shows an exclusion feasibility on a leptoquark mass of 1.4TeV at 150/fb, which is directly competitive with what is reported in CMS searches\footcite{2021136446}.
+
+
+\begin{frame}{Boosted Decision Tree}
 	\begin{center}
-		\includegraphics[width=0.65\linewidth]{Significance}
-    \end{center}
-	Add semileptonic taus, fully leptonic, and channels without associated jets.
-\end{frame}
-\section[TimelLine]{Expected Results and TimeLine}
-\begin{frame}{Expected Results and Timeline}{2022}
-\begin{tabular}{|c|l|c|c|c|}
-	\toprule
-	\multirow{2}[4]{*}{Etapa} & \multicolumn{1}{c|}{Academic Period} & \multirow{2}[4]{*}{2022-10} & \multirow{2}[4]{*}{2022-19} & \multirow{2}[4]{*}{2022-20}   \\
-	\cmidrule{2-2}          & \multicolumn{1}{c|}{Activity} &       &       &        \\
-	\midrule
-	\multirow{3}[6]{*}{Single Leptoquark} & Theoretical study of models & x     &       &     \\
-	\cmidrule{2-5}          & MC for the production  & x     &       &     \\
-	\cmidrule{2-5}          & Perform feasibility studies & x     & x     & x    \\
-	\midrule
-	\multirow{2}[6]{*}{W' } & Theoretical study of models &       &   x    & x   \\
-	\cmidrule{2-5}          & MC for the production  &       &       & x     \\
-	\bottomrule
-\end{tabular}%0
+		\includegraphics[width=1.0\linewidth]{BDT.png}
+	\end{center}
 \end{frame}
 
-\begin{frame}{Expected Results and Timeline}{2023}
-	\begin{tabular}{|c|l|c|c|c|}
-		\toprule
-		\multirow{2}[4]{*}{Etapa} & \multicolumn{1}{c|}{Academic Period} & \multirow{2}[4]{*}{2023-10} & \multirow{2}[4]{*}{2023-19} & \multirow{2}[4]{*}{2023-20}   \\
-		\cmidrule{2-2}          & \multicolumn{1}{c|}{Activity} &       &       &        \\
-		\midrule
-		\multirow{3}[6]{*}{W'} & Theoretical study of models & x     &       &     \\
-		\cmidrule{2-5}          & MC for the production  & x     &  x     &     \\
-		\cmidrule{2-5}          & Perform feasibility studies &      & x     & x    \\
-		\midrule
-		Internship & Internship &       &       &     x \\
-		\midrule
-		Z', HN-VBF  & Theoretical study of models &       &       & x   \\
-		\bottomrule
-	\end{tabular}%0
+
+\begin{frame}{Cross-Validation}
+	\begin{center}
+		\includegraphics[width=1.0\linewidth]{CV.png}
+	\end{center}
+
+	We made this for the XGBoost discriminator algorithm with a 10-fold cross-validation for each point in the hyperparameter space:
+	\begin{itemize}
+		\item \texttt{max\_depth} $\in \{3, 5, 7, 9\}$
+		\item \texttt{learning\_rate} $\in \{ 0.01, 0.1, 1, 10\}$
+		\item \texttt{n\_estimators} $\in \{75, 125, 250, 500\}$
+	\end{itemize}
+	So, we have one optimized discriminator for each mass point, each channel, and each value of $\beta_R^{33}$.
+
 \end{frame}
 
-\begin{frame}{Expected Results and Timeline}{2024}
-	\begin{tabular}{|c|l|c|c|c|}
-		\toprule
-		\multirow{2}[4]{*}{Etapa} & \multicolumn{1}{c|}{Academic Period} & \multirow{2}[4]{*}{2024-10} & \multirow{2}[4]{*}{2024-19} & \multirow{2}[4]{*}{2024-20}   \\
-		\cmidrule{2-2}          & \multicolumn{1}{c|}{Activity} &       &       &        \\
-		\midrule
-		\multirow{3}[6]{*}{Z', HN-VBF} & Theoretical study of models & x     &       &     \\
-		\cmidrule{2-5}          & MC for the production  & x     &  x     &     \\
-		\cmidrule{2-5}          & Perform feasibility studies &      & x     & x    \\
-		\midrule
-		Thesis & Write &   x    &   x    &     x \\
-		\bottomrule
-	\end{tabular}%0
+\begin{frame}{The optimized observable}{XGB-output}
+
+	We can evaluate a score for the signal and background events using the discriminator algorithm. 
+
+	\begin{center}
+		\includegraphics[width=.75\linewidth]{ML_semileptonic_sLQ_wRHC.pdf}
+	\end{center}
+		
 \end{frame}
 
+\begin{frame}{Hunting Peaks and Tails}{Searches for New Physics}
+	\begin{multicols}{2}
+		One can construct a test that estimates how significant the deviation from the background in a distribution:
+		$$
+		k'=\frac{N^{(hyp)}-N^{(null)}}{\sigma_{N^{(hyp)}}}.
+		$$
+		\vfill
+		If $S$ and $B$ are the number of events for the signal and background, then
+		$$
+		k'=\frac{S}{\sqrt{S+B}}.
+		$$
+
+		\begin{center}
+			\includegraphics[width=.75\linewidth]{simpleopt-06.png}
+		\end{center}
+		\pause 
+		If you add gaussian systematic uncertainties, then
+		$$
+		k'=\frac{S}{\sqrt{S+B+\delta_{\text{sys}}^2}}.
+		$$
+
+		\pause
+
+		If we treat each bin as an independent Poisson variable and we add the systematic uncertainties, then
+		$$
+		\boxed{
+			k \approx \frac{\sum_i w_i S_i}{\sqrt{\sum_i w_i^2 (S_i+B_i+\delta_{\text{sys}}^2)}},
+		}
+		$$
+		where $w_i = A \ln \left(1+\frac{S_i}{B_i}\right)$, with $A$ a normalization constant, is the weight for each bin.
+	\end{multicols}
+
+\end{frame}
+
+\begin{frame}{Double Leptoquark Production}{The Sensitivity Reach / only left-handed currents}
+	\begin{minipage}{.30\linewidth}
+		\includegraphics[width=\linewidth]{double_LQ.png}
+	\end{minipage}
+	\begin{minipage}{.68\linewidth}
+		\includegraphics[width=\linewidth]{Significance_Heatmap_13TeV_L137_dLQ_combined_woRHC.pdf}
+	\end{minipage}
+	{\large
+	  Double leptoquark production is sensitive to the leptoquark mass, its production depends only on the QCD coupling constant and the available energy.
+	}
+\end{frame}
+
+\begin{frame}{Single leptoquark production}{The Sensitivity Reach / only left-handed currents}
+	\begin{minipage}{.30\linewidth}
+		\includegraphics[width=\linewidth]{single_LQ.png}
+	\end{minipage}
+	\begin{minipage}{.68\linewidth}
+		\includegraphics[width=\linewidth]{Significance_Heatmap_13TeV_L137_sLQ_combined_woRHC.pdf}
+	\end{minipage}
+	{\large
+		  Single leptoquark production is sensitive to both, mass and couplings. It contributes to the regions of high coupling constants at higher masses than double leptoquark production.
+	}
+\end{frame}
+
+\begin{frame}{Non-resonant Production}{The Sensitivity Reach / only left-handed currents}
+	\begin{minipage}{.30\linewidth}
+		\includegraphics[width=\linewidth]{non_resonant.png}
+	\end{minipage}
+	\begin{minipage}{.68\linewidth}
+		\includegraphics[width=\linewidth]{Significance_Heatmap_13TeV_L137_non-res_combined_woRHC.pdf}
+	\end{minipage}
+
+	{\large
+		  Non-resonant production is highly dependent on the couplings, so it dominates the regions of high coupling constants at all masses.
+	}
+\end{frame}
+
+\begin{frame}{Combined Sensitivity Reach}{The Sensitivity Reach / only left-handed currents}
+	\begin{center}
+		\includegraphics[width=.55\linewidth]{Significance_Heatmap_13TeV_L137_all_combined_woRHC.pdf}
+		\includegraphics[width=.41\linewidth]{Significance_Curves_13TeV_L137_summary_all_sigmas_woRHC.pdf}
+	\end{center}
+	{\large
+		  The sensitivity of
+		all signal production processes combined compares
+		our expected exclusion region with the latest one from
+		the ATLAS Collaboration [ArXiv:2305.15962], but we suggest better sensitivity for high coupling constants.
+	}
+	
+\end{frame}
+
+\begin{frame}{Combined Sensitivity Reach}{The Sensitivity Reach / only right-handed currents}
+	\begin{center}
+		\includegraphics[width=.68\linewidth]{Significance_CMS_Comparison_13TeV_L137_all_combined_woRHC.pdf}
+	\end{center}
+	{\large
+		  The case $BR(lq \rightarrow b \tau) = 1$ corresponds to the only right-handed currents coupling. The sensitivity compared with the latest one from the CMS [2308.07826] and ATLAS Collaborations [2303.01294], again we suggest better sensitivity for high coupling constants.
+	}
+\end{frame}
+
+\begin{frame}{Combined Sensitivity Reach}{Comparison between different Branching ratios}
+	\begin{center}
+		\includegraphics[width=.68\linewidth]{Significance_Curves_Summary_by_BR.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Including the $Z'$ boson contribution}{The Sensitivity Reach / only left-handed currents}
+	\begin{center}
+		\includegraphics[width=.68\linewidth]{zp_lower_limit_woRHC_gu1_75.pdf}
+	\end{center}
+	{\large
+		  As is expected if the $Z'$ boson is lighter than the leptoquark, the sensitivity is incresed for higher leptquark masses, due to the additional contribution to the cross section.
+	}
+\end{frame}
+
+\begin{frame}{Including the $Z'$ boson contribution}{The Sensitivity Reach / only left-handed currents}
+	\begin{center}
+		\includegraphics[width=.68\linewidth]{zp_upper_limit_woRHC_gu1_75.pdf}
+	\end{center}
+	{\large
+		  If the $Z'$ boson is heavier than the leptoquark, the sensitivity looks like the one without the $Z'$ boson, except for the region near to the leptoquark coupling constant.
+	}
+\end{frame}
+
+\begin{frame}{Including the $Z'$ boson contribution}{The Sensitivity Reach / only left-handed currents}
+	\begin{center}
+		\includegraphics[width=.45\linewidth]{zp_lower_limit.pdf}
+		\includegraphics[width=.53\linewidth]{zp_upper_limit.pdf}
+	\end{center}
+\end{frame}
 
 \begin{frame}{Summary}
-\begin{itemize}
-	\item  The lepton flavour physics is a wide window to find physics beyond the standard model.\vfill
-	\item  New particles with preferred couplings to third generation fermions can give clues in LFUV.\vfill
-	\item  The Monte Carlo Method is one of the most useful tools in understanding experimental results and helps describe what the results of different models would look like.\vfill
-	\item  Machine learning methods show that they have the potential to optimize and refine searches for new physics.
-\end{itemize}
-\end{frame}
-\end{document}
-\begin{frame}{Standard Model of Particle Physics}{How it Works?}
-	
-	\begin{multicols*}{2}
-		Using the Lagrangian formulation for fields, it is an gauge-invariant theory of the group of internal symmetries
-		$$SU(3)\times SU(2)\times U(1),$$
-		Spontaneously broken from 
-		$$SU(2)\times U(1)\mapsto U_{EM}(1),$$ 
-		via the vev ($v$) of the Higgs Field $\phi$.
+	\begin{itemize}
+		\item Experimental searches for LQs with preferential couplings to third generation fermions are of great interest due to their potential to explain tensions in the $R(D)$ and $R(D^{*})$ decay ratios of B mesons with respect to SM predictions. \vfill
 		
-		\begin{center}
-			\includegraphics[width=.51\textwidth]{lXueN.png}
-		\end{center}
-	\end{multicols*}
+		\item Studies on the production of $U_1$ LQs with preferential couplings to third generation fermions, considering different couplings, masses, and chiral currents performed using $\mathrm{p}\,\mathrm{p}$ collisions at $\sqrt{s} = 13TeV$ and their interferences with a $Z^{\prime}$ boson.  \vfill
+		
+		\item New computational techniques based on machine learning (ML) as BDTs are important to improve sensitivity to potential signs of physics beyond the SM. \vfill
+		
+		\item Expected signal significance for sLQ, dLQ, and non-res production, and their combination, presented as contours on a two-dimensional plane of $g_U$ versus $M_U$ for exclusive couplings to left-handed, mixed, and exclusive right-handed currents making enfasis in the region of phase space that could explain B meson anomaly is presented. \vfill
+
+		\item Sensitivity to probe the parameter space is highly dependent on the chirality of the couplings and effects of a companion $Z^{\prime}$ boson on non-res production can significantlyimpact the results. \vfill
+		
+		\item Non-res production remains an essential channel for probing LQs in the future. \vfill
+	\end{itemize}
+	
 \end{frame}
 
-\begin{frame}{Hunting Peaks and Tails}{How can we test these hypotheses?}
-	\begin{center}
-		\includegraphics[width=.55\textwidth]{Hunt_Peak.png}
-		\includegraphics[width=.44\textwidth]{Hunt_Tail.png}
-	\end{center}
-	$ $\hfill{REHACER}
+\begin{frame}{Current and Future Work}
+	\begin{itemize}
+		\item asd
+	\end{itemize}
+	
 \end{frame}
 
+\end{document}
 
-
-\begin{frame}{Montecarlo Generators}{Software Stages}
-	\begin{center}
-		\includegraphics[width=.99\textwidth]{A3}
-	\end{center}
-\end{frame}
-\begin{frame}{Montecarlo Generators}{Input/Outputs}
-	\begin{center}
-		\includegraphics[width=.99\textwidth]{A4}
-	\end{center}
-\end{frame}
-\begin{frame}{Montecarlo Generators}{ROOT Analysis}
-	\begin{center}
-		\includegraphics[width=.99\textwidth]{A5}
-	\end{center}
-\end{frame}
