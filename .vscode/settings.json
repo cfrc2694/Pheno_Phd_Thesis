@@ -1,0 +1,11 @@
+{
+    "files.defaultLanguage": "${activeEditorLanguage}",
+    "cSpell.language": "en,es",
+    "cSpell.words": [
+        "autoestado",
+        "autoestados",
+        "autovalores",
+        "espinoriales",
+        "Schrödinger"
+    ]
+}
