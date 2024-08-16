@@ -6,6 +6,8 @@
 \usepackage{multicol,bigstrut}
 \usepackage{listings}
 \usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb,amsfonts,cancel,physics,siunitx}
 \usetikzlibrary{positioning,shadows,backgrounds,calc}%
@@ -61,7 +63,7 @@
 \frame{\titlepage}
 
 \begin{frame}{Two body scattering}{CM-Frame}
-    Consider the process 
+    Consider the process
     \begin{equation}
         A(\va*{p}_1) + B(\va*{p}_2) \longrightarrow C(\va*{p}_3) + D(\va*{p}_4),
     \end{equation}
@@ -78,16 +80,16 @@
         \sqrt{(\va*{p}_1\cdot\va*{p}_2)^2 - (m_1m_2)^2} = E_1E_2 \abs{\va*{p}_1},
         \\
         \delta^{(4)}(p_1 + p_2 - p_3 - p_4) = \delta\left(
-            E_1 + E_2 - E_3 - E_4
+        E_1 + E_2 - E_3 - E_4
         \right)
         \delta^{(3)}(\va*{p}_3 + \va*{p}_4).
     \end{gather}
-    Thus 
+    Thus
     \begin{equation}
         \sigma = \left(\frac{1}{8\pi}\right)^2 \frac{S}{(E_1E_2) \abs{\va*{p}_1}}\int \abs{\mathcal{M}}^2
         \frac{\delta\left(
             E_1 + E_2 - \sqrt{\va p_3^2 + m_3^2} - \sqrt{\va p_3^2 + m_4^2}
-        \right)}{\sqrt{\va p_3^2 + m_3^2}\sqrt{\va p_3^2 + m_4^2}} \dd \va p_3
+            \right)}{\sqrt{\va p_3^2 + m_3^2}\sqrt{\va p_3^2 + m_4^2}} \dd \va p_3
     \end{equation}
 \end{frame}
 
@@ -96,7 +98,7 @@
     \begin{equation}
         \sigma = \left(\frac{1}{8\pi}\right)^2 \frac{S |\va*{p}_3|}{(E_1 +E_2)^2 \abs{\va*{p}_1}} \int \abs{\mathcal{M}}^2 \dd\Omega,
     \end{equation}
-    with 
+    with
     \begin{equation}
         |\va*{p}_3| = \frac{1}{2} \frac{\sqrt{((E_1+E_2)^2 - m_3^2 -m_4^2)^2- 4m^2_3m^2_4} }{E_1+E_2},
     \end{equation}
@@ -108,7 +110,7 @@
     \begin{equation}
         \frac{\dd \sigma}{\dd \Omega} = \frac{1}{64\pi^2} \frac{S }{(E_1 +E_2)^2 } \frac{|\va*{p}_3|}{\abs{\va*{p}_1}} \abs{\mathcal{M}}^2.
     \end{equation}
-   
+
 
     Note that at this point, we don't need to know the explicit form of the matrix element $\mathcal{M}$, so it is a generic result.
 \end{frame}
@@ -120,21 +122,153 @@
     \end{equation}
     so the differential cross section is
     \begin{equation}
-        \frac{\dd \sigma}{\dd \Omega} = \frac{1}{64\pi^2} \frac{S }{s } 
+        \frac{\dd \sigma}{\dd \Omega} = \frac{1}{64\pi^2} \frac{S }{s }
         \sqrt{\frac{(s - (m_3 + m_4)^2)(s - (m_3 - m_4)^2)}{(s - (m_1 + m_2)^2)(s - (m_1 - m_2)^2)}}
         \abs{\mathcal{M}}^2.
     \end{equation}
-    
+
     In general, there are three Lorentz-invariant useful kinematical variables to describe the scattering process, known as Mandelstam variables:
     \begin{align}
-        \hat s &= (p_1 + p_2)^2 = (p_3 + p_4)^2,\\
-        \hat t &= (p_1 - p_3)^2 = (p_2 - p_4)^2,\\
-        \hat u &= (p_1 - p_4)^2 = (p_2 - p_3)^2.
+        \hat s & = (p_1 + p_2)^2 = (p_3 + p_4)^2 = m_1^2 + m_2^2 + 2\va p_1\cdot \va p_2 = m_3^2 + m_4^2 + 2\va p_3\cdot \va p_4, \\
+        \hat t & = (p_1 - p_3)^2 = (p_2 - p_4)^2= m_1^2 + m_3^2 - 2\va p_1\cdot \va p_3 = m_2^2 + m_4^2 - 2\va p_2\cdot \va p_4,  \\
+        \hat u & = (p_1 - p_4)^2 = (p_2 - p_3)^2= m_1^2 + m_4^2 - 2\va p_1\cdot \va p_4 = m_2^2 + m_3^2 - 2\va p_2\cdot \va p_3.
     \end{align}
     In the CM-frame, $\hat s = s = (E_1+E_2)^2$.
 \end{frame}
 
-\begin{frame}
-    
+\begin{frame}{QED $e^+e^- \longrightarrow e^+e^-$ scattering}
+    At tree level, there are two Feynman diagrams that contribute to the process
+    \begin{minipage}{0.45\textwidth}
+        \begin{center}
+            \includegraphics[width=.6\textwidth]{Tchannel_ee_ee.png}
+        \end{center}
+        $$
+            \left[\bar u_1'(ie\gamma^\mu) u_1\right]
+            iD_{\mu\nu}(k_a)
+            \left[\bar v_2(ie\gamma^\nu) v_2'\right]
+        $$
+        $$
+            =-ie^2\frac{\left[ \bar u_1' \gamma^\mu u_1 \right]\left[ \bar v_2 \gamma_\mu v_2' \right]}{k_a^2}
+        $$
+        $$
+            k_a = p_1 - p_1' = p_2' - p_2
+        $$
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \begin{center}
+            \includegraphics[width=.6\textwidth]{Schannel_ee_ee.png}
+        \end{center}
+        \vspace{15pt}
+        $$
+            \left[\bar v_2(ie\gamma^\mu) u_1\right]
+            iD_{\mu\nu}(k_b)
+            \left[\bar u_1'(ie\gamma^\nu) v_2'\right]
+        $$
+        $$
+            =-ie^2\frac{\left[ \bar v_2 \gamma^\mu u_1 \right]\left[ \bar u_1' \gamma_\mu v_2' \right]}{k_b^2}
+        $$
+        $$
+            k_b = p_1 + p_2 = p_2' + p_1'
+        $$
+    \end{minipage}
+
+    The fermionic exchange between the initial positron and the final electron is the same in both diagrams, so we have a relative minus sign between the two contributions.
+    \begin{align}
+        i\mathcal{M} & = ie^2 \left(
+        \frac{
+                \left[\bar u_1 \gamma^\mu u_1'\right]\left[\bar v_2 \gamma_\mu v_2'\right]
+            }{(p_1 - p_1')^2}
+        -
+        \frac{
+                \left[\bar v_2 \gamma^\mu u_1\right]\left[\bar u_1' \gamma_\mu v_2'\right]
+            }{(p_1 + p_2)^2}
+        \right),
+    \end{align}
 \end{frame}
+\begin{frame}{QED $e^+e^- \longrightarrow e^+e^-$ scattering}
+    In terms of the Mandelstam variables, we have
+    \begin{equation}
+        i \mathcal{M}
+        = ie^2 \left(
+        \frac{
+            \left[\bar u_1 \gamma^\mu u_1'\right]\left[\bar v_2 \gamma_\mu v_2'\right]
+        }{\hat t}
+        -
+        \frac{
+            \left[\bar v_2 \gamma^\mu u_1\right]\left[\bar u_1' \gamma_\mu v_2'\right]
+        }{\hat s}
+        \right).
+    \end{equation}
+    So, the mean square of the matrix element is
+    \begin{equation}
+        \overline{|\mathcal{M}|^2} =\frac{1}{4}\sum_{\text{spins}} \abs{\mathcal M}^2= \frac{e^2}{4} \left(
+        \frac{T_{11}}{\hat t^2}
+        + \frac{T_{22}}{\hat s^2}
+        - \frac{T_{12}+T_{21}}{\hat s\hat t}
+        \right)
+    \end{equation}
+    with
+    \begin{align}
+        T_{11}            & = 32\left[ (\va{p}_1\cdot \va{p}_2)^2 + (\va{p}_1\cdot \va{p}_2')^2 + 2m^2(m^2 - \va{p}_1\cdot \va{p}_1') \right],
+        \\
+        T_{22}            & = 32\left[ (\va{p}_1\cdot \va{p}_1')^2 + (\va{p}_1\cdot \va{p}_2')^2 + 2m^2(m^2 + \va{p}_1\cdot \va{p}_2) \right],
+        \\
+        -T_{12} = -T_{21} & = 32 \left[
+            (\va{p}_1\cdot \va{p}_2') +m^2\left(
+            \va{p}_1\cdot \va{p}_2' + \va{p}_1\cdot \va{p}_2 - \va{p}_1\cdot \va{p}_1'
+            \right)
+            +m^4.
+            \right]
+    \end{align}
+\end{frame}
+
+\begin{frame}{Photon and $Z$-boson interference, $q \bar q \longrightarrow \tau^+ \tau^- $}
+    At tree level, Consider the process $q \bar q \longrightarrow \tau^+ \tau^- $ with $\gamma^*$ and $Z$-boson contributions in the $s$-channel.
+
+    \begin{minipage}{0.35\textwidth}
+        \begin{center}
+            \includegraphics[width=0.95\linewidth]{DY.png}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.57\textwidth}
+        The squared matrix element can be written as
+        \begin{equation}
+            \begin{aligned}
+                \abs{\mathcal{M}}^2 & =\abs{\mathcal{M}_{\gamma^*}+\mathcal{M}_{Z}}
+                \\&= \abs{\mathcal{M}_{\gamma^*}}^2 + \abs{\mathcal{M}_{Z}}^2 + 2\Re\left( \mathcal{M}_{\gamma^*}^*\mathcal{M}_{Z} \right).    \notag
+            \end{aligned}
+        \end{equation}
+    \end{minipage}
+    \pause
+
+    For the case $q_R \bar q_L \longrightarrow \tau_L^+ \tau_R^-$, the amplitudes are
+    \begin{minipage}{0.65\textwidth}
+        \begin{equation}
+            \begin{aligned}
+                \abs{\mathcal{M}_{\gamma^*}}^2          & = e^4\left[Q^{(f)} Q^{(q)}\right]^2\left[1+\cos \theta\right]^2                                                                      \\
+                \abs{\mathcal{M}_{Z}}^2                 & = \frac{s^2 g_Z^4\left[g_R^{(f)} g_R^{(q)}\right]^2}{\left(s-m_Z^2\right)^2+\left(m_Z \Gamma_Z\right)^2}\left[1+\cos \theta\right]^2 \\
+                \mathcal{M}_{\gamma^*}^*\mathcal{M}_{Z} & = \frac{g_Z^2 e^2 Q^{(f)} Q^{(q)} g_R^{(f)} g_R^{(q)}}{\left(s-m_Z^2+i \Gamma_Z\right)} s\left(1+\cos \theta\right)^2 \notag
+            \end{aligned}
+        \end{equation}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.33\textwidth}
+        \begin{tikzpicture}[xscale=0.38, yscale=0.1]
+            \draw[thick,->] (0,0) -- (9.5,0) node[below] {$s$};
+            \draw[thick,->] (0,-10) -- (0,20) node[below right,blue] {$ \Re\left(
+                    \frac{s}{(s-m_Z^2+i \Gamma_Z)}
+                    \right)$};
+
+            % plot -(m^2 x)/((-m^2 + x)^2 + Γ^2) + x^2/((-m^2 + x)^2 + Γ^2), m=2, Γ=0.2
+            \draw[domain=0:9,samples=100,smooth,variable=\x,blue]
+            plot ({\x},{-(4*\x)/((4-\x)^2 + 0.04) + \x^2/((4-\x)^2 + 0.04)});
+            % put a mark in s=m^2
+            \draw[dashed] (4,-10) node[below] {$m_Z^2$} -- (4,12);
+        \end{tikzpicture}
+    \end{minipage}
+
+
+\end{frame}
+
 \end{document}
