@@ -223,15 +223,8 @@
 \end{frame}
 
 \begin{frame}{Photon and $Z$-boson interference, $q \bar q \longrightarrow \tau^+ \tau^- $}
-    At tree level, Consider the process $q \bar q \longrightarrow \tau^+ \tau^- $ with $\gamma^*$ and $Z$-boson contributions in the $s$-channel.
-
-    \begin{minipage}{0.35\textwidth}
-        \begin{center}
-            \includegraphics[width=0.95\linewidth]{DY.png}
-        \end{center}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.57\textwidth}
+    
+    \begin{minipage}{0.65\textwidth}
         The squared matrix element can be written as
         \begin{equation}
             \begin{aligned}
@@ -239,16 +232,29 @@
                 \\&= \abs{\mathcal{M}_{\gamma^*}}^2 + \abs{\mathcal{M}_{Z}}^2 + 2\Re\left( \mathcal{M}_{\gamma^*}^*\mathcal{M}_{Z} \right).    \notag
             \end{aligned}
         \end{equation}
+        In madgraph, with the sm model, we have
+        \begin{itemize}
+            \item \texttt{ q q$\sim$ $\rightarrow$ Z $\rightarrow$ ta+ ta-} for $\abs{\mathcal{M}_{Z}}^2$.
+            \item \texttt{ q q$\sim$ $\rightarrow$ a $\rightarrow$ ta+ ta-} for $\abs{\mathcal{M}_{\gamma^*}}^2$.
+            \item \texttt{ q q$\sim$ $\rightarrow$ ta+ ta- / h QED=2 } for $\abs{\mathcal{M}}^2$.
+        \end{itemize}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.33\textwidth}
+        \begin{center}
+            \includegraphics[width=\linewidth]{DY.png}
+        \end{center}
     \end{minipage}
     \pause
+    $ $\\$ $\\$ $
 
     For the case $q_R \bar q_L \longrightarrow \tau_L^+ \tau_R^-$, the amplitudes are
     \begin{minipage}{0.65\textwidth}
         \begin{equation}
             \begin{aligned}
                 \abs{\mathcal{M}_{\gamma^*}}^2          & = e^4\left[Q^{(f)} Q^{(q)}\right]^2\left[1+\cos \theta\right]^2                                                                      \\
-                \abs{\mathcal{M}_{Z}}^2                 & = \frac{s^2 g_Z^4\left[g_R^{(f)} g_R^{(q)}\right]^2}{\left(s-m_Z^2\right)^2+\left(m_Z \Gamma_Z\right)^2}\left[1+\cos \theta\right]^2 \\
-                \mathcal{M}_{\gamma^*}^*\mathcal{M}_{Z} & = \frac{g_Z^2 e^2 Q^{(f)} Q^{(q)} g_R^{(f)} g_R^{(q)}}{\left(s-m_Z^2+i \Gamma_Z\right)} s\left(1+\cos \theta\right)^2 \notag
+                \abs{\mathcal{M}_{Z}}^2                 & = \frac{s^2 g_Z^4\left[g_R^{(f)} g_R^{(q)}\right]^2}{\textcolor{red}{\left(s-m_Z^2\right)^2+\left(m_Z \Gamma_Z\right)^2}}\left[1+\cos \theta\right]^2 \\
+                \mathcal{M}_{\gamma^*}^*\mathcal{M}_{Z} & = \frac{g_Z^2 e^2 Q^{(f)} Q^{(q)} g_R^{(f)} g_R^{(q)}}{\textcolor{blue}{\left(s-m_Z^2+i \Gamma_Z\right)}} \textcolor{blue}{s}\left(1+\cos \theta\right)^2 \notag
             \end{aligned}
         \end{equation}
     \end{minipage}
@@ -256,7 +262,7 @@
     \begin{minipage}{0.33\textwidth}
         \begin{tikzpicture}[xscale=0.38, yscale=0.1]
             \draw[thick,->] (0,0) -- (9.5,0) node[below] {$s$};
-            \draw[thick,->] (0,-10) -- (0,20) node[below right,blue] {$ \Re\left(
+            \draw[thick,->] (0,-10) -- (0,15) node[right,blue] {$ \Re\left(
                     \frac{s}{(s-m_Z^2+i \Gamma_Z)}
                     \right)$};
 
@@ -264,11 +270,73 @@
             \draw[domain=0:9,samples=100,smooth,variable=\x,blue]
             plot ({\x},{-(4*\x)/((4-\x)^2 + 0.04) + \x^2/((4-\x)^2 + 0.04)});
             % put a mark in s=m^2
-            \draw[dashed] (4,-10) node[below] {$m_Z^2$} -- (4,12);
+            \draw[dashed] (4,-10) node[right] {$m_Z^2$} -- (4,12);
         \end{tikzpicture}
     \end{minipage}
+\end{frame}
 
+\begin{frame}{$gg (\rightarrow \Phi) \longrightarrow t\bar t$}{BSM scalar interference}
+    The amplitude for the $gg (\rightarrow \Phi) \longrightarrow t\bar t$ process is
+    \begin{equation}
+        \mathcal{M}_{gg\rightarrow t \bar t}^\Phi = -\sum_\Phi \frac{\mathcal M_{gg\Phi} \hat s \mathcal M_{\Phi t\bar t}}{\hat s - m_\Phi^2 + i m_\Phi \Gamma_\Phi} + \mathcal M_{gg\rightarrow t\bar t}^\text{QCD}\;,
+    \end{equation}
+    And the BSM contributions $\frac{\mathrm{d} \hat{\sigma}_S}{\mathrm{~d} z}$, $\frac{\mathrm{d} \hat{\sigma}_I}{\mathrm{~d} z}$ to the QCD XS $\frac{\mathrm{d} \hat{\sigma}_B}{\mathrm{~d} z}$ are
 
+    % \begin{minipage}{0.38\textwidth}
+    %     The $A_{1/2}^{\Phi}$ is the helicity amplitude, gived by
+    %     \begin{equation}\notag
+    %         A_{1 / 2}^{H}\left(\tau_{t}\right)=2\left[\tau_{t}+\left(\tau_{t}-1\right) f\left(\tau_{t}\right)\right]
+    %     \end{equation}
+    %     if $\Phi$ is a scalar particle, or 
+    %     \begin{equation}\notag
+    %         A_{1 / 2}^{A}\left(\tau_{t}\right)=2\left[\tau_{t} f\left(\tau_{t}\right)\right]
+    %     \end{equation}
+    % \end{minipage}
+    % \hfill
+    % \begin{minipage}{0.60\textwidth}
+        \begin{equation}
+            \begin{aligned}
+            \frac{\mathrm{d} \hat{\sigma}_S}{\mathrm{~d} z} & =\frac{3 \alpha_s^2 G_F^2 m_t^2}{8192 \pi^3} \hat{s}^2 \sum_{\Phi} \frac{\hat{\beta}_t^{p_\Phi}\left|\hat{g}_{\Phi t t}^2 A_{1 / 2}^{\Phi}\left(\tau_t\right)\right|^2}{\textcolor{red}{\left(s-M_{\Phi}^2\right)^2+\Gamma_{\Phi}^2 M_{\Phi}^2}} \\
+            \frac{\mathrm{d} \hat{\sigma}_I}{\mathrm{~d} z} & 
+            =-\frac{\alpha_s^2 G_F m_t^2}{64 \sqrt{2} \pi} \frac{1}{1-\hat{\beta}_t^2 z^2} \operatorname{Re}\left[\sum_{\Phi} \frac{\hat{\beta}_t^{p_{\Phi}} \hat{g}_{\Phi t t}^2 A_{1 / 2}^{\Phi}\left(\tau_t\right)}{\textcolor{blue}{s-M_{\Phi}^2+i \Gamma_{\Phi} M_{\Phi}}}\right]
+            \end{aligned}\notag
+        \end{equation}
+        where $\hat{\beta}_t = \sqrt{1-4m_t^2/\hat{s}}$, $\tau_t = 4m_t^2/\hat{s}$, $z = \cos\theta$, and $p_\Phi \in \{3,1\}$.
+    % \end{minipage}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{gg_ttbar.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{$gg (\rightarrow \Phi) \longrightarrow t\bar t$}{BSM scalar interference}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{Interference_Scalars}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Interferences between the $Z'$ and the Vector Leptoquark}
+
+    \begin{minipage}{.48\linewidth}
+		\begin{center}
+            \includegraphics[width=.62\linewidth]{../2023_paper/non_resonant.png}
+			\includegraphics[width=.6\linewidth]{../2023_paper/Zp.png}
+		\end{center}
+		\begin{equation*}
+			\mathrm{RKI}
+            =\frac{1}{\sigma_{ LQ+Z'}}
+            \dv{m}\left[
+                \sigma_{ LQ+Z'}-\left(\sigma_{ LQ} +\sigma_{Z'}
+                \vphantom{\frac{1}2}
+                \right)
+                \right]
+		\end{equation*}
+	\end{minipage}	
+	\begin{minipage}{.50\linewidth}
+		\includegraphics[width=.9\linewidth]{../2023_paper/Kinematic_Interference_gu_1.0_gzp_1.0_zp_upper_limit_woRHC.pdf}
+        $$ $$ 
+        $$ $$
+	\end{minipage}
+	
 \end{frame}
 
 \end{document}
