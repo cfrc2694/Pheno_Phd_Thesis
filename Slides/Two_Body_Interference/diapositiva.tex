@@ -118,7 +118,7 @@
 \begin{frame}{Two body scattering}{CM-Frame}
     Defining $\sqrt s = E_1 + E_2$, we have
     \begin{equation}
-        |\va*{p}_3| = \frac{1}{2} \frac{\sqrt{(s - m_3^2 -m_4^2)^2- 4m^2_3m^2_4} }{s}, \quad  |\va*{p}_1|\frac{1}{2} \frac{\sqrt{(s - m_1^2 -m_2^2)^2- 4m^2_1m^2_2} }{s}.
+        |\va*{p}_3| = \frac{1}{2} \frac{\sqrt{(s - m_3^2 -m_4^2)^2- 4m^2_3m^2_4} }{\sqrt s}, \quad  |\va*{p}_1|=\frac{1}{2} \frac{\sqrt{(s - m_1^2 -m_2^2)^2- 4m^2_1m^2_2} }{\sqrt s}.
     \end{equation}
     so the differential cross section is
     \begin{equation}
@@ -129,9 +129,9 @@
 
     In general, there are three Lorentz-invariant useful kinematical variables to describe the scattering process, known as Mandelstam variables:
     \begin{align}
-        \hat s & = (p_1 + p_2)^2 = (p_3 + p_4)^2 = m_1^2 + m_2^2 + 2\va p_1\cdot \va p_2 = m_3^2 + m_4^2 + 2\va p_3\cdot \va p_4, \\
-        \hat t & = (p_1 - p_3)^2 = (p_2 - p_4)^2= m_1^2 + m_3^2 - 2\va p_1\cdot \va p_3 = m_2^2 + m_4^2 - 2\va p_2\cdot \va p_4,  \\
-        \hat u & = (p_1 - p_4)^2 = (p_2 - p_3)^2= m_1^2 + m_4^2 - 2\va p_1\cdot \va p_4 = m_2^2 + m_3^2 - 2\va p_2\cdot \va p_3.
+        \hat s & = (p_1 + p_2)^2 = (p_3 + p_4)^2 = m_1^2 + m_2^2 + 2p_1^\mu p_{2\mu }= m_3^2 + m_4^2 + 2p_3^\mu p_{4\mu}, \\
+        \hat t & = (p_1 - p_3)^2 = (p_2 - p_4)^2= m_1^2 + m_3^2 - 2p_1^\mu p_{3\mu }= m_2^2 + m_4^2 - 2p_2^\mu p_{4\mu},  \\
+        \hat u & = (p_1 - p_4)^2 = (p_2 - p_3)^2= m_1^2 + m_4^2 - 2p_1^\mu p_{4\mu }= m_2^2 + m_3^2 - 2p_2^\mu p_{3\mu}.
     \end{align}
     In the CM-frame, $\hat s = s = (E_1+E_2)^2$.
 \end{frame}
@@ -176,7 +176,7 @@
     \begin{align}
         i\mathcal{M} & = ie^2 \left(
         \frac{
-                \left[\bar u_1 \gamma^\mu u_1'\right]\left[\bar v_2 \gamma_\mu v_2'\right]
+                \left[\bar u_1' \gamma^\mu u_1\right]\left[\bar v_2 \gamma_\mu v_2'\right]
             }{(p_1 - p_1')^2}
         -
         \frac{
@@ -191,7 +191,7 @@
         i \mathcal{M}
         = ie^2 \left(
         \frac{
-            \left[\bar u_1 \gamma^\mu u_1'\right]\left[\bar v_2 \gamma_\mu v_2'\right]
+            \left[\bar u_1' \gamma^\mu u_1\right]\left[\bar v_2 \gamma_\mu v_2'\right]
         }{\hat t}
         -
         \frac{
