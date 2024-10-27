@@ -1,0 +1,298 @@
+\documentclass{../bredelebeamer}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage{braket,bigstrut}
+\usepackage{palatino}
+\usepackage{multicol,bigstrut}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsfonts,cancel,physics,siunitx}
+\usetikzlibrary{positioning,shadows,backgrounds,calc}%
+\setbeamercolor{footnote mark}{fg=black}
+\setbeamercolor{footnote}{fg=black}
+
+
+\renewcommand{\baselinestretch}{0.9}
+
+\usepackage[backend=bibtex8,style=authortitle,autocite=footnote]{biblatex}
+%\addbibresource{../../references.bib}
+
+\renewbibmacro*{cite:title}{%
+	\printtext[bibhyperref]{%
+		\printfield[citetitle]{labeltitle}%
+		\setunit{\space}%
+		\printtext[parens]{\printdate}%
+	}%
+}
+
+\renewcommand{\figurename}{{\bf Fig.}}
+\usefonttheme{serif} % default family is serif
+
+\renewcommand{\baselinestretch}{0.9}
+
+\title[Ditaus - Silafae 2024]{On the Effects of Interference in BSM Production and Detection of diTaus at the LHC}
+\subtitle{}
+\author[Cristian F. Rodríguez C.]{%
+	$ $\\
+    $ $\\
+	Cristian Fernando Rodríguez Cruz\\
+	$ $\\
+	$ $\\
+    $ $\\
+	Authors:\\
+	A. Flórez\inst{1}, \textcolor{Framableu}{\textbf{C. Rodriguez}}\inst{1}, J. Reyes-Vega\inst{1},\\
+	J. Jones-Pérez\inst{2}. \\
+	$ $\\
+}
+
+\institute[Uniandes]{%
+    \inst{1} Universidad de los Andes\and
+    \inst{2} Pontificia Universidad Católica del Perú
+}
+\date{\today}
+\lstset{language=C++,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  commentstyle=\color{green}\ttfamily,
+  morecomment=[l][\color{magenta}]{\#}
+}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\subsection{Motivation}
+\begin{frame}{The Standard Model of Particle Physics}
+    \begin{minipage}[t]{0.43\linewidth}
+        Weak bosons mix the different generations of quarks via the CKM matrix, but this does not happen for leptons. This property of the model is known as \textbf{lepton flavor universality (LFU)}.
+
+        \begin{center}
+            \includegraphics[width=.9\linewidth]{SM}
+        \end{center}
+
+    \end{minipage}
+    \hfill
+    \pause
+    \begin{minipage}[t]{0.53\linewidth}
+        %\centering
+
+        However, recent measurements of the $R(D)$ and $R(D^*)$ ratios show a deviation from the SM predictions. This could be a hint of \textbf{lepton flavor violation (LFV)} and then  \textbf{new physics beyond the SM}.
+
+        $$ $$
+
+        \includegraphics[width=1.05\linewidth]{../2023_paper/RDRDst_hflav.pdf}    
+    
+    \end{minipage}
+\end{frame}
+
+\section{BSM Signatures in the Di-Tau Channel}
+
+\begin{frame}{BSM Signatures in the Di-Tau Channel}
+\begin{minipage}{.48\linewidth}
+	Non-Resonant Production (leptoquarks)
+	\begin{center}
+		\includegraphics[width=.9\linewidth,height=.5\linewidth]{non-res.pdf}
+	\end{center}
+	
+\end{minipage}
+\hfill
+\begin{minipage}{.48\linewidth}
+	Resonant Production (neutral bosons)
+	\begin{center}
+		\includegraphics[width=.9\linewidth,height=.5\linewidth]{DY.pdf}
+	\end{center}
+\end{minipage}
+
+\end{frame}
+
+\subsection{Generalities of the Interference Phenomena}
+\begin{frame}{Generalities of the Interference Phenomena}
+    
+\end{frame}
+
+\subsection{Interference Phenomena in the SM}
+\begin{frame}{Interference Phenomena in the SM}
+    
+\end{frame}
+
+
+
+
+
+% \begin{frame}{Montecarlo Generators}
+	
+
+% 	\begin{center}
+% 		\includegraphics[scale=0.5]{../2023_paper/A1}
+% 	\end{center}
+
+% 	Useful to predict what we expect to see under certain conditions:
+% 	\begin{itemize}
+% 		\item To perform studies before having the data
+% 		\item To compute event selection efficiency/acceptance
+% 		\item  To predict the ammount and composition of background events
+% 		\item To distinguish different signals. 
+% 	\end{itemize}
+	
+% \end{frame}
+
+\begin{frame}{Feasibility Studies Workflow}
+	\includegraphics[width=1.0\linewidth]{../2023_paper/Workflow.png}
+\end{frame}
+
+
+\section{Example: The $4321$-Model}
+\subsection{The model}
+
+% \begin{frame}{Leptoquarks and $R(D)$/ $R(D^*)$ anomalies}
+% 	\begin{multicols}{2}
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_SM_1.png}
+% 		$$ $$
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_SM_2.png}
+% 		\pause
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_LQ_1.png}
+% 		$$ $$
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_LQ_2.png}
+% 	\end{multicols}
+% 	\pause
+% 	\begin{center}
+% 		{\large $ $\\
+% 		How can we test this hypothesis?
+% 		}
+% 	\end{center}
+% \end{frame}
+
+\begin{frame}{Example: The Vector Leptoquark Model}
+    \begin{multicols}{2}
+        A leptoquark is defined as a particle with a vertex that mix vectors and quarks.
+        \begin{center}
+        \includegraphics[width=.25\textwidth]{../2023_paper/LQ_vertex.png}
+        \end{center}
+        If $U_1$ is a vector leptoquark that preserves the chirality on the vertex, we expect an interaction term like
+        $$
+        \sim U_1^\mu\bar{q}_{L} \gamma_{\mu} \ell_{L},
+        $$
+        and these allows a similar interaction term for the right handed currents 
+        $$
+        \sim U_1^\mu\bar{d}_{R} \gamma_{\mu} e_{R}.
+        $$
+    
+        \end{multicols}
+        Where the SM charges for the leptoquark, in the $Y=2(Q-T_3)$ convention, are
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline & $\bar{q}_{L}$ & $\ell_{L}^{j}$ & $\bar{q}_{L}\gamma_{\mu} \ell_{L}$ & $U_{1}^{\mu}$ \\
+                \hline$U(1)$ & $-1 / 3$ & $-1 $ & $-4 / 3$ & $+4 / 3$ \\
+                \hline $\mathrm{SU}(2)$ & $\overline{\mathbf 2}$ & $\mathbf{2}$ & $\mathbf{1}$ & $\mathbf{1}$ \\
+                \hline $\mathrm{SU}(3)$ & $\overline{\mathbf 3}$ & $\mathbf{1}$ & $\overline{\mathbf3}$ & $\mathbf{3}$ \\
+                \hline
+            \end{tabular}	
+        \end{center}
+        Then, the leptoquark $U_1 \sim \left(\mathbf{3}_{C}, \mathbf{1}_{I}, 4 / 3_{Y}\right)$, and its covariant derivative is
+        $$
+        \mathcal{D}_\mu U_\nu = \left(\partial_\mu+i g_s T^a G_\mu^a+ i \frac{2}{3} g' B_\mu \right)U_\nu.
+        $$
+\end{frame}
+
+\begin{frame}{The Vector Leptoquark Lagrangian}
+	
+	The full Lagrangian for the vector leptoquark is
+	\begin{align*}
+		\mathcal{L}_{U}=&-\frac{1}{2} U_{\mu \nu}^{\dagger} U^{\mu \nu}+M_{U}^{2} U_{\mu}^{\dagger} U^{\mu}\\&-i g_{s}\left(1-\kappa_{c}\right) U_{\mu}^{\dagger} T^{a} U_{\nu} G^{\mu \nu}_a -\frac{2 i}{3} g'\left(1-\kappa_{Y}\right) U_{\mu}^{\dagger} U_{\nu} B^{\mu \nu}\\
+		&+\frac{g_{U}}{\sqrt{2}}\left[U_{1}^{\mu}\left(\beta_{L}^{i j} \bar{q}_{L}^{i} \gamma_{\mu} e_{L}^{j}+\beta_{R}^{i j} \bar{d}_{R}^{i} \gamma_{\mu} e_{R}^{j}
+		%+\beta_{N}^{i} \bar{u}_{R}^{i} \gamma_{\mu} N_{R}
+		\right)+\text { h.c. }\right]
+	\end{align*}
+	where $U_{\mu \nu}=\mathcal D_{\mu} U_{\nu}-\mathcal D_{\nu} U_{\mu}$, $\mathcal D_{\mu}=\partial_{\mu}-i g_{s} G_{\mu}^{a} T^{a}-i \frac{2}{3} g_{Y} B_{\mu}$, and the couplings $\beta_{L}$ and $\beta_{R}$ are complex $3 \times 3$ matrices in flavor space. If $U_1$ has a gauge origin $\kappa_{c}=\kappa_{Y}=0$.
+	\pause
+	Defining 
+	$$
+	\psi_{L}^{\mathrm{SM}}=\begin{pmatrix}
+		q_{Lr}\\ q_{Lg}\\ q_{Lb}\\ \ell_L
+	\end{pmatrix}
+	\Longrightarrow\;\;
+	\mathcal{L}_{\text{int}}
+	\sim U_{1\alpha}^\mu \bar{\psi}_{L}^{\mathrm{SM}}\, \gamma_{\mu} T_{+}^{\alpha } \psi_{L}^{\mathrm{SM}} + \text{h.c.},
+	\quad
+	T_{+}^{\alpha}=\begin{pmatrix}
+		0 & 0 & 0 & \delta_{r\alpha}\\
+		0 & 0 & 0 & \delta_{g\alpha}\\
+		0 & 0 & 0 & \delta_{b\alpha}\\
+		0 & 0 & 0 & 0
+	\end{pmatrix},
+	$$
+	we have six generators $T_{\pm}^{\alpha }$ with closure relation,
+	$$
+	\sum_{\alpha} \left[{T_{+}^{\alpha }},{T_{-}^{\alpha}}\right] =
+	3 T_{B-L}=\begin{pmatrix}
+		1 & 0 & 0 & 0\\
+		0 & 1 & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		0 & 0 & 0 & -3
+	\end{pmatrix}.
+	$$
+	So, the gauge group with this leptoquark must include a $U(1)_{B-L}$ symmetry. The right-handed currents also have a similar interaction term.
+\end{frame}
+
+\subsection{Sensitivity Reach of the $U_1$ Leptoquark}
+\begin{frame}{Sensitivity Reach of the $U_1$ Leptoquark}
+	\begin{minipage}{.32\linewidth}
+		\includegraphics[width=\linewidth]{../2023_paper/non_resonant.png}
+	\end{minipage}
+	\begin{minipage}{.66\linewidth}
+		\includegraphics[width=\linewidth]{../2023_paper/Significance_Heatmap_13TeV_L137_non-res_combined_woRHC.pdf}
+	\end{minipage}
+
+	{\large
+		  Non-resonant production is highly dependent on the couplings, so it dominates the regions of high coupling constants at all masses.
+	}
+\end{frame}
+
+
+\begin{frame}{Take care, you could need a $Z'$ boson}
+	The generator $T_{B-L}$ is associated with the $U(1)_{B-L}$ symmetry with a $Z'$ boson. The interaction terms for the $Z'$ boson have the form
+	\begin{align*}
+		\mathcal{L}_{\text{int}} &\sim Z'_\mu\left(\bar{\psi}_{L}^{\mathrm{SM}}\gamma^\mu (3T_{B-L}) \psi_{L}^{\mathrm{SM}}\right)\\
+		&\sim Z'_\mu \left(\bar q_{L} \gamma^\mu q_{L} - 3 \bar \ell_L \gamma^\mu \ell_L\right).
+	\end{align*}\pause
+	so, the full Lagrangian for the $Z'$ boson is
+	\begin{equation}
+		\begin{aligned}
+		\mathcal{L}_{Z^{\prime}}= & -\frac{1}{4} Z_{\mu \nu}^{\prime} Z^{\prime \mu \nu} +\frac{1}{2} M_{Z^{\prime}}^2 Z_\mu^{\prime} Z^{\prime \mu} \\
+		& +\frac{g_{Z^{\prime}} }{2 \sqrt{6}} Z^{\prime \mu}\left(\zeta_q^{i j} \bar{q}_L^i \gamma_\mu q_L^j+\zeta_u^{i j} \bar{u}_R^i \gamma_\mu u_R^j+\zeta_d^{i j} \bar{d}_R^i \gamma_\mu d_R^j-3 \zeta_{\ell}^{i j} \bar{\ell}_L^i \gamma_\mu \ell_L^j-3 \zeta_e^{i j} \bar{e}_R^i \gamma_\mu e_R^j\right),
+		\end{aligned}
+	\end{equation}
+	where the couplings $\zeta$ are complex $3\times 3$ matrices in flavor space.\pause
+
+	\vfill
+	We assume that both, the $Z'$ and the vector leptoquark $U_1$, have preferential couplings to third generation fermions, so $\beta^{33}\gg \beta^{ij}$ and $\zeta^{33}\gg \zeta^{ij}$.
+\end{frame}
+
+
+
+\subsection{Interference with a $Z'$ vector boson}
+\begin{frame}{Interference with a $Z'$ vector boson}
+    
+\end{frame}
+
+\section{Final Remarks}
+\subsection{Conclusions}
+\begin{frame}{Conclusions}
+
+\end{frame}
+
+\subsection{Future Work}
+\begin{frame}{Future Work}
+
+\end{frame}
+
+\end{document}
