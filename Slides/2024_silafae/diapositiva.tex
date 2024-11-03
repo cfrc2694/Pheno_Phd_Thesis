@@ -94,46 +94,123 @@
     \end{minipage}
 \end{frame}
 
+\begin{frame}{Large Hadron Collider}
+	\begin{minipage}{.55\linewidth}
+		{\centering
+		\includegraphics[width=.9\linewidth]{pp_collision.png}
+		\includegraphics[width=.99\linewidth]{../2023_paper/LHC.png}
+		}
+	\end{minipage}
+	\pause \hfill
+	\begin{minipage}{.42\linewidth}
+		\begin{itemize}
+			\item Feasibility Studies is needed.
+			$$ $$
+			\item Take Care on the dependence on the different parameters.
+			$$ $$
+			\item Take care on the content of particles.
+			$$ $$
+			\item Take care of the signal composition.
+			$$ $$
+			\item Take care on interference effects.
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+
 \subsection{BSM Signatures}
-\begin{frame}{BSM Signatures on the Di-Tau Channel at the LHC}{$\tau$ lepton as window}
+\begin{frame}{BSM Signatures on the Di-Tau Channel at the LHC}{LFV and $\tau$ lepton as window to new physics}
 	%Assuming that the LFV can be explained models which have a preferential coupling to the third generation of fermions, we can explore the structure of that models by studying the di-tau channel at the LHC.
-	\vfill
-	In the different models, we can have different production mechanisms, like
-	\begin{minipage}{.48\linewidth}
+	
+	In the different models, we can have different production mechanisms. 
+	
+	For example, resonant ones
+
+	\begin{minipage}{.45\linewidth}
 		\begin{center}
 			\includegraphics[width=.9\linewidth]{DY.pdf}
 		\end{center}
 	\end{minipage}
 	\hfill
-	\begin{minipage}{.48\linewidth}
-		\begin{center}
-			\includegraphics[width=.9\linewidth]{non-res.pdf}
-		\end{center}
-	\end{minipage}
-
-	\begin{minipage}{.48\linewidth}
+	\begin{minipage}{.45\linewidth}
 		\begin{center}
 			\includegraphics[width=.9\linewidth]{DY_scalar.pdf}
 		\end{center}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{.48\linewidth}
+	
+	\vfill%\hrule\vfill
+	or non-resonant ones
+
+	\begin{minipage}{.45\linewidth}
 		\begin{center}
-			\includegraphics[width=.9\linewidth]{DY.pdf}
+			\includegraphics[width=.9\linewidth]{non-res_vector.pdf}
 		\end{center}
 	\end{minipage}
+	\hfill
+	\begin{minipage}{.45\linewidth}
+		\begin{center}
+			\includegraphics[width=.9\linewidth]{non-res_scalar.pdf}
+		\end{center}
+	\end{minipage}
+  \begin{center}
+		{ \large
+		Different Models could have one or several contributions to the di-tau channel, and the \textbf{interference between them could be relevant.}
+		}
+	\end{center}
 \end{frame}
 
-\section{Interference Phenomena}
-\subsection{Generalities of the Interference Phenomena}
-\begin{frame}{Generalities of the Interference Phenomena}
-    
-\end{frame}
 
 \subsection{Interference Phenomena in the SM}
-\begin{frame}{Interference Phenomena in the SM}
+\begin{frame}{Interference Phenomena in the SM}{Photon and $Z$-boson interference, $q \bar q \longrightarrow \tau^+ \tau^- $}
     
-\end{frame}
+    \begin{minipage}{0.65\textwidth}
+        The squared matrix element can be written as
+        \begin{equation}
+            \begin{aligned}
+                \abs{\mathcal{M}}^2 & =\abs{\mathcal{M}_{\gamma^*}+\mathcal{M}_{Z}}^2
+                \\&= \abs{\mathcal{M}_{\gamma^*}}^2 + \abs{\mathcal{M}_{Z}}^2 + 2\Re\left( \mathcal{M}_{\gamma^*}^*\mathcal{M}_{Z} \right).    \notag
+            \end{aligned}
+        \end{equation}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.33\textwidth}
+        \begin{center}
+            \includegraphics[width=.8\linewidth]{DY.png}
+        \end{center}
+    \end{minipage}
+    \pause
+    $ $\\$ $\\$ $
+
+    For the case $q_R \bar q_L \longrightarrow \tau_L^+ \tau_R^-$, the amplitudes are
+    \begin{minipage}{0.65\textwidth}
+        \begin{equation}
+            \begin{aligned}
+                \abs{\mathcal{M}_{\gamma^*}}^2          & = e^4\left[Q^{(f)} Q^{(q)}\right]^2\left[1+\cos \theta\right]^2                                                                      \\
+                \abs{\mathcal{M}_{Z}}^2                 & = \frac{s^2 g_Z^4\left[g_R^{(f)} g_R^{(q)}\right]^2}{\textcolor{red}{\left(s-m_Z^2\right)^2+\left(m_Z \Gamma_Z\right)^2}}\left[1+\cos \theta\right]^2 \\
+                \mathcal{M}_{\gamma^*}^*\mathcal{M}_{Z} & = \frac{g_Z^2 e^2 Q^{(f)} Q^{(q)} g_R^{(f)} g_R^{(q)}}{\textcolor{blue}{\left(s-m_Z^2+i \Gamma_Zm_Z\right)}} \textcolor{blue}{s}\left(1+\cos \theta\right)^2 \notag
+            \end{aligned}
+        \end{equation}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.33\textwidth}
+        \begin{tikzpicture}[xscale=0.38, yscale=0.1]
+            \draw[thick,->] (0,0) -- (9.5,0) node[below] {$s$};
+            \draw[thick,->] (0,-10) -- (0,15) node[right,blue] {$ \Re\left(
+                    \frac{s}{(s-m_Z^2+i \Gamma_Z m_Z)}
+                    \right)$};
+
+            % plot -(m^2 x)/((-m^2 + x)^2 + Γ^2) + x^2/((-m^2 + x)^2 + Γ^2), m=2, Γ=0.2
+            \draw[domain=0:9,samples=100,smooth,variable=\x,blue]
+            plot ({\x},{-(4*\x)/((4-\x)^2 + 0.04) + \x^2/((4-\x)^2 + 0.04)});
+            % put a mark in s=m^2
+            \draw[dashed] (4,-10) node[right] {$m_Z^2$} -- (4,12);
+        \end{tikzpicture}
+    \end{minipage}\pause
+		\begin{center}
+			{ \large
+			Always that you have two or more contributions to a process, the interference between near to the resonances could be relevant.
+			}
+		\end{center}
+\end{frame}    
 
 
 
@@ -142,48 +219,29 @@
 
 
 
-\begin{frame}{Montecarlo Generators}
-	
 
-	\begin{center}
-		\includegraphics[scale=0.5]{../2023_paper/A1}
-	\end{center}
-
-	Useful to predict what we expect to see under certain conditions:
-	\begin{itemize}
-		\item To perform studies before having the data
-		\item To compute event selection efficiency/acceptance
-		\item  To predict the ammount and composition of background events
-		\item To distinguish different signals. 
-	\end{itemize}
-	
-\end{frame}
-
-\begin{frame}{Feasibility Studies Workflow}
-	\includegraphics[width=1.0\linewidth]{../2023_paper/Workflow.png}
-\end{frame}
 
 
 \section{Example: The $4321$-Model}
 \subsection{The model}
 
-\begin{frame}{Leptoquarks and $R(D)$/ $R(D^*)$ anomalies}
-	\begin{multicols}{2}
-		\includegraphics[width=.99\linewidth]{../2023_paper/B_SM_1.png}
-		$$ $$
-		\includegraphics[width=.99\linewidth]{../2023_paper/B_SM_2.png}
-		\pause
-		\includegraphics[width=.99\linewidth]{../2023_paper/B_LQ_1.png}
-		$$ $$
-		\includegraphics[width=.99\linewidth]{../2023_paper/B_LQ_2.png}
-	\end{multicols}
-	\pause
-	\begin{center}
-		{\large $ $\\
-		How can we test this hypothesis?
-		}
-	\end{center}
-\end{frame}
+% \begin{frame}{Leptoquarks and $R(D)$/ $R(D^*)$ anomalies}
+% 	\begin{multicols}{2}
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_SM_1.png}
+% 		$$ $$
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_SM_2.png}
+% 		\pause
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_LQ_1.png}
+% 		$$ $$
+% 		\includegraphics[width=.99\linewidth]{../2023_paper/B_LQ_2.png}
+% 	\end{multicols}
+% 	\pause
+% 	\begin{center}
+% 		{\large $ $\\
+% 		How can we test this hypothesis?
+% 		}
+% 	\end{center}
+% \end{frame}
 
 \begin{frame}{Example: The Vector Leptoquark Model}
     \begin{multicols}{2}
@@ -226,47 +284,60 @@
 		%+\beta_{N}^{i} \bar{u}_{R}^{i} \gamma_{\mu} N_{R}
 		\right)+\text { h.c. }\right]
 	\end{align*}
-	where $U_{\mu \nu}=\mathcal D_{\mu} U_{\nu}-\mathcal D_{\nu} U_{\mu}$, $\mathcal D_{\mu}=\partial_{\mu}-i g_{s} G_{\mu}^{a} T^{a}-i \frac{2}{3} g_{Y} B_{\mu}$, and the couplings $\beta_{L}$ and $\beta_{R}$ are complex $3 \times 3$ matrices in flavor space. If $U_1$ has a gauge origin $\kappa_{c}=\kappa_{Y}=0$.
-	\pause
-	Defining 
-	$$
-	\psi_{L}^{\mathrm{SM}}=\begin{pmatrix}
-		q_{Lr}\\ q_{Lg}\\ q_{Lb}\\ \ell_L
-	\end{pmatrix}
-	\Longrightarrow\;\;
-	\mathcal{L}_{\text{int}}
-	\sim U_{1\alpha}^\mu \bar{\psi}_{L}^{\mathrm{SM}}\, \gamma_{\mu} T_{+}^{\alpha } \psi_{L}^{\mathrm{SM}} + \text{h.c.},
-	\quad
-	T_{+}^{\alpha}=\begin{pmatrix}
-		0 & 0 & 0 & \delta_{r\alpha}\\
-		0 & 0 & 0 & \delta_{g\alpha}\\
-		0 & 0 & 0 & \delta_{b\alpha}\\
-		0 & 0 & 0 & 0
-	\end{pmatrix},
-	$$
-	we have six generators $T_{\pm}^{\alpha }$ with closure relation,
-	$$
-	\sum_{\alpha} \left[{T_{+}^{\alpha }},{T_{-}^{\alpha}}\right] =
-	3 T_{B-L}=\begin{pmatrix}
-		1 & 0 & 0 & 0\\
-		0 & 1 & 0 & 0\\
-		0 & 0 & 1 & 0\\
-		0 & 0 & 0 & -3
-	\end{pmatrix}.
-	$$
-	So, the gauge group with this leptoquark must include a $U(1)_{B-L}$ symmetry. The right-handed currents also have a similar interaction term.
+	where $U_{\mu \nu}=\mathcal D_{\mu} U_{\nu}-\mathcal D_{\nu} U_{\mu}$, $\mathcal D_{\mu}=\partial_{\mu}-i g_{s} G_{\mu}^{a} T^{a}-i \frac{2}{3} g_{Y} B_{\mu}$, and the couplings $\beta_{L}$ and $\beta_{R}$ are complex $3 \times 3$ matrices in flavor space. 
+	
+	\pause \vfill
+	
+	The $\Delta F=2$ and lepton flavor violating processes indicates an structure as 
+	\begin{equation*}
+		\beta_L=\left(\begin{array}{ccc}
+			0 & 0 & \beta_L^{13} \\
+			0 & 0 & \beta_L^{23} \\
+			0 & \beta_L^{32} & \beta_L^{33}
+			\end{array}\right), \quad \beta_R=\operatorname{diag}\left(0,0, \beta_R^{33}\right)
+	\end{equation*}
+	
+	If $U_1$ has a gauge origin $\kappa_{c}=\kappa_{Y}=0$. We choose $U(2)$ in quark and leptons space, in a way that you have an hierarchy, $\left|\beta_L^{31}\right| \ll\left|\beta_L^{23}\right|,\left|\beta_L^{32}\right| \ll\left|\beta_R^{33}\right|,\left|\beta_L^{33}\right|=\mathcal{O}(1)$.
+	
 \end{frame}
+
+
+% \begin{frame}{Montecarlo Generators}
+	
+
+% 	\begin{center}
+% 		\includegraphics[scale=0.5]{../2023_paper/A1}
+% 	\end{center}
+
+% 	Useful to predict what we expect to see under certain conditions:
+% 	\begin{itemize}
+% 		\item To perform studies before having the data
+% 		\item To compute event selection efficiency/acceptance
+% 		\item  To predict the ammount and composition of background events
+% 		\item To distinguish different signals. 
+% 	\end{itemize}
+	
+% \end{frame}
+
+\begin{frame}{Feasibility Studies Workflow}
+	\includegraphics[width=1.0\linewidth]{../2023_paper/Workflow.png}
+\end{frame}
+
 
 \subsection{Sensitivity Reach of the $U_1$ Leptoquark}
 \begin{frame}{Sensitivity Reach of the $U_1$ Leptoquark}
 	\begin{minipage}{.32\linewidth}
 		\includegraphics[width=\linewidth]{../2023_paper/non_resonant.png}
+
 	\end{minipage}
 	\begin{minipage}{.66\linewidth}
 		\includegraphics[width=\linewidth]{../2023_paper/Significance_Heatmap_13TeV_L137_non-res_combined_woRHC.pdf}
+
+
 	\end{minipage}
 
 	{\large
+
 		  Non-resonant production is highly dependent on the couplings, so it dominates the regions of high coupling constants at all masses.
 	}
 \end{frame}
@@ -298,9 +369,11 @@
 \begin{minipage}{.48\linewidth}
 	Non-Resonant Production (leptoquarks)
 	\begin{center}
-		\includegraphics[width=.9\linewidth,height=.5\linewidth]{non-res.pdf}
+		\includegraphics[width=.9\linewidth,height=.5\linewidth]{non-res_vector.pdf}
 	\end{center}
-	
+	\begin{equation}
+		\mathcal{M}_{U_1} \sim \frac{1}{t-m_{U_1}^2 + i m_{U_1} \Gamma_{U_1}},
+	\end{equation}
 \end{minipage}
 \hfill
 \begin{minipage}{.48\linewidth}
@@ -308,6 +381,9 @@
 	\begin{center}
 		\includegraphics[width=.9\linewidth,height=.5\linewidth]{DY.pdf}
 	\end{center}
+	\begin{equation}
+		\mathcal{M}_{Z'} \sim \frac{1}{s-m_{Z'}^2 + i m_{Z'} \Gamma_{Z'}},
+	\end{equation}
 \end{minipage}
 
 \end{frame}
