@@ -358,22 +358,48 @@
 
 
 \begin{frame}{Take care, you could need a $Z'$ boson}
-	The generator $T_{B-L}$ is associated with the $U(1)_{B-L}$ symmetry with a $Z'$ boson. The interaction terms for the $Z'$ boson have the form
+
+	Defining 
+	$$
+	\psi_{L}^{\mathrm{SM}}=\begin{pmatrix}
+		q_{Lr}\\ q_{Lg}\\ q_{Lb}\\ \ell_L
+	\end{pmatrix}
+	\Longrightarrow\;\;
+	\mathcal{L}_{\text{int}}
+	\sim U_{1\alpha}^\mu \bar{\psi}_{L}^{\mathrm{SM}}\, \gamma_{\mu} T_{+}^{\alpha } \psi_{L}^{\mathrm{SM}} + \text{h.c.},
+	\quad
+	T_{+}^{\alpha}=\begin{pmatrix}
+		0 & 0 & 0 & \delta_{r\alpha}\\
+		0 & 0 & 0 & \delta_{g\alpha}\\
+		0 & 0 & 0 & \delta_{b\alpha}\\
+		0 & 0 & 0 & 0
+	\end{pmatrix},
+	$$
+	we have six generators $T_{\pm}^{\alpha }$ with closure relation,
+	$$
+	\sum_{\alpha} \left[{T_{+}^{\alpha }},{T_{-}^{\alpha}}\right] =
+	3 T_{B-L}=\begin{pmatrix}
+		1 & 0 & 0 & 0\\
+		0 & 1 & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		0 & 0 & 0 & -3
+	\end{pmatrix}.
+	$$
+	So, the gauge group with this leptoquark must include a $U(1)_{B-L}$ symmetry. 
+	\pause
+
+	The generator $T_{B-L}$ is associated with the $U(1)_{B-L}$ symmetry with a $Z'$ boson. 
 	\begin{align*}
 		\mathcal{L}_{\text{int}} &\sim Z'_\mu\left(\bar{\psi}_{L}^{\mathrm{SM}}\gamma^\mu (3T_{B-L}) \psi_{L}^{\mathrm{SM}}\right)\\
 		&\sim Z'_\mu \left(\bar q_{L} \gamma^\mu q_{L} - 3 \bar \ell_L \gamma^\mu \ell_L\right).
 	\end{align*}\pause
 	so, the full Lagrangian for the $Z'$ boson is
-	\begin{equation}
+	\begin{equation*}
 		\begin{aligned}
 		\mathcal{L}_{Z^{\prime}}= & -\frac{1}{4} Z_{\mu \nu}^{\prime} Z^{\prime \mu \nu} +\frac{1}{2} M_{Z^{\prime}}^2 Z_\mu^{\prime} Z^{\prime \mu} \\
 		& +\frac{g_{Z^{\prime}} }{2 \sqrt{6}} Z^{\prime \mu}\left(\zeta_q^{i j} \bar{q}_L^i \gamma_\mu q_L^j+\zeta_u^{i j} \bar{u}_R^i \gamma_\mu u_R^j+\zeta_d^{i j} \bar{d}_R^i \gamma_\mu d_R^j-3 \zeta_{\ell}^{i j} \bar{\ell}_L^i \gamma_\mu \ell_L^j-3 \zeta_e^{i j} \bar{e}_R^i \gamma_\mu e_R^j\right),
 		\end{aligned}
-	\end{equation}
-	where the couplings $\zeta$ are complex $3\times 3$ matrices in flavor space.\pause
-
-	\vfill
-	We assume that both, the $Z'$ and the vector leptoquark $U_1$, have preferential couplings to third generation fermions, so $\beta^{33}\gg \beta^{ij}$ and $\zeta^{33}\gg \zeta^{ij}$.
+	\end{equation*}
 \end{frame}
 
 
