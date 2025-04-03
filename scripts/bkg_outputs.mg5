@@ -1,35 +1,35 @@
-import model sm-no_b_mass
+import model loop_sm-no_b_mass
 
-generate p p > t t~ @0 
+generate p p > t t~ [QCD] @0 
 output PATH_TO_TTBAR -nojpeg
 
-generate p p > t j @0 
-add process p p > t~ j @0
+generate p p > t j [QCD] @0 
+add process p p > t~ j [QCD] @0
 output PATH_TO_STOP_JET -nojpeg
 
-generate p p > t w- @0 
-add process p p > t~ w+ @0
+generate p p > t w- [QCD] @0 
+add process p p > t~ w+ [QCD] @0
 output PATH_TO_STOP_W  -nojpeg
 
-generate p p > z @0 
-add process p p > z j @1
-add process p p > z j j @2
+generate p p > z [QCD] @0 
+add process p p > z j [QCD] @1
+add process p p > z j j [QCD] @2
 output PATH_TO_SZ_JET -nojpeg
 
-generate p p > w+ @0 
-add process p p > w+ j @1
-add process p p > w+ j j @2
-add process p p > w- @0 
-add process p p > w- j @1
-add process p p > w- j j @2
+generate p p > w+ [QCD] @0 
+add process p p > w+ j [QCD] @1
+add process p p > w+ j j [QCD] @2
+add process p p > w- [QCD] @0 
+add process p p > w- j [QCD] @1
+add process p p > w- j j [QCD] @2
 output PATH_TO_SW_JET -nojpeg
 
-generate p p > w+ w- @0
+generate p p > w+ w- [QCD] @0
 output PATH_TO_WW -nojpeg
 
-generate p p > w+ z @0
-add process p p > w- z @0
+generate p p > w+ z [QCD] @0
+add process p p > w- z [QCD] @0
 output PATH_TO_WZ -nojpeg
 
-generate p p > z z @0
+generate p p > z z [QCD] @0
 output PATH_TO_ZZ -nojpeg
