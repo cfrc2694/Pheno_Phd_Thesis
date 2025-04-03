@@ -10,13 +10,13 @@
 	\RequirePackage{inputenc}
 \PassOptionsToPackage{T1}{fontenc}
 	\RequirePackage{fontenc}
-% Spanish options
-\PassOptionsToPackage{spanish, es-tabla, es-noquoting}{babel}
-	\RequirePackage{babel}
-	\spanishdecimal{.}
+% % Spanish options
+% \PassOptionsToPackage{spanish, es-tabla, es-noquoting}{babel}
+% 	\RequirePackage{babel}
+% 	\spanishdecimal{.}
 
-%% English options
-%\usepackage[english]{babel}
+% English options
+\usepackage[english]{babel}
 
 \PassOptionsToPackage{osf,sc}{mathpazo}%
 	\RequirePackage{mathpazo} 
@@ -286,44 +286,3 @@
 \let\graffito\marginpar
 
 
-%-- TITULO-------------------------------------------------------------------------
-%
-\def\thickhrulefill{\leavevmode \leaders \color{colorteorema}\hrule height 4pt\hfill \kern \z@}
-\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}} % Define el comando \subtitle
-\newcommand{\@subtitle}{}  
-\renewcommand{\maketitle}{\begin{titlepage}%
-    \let\footnoterule\relax
-    \parindent \z@
-    \reset@font
-    \null
-    \vskip 12\p@
-    \hbox{\mbox{%
-        \hspace{4pt}%
-        \IfFileExists{Images/Logo.png}{\includegraphics[width=4em]{Images/Logo.png}}{}%     
-        \hspace{4pt}
-        }%
-      \color{azulF}\vrule depth 0.9\textheight width 1pt%
-      \mbox{\hspace{2em}}
-      \vtop{
-        \vskip 25\p@
-        \begin{flushleft}
-          \huge \bfseries \@title \par
-          \Large  \@subtitle \par
-        \end{flushleft}
-        \vskip 95\p@
-        \begin{flushleft}
-          \@author \par
-        \end{flushleft}
-         \vskip 180\p@
-         \color{gray}
-        \begin{flushleft}
-          {\today}\\
-          {$\varphi \upsilon \sigma \iota \kappa \acute{\eta}$}
-        \end{flushleft}
-        \vfil
-        }}
-    \null
-  \end{titlepage}%
-  \setcounter{footnote}{0}%
-}
-% Fin Titulo----------------------------------------------------------------------------
