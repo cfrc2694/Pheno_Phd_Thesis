@@ -20,6 +20,15 @@
 \usepackage{epstopdf}
 \usepackage{subcaption}
 \usepackage[detect-all]{siunitx}
+
+\usepackage[%
+	backend=bibtex8,
+	style=authoryear,
+	sorting=nyt,
+	autocite=inline
+	]{biblatex}
+\addbibresource{references.bib}
+
 \usepackage{etex, tikz, tikz-3dplot, xcolor}
 \usetikzlibrary{
   decorations.pathreplacing,
@@ -32,7 +41,8 @@
   calc
 }
 
-
+\usepackage{pdfpages}
+\usepackage{tocbibind}
 \title{Feasibility studies on the production of new particles with preferential couplings to third generation fermions at the LHC}
 \author{Cristian Fernando Rodríguez Cruz}
 \date{\today}
@@ -56,15 +66,18 @@
 \renewcommand{\theequation}{{\Alph{chapter}.\arabic{equation}}}
 \renewcommand{\thefigure}{{\Alph{chapter}.\arabic{figure}}}
 \renewcommand{\thetable}{{\Alph{chapter}.\arabic{table}}}
-\include{Appendices/A00.tex}
-\include{Appendices/A06.tex}
-\include{Appendices/A07.tex}
-\include{Appendices/A08.tex}
 \include{Appendices/A01.tex}
 \include{Appendices/A02.tex}
 \include{Appendices/A03.tex}
 \include{Appendices/A04.tex}
 \include{Appendices/A05.tex}
-
-
+\include{Appendices/A06.tex}
+\include{Appendices/A07.tex}
+\include{Appendices/A08.tex}
+\include{Appendices/A00.tex}
+\nocite{*}%Imprimir todas las referencias
+\backmatter
+\phantomsection
+\addcontentsline{toc}{chapter}{\numberline{}\spacedlowsmallcaps{Bibliography}}
+\printbibliography
 \end{document}
