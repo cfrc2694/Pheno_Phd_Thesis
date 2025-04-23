@@ -1,11 +1,65 @@
+// {
+//     "files.defaultLanguage": "${activeEditorLanguage}",
+//     "cSpell.language": "en,es",
+//     "latex-workshop.latex.tools": [
+//         {
+//             "name": "pdflatex",
+//             "command": "pdflatex",
+//             "args": [
+//                 "--shell-escape",
+//                 "-synctex=1",
+//                 "-interaction=nonstopmode",
+//                 "-file-line-error",
+//                 "%DOC%"
+//             ]
+//         }
+//     ],
+//     "latex-workshop.latex.recipes": [
+//         {
+//             "name": "pdflatex",
+//             "tools": ["pdflatex"]
+//         }
+//     ]
+// }
+
+
 {
     "files.defaultLanguage": "${activeEditorLanguage}",
     "cSpell.language": "en,es",
-    "cSpell.words": [
-        "autoestado",
-        "autoestados",
-        "autovalores",
-        "espinoriales",
-        "Schrödinger"
-    ]
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-pdf",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "--shell-escape",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "--shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": ["latexmk"]
+        },
+        {
+            "name": "pdflatex",
+            "tools": ["pdflatex"]
+        }
+    ],
+    "latex-workshop.latex.autoBuild.run": "onSave"
 }

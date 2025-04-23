@@ -124,8 +124,105 @@ where,
 \end{equation}
 With these ingredients, we are ready to approach the standard model Lagrangian. 
 
-%TO DO -> ADD Feynman Diagrams for this interaction.
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph1} 
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{dashes,tension=2.0}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
 
+                \fmflabel{$\phi$}{i1}
+                \fmflabel{$\bar\psi$}{o1}
+                \fmflabel{$\psi$}{o2}
+
+				\fmfv{lab=$k_1$, lab.dist=0.25cm, lab.angle=115}{v1}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Yukawa coupling with a scalar $\phi$.}
+        \label{fig-yukawa-scalar}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph2}
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{photon,tension=2.0}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
+
+                \fmflabel{$\gamma$}{i1}
+                \fmflabel{$\bar\psi$}{o1}
+                \fmflabel{$\psi$}{o2}
+
+				\fmfv{lab=$g$, lab.dist=0.25cm, lab.angle=115}{v1}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Interaction with a photon $\gamma$.}
+        \label{fig-qed-photon}
+    \end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph3}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1}
+				\fmfright{o1,o2}
+
+				\fmf{dashes}{i1,v1}
+				\fmf{dashes}{v1,o1}
+				\fmf{dashes}{v1,o2}
+
+				\fmflabel{$\phi$}{i1}
+				\fmflabel{$\phi$}{o1}
+				\fmflabel{$\phi$}{o2}
+
+				\fmfv{lab=$\alpha$, lab.dist=0.25cm, lab.angle=115}{v1}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Triple scalar coupling.}
+		\label{fig-triple-scalar}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph4}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1,i2}
+				\fmfright{o1,o2}
+
+				\fmf{dashes}{i1,v1}
+				\fmf{dashes}{i2,v1}
+				\fmf{dashes}{v1,o1}
+				\fmf{dashes}{v1,o2}
+
+				\fmflabel{$\phi$}{i1}
+				\fmflabel{$\phi$}{i2}
+				\fmflabel{$\phi$}{o1}
+				\fmflabel{$\phi$}{o2}
+
+				\fmfv{lab=$\lambda$, lab.dist=0.3cm, lab.angle=90}{v1}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Quartic scalar coupling.}
+		\label{fig-quartic-scalar}
+	\end{subfigure}
+    \caption{Feynman diagrams for Yukawa coupling, gauge boson coupling and quartic scalar coupling.}
+\end{figure}
 \section{Standard Model}
 
 {$ $ \scriptsize \hfill Fragment extracted and adapted from \cite{robinson2011symmetry}}
