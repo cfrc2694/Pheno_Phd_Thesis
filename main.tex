@@ -75,10 +75,6 @@
 \include{Chapters/C04.tex} %Feasibility studies
 \include{Chapters/C05.tex} %Conclusions
 
-\appendix
-\renewcommand{\theequation}{{\Alph{chapter}.\arabic{equation}}}
-\renewcommand{\thefigure}{{\Alph{chapter}.\arabic{figure}}}
-\renewcommand{\thetable}{{\Alph{chapter}.\arabic{table}}}
 \include{Appendices/A01.tex}
 \include{Appendices/A02.tex}
 \include{Appendices/A03.tex}
@@ -87,10 +83,15 @@
 \include{Appendices/A07.tex}
 \include{Appendices/A08.tex}
 \include{Appendices/A05.tex}
-\include{Appendices/A00.tex}
 \nocite{*}%Imprimir todas las referencias
 \backmatter
+\appendix
+\renewcommand{\theequation}{{\Alph{chapter}.\arabic{equation}}}
+\renewcommand{\thefigure}{{\Alph{chapter}.\arabic{figure}}}
+\renewcommand{\thetable}{{\Alph{chapter}.\arabic{table}}}
 \phantomsection
 \addcontentsline{toc}{chapter}{\numberline{}\spacedlowsmallcaps{Bibliography}}
 \printbibliography
+
+\include{Appendices/A00.tex}
 \end{document}
