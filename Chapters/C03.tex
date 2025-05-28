@@ -1,7 +1,74 @@
 \chapter{BSM signatures in di-tau final states}
-\lipsum
+
 
 \section{A Simplified Model for the $\tilde S_1$ Scalar Leptoquark}
+
+Leptoquarks (LQs) are hypothetical particles that couple to both quarks and leptons, offering a possible explanation for flavor anomalies and lepton non-universality. 
+
+The scalar leptoquark $\tilde{S}_1 = (\overline{\mathbf{3}}, \mathbf{1}, 4/3)$ emerges as an attractive beyond-Standard Model (BSM) candidate that could explain observed anomalies in $\tau$-lepton final states. This section details its theoretical framework and phenomenological implications.
+
+Under the SM gauge group $SU(3)_C \times SU(2)_L \times U(1)_Y$, $\tilde{S}_1$ transforms as:
+
+\begin{itemize}
+    \item \textbf{Color representation}: $\overline{\mathbf{3}}$ (enabling couplings to quarks while maintaining color neutrality)
+    \item \textbf{Weak isospin}: Singlet ($\mathbf{1}$) under $SU(2)_L$
+    \item \textbf{Hypercharge}: $Y = \frac{4}{3}$, determined by gauge invariance of Yukawa couplings
+\end{itemize}
+
+The electric charge follows from the Gell-Mann--Nishijima relation:
+\begin{equation}
+    Q = T_3 + Y = 0 + \frac{4}{3} = \frac{4}{3}
+\end{equation}
+
+The most general renormalizable Lagrangian contains the couplings:
+\begin{equation}
+    \mathcal{L}_{\text{Yukawa}} \supset \tilde{y}^{RR}_{ij} \overline{d_R^{C\,i}} \tilde{S}_1 e_R^j + \tilde{z}^{RR}_{ij} \overline{u_R^{C\,i}} \tilde{S}_1^* u_R^j + \text{h.c.}
+    \label{eq:yukawa}
+\end{equation}
+where $\tilde{y}^{RR}, \tilde{z}^{RR}$ are complex Yukawa matrices, with $\tilde{z}^{RR}$ antisymmetric due to Fermi statistics.
+
+The dominant processes contributing to $pp \to \tau^+\tau^-$ are:
+\begin{align}
+    q\bar{q} &\to \tilde{S}_1\tilde{S}_1^* \to \tau^+\tau^- + X \\
+    gg &\to \tilde{S}_1\tilde{S}_1^* \to (b\tau^+)(\bar{b}\tau^-)
+\end{align}
+
+The covariant derivative for $\tilde{S}_1$ reads:
+\begin{equation}
+    D_\mu = \partial_\mu + i g_1 \frac{4}{3} B_\mu
+\end{equation}
+leading to the kinetic term:
+\begin{equation}
+    \mathcal{L}_{\text{kin}} = |D_\mu\tilde{S}_1|^2
+\end{equation}
+
+After electroweak symmetry breaking ($B_\mu = c_W A_\mu - s_W Z_\mu$), we obtain:
+
+\begin{equation}
+    \mathcal{L} \supset \frac{4}{3}e\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]A^\mu + \left(\frac{4}{3}e\right)^2 A_\mu A^\mu |\tilde{S}_1|^2
+\end{equation}
+
+\begin{equation}
+    \mathcal{L} \supset -\frac{4}{3}g_1 s_W\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]Z^\mu + \left(\frac{4}{3}g_1 s_W\right)^2 Z_\mu Z^\mu |\tilde{S}_1|^2
+\end{equation}
+
+The complete scalar potential includes:
+\begin{equation}
+    V = \underbrace{-\mu^2|H|^2 + \lambda|H|^4}_{\text{SM Higgs}} + \underbrace{m_{\tilde{S}_1}^2|\tilde{S}_1|^2 + \lambda_{\tilde{S}_1}|\tilde{S}_1|^4}_{\text{LQ self-interactions}} + \underbrace{\lambda_{H\tilde{S}_1}|H|^2|\tilde{S}_1|^2}_{\text{Higgs portal}}
+\end{equation}
+
+After EWSB ($H \to (0, (v+h)/\sqrt{2})^T$), the Higgs-LQ interactions generate:
+\begin{align}
+    \Delta m_{\tilde{S}_1}^2 &= \frac{1}{2}\lambda_{H\tilde{S}_1}v^2 \\
+    \mathcal{L}_{\text{int}} &\supset \lambda_{H\tilde{S}_1}v h|\tilde{S}_1|^2 + \frac{1}{2}\lambda_{H\tilde{S}_1}h^2|\tilde{S}_1|^2
+\end{align}
+
+The model predicts several testable signatures:
+\begin{itemize}
+    \item Resonant $\tau^+\tau^-$ production via $s$-channel $\tilde{S}_1$ exchange
+    \item High-$p_T$ di-tau events from leptoquark pair production
+    \item Modified Higgsstrahlung processes $pp \to h^* \to \tilde{S}_1\tilde{S}_1^*$
+\end{itemize}
 
 \section{A Simplified Model for the $U_1$ Vector Leptoquark}
 
