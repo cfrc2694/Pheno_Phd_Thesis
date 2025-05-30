@@ -15,6 +15,31 @@
 % 	\RequirePackage{babel}
 % 	\spanishdecimal{.}
 
+
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{tikz-feynman}
+\usepackage{xcolor}
+\usepackage[outline]{contour} % glow around text
+\contourlength{0.9pt}
+\usetikzlibrary{bending} % for arrow head angle
+\usepackage{subcaption}
+\colorlet{veccol}{green!50!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mydarkred}{red!40!black}
+\colorlet{mydarkblue}{blue!30!black}
+\colorlet{CMScol}{red!80!black}
+\colorlet{ATLAScol}{blue!80!black}
+\usepackage{booktabs}
+\tikzset{>=latex} % for LaTeX arrow head
+\tikzstyle{axis}=[->,thick,line cap=round]
+\tikzstyle{detector}=[thick,draw=mydarkred,rotate around z=\ang]
+\tikzstyle{beam pipe}=[draw=blue!20!black!50,fill=blue!20!black!10,rotate around z=\ang]
+\tikzstyle{detector surface}=[red!60!black!60,opacity=0.06,rotate around z=\ang]
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+
 % English options
 \usepackage[english]{babel}
 
