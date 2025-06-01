@@ -87,6 +87,53 @@ When studying final states that include long-lived, weakly interacting particles
 
 Collider detectors are mostly designed and constructed for optimal detection of SM particles produced in the collision. However, they can also be used to search for new physics (NP) beyond the SM. In this case, the detector is used to search for signatures of NP, such as new particles or interactions that are not predicted by the SM. The detector subsystems are designed to be sensitive to a wide range of particles and interactions, allowing for the detection of a variety of NP signatures.
 
+\subsection{Jets Reconstruction}
+
+At the LHC, jets are reconstructed as proxies for the quarks and gluons produced in the hard scattering process. Due to color confinement, these partons cannot be observed directly, and instead hadronize into collimated sprays of particles. These sprays are clustered into jets using algorithms that group together the signals of their constituents in the detector.
+
+The most widely used algorithm in ATLAS and CMS is the anti-$k_T$ clustering algorithm~\parencite{Cacciari:2008gp}, implemented in the \texttt{FastJet} package~\parencite{Cacciari:2011ma}. This algorithm groups particle candidates or calorimeter deposits into jets based on their proximity in the rapidity-azimuth $(y,\phi)$ plane, with a distance parameter $R$ typically set to values like 0.4 or 0.6. The resulting jets have a regular conical shape and are relatively insensitive to soft radiation and pileup.
+
+Modern jet reconstruction exploits particle-flow (PF) algorithms, which combine information from all detector subsystems to reconstruct individual particles (charged hadrons, neutral hadrons, photons, electrons, and muons). The momenta of PF candidates are then used as input for jet clustering. This approach improves the resolution of jet energy and direction, especially at low transverse momentum.
+
+After clustering, several levels of jet energy corrections (JEC) are applied to account for detector response, pileup, and underlying event contributions. These corrections are derived from simulation and in-situ calibrations using well-known processes like dijet balance or photon+jet events.
+
+\subsection{$\tau$ Tagging at Multipurpose Detectors}
+
+The tau lepton, being the heaviest charged lepton in the SM, decays promptly into either a lighter lepton (electron or muon) and neutrinos, or into hadrons and a tau neutrino. About 65\% of taus decay hadronically, producing narrow jets with a characteristic signature.
+
+Hadronic tau decays ($\tau_{\text{had}}$) typically produce one or three charged hadrons (predominantly pions) and up to two neutral pions, which decay into photons. These decay products result in a collimated energy deposit in the calorimeters and a small number of associated tracks. Tau jets are thus narrower than QCD jets and have lower track multiplicity.
+
+Tau identification algorithms at the LHC exploit these features by using multivariate techniques that combine:
+\begin{itemize}
+    \item the number of charged and neutral constituents,
+    \item the collimation of energy deposits,
+    \item isolation criteria based on the surrounding activity,
+    \item the invariant mass of the visible decay products,
+    \item and lifetime-related variables (e.g., impact parameter significance).
+\end{itemize}
+
+In CMS, the Hadron Plus Strips (HPS) algorithm reconstructs the decay mode and applies discriminants to distinguish taus from jets, electrons, and muons~\parencite{CMS:2022ydz}. ATLAS uses similar methods, with Boosted Decision Trees (BDTs) trained to separate taus from background~\parencite{ATLAS:2022fgo}.
+
+Typical tau tagging efficiencies are around 60\% for hadronic taus, with misidentification rates of about 1\% for quark/gluon jets, depending on the working point.
+
+\subsection{B Tagging at Multipurpose Detectors}
+
+Jets originating from bottom quarks ($b$-jets) exhibit distinct features due to the relatively long lifetime ($\sim 1.5$ ps) and large mass ($\sim 4.2$ GeV) of the $b$ hadrons. These hadrons travel a few millimeters before decaying, often producing secondary vertices displaced from the primary interaction point.
+
+$b$-tagging algorithms exploit this property by reconstructing tracks with large impact parameters and identifying displaced secondary vertices. Some algorithms also make use of the presence of soft leptons inside the jet from semileptonic $b$ decays.
+
+Classical algorithms include:
+\begin{itemize}
+    \item \textbf{Track Counting:} based on the number of tracks with high impact parameter.
+    \item \textbf{Jet Probability:} uses the probability that the jet’s tracks originate from the primary vertex.
+    \item \textbf{Secondary Vertex:} reconstructs displaced vertices within the jet.
+\end{itemize}
+
+Modern approaches rely on machine learning techniques to combine multiple observables. CMS uses DeepCSV and DeepJet algorithms~\parencite{CMS:2017wtu}, based on deep neural networks. ATLAS employs algorithms like MV2 and DL1~\parencite{ATLAS:2019bwq}. These classifiers achieve improved performance in distinguishing $b$-jets from $c$-jets and light-flavor jets.
+
+Typical $b$-tagging efficiencies range from 60\% to 80\%, depending on the working point, with light-jet misidentification rates of 1\% or lower. Calibrations are performed using data-driven methods in control samples enriched in $t\bar{t}$ or multijet events.
+
+\subsection{The CMS Detector}
 Particularly the CMS multi-purpose detector has a length of $21.6$ meters, with a diameter of $14.6$ meters and weights 12500 tonnes. The detector is composed of a set of different sub-detectors as seen in figure \ref{fig_cms}. The CMS detector has a cylindrical shape and it is divided into two main sections: barrel and endcaps. 
 
 \begin{center}
