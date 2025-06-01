@@ -1,4 +1,4 @@
-\documentclass[10pt, letterpaper]{book}%tipo
+\documentclass[11pt, letterpaper]{book}%tipo
 
 \usepackage{template}
 \usepackage{lipsum}
@@ -75,6 +75,8 @@
 \include{Chapters/C04.tex} %Feasibility studies
 \include{Chapters/C05.tex} %Conclusions
 
+\backmatter
+\appendix
 \include{Appendices/A01.tex}
 \include{Appendices/A02.tex}
 \include{Appendices/A03.tex}
@@ -84,8 +86,7 @@
 \include{Appendices/A08.tex}
 \include{Appendices/A05.tex}
 \nocite{*}%Imprimir todas las referencias
-\backmatter
-\appendix
+
 \renewcommand{\theequation}{{\Alph{chapter}.\arabic{equation}}}
 \renewcommand{\thefigure}{{\Alph{chapter}.\arabic{figure}}}
 \renewcommand{\thetable}{{\Alph{chapter}.\arabic{table}}}

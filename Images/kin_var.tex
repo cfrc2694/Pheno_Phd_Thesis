@@ -33,7 +33,7 @@
 			\tdplotdrawarc[detector]{(0,0,\L/2)}{\R}{0}{360}{}{}
 			\tdplotdrawarc[detector,thin]{(0,0,-\L/2)}{\R}{0}{360}{}{}
 			%\draw[detector,canvas is yx plane at z=-\L/2] (0,0,0) circle(\R);
-			\draw[detector,thin] % transverse plane at z=0
+			\draw[detector,thin, dashed] % transverse plane at z=0
 			(90-\ang:\R) arc (90-\ang:270:\R);
 			\draw[detector] (0,0,-\L/2)++(90:\R) --++ (0,0,\L); % top horizontal
 			\draw[detector] (0,0,-\L/2)++(-90:\R) --++ (0,0,\L); % bottom horizontal
@@ -84,7 +84,7 @@
 			\tdplotdrawarc[detector]{(0,0,\L/2)}{\R}{-90}{90}{}{} % transverse plane at z=L/2
 			\tdplotdrawarc[detector]{(0,0,-\L/2)}{\R}{-90}{90}{}{} % transverse plane at z=-L/2
 			\draw[beam pipe,fill=none] (0,\r,\l/2) arc(90:-90:\r);
-			\draw[detector,very thin] % transverse plane at z=0
+			\draw[detector,very thin, dashed] % transverse plane at z=0
 			(90-\ang:\R) arc (90-\ang:-90:\R);
 			
 			% ANGLES
@@ -115,7 +115,7 @@
 				\node[above=1,left,black!50,scale=0.6] at (-\w,0,0) {N};
 				\node[below=3,left=-2,green!20!black!50,scale=0.6] at (0,0,\w) {Jura};
 				%\node[below=1,right,black!50,scale=0.6,align=center] at (\w,0,0) {center of\\the LHC};
-				\node[below=1,right,blue!30!black!50,scale=0.6] at (\w,0,0) {ATLAS};
+				%\node[below=1,right,blue!30!black!50,scale=0.6] at (\w,0,0) {ATLAS};
 			\end{scope}
 			\draw[->,thick,orange!30!black] (1.4*\w,-\R,-0.1*\L) --++ (2*\w,0,0)
 			node[below=1,right,scale=0.8,align=center] {center of\\[-1pt]the LHC};
