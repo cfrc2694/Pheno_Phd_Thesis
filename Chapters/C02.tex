@@ -9,26 +9,32 @@ These collisions take place at four main interaction points, each equipped with 
 \section{Coordinate System and Collision Parameters}
 To fully describe the CMS experiment, some of its parameters should be outlined. Measurements performed at CMS adopt the coordinate system whose origin lies at the collision point, with the $y$-axis pointing vertically upward, the $x$-axis pointing radially inward towards the centre of the LHC and the $z$-axis along the beam direction. The azimuthal angle $\phi$ is measured in the $x y$-plane from the $x$-axis and the polar angle, $\theta$, is measured from the $z$-axis, as shown in the Fig.~\ref{fig_coordinates}. 
 \begin{center}
-	\includegraphics[width=0.80\textwidth]{Images/coordinatechart.png}
+	\includegraphics[width=0.8\textwidth]{Images/coordinatechart.png}
 	\captionof{figure}{Coordinate system employed by the CMS experiment (retrieved from~\parencite{cmsplots}).}\label{fig_coordinates}
 \end{center}
+
+The event rate $R$ for a physical process (e.g., $pp \to X$) is governed by the accelerator's luminosity $\mathcal{L}$ and the process cross section $\sigma$. Luminosity quantifies the performance of a collider to produce interactions, establishing the proportionality,
+\begin{equation}
+	\frac{d R}{d t} = \mathcal{L} \sigma,
+\end{equation}
+where $\sigma$ (typically measured in barns, $1\,\text{b} = 10^{-24}\,\text{cm}^2$) encodes the interaction probability. For LHC proton bunches colliding head-on with Gaussian transverse profiles, the instantaneous luminosity is~\parencite{Herr:941318,book:1123430}:
+\begin{equation}
+	\mathcal{L} = \frac{f N_{b}}{4\pi} \frac{N_{1} N_{2}}{\sigma_{x} \sigma_{y}}\label{eq_lumi}
+\end{equation}
+Here, $N_{1,2}$ are proton counts per bunch, $f$ is the bunch collision frequency, $N_{b}$ is the number of bunches, and $\sigma_{x,y}$ are transverse beam widths. 
+
+Integrating $\mathcal{L}$ over time yields the total integrated luminosity $L$, linking directly to the observed event count $N$:
+\begin{equation}
+	L = \int \mathcal{L}\, dt \quad \Rightarrow \quad N = L \sigma.
+\end{equation}
+%At Run~II luminosities ($\mathcal{L} \approx 1.5 \times 10^{34}\,\text{cm}^{-2}\text{s}^{-1}$), a $1\,\text{pb}$ cross section produces $\sim\!15$ events per second. This framework underpins all LHC physics analyses, from Higgs measurements ($\sigma_{pp\to H} \sim 50\,\text{pb}$ at $13\,\text{TeV}$) to BSM searches for rare processes ($\sigma_{\text{BSM}} \ll 1\,\text{fb}$).
+  
+The Gaussian beam approximation in~\eqref{eq_lumi} ignores hourglass effects (beam divergence near interaction points) and dynamic $\sigma_{x,y}$ variations during fills. CMS mitigates these via real-time luminosity monitoring using pixel clusters~\parencite{Sirunyan2021}, with systematic uncertainties below $2\%$. High $\mathcal{L}$ also introduces pileup—multiple $pp$ interactions per bunch crossing—which complicates $\eta$/$\phi$ measurements but is corrected using vertex isolation algorithms.
+
+
 The most important parameters of an accelerator are the following:
 \begin{description}
-	\item[Luminosity] $\mathcal L$ Measures the ability of an accelerator to generate interactions; it establishes a proportionality between the rate of interactions, $d R / d t$, and the production cross-section, $\sigma$ (defined below).
-	\begin{equation}
-    \frac{d R}{d t}=\mathcal{L} \sigma,
-  \end{equation}
-	For LHC beams, which collide head-on with a gaussian density distribution and come in bunches, the luminosity is given by
-  \begin{equation}
-    \mathcal{L}= \frac{fN_{b}}{4\pi}\frac{ N_{1} N_{2} }{\sigma_{x} \sigma_{y}},
-  \end{equation}
-	where $N_{1}, N_{2}$ are the numbers of particles in each colliding bunch, $f$ is the frequency at which bunches collide, $N_{b}$ is the number of bunches, and $\sigma_{x}, \sigma_{y}$ are the density deviations along the $x$ and $y$-axes, respectively~\parencite{Herr:941318,book:1123430}.
-	
-	The luminosity can be integrated in time to obtain a direct relationship between event number and the cross-section:
-  \begin{equation}
-    L=\int \mathcal{L} d t \implies
-	  N=L \sigma.
-  \end{equation}
+
 	\item[Centre-of-mass energy]  $(\sqrt{s})$ The energy of the colliding particles in the centre-of-mass (CM) frame. Since the total momentum of the particles in the CM frame is zero, the CM energy is simply the square-root of the total 4-momentum:
 	$$
 	\begin{gathered}
@@ -38,6 +44,10 @@ The most important parameters of an accelerator are the following:
 	$$
 	The energy in the CM frame must be greater than the total mass of the particles being produced. Thus, the CM energy determines which particles can be studied in the accelerator.
 \end{description}
+\begin{center}
+  \input{Images/kin_var.tex}
+  \captionof{figure}{Detailed reparametrization of the coordinate system employed by the CMS experiment (retrieved from~\parencite{cmsplots})}\label{fig_cms_coor}
+\end{center}
 The following variables are related to the particles being produced rather than the accelerator.
 \begin{description}
 	\item[Decay width] ( $\Gamma)$ The decay rate is the probability that a given particle will decay per unit time. Since a particle can have multiple decay modes, the total decay rate is the sum of the decay rates for each mode~\parencite{book:1123430}. The relative frequency of a decay mode is the branching ratio, given by
@@ -54,8 +64,3 @@ The following variables are related to the particles being produced rather than 
 	\item[Transverse Momentum] ($p_T$) Refers to the component of momentum which is perpendicular to the beam line. It is usually preferred over full momentum because momentum along the beamline may just be left over from the beam particles, while the transverse momentum is always associated with whatever physics happened at the vertex, see Fig.~\ref{fig_cms_coor}.
 	\item[Missing transverse energy and momentum] $\left(E_{T}^{\text {miss }} \& p_{T}^{\text {miss }}\right)$ Missing energy and momentum refers to the energy and momentum that is not detected but is expected to be there as a consequence of energy conservation and momentum conservation. This momentum is often carried by particles that do not interact electromagnetically or strongly and are therefore difficult to detect~\parencite{book:1123430}. Missing energy and momentum provides an indirect measurement of undetectable particles in hadron colliders such as neutrinos. Missing momentum reconstructions focus on the transverse direction, where total momentum is expected to be zero.
 \end{description}
-
-\begin{center}
-  \input{Images/kin_var.tex}
-  \captionof{figure}{Detailed reparametrization of the coordinate system employed by the CMS experiment (retrieved from~\parencite{cmsplots})}\label{fig_cms_coor}
-\end{center}
