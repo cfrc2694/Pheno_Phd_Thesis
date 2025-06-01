@@ -99,3 +99,23 @@ The different sub-detectors are located concentrically in layers~\parencite{Coll
 The next layer of the detector consists of a superconducting solenoid, which surrounds the previous sub-detectors. This solenoid is made of a niobum-titanium alloy that is refrigerated to $2 \mathrm{~K}$ by using liquid helium, producing a uniform magnetic field of $3.8 \mathrm{~T}$ inside the barrel~\parencite{Collaboration_2008}. This magnetic field is used to measure the momentum of electrically charged particles as it induces curvatures in their trajectories.
 
 Finally, the last set sub-detectors conform the muon detector system. This system is made of three different detector technologies, that allow to reconstruct the trajectory of the muons with a fast trigger response, and are alternated with iron returning yokes of steel to enclose the magnetic field produced by the solenoid. The trigger is a date-filtering system composed of hardware and software algorithms, designed to collect interesting events from the proton-proton collisions. The muon detectors have a total of 1400 chambers distributed in 250 drift tubes, 540 cathode strip chambers that track the position of a muon and provide a trigger, as well as 610 resistive plate chambers that give a redundant trigger, which quickly decide over the event storage~\parencite{Collaboration_2008}.
+
+
+\section{Monte Carlo Method}
+For the study of hypothetical signals for these new models and their feasibility of observation in experiments such as the LHC, one of the most widely used methods is the generation of events in colliders via Monte Carlo computational simulations. Monte Carlo simulation (MC) are used to predict what we expect to see under certain conditions:
+
+\begin{itemize}
+	\item To perform calculations in an automated way, such as, cross sections and disintegration widths.
+	\item To perform studies before having the data.
+	\item To compute event selection efficiency / acceptance.
+	\item To predict the amount of background events.
+	\item To distinguish different signals.
+\end{itemize}
+
+Today, there is a wide set of independent and modular tools that simulate the different experimental stages and that allow us to calibrate and contrast with relative ease the simulated results with the experimental ones. For pp collision simulations, the use of MadGraph5\_aMC@NLO (MadGraph)~\parencite{Alwall_2014} framework is widespread.
+
+MadGraph is a modular working environment, that is, simulation occurs in several stages. First MadGraph receives the information with the Feynman rules of a specific model in a format known as Universal Feynman Output (UFO) (which is generated from the Lagrangian in Wolfram Mathematica with the use of the FeynRules library~\parencite{ALLOUL20142250}), along with a parameter card with the numerical values of the free parameters of the Lagrangian. With this information MadGraph creates a directory with all the diagrams and amplitudes of a given process (Output folder). Then a subroutine known as MadEvent is run that generates \textit{hard scatter events} and creates a known output in LHE format with the information of the four vectors of each particle of the final state. Normally, to optimize the generation with MadEvent, we can modify the so-called run\_card such that the output partons are in a state to be subsequently reconstructed in the detector. If we generate events whose partons will be ignored by the detector we are wasting computational power. 
+
+Then, we can take the information from the LHE output to simulate the parton shower and the hadronization of the final state. This process is typically done with Pythia8 (Pythia)~\parencite{2203.11601}, which is possibly the most complete MC generator to simulate the parton shower and the hadronization. Here, we have the advantage that it is implemented to run automatically within MadGraph. 
+
+Pythia output is in HepMC format. With this information we run a software, DELPHES~\parencite{de_Favereau_2014}, that performs a fast simulation of the detector response to interactions with particles. The output of DELPHES is in ROOT format ready for a data analysis in ROOT framework. From this point, the analysis is similar to that done in each of the experiments using the data delivered by the detector, although with an extra processing layer such as tagging processes of some particle candidates, such as light jets, b-jets, and hadronic taus.
