@@ -149,6 +149,15 @@ Finally, the last set sub-detectors conform the muon detector system. This syste
 
 % To do: ADD related with aceptance and efficiency in the barrel and endcaps.
 
+Due to its cylindrical geometry, the CMS detector is divided into a central barrel region and two forward endcaps, which define the detector acceptance in terms of the pseudorapidity $\eta = -\ln[\tan(\theta/2)]$, where $\theta$ is the polar angle with respect to the beam axis. The barrel region provides coverage for $|\eta| \lesssim 1.5$, while the endcap regions extend the acceptance up to $1.5\lesssim|\eta| \lesssim 2.5$ for most subsystems~\parencite{Collaboration_2008}. 
+
+This geometrical segmentation impacts the overall detection efficiency. For example, the pixel and silicon strip trackers are more efficient in the barrel, where multiple tracking layers are crossed perpendicularly by particles. In the endcaps, particles cross detector layers at shallow angles, leading to reduced hit multiplicity and, consequently, lower tracking efficiency and resolution. Similar considerations apply to the ECAL and HCAL subsystems, where the granularity and material budget have been optimized to compensate for the non-uniform geometry, maintaining energy resolution across $\eta$.
+
+Muon identification and momentum reconstruction also exhibit regional differences. The drift tubes (DTs), which offer high spatial resolution, are only installed in the barrel, while cathode strip chambers (CSCs) and resistive plate chambers (RPCs) cover the endcap regions. The combination of technologies ensures redundancy and robust triggering throughout the full detector acceptance. However, due to the higher background levels and increased radiation in the endcaps, the performance of muon reconstruction tends to be better in the barrel.
+
+These effects are taken into account when designing selection criteria for physics analyses, with efficiency corrections applied to account for differences in acceptance and reconstruction performance across detector regions.
+
+
 \section{Phenomenological Pipeline}
 For the study of hypothetical signals for these new models and their feasibility of observation in experiments such as the LHC, one of the most widely used methods is the generation of events in colliders via Monte Carlo computational simulations. Monte Carlo simulation (MC) are used to predict what we expect to see under certain conditions:
 
