@@ -178,4 +178,42 @@ With this information MadGraph creates a directory with all the diagrams and amp
 
 Then, we can take the information from the LHE output to simulate the parton shower and the hadronization of the final state. This process is typically done with Pythia8 (Pythia)~\parencite{2203.11601}, which is possibly the most complete MC generator to simulate the parton shower and the hadronization. Here, we have the advantage that it is implemented to run automatically within MadGraph. 
 
-Pythia output is in HepMC format. With this information we run a software, DELPHES~\parencite{de_Favereau_2014}, that performs a fast simulation of the detector response to interactions with particles. The output of DELPHES is in ROOT format ready for a data analysis in ROOT framework. From this point, the analysis is similar to that done in each of the experiments using the data delivered by the detector, although with an extra processing layer such as tagging processes of some particle candidates, such as light jets, b-jets, and hadronic taus.
+Pythia output is in HepMC2 format. With this information we run a software, DELPHES~\parencite{de_Favereau_2014}, that performs a fast simulation of the detector response to interactions with particles. The output of DELPHES is in ROOT format ready for a data analysis in ROOT framework. From this point, the analysis is similar to that done in each of the experiments using the data delivered by the detector, although with an extra processing layer such as tagging processes of some particle candidates, such as light jets, b-jets, and hadronic taus.
+
+\section{Measurements of the Power of an Analysis}
+\label{sec:power_analysis}
+
+The statistical power of an analysis quantifies its sensitivity to discriminate between signal and background processes. For binned data following Poisson statistics, we define the power $\kappa$ as:
+
+\begin{equation}
+\kappa = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left(s_i + b_i\right) w_i^2}},
+\label{eq:kappa_definition}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $s_i$ and $b_i$ are the expected signal and background events in bin $i$
+    \item $w_i$ is the optimal weight for bin $i$, given by:
+    \begin{equation}
+        w_i = \ln\left(1 + \frac{s_i}{b_i}\right)
+        \label{eq:optimal_weights}
+    \end{equation}
+\end{itemize}
+
+\subsection*{Special Case: Single Bin Analysis}
+For a single bin with strong signal ($s \gg b$), Eq.~\ref{eq:kappa_definition} reduces to the Poisson significance:
+
+\begin{equation}
+\kappa \approx \frac{s}{\sqrt{s + b}},
+\label{eq:single_bin_kappa}
+\end{equation}
+
+\subsection*{Incorporating Systematic Uncertainties}
+The power calculation can be extended to include systematic uncertainties by modifying the denominator:
+
+\begin{equation}
+\kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \sigma^2_{\text{sys,signal},i} + \sigma^2_{\text{sys,bkg},i}\right] w_i^2}},
+\label{eq:kappa_with_systematics}
+\end{equation}
+
+where $\sigma_{\text{sys}}$ terms represent the systematic uncertainties on signal and background predictions.
