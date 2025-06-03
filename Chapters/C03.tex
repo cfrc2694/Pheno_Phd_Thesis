@@ -26,22 +26,21 @@ In models with flavor alignment or preferential couplings to third-generation fe
 
 In contrast, the $\tilde{S}_1$ leptoquark allows for direct couplings to $b$ quarks and $\tau$ leptons via a term of the form $\overline{d}_R^C \tilde{S}_1 e_R$. Despite the relatively small $b$-quark content in the proton, these channels remain accessible at the LHC.
 
-For these reasons, this section focuses on the simplified model containing only the scalar leptoquark $\tilde{S}_1$. The most general renormalizable Lagrangian contains the couplings:
+For these reasons, this section focuses on the simplified model containing only the scalar leptoquark $\tilde{S}_1$. The most general renormalizable Lagrangian for the $\tilde{S}_1$ leptoquark extends the SM one by
 \begin{equation}
-    \mathcal{L}_{\text{Yukawa}} \supset \tilde{y}_{ij} \overline{d}_R^{C\,i} \tilde{S}_1 e_R^j + \tilde{z}_{ij} \overline{u}_R^{C\,i} \tilde{S}_1^* u_R^j + \text{h.c.}
-    \label{eq:yukawa}
+    \mathcal{L}\supset |D_\mu\tilde{S}_1|^2 + \tilde{y}_{ij} \overline{d}_R^{C\,i} \tilde{S}_1 e_R^j + \tilde{z}_{ij} \overline{u}_R^{C\,i} \tilde{S}_1^* u_R^j + \text{h.c.} + V_{\text{ext}}(\tilde{S}_1,H)
 \end{equation}
-where $\tilde{y}, \tilde{z}$ are complex Yukawa matrices, with $\tilde{z}^{RR}$ antisymmetric due to Fermi statistics.
-
-The dominant processes contributing to $pp \to \tau^+\tau^-$ are
-
-The covariant derivative for $\tilde{S}_1$ reads:
+where $\tilde{y}, \tilde{z}$ are complex Yukawa matrices in the flavor space, $D_\mu$ is the covariant derivative acting on the $\tilde{S}_1$ field as 
 \begin{equation}
-    D_\mu = \partial_\mu + i g_1 \frac{4}{3} B_\mu
+    D_\mu \tilde{S}_1 = \partial_\mu \tilde{S}_1 + i g_s T^a G_\mu^a \tilde{S}_1 + i \frac{4}{3} g' B_\mu \tilde{S}_1
 \end{equation}
-leading to the kinetic term:
+and $V_{\text{ext}}$ is the extension of the SM Higgs potential to include the leptoquark field gived by
 \begin{equation}
-    \mathcal{L}_{\text{kin}} = |D_\mu\tilde{S}_1|^2
+    V_{\text{ext}} = m_{\tilde{S}_1}^2 |\tilde{S}_1|^2 + \lambda_{\tilde{S}_1} |\tilde{S}_1|^4 + \lambda_{H\tilde{S}_1} |H|^2 |\tilde{S}_1|^2,
+\end{equation}
+such that the full scalar potential reads
+\begin{equation}
+    V = \underbrace{-\mu^2|H|^2 + \lambda|H|^4}_{\text{SM Higgs}} + \underbrace{m_{\tilde{S}_1}^2|\tilde{S}_1|^2 + \lambda_{\tilde{S}_1}|\tilde{S}_1|^4}_{\text{sLQ self-interactions}} + \underbrace{\lambda_{H\tilde{S}_1}|H|^2|\tilde{S}_1|^2}_{\text{Higgs portal}}
 \end{equation}
 
 After electroweak symmetry breaking ($B_\mu = c_W A_\mu - s_W Z_\mu$), we obtain:
@@ -55,9 +54,7 @@ After electroweak symmetry breaking ($B_\mu = c_W A_\mu - s_W Z_\mu$), we obtain
 \end{equation}
 
 The complete scalar potential includes:
-\begin{equation}
-    V = \underbrace{-\mu^2|H|^2 + \lambda|H|^4}_{\text{SM Higgs}} + \underbrace{m_{\tilde{S}_1}^2|\tilde{S}_1|^2 + \lambda_{\tilde{S}_1}|\tilde{S}_1|^4}_{\text{LQ self-interactions}} + \underbrace{\lambda_{H\tilde{S}_1}|H|^2|\tilde{S}_1|^2}_{\text{Higgs portal}}
-\end{equation}
+
 
 After EWSB ($H \to (0, (v+h)/\sqrt{2})^T$), the Higgs-LQ interactions generate:
 \begin{align}
