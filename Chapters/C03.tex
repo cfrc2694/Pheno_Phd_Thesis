@@ -3,29 +3,35 @@
 
 \section{A Simplified Model for the $\tilde S_1$ Scalar Leptoquark}
 
-Leptoquarks (LQs) are hypothetical particles that couple to both quarks and leptons, offering a possible explanation for flavor anomalies and lepton non-universality. 
+Leptoquarks (LQs) are hypothetical bosonic particles that couple simultaneously to a quark and a lepton, thereby mediating lepton-quark interactions at a single vertex. They arise naturally in various extensions of SM, including grand unified theories and models with extended gauge symmetries, and have attracted renewed interest as a possible explanation for observed flavor anomalies and hints of lepton flavor non-universality.
 
-The scalar leptoquark $\tilde{S}_1 = (\overline{\mathbf{3}}, \mathbf{1}, 4/3)$ emerges as an attractive beyond-Standard Model (BSM) candidate that could explain potential anomalies in $\tau$-lepton final states. This section details its theoretical framework and phenomenological implications.
+To ensure Lorentz invariance, the interaction vertex involving a leptoquark, a quark, and a lepton must form a scalar or vector operator. Among these possibilities, scalar leptoquarks (sLQs) provide a minimal and renormalizable framework without requiring new gauge interactions, making them an ideal starting point for simplified model studies.
 
-Under the SM gauge group $SU(3)_C \times SU(2)_L \times U(1)_Y$, $\tilde{S}_1$ transforms as:
+The classification of scalar leptoquarks is determined by their transformation properties under the SM gauge group $SU(3)_C \times SU(2)_L \times U(1)_Y$. For simplicity, we focus on sLQs that are singlets under $SU(2)_L$, so that the model contains a single new scalar degree of freedom. This constraint leads to interactions involving two fermions of the same chirality, which requires charge conjugation of one of the fields to build a Lorentz scalar.
 
-\begin{itemize}
-    \item \textbf{Color representation}: $\overline{\mathbf{3}}$ (enabling couplings to quarks while maintaining color neutrality)
-    \item \textbf{Weak isospin}: Singlet ($\mathbf{1}$) under $SU(2)_L$
-    \item \textbf{Hypercharge}: $Y = \frac{4}{3}$, determined by gauge invariance of Yukawa couplings
-\end{itemize}
+There are two classes of gauge-invariant, renormalizable operators that couple such a singlet sLQ to SM fermions. These are:
 
-The electric charge follows from the Gell-Mann--Nishijima relation:
+\begin{enumerate}
+    \item $I_1 = \overline{q}_L^C \vb*{\epsilon} \ell_L$ and $I_1' = \overline{u}_R^C e_R$, where $q_L$ and $\ell_L$ are left-handed quark and lepton doublets, respectively, and $u_R$, $e_R$ are right-handed singlets. Both $I_1$ and $I_1'$ are $SU(2)_L$ singlets, transform as color triplets under $SU(3)_C$, and carry hypercharge $Y = -2/3$.
+    \item $\tilde I_1 = \overline{d}_R^C e_R$, a gauge-invariant operator involving two right-handed singlets. It is also a color triplet and an $SU(2)_L$ singlet, but with hypercharge $Y = 8/3$.
+\end{enumerate}
+
+The corresponding leptoquark representations are:
+\begin{enumerate}
+    \item $S_1 \dot= (\bar{\mathbf{3}}, \mathbf{1}, 2/3)$, consistent with the first set of operators.
+    \item $\tilde{S}_1 \dot= (\bar{\mathbf{3}}, \mathbf{1}, 8/3)$, associated with the second invariant.
+\end{enumerate}
+
+In models with flavor alignment or preferential couplings to third-generation fermions, $S_1$ typically couples to $b\nu_\tau$ and $t\tau$ vertices. However, processes like $pp \to \tau^+\tau^-$ suffer suppression due to the low parton density of the top quark in the proton. 
+
+In contrast, the $\tilde{S}_1$ leptoquark allows for direct couplings to $b$ quarks and $\tau$ leptons via a term of the form $\overline{d}_R^C \tilde{S}_1 e_R$. Despite the relatively small $b$-quark content in the proton, these channels remain accessible at the LHC.
+
+For these reasons, this section focuses on the simplified model containing only the scalar leptoquark $\tilde{S}_1$. The most general renormalizable Lagrangian contains the couplings:
 \begin{equation}
-    Q = T_3 + Y = 0 + \frac{4}{3} = \frac{4}{3}
-\end{equation}
-
-The most general renormalizable Lagrangian contains the couplings:
-\begin{equation}
-    \mathcal{L}_{\text{Yukawa}} \supset \tilde{y}^{RR}_{ij} \overline{d_R^{C\,i}} \tilde{S}_1 e_R^j + \tilde{z}^{RR}_{ij} \overline{u_R^{C\,i}} \tilde{S}_1^* u_R^j + \text{h.c.}
+    \mathcal{L}_{\text{Yukawa}} \supset \tilde{y}_{ij} \overline{d}_R^{C\,i} \tilde{S}_1 e_R^j + \tilde{z}_{ij} \overline{u}_R^{C\,i} \tilde{S}_1^* u_R^j + \text{h.c.}
     \label{eq:yukawa}
 \end{equation}
-where $\tilde{y}^{RR}, \tilde{z}^{RR}$ are complex Yukawa matrices, with $\tilde{z}^{RR}$ antisymmetric due to Fermi statistics.
+where $\tilde{y}, \tilde{z}$ are complex Yukawa matrices, with $\tilde{z}^{RR}$ antisymmetric due to Fermi statistics.
 
 The dominant processes contributing to $pp \to \tau^+\tau^-$ are
 
