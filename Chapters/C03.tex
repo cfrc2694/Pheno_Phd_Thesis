@@ -36,38 +36,26 @@ where $\tilde{y}, \tilde{z}$ are complex Yukawa matrices in the flavor space, $D
 \end{equation}
 and $V_{\text{ext}}$ is the extension of the SM Higgs potential to include the leptoquark field gived by
 \begin{equation}
-    V_{\text{ext}} = m_{\tilde{S}_1}^2 |\tilde{S}_1|^2 + \lambda_{\tilde{S}_1} |\tilde{S}_1|^4 + \lambda_{H\tilde{S}_1} |H|^2 |\tilde{S}_1|^2,
+    V_{\text{ext}} = \mu_{\tilde{S}_1}^2 |\tilde{S}_1|^2 + \lambda_{\tilde{S}_1} |\tilde{S}_1|^4 + \lambda_{H\tilde{S}_1} |H|^2 |\tilde{S}_1|^2,
 \end{equation}
 such that the full scalar potential reads
 \begin{equation}
-    V = \underbrace{-\mu^2|H|^2 + \lambda|H|^4}_{\text{SM Higgs}} + \underbrace{m_{\tilde{S}_1}^2|\tilde{S}_1|^2 + \lambda_{\tilde{S}_1}|\tilde{S}_1|^4}_{\text{sLQ self-interactions}} + \underbrace{\lambda_{H\tilde{S}_1}|H|^2|\tilde{S}_1|^2}_{\text{Higgs portal}}
+    V = \underbrace{-\mu^2|H|^2 + \lambda|H|^4}_{\text{SM Higgs}} + \underbrace{\mu_{\tilde{S}_1}^2|\tilde{S}_1|^2 + \lambda_{\tilde{S}_1}|\tilde{S}_1|^4}_{\text{sLQ self-interactions}} + \underbrace{\lambda_{H\tilde{S}_1}|H|^2|\tilde{S}_1|^2}_{\text{Higgs portal}}.
 \end{equation}
-
-After electroweak symmetry breaking ($B_\mu = c_W A_\mu - s_W Z_\mu$), we obtain:
-
-\begin{equation}
-    \mathcal{L} \supset \frac{4}{3}e\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]A^\mu + \left(\frac{4}{3}e\right)^2 A_\mu A^\mu |\tilde{S}_1|^2
-\end{equation}
-
-\begin{equation}
-    \mathcal{L} \supset -\frac{4}{3}g_1 s_W\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]Z^\mu + \left(\frac{4}{3}g_1 s_W\right)^2 Z_\mu Z^\mu |\tilde{S}_1|^2
-\end{equation}
-
-The complete scalar potential includes:
-
-
-After EWSB ($H \to (0, (v+h)/\sqrt{2})^T$), the Higgs-LQ interactions generate:
+After EWSB, $H \to (0, (v+h)/\sqrt{2})^T$, the $H\tilde S_1$ interactions become in interactions between the physical Higgs boson $h$ and the leptoquark $\tilde{S}_1$ as
 \begin{align}
-    \Delta m_{\tilde{S}_1}^2 &= \frac{1}{2}\lambda_{H\tilde{S}_1}v^2 \\
     \mathcal{L}_{\text{int}} &\supset \lambda_{H\tilde{S}_1}v h|\tilde{S}_1|^2 + \frac{1}{2}\lambda_{H\tilde{S}_1}h^2|\tilde{S}_1|^2
 \end{align}
+and a mass shift for the leptoquark field
+\begin{equation}
+    \Delta m_{\tilde{S}_1}^2 = \frac{1}{2}\lambda_{H\tilde{S}_1}v^2 \implies m_{\tilde{S}_1}^2 = \mu_{\tilde{S}_1}^2 + \frac{1}{2}\lambda_{H\tilde{S}_1}v^2.
+\end{equation}
+Additionally, from the covariant derivative as $B_\mu = c_W A_\mu - s_W Z_\mu$, the $\tilde{S}_1$ interactions with the SM gauge bosons are given by
+\begin{align}
+    \mathcal{L} &\supset \frac{4}{3}e\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]A^\mu + \left(\frac{4}{3}e\right)^2 A_\mu A^\mu |\tilde{S}_1|^2\\
+    \mathcal{L} &\supset -\frac{4}{3}g_1 s_W\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]Z^\mu + \left(\frac{4}{3}g_1 s_W\right)^2 Z_\mu Z^\mu |\tilde{S}_1|^2.
+\end{align}
 
-The model predicts several testable signatures:
-\begin{itemize}
-    \item Resonant $\tau^+\tau^-$ production via $s$-channel $\tilde{S}_1$ exchange
-    \item High-$p_T$ di-tau events from leptoquark pair production
-    \item Modified Higgsstrahlung processes $pp \to h^* \to \tilde{S}_1\tilde{S}_1^*$
-\end{itemize}
 
 \section{A Simplified Model for the $U_1$ Vector Leptoquark}
 
