@@ -30,7 +30,7 @@ For these reasons, this section focuses on the simplified model containing only 
 \begin{equation}
     \mathcal{L}\supset |D_\mu\tilde{S}_1|^2 + \tilde{y}_{ij} \overline{d}_R^{C\,i} \tilde{S}_1 e_R^j + \tilde{z}_{ij} \overline{u}_R^{C\,i} \tilde{S}_1^* u_R^j + \text{h.c.} + V_{\text{ext}}(\tilde{S}_1,H)
 \end{equation}
-where $\vb*{\tilde{y}}, \vb*{\tilde{z}}$ are complex Yukawa matrices in the flavor space, $D_\mu$ is the covariant derivative acting on the $\tilde{S}_1$ field as 
+where $\vb*{\tilde{y}}, \vb*{\tilde{z}}$ are complex Yukawa matrices in the flavor space\marginpar{Note that $\vb*{\tilde{z}}$ must be antisymmetric (due to fermionic statistics) and is typically assumed to vanish or be highly suppressed to avoid large FCNCs.}, $D_\mu$ is the covariant derivative acting on the $\tilde{S}_1$ field as 
 \begin{equation}
     D_\mu \tilde{S}_1 = \partial_\mu \tilde{S}_1 + i g_s T^a G_\mu^a \tilde{S}_1 + i \frac{4}{3} g' B_\mu \tilde{S}_1,
 \end{equation}
@@ -42,6 +42,7 @@ such that the full scalar potential reads
 \begin{equation}
     V = \underbrace{-\mu^2|H|^2 + \lambda|H|^4}_{\text{SM Higgs}} + \underbrace{\mu_{\tilde{S}_1}^2|\tilde{S}_1|^2 + \lambda_{\tilde{S}_1}|\tilde{S}_1|^4}_{\text{sLQ self-interactions}} + \underbrace{\lambda_{H\tilde{S}_1}|H|^2|\tilde{S}_1|^2}_{\text{Higgs portal}}.
 \end{equation}
+
 After EWSB, $H \to (0, (v+h)/\sqrt{2})^T$, the $H\tilde S_1$ interactions become in interactions between the physical Higgs boson $h$ and the leptoquark $\tilde{S}_1$ as
 \begin{align}
     \mathcal{L}_{\text{int}} &\supset \lambda_{H\tilde{S}_1}v h|\tilde{S}_1|^2 + \frac{1}{2}\lambda_{H\tilde{S}_1}h^2|\tilde{S}_1|^2
@@ -55,6 +56,8 @@ Additionally, from the covariant derivative as $B_\mu = c_W A_\mu - s_W Z_\mu$, 
     \mathcal{L} &\supset \frac{4}{3}e\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]A^\mu + \left(\frac{4}{3}e\right)^2 A_\mu A^\mu |\tilde{S}_1|^2\\
     \mathcal{L} &\supset -\frac{4}{3}g_1 s_W\left[(\partial_\mu\tilde{S}_1^*)\tilde{S}_1 - \tilde{S}_1^*(\partial_\mu\tilde{S}_1)\right]Z^\mu + \left(\frac{4}{3}g_1 s_W\right)^2 Z_\mu Z^\mu |\tilde{S}_1|^2.
 \end{align}
+
+For preferential couplings to third-generation fermions in the lepton-quark vertices, we assume the texture of the Yukawa matrix $\tilde{y}_{33}$ is such that $\tilde{y}_{33} \gg \tilde{y}_{ij}$ for $i,j \neq 3$. 
 
 
 \section{A Simplified Model for the $U_1$ Vector Leptoquark}
