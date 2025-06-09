@@ -207,9 +207,7 @@ The allowed Yukawa interactions in the Type-II 2HDM are of the form
 \begin{equation}
     -\mathcal{L}=Y_{u 2} \bar{Q}_L \tilde{\Phi}_2 u_R+Y_{d 1} \bar{Q}_L \Phi_1 d_R+Y_{\ell 1} \bar{\ell}_L \Phi_1 e_R+\text { h.c. }
 \end{equation}
-where $\widetilde{\Phi}_{1,2}=i \vb*\tau_2 \Phi_{1,2}^*$, and $\vb* Y_{u 2}, Y_{d 1,2}$ and $\vb* Y_{\ell 1,2}$ are $3 \times 3$ matrices in family space.
-
-After EWSB, we can obtain the Yukawa couplings
+where $\widetilde{\Phi}_{1,2}=i \vb*\tau_2 \Phi_{1,2}^*$, and $\vb* Y_{u 2}, Y_{d 1,2}$ and $\vb* Y_{\ell 1,2}$ are $3 \times 3$ matrices in family space. After EWSB, we can obtain the Yukawa couplings
 \begin{equation}
     \begin{aligned}
     -\mathcal{L}_Y= & \frac{m_f}{v} y_h^f h \bar{f} f+\frac{m_f}{v} y_H^f H \bar{f} f \\
@@ -222,8 +220,76 @@ where $y_h^f=\sin (\beta-\alpha)+\cos (\beta-\alpha) \kappa_f$ and $y_H^f=\cos (
 \begin{equation}
     \kappa_u=\cot \beta, \quad \kappa_d=-\tan \beta, \quad \kappa_{\ell}=-\tan \beta.
 \end{equation}
+The gauge-kinetic Lagrangian is given as
+\begin{equation}
+    \mathcal{L}_{\mathrm{g}}=\left(D^\mu \Phi_1\right)^{\dagger}\left(D_\mu \Phi_1\right)+\left(D^\mu \Phi_2\right)^{\dagger}\left(D_\mu \Phi_2\right)
+\end{equation}
 
-% \lipsum
+We can obtain the neutral Higgs couplings to $V V(V V \equiv Z Z, W W)$
+\begin{equation}
+\begin{aligned}
+\mathcal{L}_{\mathrm{g}} \supset & \frac{g^2+g^{\prime 2}}{8} v^2 Z Z\left(1+2 \frac{h}{v} y_h^V+2 \frac{H}{v} y_H^V\right) \\
+& +\frac{g^2}{4} v^2 W^{+} W^{-}\left(1+2 \frac{h}{v} y_h^V+2 \frac{H}{v} y_H^V\right)
+\end{aligned}    
+\end{equation}
+where $y_h^V=\sin (\beta-\alpha)$ and $y_H^V=\cos (\beta-\alpha)$.
+
+From the scalar potential with $\lambda_6=\lambda_7=0$, we can obtain the mass matrices of the Higgs fields
+\begin{equation}
+  \left(\begin{array}{ll}
+\phi_1 & \phi_2
+\end{array}\right)\left(\begin{array}{cc}
+m_{12}^2 t_\beta+\lambda_1 v^2 c_\beta^2 & -m_{12}^2+\frac{\lambda_{345}}{2} v^2 s_{2 \beta} \\
+-m_{12}^2+\frac{\lambda_{345}}{2} v^2 s_{2 \beta} & m_{12}^2 / t_\beta+\lambda_2 v^2 s_\beta^2
+\end{array}\right)\binom{\phi_1}{\phi_2}   
+\end{equation}
+
+\begin{equation}
+  \left(\begin{array}{ll}
+a_1 & a_2
+\end{array}\right)\left[\begin{array}{ll}
+m_{12}^2-\frac{1}{2} \lambda_5 v^2 s_{2 \beta}
+\end{array}\right]\left(\begin{array}{cc}
+t_\beta & -1 \\
+-1 & 1 / t_\beta
+\end{array}\right)\binom{a_1}{a_2}   
+\end{equation}
+\begin{equation}
+  \left(\begin{array}{ll}
+\phi_1^{+} & \phi_2^{+}
+\end{array}\right)\left[m_{12}^2-\frac{1}{4}\left(\lambda_4+\lambda_5\right) v^2 s_{2 \beta}\right]\left(\begin{array}{cc}
+t_\beta & -1 \\
+-1 & 1 / t_\beta
+\end{array}\right)\binom{\phi_1^{-}}{\phi_2^{-}}  
+\end{equation}
+
+The mass eigenstates are obtained from the original fields by the rotation matrices:
+
+$$
+\begin{aligned}
+\binom{H}{h} & =\left(\begin{array}{cc}
+\cos \alpha & \sin \alpha \\
+-\sin \alpha & \cos \alpha
+\end{array}\right)\binom{\phi_1}{\phi_2} \\
+\binom{G^0}{A} & =\left(\begin{array}{cc}
+\cos \beta & \sin \beta \\
+-\sin \beta & \cos \beta
+\end{array}\right)\binom{a_1}{a_2} \\
+\binom{G^{ \pm}}{H^{ \pm}} & =\left(\begin{array}{cc}
+\cos \beta & \sin \beta \\
+-\sin \beta & \cos \beta
+\end{array}\right)\binom{\phi_1^{ \pm}}{\phi_2^{ \pm}}
+\end{aligned}
+$$
+where $G^0$ and $G^{ \pm}$are Goldstone bosons which are absorbed as longitudinal components of the $Z$ and $W^{ \pm}$bosons. The remained physical states are two neutral CP-even states $h$ and $H$, one neutral pseudoscalar $A$, and a pair of charged scalars $H^{ \pm}$. Their masses are given by
+$$
+\begin{aligned}
+m_{H, h}^2 & =\frac{1}{2}\left[M_{P, 11}^2+M_{P, 22}^2 \pm \sqrt{\left(M_{P, 11}^2-M_{P, 22}^2\right)^2+4\left(M_{P, 12}^2\right)^2}\right] \\
+m_A^2 & =\frac{m_{12}^2}{s_\beta c_\beta}-\lambda_5 v^2 \\
+m_{H^{ \pm}}^2 & =\frac{m_{12}^2}{s_\beta c_\beta}-\frac{1}{2}\left(\lambda_4+\lambda_5\right) v^2
+\end{aligned}
+$$
+where $M_P^2$ is the mass matrix for $\phi_1$ and $\phi_2$ fields.
 
 % \section{The Minimal $U(1)_{T^3_R}$ Model}
 % \lipsum
