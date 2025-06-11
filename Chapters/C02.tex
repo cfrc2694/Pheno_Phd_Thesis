@@ -213,60 +213,6 @@ This transformation yields several important properties:
 
 The Neyman-Pearson optimality guarantees that no alternative test statistic can achieve greater statistical power for the given hypotheses when using the same significance level. This makes the likelihood ratio test particularly valuable for new physics searches where signal-to-background ratios may be small.
 
-\subsection{Derivation of \(-2\ln Q\) for a Single Bin}
-\label{subsec:single_bin_derivation}
-
-The transformation to \(-2\ln Q\) provides both computational advantages and connection to known statistical distributions. For a single bin \(i\), we begin with the likelihood ratio:
-
-\begin{equation}
-Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = \frac{e^{-(s_i+b_i)}(s_i+b_i)^{n_i}/n_i!}{e^{-b_i}b_i^{n_i}/n_i!}.
-\end{equation}
-
-The derivation proceeds through the following steps:
-
-1. \textbf{Simplify the factorial terms}:
-   The \(n_i!\) terms cancel, giving:
-   \begin{equation}
-   Q_i = e^{-s_i} \left(1 + \frac{s_i}{b_i}\right)^{n_i}.
-   \end{equation}
-
-2. \textbf{Take the natural logarithm}:
-   \begin{equation}
-   \ln Q_i = -s_i + n_i \ln\left(1 + \frac{s_i}{b_i}\right).
-   \end{equation}
-
-3. \textbf{Multiply by \(-2\)} to obtain the test statistic:
-   \begin{equation}
-   -2\ln Q_i = 2s_i - 2n_i \ln\left(1 + \frac{s_i}{b_i}\right).
-   \end{equation}
-
-4. \textbf{Identify the optimal weight}:
-   The expression reveals the natural emergence of the weight:
-   \begin{equation}
-   w_i \equiv \ln\left(1 + \frac{s_i}{b_i}\right),
-   \end{equation}
-   which optimally combines signal and background information.
-
-The final form for a single bin becomes:
-\begin{equation}
-\boxed{
--2\ln Q_i = 2s_i - 2n_i w_i
-}
-\end{equation}
-
-\noindent \textbf{Interpretation}:
-\begin{itemize}
-\item The first term (\(2s_i\)) represents the \textit{expected signal contribution}
-\item The second term (\(-2n_i w_i\)) encodes the \textit{data-dependent correction}
-\item The weight \(w_i\) automatically adapts to the relative importance of each bin:
-  \begin{itemize}
-  \item Large \(s_i/b_i\) \(\Rightarrow\) \(w_i\) increases (high sensitivity bins)
-  \item Small \(s_i/b_i\) \(\Rightarrow\) \(w_i\) decreases (background-dominated bins)
-  \end{itemize}
-\end{itemize}
-
-This derivation assumes \(b_i > 0\) for all bins. Special treatment is required for empty bins (\(b_i = 0\)), typically handled by replacing \(b_i\) with a small constant or through Bayesian priors~\cite{Cowan2011}.
-
 \subsection{Combining Bins: The Total Test Statistic}
 \label{subsec:combining_bins}
 
