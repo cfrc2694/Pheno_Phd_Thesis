@@ -235,8 +235,7 @@ It quantifies the separation between the signal+background ($s+b$) and backgroun
 
 This figure of merit automatically optimizes sensitivity through the logarithmic weights $w_i = \ln(1 + s_i/b_i)$, which naturally emphasize bins with either high signal-to-background ratios ($s_i/b_i$) or large absolute signal contributions ($s_i$). In asymptotic limits, $\kappa$ simplifies to intuitive forms: for dominant signals ($s_i \gg b_i$), it approaches $\sqrt{\sum s_i}$ (Poisson counting), while in background-dominated regimes ($s_i \ll b_i$), it reduces to an inverse-variance-weighted sum $\sum s_i / \sqrt{\sum b_i (s_i/b_i)^2}$. This dual behavior ensures optimal discrimination power across all signal regimes.
 
-In practice, we must take in account for systematic effects by to incorporate nuisance parameters into the likelihood, and profiling over uncertainty ranges. The power calculation can be extended to include systematic uncertainties by modifying the denominator:
-
+In practice, we must take in account for systematic effects by to incorporate nuisance parameters into the likelihood, and profiling over uncertainty ranges. The power calculation can be extended to include systematic uncertainties by modifying the denominator as,
 \begin{equation}
 	\boxed{
 	\kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \sigma^2_{\text{sys,signal},i} + \sigma^2_{\text{sys,bkg},i}\right] w_i^2}},
