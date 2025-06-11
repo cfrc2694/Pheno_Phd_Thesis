@@ -180,20 +180,14 @@ In high-energy physics experiments, data is often discretized into bins (e.g., h
         s_i + b_i & \text{for } H_1.
     \end{cases}
 \end{equation}
-The Neyman-Pearson lemma~\cite{NeymanPearson1933} establishes that the most powerful test statistic for distinguishing $H_0$ from $H_1$ is the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$. This forms the basis for quantifying the evidence for new physics signals against known backgrounds.
-
-\subsection{Likelihood Ratio Test and the Neyman-Pearson Lemma}
-\label{subsec:likelihood_ratio_test}
-
-The Neyman-Pearson lemma~\cite{NeymanPearson1933} provides a rigorous framework for hypothesis testing by establishing that the likelihood ratio test is the \textit{most powerful} test statistic for distinguishing between two simple hypotheses. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as:
-
+The Neyman-Pearson lemma~\cite{NeymanPearson1933} provides a rigorous framework for hypothesis testing by establishing that the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$ is the most powerful test statistic for distinguishing between two simple hypotheses, $H_0$ and $H_1$. This forms the basis for quantifying the evidence for new physics signals against known backgrounds. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as,
 \begin{equation}
 Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = e^{-s_i} \left( 1+\frac{s_i}{b_i} \right)^{-n_i},
 \end{equation}
 where $n_i$ is the observed event count, $s_i$ the expected signal, and $b_i$ the expected background in bin $i$. 
 
-The test statistic for the full analysis is constructed as the product of individual bin likelihood ratios:
 
+The test statistic for the full analysis is constructed as the product of individual bin likelihood ratios:
 \begin{equation}
 Q = \prod_{i=1}^{N} Q_i,
 \end{equation}
