@@ -1,4 +1,4 @@
-\chapter{ Probing Light Scalars and Vector-like Quarks at the High-Luminosity LHC}
+\chapter{Probing Light Scalars and Vector-like Quarks at the High-Luminosity LHC}
 
 % \section{Introduction}
 % \label{introduction}
@@ -23,7 +23,7 @@ The rest of this paper is structured as follows. Section~\ref{sec:model} discuss
 Carlo (MC) simulation samples are produced for this study. In Section~\ref{sec:ML} we discuss the motivation and details of our machine learning workflow, and in Section~\ref{sec:results}, the main results are presented. We conclude with a short discussion in Section~\ref{sec:discussion}.
 \begin{figure}
     \centering
-    \includegraphics[width=0.85\linewidth]{Images/signal_qqfusion.pdf}
+    \includegraphics[width=0.75\linewidth]{Images/signal_qqfusion.pdf}
     \caption{Representative Feynman diagram for the production of a $\phi'$ boson in association with a $\chi_\mathrm{u}$ vector-like quark through the fusion of a top quark and $\chi_\mathrm{u}$ vector-like quark. Once again, the $\phi'$ decays to a pair of muons, the top quark decays fully hadronically, and the $\chi_\mathrm{u}$ decays semi-leptonically to muons, neutrinos and $b$-jets.\label{fig:qqfusion}}
 \end{figure}
 
@@ -39,13 +39,13 @@ The ATLAS and CMS collaborations at CERN have conducted various searches for hea
 
 \begin{figure}
 \centering
-\includegraphics[width=0.65\linewidth]{Images/T_prod_qcd.pdf}
+\includegraphics[width=0.6\linewidth]{Images/T_prod_qcd.pdf}
 \caption{Representative Feynman diagram for T pair production via gluon-mediated QCD processes.\label{fig:qcd_T_prod}}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.65\linewidth]{Images/T_prod_qed.pdf}
+\includegraphics[width=0.6\linewidth]{Images/T_prod_qed.pdf}
 \caption{Representative Feynman diagram for single T production via electroweak processes.\label{fig:qed_T_prod}}
 \end{figure}
 
@@ -275,7 +275,7 @@ Signal samples are generated considering the production of a $\phi'$ boson, an a
 \end{figure}
 
 We target signal events where the top quark decays hadronically into a bottom quark and two jets ($\mathrm{t} \to \mathrm{bW} \to \mathrm{b} q \bar{q}'$), the $\chi_\mathrm{u}$ decays semileptonically into a $b$ quark, lepton, and neutrino (via $\chi_\mathrm{u} \to \mathrm{bW}$ and $\mathrm{W}\to\mu\nu_{\mu}$), and the $\phi'$ produces two muons. We note that the scalar $\phi'$ particle could result from the mixture of the SM Higgs boson and additional scalar fields, and the Yukawas of the fermions could additionally arise from the mixing of the SM fermions with additional copies of the associated vector-like fermions. Therefore, the $\phi'$ branching ratios are dependent on the chosen mechanism and model by which this mixture occurs, see for example, Refs.~\parencite{Cacciapaglia_2023,Blankenburg:2012nx,Jones-Perez:2013oia,Calibbi:2009pv}. For the purpose of this work, and 
-similar to Refs.~\parencite{Dutta2020,Dutta2023}, the considered benchmark signal scenarios have $\mathfrak{B}(\chi_\mathrm{u} \rightarrow \textrm{b W})$ of about 0.5 and $\mathfrak{B}(\phi' \rightarrow \mu^+\mu^-)=0.98$. Figure~\ref{fig:xs-plot} shows the production cross section in \textrm{fb}, as a function of $m(\phi')$ and $m(\chi_\mathrm{u})$ masses, assuming the aforementioned decays, branching ratios, and couplings.
+similar to Refs.~\parencite{Dutta2020,Dutta2023}, the considered benchmark signal scenarios have $\mathfrak{B}(\chi_\mathrm{u} \rightarrow \textrm{b W})$ of about 0.5 and $\mathfrak{B}(\phi' \rightarrow \mu^+\mu^-)=1.00$. Figure~\ref{fig:xs-plot} shows the production cross section in \textrm{fb}, as a function of $m(\phi')$ and $m(\chi_\mathrm{u})$ masses, assuming the aforementioned decays, branching ratios, and couplings.
 
 We note that for the parameter space of focus in this paper, the total mass of the $t$-$\chi_\mathrm{u}$ system is larger than $m(\phi')$, thus the large rest energy of the $t$-$\chi_\mathrm{u}$ system is converted into potentially large momentum values for the $\phi'$. Similarly, the $t$-quark produced through the $\chi_\mathrm{u}$-$t$ fusion interaction can also have large momentum values, and thus in some cases the hadronic $t$ decay products cannot be fully reconstructed independently of each other. This results in three possible $t$ reconstruction scenarios: a fully merged scenario where the $\mathrm{W}\to jj$ system and the $\mathrm{b}$ quarks are very collimated and reconstructed as a single ``fat jet’’ (henceforth referred to as a FatJet, FJ); a partially merged scenario, where the decay products of the $\mathrm{W}$ boson form a single FatJet but the $\mathrm{b}$ quark can still be separately identified; and an un-merged scenario where all decay products can be independently identified. Jets are clustered using the anti-$k_t$ algorithm~\parencite{Cacciari_2008} using the \texttt{FastJet} (v3.4.2)~\parencite{Cacciari_2012} package with a distance parameter of $R = 0.4$ for standard jets and $R = 0.8$ for fat jet objects. Each scenario has an associated identification efficiency and misidentification rate, which depends on the choice of the boosted $t$/$W$ algorithm (our choice of efficiency and misidentification rates is described later). 
 
@@ -397,7 +397,7 @@ Figure~\ref{fig:xgboostout} shows  the distributions for the output of the BDT a
 \begin{figure}
 \centering
   \centering
-  \includegraphics[width=.75\linewidth]{Images/ROC_Curve.pdf}
+  \includegraphics[width=.85\linewidth]{Images/ROC_Curve.pdf}
   \caption{Receiver operating characteristic curve of the BDT algorithm for three different signal benchmark scenarios.}
   \label{fig:ROC}
 \end{figure}
@@ -405,7 +405,7 @@ Figure~\ref{fig:xgboostout} shows  the distributions for the output of the BDT a
 \begin{figure}
 \centering
   \centering
-  \includegraphics[width=.75\linewidth]{Images/feature_importance.pdf}
+  \includegraphics[width=.85\linewidth]{Images/feature_importance.pdf}
   \caption{Relative importance of features in training for a benchmark signal scenario with $m(\phi')=325\, \mathrm{GeV}$ and $m(\chi_\mathrm{u})=2000\, \mathrm{GeV}$.}
   \label{fig:feature_importance}
 \end{figure}
@@ -419,24 +419,18 @@ Regarding experimental uncertainties, following experimental measurements from C
 %For muon reconstruction, identification, and isolation requirements, there is a 1-2\% uncertainty, while a 1-3\% systematic uncertainty is applied to variations in energy/momentum scale and resolution. 
 We consider jet energy scale uncertainties ranging from 2-5\%, contingent on $\eta$ and $p_\mathrm{T}$, resulting in shape-based uncertainties on the BDT output distribution. Jet energy scale uncertainties were assumed to range from 1-5\%, contingent on $\eta$ and $p_\mathrm{T}$. These assumptions lead to shape-based uncertainties on the BDT output distribution, varying from 1-2\%. Additionally, we include  a 10\% systematic uncertainty to account for errors in the signal and background predictions. Considering all the various sources of systematic uncertainties, our conservative  estimate yields a total effect of about 20\%. 
 
-Figure~\ref{fig:/significance_3000} shows the expected signal significance considering an integrated luminosity of 3000 $\mathrm{fb^{-1}}$. The significance is shown as a heat map in a two-dimensional plane for different $\phi'$ and $\chi_{\mathrm{u}}$ masses. The x-axis corresponds to $m(\chi_\mathrm{u})$, the y-axis to $m(\phi')$, and the heat map to log$_{10}(\mathrm{Z}_{sig})$. The white dashed lines are contours of constant signal significances of $1.69 \sigma$,  $3\sigma$ and  $5\sigma$ to represent regions of possible exclusion, evidence of new physics, and discovery, respectively. Under these conditions, $\phi'$ ($\chi_{\mathrm{u}}$) masses ranging from 1 to 325 \textrm{GeV} (500 to 1800 \textrm{GeV}) can be probed. The range for a discovery with $5\sigma$ signal significance varies from $\chi_{\mathrm{u}}$ masses from $m(\chi_{\mathrm{u}}) = 770$-1100 \textrm{GeV}, depending  $m(\phi^{'})$. For large $m(\chi_\mathrm{u})$, the significance is almost independent of $m(\phi')$ because the primary discriminating feature—the boosted $b$-quark originating from $\phi'$—is driven predominantly by the large $m(\chi_\mathrm{u})$, with the kinematic impact of $m(\phi')$ being relatively negligible.
-
-
 \begin{figure}[]
 \centering
   \centering
-  \includegraphics[width=.85\linewidth]{Images/significance.pdf}
+  \includegraphics[width=.95\linewidth]{Images/significance.pdf}
   \caption{Signal significance for the high luminosity LHC era, considering with 3000  $\mathrm{fb}^{-1}$ of collected data.}
   \label{fig:/significance_3000}
 \end{figure}
 
-\section{Discussion}\label{sec:discussion}
+Figure~\ref{fig:/significance_3000} shows the expected signal significance considering an integrated luminosity of 3000 $\mathrm{fb^{-1}}$. The significance is shown as a heat map in a two-dimensional plane for different $\phi'$ and $\chi_{\mathrm{u}}$ masses. The x-axis corresponds to $m(\chi_\mathrm{u})$, the y-axis to $m(\phi')$, and the heat map to log$_{10}(\mathrm{Z}_{sig})$. The white dashed lines are contours of constant signal significances of $1.69 \sigma$,  $3\sigma$ and  $5\sigma$ to represent regions of possible exclusion, evidence of new physics, and discovery, respectively. Under these conditions, $\phi'$ ($\chi_{\mathrm{u}}$) masses ranging from 1 to 325 \textrm{GeV} (500 to 1800 \textrm{GeV}) can be probed. The range for a discovery with $5\sigma$ signal significance varies from $\chi_{\mathrm{u}}$ masses from $m(\chi_{\mathrm{u}}) = 770$-1100 \textrm{GeV}, depending  $m(\phi^{'})$. For large $m(\chi_\mathrm{u})$, the significance is almost independent of $m(\phi')$ because the primary discriminating feature—the boosted $b$-quark originating from $\phi'$—is driven predominantly by the large $m(\chi_\mathrm{u})$, with the kinematic impact of $m(\phi')$ being relatively negligible.
 
-The LHC will continue to run with pp collisions at $\sqrt{s} = 13.6$~\textrm{TeV} for the next decade. Given the increase in the integrated luminosity expected from the high-luminosity program, it is important to consider unexplored new physics phase space that diverges from the conventional assumptions made in many BSM theories, and which could have remained hidden in processes that have not yet been thoroughly examined. It is additionally crucial to explore advanced analysis techniques, in particular the use of artificial intelligence algorithms, to enhance the probability of detecting these rare corners where production cross sections are lower and discrimination from SM backgrounds is difficult. 
 
-In this work, we examine a model based on a $U(1)_{T^3_R}$ extension of the SM, which can address various conceptual and experimental issues with the SM, including the mass hierarchy between generations of fermions, the thermal dark matter abundance, and the muon $g - 2$, $R_{(D)}$, and $R_{(D^*)}$ anomalies. This model contains a light scalar boson $\phi'$, with potential masses below the electroweak scale, and~\textrm{TeV}-scale vector-like quarks $\chi_\mathrm{u}$. We consider the scenario where the scalar $\phi'$ has family non-universal fermion couplings and $m(\phi') \ge 1$~\textrm{GeV}, as was suggested in Ref.~\parencite{Dutta2020}, and thus the $\phi^{\prime}$ can primarily decay to a pair of muons. Previous works in Refs.~\parencite{Dutta2023, Banerjee_2016} considered scenarios motivating a search methodology with a merged diphoton system from $\phi' \to \gamma\gamma$ decays. The authors of Ref~\parencite{Dutta2023}, in which $m(\phi') < 1$~\textrm{GeV},  indeed pointed out that if the $\phi'$ is heavier than about 1~\textrm{GeV}, then decays to $\mu^+ \mu^-$ can become the preferable mode for discovery, which is the basis for the work presented in this paper. We further note that the final state topology studied in this paper would represent the most important mode for discovery at $m(\phi') < 2 m_{\mathrm{t}}$ where the $\phi' \to \mathrm{t\bar{t}}$ decay is kinematically forbidden. 
 
-The main result of this paper is that we have shown that the LHC can probe the visible decays of new bosons with masses below the electroweak scale, down to the~\textrm{GeV}-scale, by considering the simultaneous production of heavy QCD-coupled particles, which then decay to the SM particles that contain large momentum values and can be observed in the central regions of the CMS and ATLAS detectors. The boosted system combined with innovative machine learning algorithms allows for the signal extraction above the lower-energy SM background. The LHC search strategy described here can be used to discover the prompt decay of new light particles.  An important conclusion from this paper is that the detection prospects for low-mass particles are enhanced when it is kinematically possible to simultaneously access the heavy degrees of freedom which arise in the UV completion of the low-energy model.  This specific scenario in which the couplings of the light scalars are generationally dependent, with important coupling values to the top quark, is an ideal example which would be difficult to directly probe at low energy beam experiments.
 
-The proposed data analysis represents a competitive alternative 
-to complement searches already being conducted at the LHC, allowing us to probe $\phi'$ masses from 1 to 325 \textrm{GeV}, for $m(\chi_{\mathrm{u}})$ values up to almost 2~\textrm{TeV}, at the HL-LHC. Therefore, we strongly encourage the ATLAS and CMS Collaborations to consider the proposed analysis strategy in future new physics searches. 
+% \section{Discussion}\label{sec:discussion}
+
