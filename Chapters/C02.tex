@@ -172,6 +172,230 @@ Pythia output is in HepMC2 format. With this information we run a software, DELP
 \section{Measurement of the Power of an Analysis}
 \label{sec:power_analysis}
 
+\subsection{Introduction to Hypothesis Testing in Binned Analyses}
+In high-energy physics experiments, data is often discretized into bins (e.g., histograms of collision events versus energy or momentum) to test competing hypotheses. The fundamental framework compares two scenarios: the \textit{null hypothesis} ($H_0$), representing background-only processes ($b_i$ in each bin $i$), and the \textit{alternative hypothesis} ($H_1$), including both signal and background ($s_i + b_i$). Given the Poissonian nature of event counts $n_i$, the likelihood for observing the data under each hypothesis is:
+\begin{equation}
+    \mathcal{L}(n_i \mid \lambda_i) = \frac{e^{-\lambda_i} \lambda_i^{n_i}}{n_i!}, \quad \text{where } \lambda_i = 
+    \begin{cases}
+        b_i & \text{for } H_0, \\
+        s_i + b_i & \text{for } H_1.
+    \end{cases}
+\end{equation}
+The Neyman-Pearson lemma~\cite{NeymanPearson1933} establishes that the most powerful test statistic for distinguishing $H_0$ from $H_1$ is the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$. This forms the basis for quantifying the evidence for new physics signals against known backgrounds.
+
+\subsection{Likelihood Ratio Test and the Neyman-Pearson Lemma}
+\label{subsec:likelihood_ratio_test}
+
+The Neyman-Pearson lemma~\cite{NeymanPearson1933} provides a rigorous framework for hypothesis testing by establishing that the likelihood ratio test is the \textit{most powerful} test statistic for distinguishing between two simple hypotheses. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as:
+
+\begin{equation}
+Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = \frac{e^{-(s_i+b_i)}(s_i+b_i)^{n_i}/n_i!}{e^{-b_i}b_i^{n_i}/n_i!},
+\end{equation}
+where $n_i$ is the observed event count, $s_i$ the expected signal, and $b_i$ the expected background in bin $i$. 
+
+The test statistic for the full analysis is constructed as the product of individual bin likelihood ratios:
+
+\begin{equation}
+Q = \prod_{i=1}^{N} Q_i,
+\end{equation}
+where $N$ is the total number of bins. For computational convenience and connection to asymptotic distributions, we consider the logarithmic form:
+
+\begin{equation}
+-2\ln Q = -2 \sum_{i=1}^{N} \ln Q_i = 2\sum_{i=1}^{N}\left[s_i - n_i \ln\left(1 + \frac{s_i}{b_i}\right)\right].
+\end{equation}
+
+This transformation yields several important properties:
+\begin{itemize}
+\item The quantity $-2\ln Q$ follows a $\chi^2$ distribution under $H_0$ (background-only) by Wilks' theorem~\cite{Wilks1938}, facilitating p-value calculations
+\item The expression separates into signal ($s_i$) and background-dependent terms, revealing the optimal weight $w_i \equiv \ln(1+s_i/b_i)$ for each bin
+\item The test statistic becomes additive across bins, allowing combination of multiple search channels
+\end{itemize}
+
+The Neyman-Pearson optimality guarantees that no alternative test statistic can achieve greater statistical power for the given hypotheses when using the same significance level. This makes the likelihood ratio test particularly valuable for new physics searches where signal-to-background ratios may be small.
+
+\subsection{Derivation of \(-2\ln Q\) for a Single Bin}
+\label{subsec:single_bin_derivation}
+
+The transformation to \(-2\ln Q\) provides both computational advantages and connection to known statistical distributions. For a single bin \(i\), we begin with the likelihood ratio:
+
+\begin{equation}
+Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = \frac{e^{-(s_i+b_i)}(s_i+b_i)^{n_i}/n_i!}{e^{-b_i}b_i^{n_i}/n_i!}.
+\end{equation}
+
+The derivation proceeds through the following steps:
+
+1. \textbf{Simplify the factorial terms}:
+   The \(n_i!\) terms cancel, giving:
+   \begin{equation}
+   Q_i = e^{-s_i} \left(1 + \frac{s_i}{b_i}\right)^{n_i}.
+   \end{equation}
+
+2. \textbf{Take the natural logarithm}:
+   \begin{equation}
+   \ln Q_i = -s_i + n_i \ln\left(1 + \frac{s_i}{b_i}\right).
+   \end{equation}
+
+3. \textbf{Multiply by \(-2\)} to obtain the test statistic:
+   \begin{equation}
+   -2\ln Q_i = 2s_i - 2n_i \ln\left(1 + \frac{s_i}{b_i}\right).
+   \end{equation}
+
+4. \textbf{Identify the optimal weight}:
+   The expression reveals the natural emergence of the weight:
+   \begin{equation}
+   w_i \equiv \ln\left(1 + \frac{s_i}{b_i}\right),
+   \end{equation}
+   which optimally combines signal and background information.
+
+The final form for a single bin becomes:
+\begin{equation}
+\boxed{
+-2\ln Q_i = 2s_i - 2n_i w_i
+}
+\end{equation}
+
+\noindent \textbf{Interpretation}:
+\begin{itemize}
+\item The first term (\(2s_i\)) represents the \textit{expected signal contribution}
+\item The second term (\(-2n_i w_i\)) encodes the \textit{data-dependent correction}
+\item The weight \(w_i\) automatically adapts to the relative importance of each bin:
+  \begin{itemize}
+  \item Large \(s_i/b_i\) \(\Rightarrow\) \(w_i\) increases (high sensitivity bins)
+  \item Small \(s_i/b_i\) \(\Rightarrow\) \(w_i\) decreases (background-dominated bins)
+  \end{itemize}
+\end{itemize}
+
+This derivation assumes \(b_i > 0\) for all bins. Special treatment is required for empty bins (\(b_i = 0\)), typically handled by replacing \(b_i\) with a small constant or through Bayesian priors~\cite{Cowan2011}.
+
+\subsection{Combining Bins: The Total Test Statistic}
+\label{subsec:combining_bins}
+
+For an analysis with multiple bins, the combined test statistic is constructed by summing the single-bin $-2\ln Q_i$ contributions:
+
+\begin{equation}
+-2\ln Q = \sum_{i=1}^{N} \left[2s_i - 2n_i w_i\right]
+\end{equation}
+
+where $N$ is the total number of bins and $w_i = \ln(1 + s_i/b_i)$ is the optimal weight for bin $i$.
+
+\subsubsection{Statistical Properties Under Different Hypotheses}
+The expected behavior differs under the signal-plus-background ($H_1$) and background-only ($H_0$) hypotheses:
+
+\begin{itemize}
+\item \textbf{Under $H_1$ ($n_i \sim \text{Pois}(s_i + b_i)$)}:
+\begin{equation}
+\langle -2\ln Q \rangle_{s+b} = \sum_i \left[2s_i - 2(s_i + b_i)w_i\right]
+\end{equation}
+
+\item \textbf{Under $H_0$ ($n_i \sim \text{Pois}(b_i)$)}:
+\begin{equation}
+\langle -2\ln Q \rangle_{b} = \sum_i \left[2s_i - 2b_i w_i\right]
+\end{equation}
+\end{itemize}
+
+\subsubsection{Variance Calculation}
+The variance of the test statistic becomes crucial for significance calculations:
+
+\begin{equation}
+\sigma^2_{s+b} = 4\sum_i (s_i + b_i) w_i^2
+\end{equation}
+
+\begin{equation}
+\sigma^2_{b} = 4\sum_i b_i w_i^2
+\end{equation}
+
+\subsubsection{Interpretation of the Combined Statistic}
+The combined test statistic has several key features:
+
+\begin{itemize}
+\item \textbf{Additivity}: The summation preserves the optimal Neyman-Pearson properties for the full analysis
+\item \textbf{Channel Combination}: Different search channels can be incorporated through additional bins
+\item \textbf{Asymptotic Behavior}: For large counts, the distribution approaches a Gaussian by the Central Limit Theorem
+\end{itemize}
+
+% \begin{figure}[h]
+% \centering
+% % \includegraphics[width=0.8\linewidth]{figures/test_statistic_distributions}
+% \caption{Distributions of $-2\ln Q$ under the background-only (blue) and signal-plus-background (red) hypotheses. The separation between peaks determines the analysis sensitivity.}
+% \label{fig:test_stat_dist}
+% \end{figure}
+
+The significance of an observed excess can be quantified by comparing the test statistic value to these distributions, as we will explore in Section~\ref{subsec:discovery_significance}.
+
+
+\subsection{Defining the Discovery Significance $\kappa$}
+\label{subsec:discovery_significance}
+
+The discovery significance $\kappa$ quantifies the statistical separation between the signal-plus-background ($s+b$) and background-only ($b$) hypotheses. It is constructed as:
+
+\begin{equation}
+\kappa = \frac{\langle -2\ln Q \rangle_b - \langle -2\ln Q \rangle_{s+b}}{\sigma_{s+b}}
+\end{equation}
+
+Substituting the expressions from Section~\ref{subsec:combining_bins}:
+
+\begin{align}
+\kappa &= \frac{\sum \left[2s_i - 2b_i w_i - (2s_i - 2(s_i + b_i)w_i)\right]}{\sqrt{4\sum (s_i + b_i) w_i^2}} \\
+&= \frac{2\sum s_i w_i}{2\sqrt{\sum (s_i + b_i) w_i^2}} \\
+&= \boxed{\frac{\sum s_i w_i}{\sqrt{\sum (s_i + b_i) w_i^2}}}
+\end{align}
+
+\subsubsection{Interpretation of $\kappa$}
+The significance $\kappa$ has several key interpretations:
+
+\begin{itemize}
+\item \textbf{Statistical Meaning}: $\kappa$ represents the number of standard deviations ($\sigma$) separating the $s+b$ hypothesis from the background expectation
+
+\item \textbf{Optimal Weights}: The weight $w_i = \ln(1 + s_i/b_i)$ automatically emphasizes bins where:
+\begin{itemize}
+\item The signal-to-background ratio $s_i/b_i$ is large
+\item The absolute expected signal $s_i$ is significant
+\end{itemize}
+
+\item \textbf{Asymptotic Cases}:
+\begin{itemize}
+\item For \textit{strong signals} ($s_i \gg b_i$): $\kappa \approx \sqrt{\sum s_i}$
+\item For \textit{background-dominated} bins ($s_i \ll b_i$): $\kappa \approx \sum s_i/\sqrt{\sum b_i (s_i/b_i)^2}$
+\end{itemize}
+
+\item \textbf{Discovery Threshold}:
+\begin{itemize}
+\item $\kappa = 5$ corresponds to the traditional 5$\sigma$ discovery criterion
+\item This translates to a p-value of $2.87 \times 10^{-7}$ under the background-only hypothesis
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Systematic Uncertainties}
+In practice, we must account for systematic effects by:
+\begin{itemize}
+\item Incorporating nuisance parameters into the likelihood
+\item Profiling over uncertainty ranges
+\item The Asimov dataset approach provides a robust estimation framework
+\end{itemize}
+
+The $\kappa$ statistic forms the foundation for establishing discoveries in high-energy physics, from Higgs boson observations to searches for new phenomena.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 The statistical power of an analysis quantifies its sensitivity to discriminate between signal and background processes. For binned data following Poisson statistics, we define the power $\kappa$ as:
 
 \begin{equation}
@@ -204,5 +428,4 @@ The power calculation can be extended to include systematic uncertainties by mod
 \kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \sigma^2_{\text{sys,signal},i} + \sigma^2_{\text{sys,bkg},i}\right] w_i^2}},
 \label{eq:kappa_with_systematics}
 \end{equation}
-
 where $\sigma_{\text{sys}}$ terms represent the systematic uncertainties on signal and background predictions.
