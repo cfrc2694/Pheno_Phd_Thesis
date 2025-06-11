@@ -1,6 +1,5 @@
 \chapter{BSM signatures in di-tau final states}
 
-
 \section{A Simplified Model for the $\tilde S_1$ Scalar Leptoquark}
 
 Leptoquarks (LQs) are hypothetical bosonic particles that couple simultaneously to a quark and a lepton, thereby mediating lepton-quark interactions at a single vertex. They arise naturally in various extensions of SM, including grand unified theories and models with extended gauge symmetries, and have attracted renewed interest as a possible explanation for observed flavor anomalies and hints of lepton flavor non-universality.
@@ -283,21 +282,18 @@ Figure~\ref{fig:polarization_asymmetry_avg} shows the average polarization asymm
     \captionof{figure}{The average polarization asymmetry $\mathcal{P}_{\tau^-}^{\text{avg}}$ of the $\tau$ lepton as a function of its pseudorapidity $\eta$ for different values of the $\beta_R^{b\tau}$ parameter.}\label{fig:polarization_asymmetry_avg}
 \end{center}
 
-The contributions of signal and background events are estimated using Monte Carlo (MC) simulations. We implemented the $U_1$ model from~\cite{Baker:2019sli}, adjusted to describe the lagrangian in Equations~\eqref{eq:BasicLagrangian} and ~\eqref{eq:BasicLagrangianZp}, using \texttt{FeynRules} (v2.3.43) ~\cite{Christensen:2008py,Alloul:2013bka}. The branching ratios and cross-sections have been calculated using \texttt{MadGraph5\_aMC} (v3.1.0) \cite{Alwall:2014bza, Alwall:2014hca}, the latter at leading order in $\alpha_s$. The corresponding samples are generated considering $\mathrm{p}\,\mathrm{p}$ collisions at  $\sqrt{s}=13 \tev$ and $\sqrt{s}=13.6 \tev$.  All samples are generated using the NNPDF3.0 NLO~\cite{NNPDF:2014otw} set for parton distribution functions (PDFs) and using the full amplitude square SDE strategy for the phase-space optimization due to strong interference effects with the $\zb'$ boson. Parton level events are then interfaced with the \texttt{PYTHIA} (v8.2.44)~\cite{Sjostrand:2014zea} package to include parton fragmentation and hadronization processes, while \texttt{DELPHES} (v3.4.2)~\cite{deFavereau:2013fsa} is used to simulate detector effects, using the input card for the CMS detector geometric configurations, and for the performance of particle reconstruction and identification.
-
-
-\section{A simplified model for a $\zb'_{B-L}$ boson}
+\section{A simplified model for a ${\rm Z}'_{B-L}$ boson}
 
 Hypothetical heavy neutral bosons, such as the $Z'$ boson, are a common feature in many BSM models. They arise from extended gauge symmetries and can couple to fermions in ways that differ from the SM $Z$ boson. Assuming a $U(1)_{B-L}$ extension of the SM gauge group, the $Z'$ boson can couple to fermions through a gauge interaction that is proportional to their brayon minus lepton number ($B-L$). This coupling can lead to new interactions and processes that are not present in the SM, such as flavor-changing neutral currents or enhanced production of certain final states depending on the symmetry breaking pattern and the mass of the $Z'$ boson. Additionally, we could consider textures in the flavor space of the $Z'$ couplings, which can lead to preferential couplings to specific generations of fermions and to avoid large flavor-changing neutral currents (FCNCs) we assume that they are diagonal in the flavor space.
 
-Accordingly, we assume the $\zb'$ only couples to third-generation fermions. Our simplified model is thus extended by:
+Accordingly, we assume the ${\rm Z}'$ only couples to third-generation fermions. Our simplified model is thus extended by:
 \begin{eqnarray}
     \label{eq:BasicLagrangianZp}
         \mathcal{L}_{Z^{\prime}}&= & -\frac{1}{4} Z_{\mu \nu}^{\prime} Z^{\prime \mu \nu}+\frac{1}{2} M_{Z^{\prime}}^2 Z_\mu^{\prime} Z^{\prime \mu} \nonumber \\
         && + \frac{g_{Z^{\prime}}}{2 \sqrt{6}} Z^{\prime \mu} (\zeta_q \bar{Q}_3 \gamma_\mu Q_3 -3 \zeta_{\ell} \bar{L}_3 \gamma_\mu L_3 \\
         && \qquad +\zeta_t \bar{t}_R \gamma_\mu t_R  +\zeta_b \bar{b}_R \gamma_\mu b_R-3 \zeta_\tau \bar{\tau}_R \gamma_\mu \tau_R)
 \end{eqnarray}
-where the constants $M_{\zb^{\prime}}$, $g_{Z^{\prime}}$, $\zeta_q $, $\zeta_t $, $\zeta_b$, $\zeta_{\ell}$, $\zeta_\tau$, are model dependent.
+where the constants $M_{{\rm Z}^{\prime}}$, $g_{Z^{\prime}}$, $\zeta_q $, $\zeta_t $, $\zeta_b$, $\zeta_{\ell}$, $\zeta_\tau$, are model dependent.
 
 Unlike the $U_1$ vector leptoquark, the polarization of the $\tau$ lepton implies the opposite polarization of the anti-$\tau$ lepton, due they are produced in the same chiral line. To differentiate the contributions of each $\zeta$ parameter, we have calculated the amplitudes for the different initial and final state polarizations, which are given by:
 \begin{align}
@@ -309,7 +305,7 @@ Unlike the $U_1$ vector leptoquark, the polarization of the $\tau$ lepton implie
 Figure~\ref{fig:cross_section_zprime} shows the integrated production cross sections at $\sqrt{s} = 13.0\; \si{\tera\electronvolt}$ for a fixed set of couplings $g_{Z'} = 1.0$, $\zeta_\ell = 1.0$, $\zeta_q = 1.0$, $\zeta_b = 0.8$, and $\zeta_\tau = 0.6$. The cross section is sensitive to the choice of the couplings, and thus can be used to probe the underlying BSM model.
 \begin{center}
     \includegraphics[width=.9\linewidth]{Images/Zprime_Cross_Section.pdf}
-    \captionof{figure}{Cross section for $\zb'$ production decaying to $\tau^+\tau^-$ final states, showing different $\tau$ polarization configurations as a function of $\zb'$ mass at $\sqrt{s}=13.0 \si{\tera\electronvolt}$. The couplings are fixed to $g_{Z'} = 1.0$, $\zeta_\ell = 1.0$, $\zeta_q = 1.0$, $\zeta_b = 0.8$, and $\zeta_\tau = 0.6$.}\label{fig:cross_section_zprime}
+    \captionof{figure}{Cross section for ${\rm Z}'$ production decaying to $\tau^+\tau^-$ final states, showing different $\tau$ polarization configurations as a function of ${\rm Z}'$ mass at $\sqrt{s}=13.0 \si{\tera\electronvolt}$. The couplings are fixed to $g_{Z'} = 1.0$, $\zeta_\ell = 1.0$, $\zeta_q = 1.0$, $\zeta_b = 0.8$, and $\zeta_\tau = 0.6$.}\label{fig:cross_section_zprime}
 \end{center}
 The polarization asymmetry $\mathcal{P}_{\tau^-}$ of the $\tau$ lepton can be defined in a similar way as for the $U_1$ vector leptoquark, but now it is sensitive to the different couplings $\zeta_\ell$, $\zeta_q$, $\zeta_b$, and $\zeta_\tau$. The polarization asymmetry is given by:
 \begin{align}
@@ -327,11 +323,11 @@ where we have defined the right-handed and left-handed contributions as
 \end{align}
 Similarly, the polarization of $t\bar t$ observables in $Z'_{B-L}$ will depend on the couplings $\zeta_q$, $\zeta_b$, and $\zeta_t$, and can be used to measure the parameters of the underlying BSM model.
 
-\section{Inteference between the $U_1$ and $\zb'_{B-L}$ models}
+\section{Inteference between the $U_1$ and ${\rm Z}'_{B-L}$ models}
 
-The presence of a $\zb'$ boson in $\lq$ models has been justified in various papers, for example, in~\parencite{Baker:2019sli}. The argument is that minimal extensions of the SM which include a massive gauge $U_1$ LQ, uses the gauge group $SU(4)\times SU(3)^{\prime}\times SU(2)_L \times U(1)_{T_R^3}$. Such an extension implies the presence of an additional massive boson, $\zb^{\prime}$, and a color-octet vector, $G'$, arising from the spontaneous symmetry breaking into the SM. Naively, the LQs are associated to the breaking of $SU(4)\to SU(3)_{[4]}\times U(1)_{B-L}$, the $G'$ arises from $SU(3)_{[4]}\times SU(3)'\to SU(3)_c$, and the $Z'$ comes from the breaking of $U(1)_{B-L}\times U(1)_{T_R^3}\to U(1)_Y$. Notice that the specific pattern of breaking, and the relations between the masses and couplings, are connected to the specific scalar potential used.  The $\zb'$ in particular can play an important role in the projected $\lq$ discovery reach, as it can participate in $\mathrm{p}\,\mathrm{p}\to\tau\tau$ production by s-channel exchange, both resonantly and as a virtual mediator. To study the effect of a $\zb'$ on the $\mathrm{p}\,\mathrm{p}\to\tau\tau$ production cross-sections and kinematics, we extend our benchmark Lagrangian in Eq.~(\ref{eq:BasicLagrangian}) with further non-renormalizable terms involving the $\zb'$ boson according to~\eqref{eq:BasicLagrangianZp}.
+The presence of a ${\rm Z}'$ boson in $\lq$ models has been justified in various papers, for example, in~\parencite{Baker:2019sli}. The argument is that minimal extensions of the SM which include a massive gauge $U_1$ LQ, uses the gauge group $SU(4)\times SU(3)^{\prime}\times SU(2)_L \times U(1)_{T_R^3}$. Such an extension implies the presence of an additional massive boson, ${\rm Z}^{\prime}$, and a color-octet vector, $G'$, arising from the spontaneous symmetry breaking into the SM. Naively, the LQs are associated to the breaking of $SU(4)\to SU(3)_{[4]}\times U(1)_{B-L}$, the $G'$ arises from $SU(3)_{[4]}\times SU(3)'\to SU(3)_c$, and the $Z'$ comes from the breaking of $U(1)_{B-L}\times U(1)_{T_R^3}\to U(1)_Y$. Notice that the specific pattern of breaking, and the relations between the masses and couplings, are connected to the specific scalar potential used.  The ${\rm Z}'$ in particular can play an important role in the projected $\lq$ discovery reach, as it can participate in $\mathrm{p}\,\mathrm{p}\to\tau\tau$ production by s-channel exchange, both resonantly and as a virtual mediator. To study the effect of a ${\rm Z}'$ on the $\mathrm{p}\,\mathrm{p}\to\tau\tau$ production cross-sections and kinematics, we extend our benchmark Lagrangian in Eq.~(\ref{eq:BasicLagrangian}) with further non-renormalizable terms involving the ${\rm Z}'$ boson according to~\eqref{eq:BasicLagrangianZp}.
 
-We study two extreme cases for the $\zb'$ mass, following~\parencite{GINO_PhysRevD.102.115015}, namely $M_{\zb'} = \sqrt{\tfrac{1}{2}}M_U<M_U$ and $M_{\zb'} = \sqrt{\tfrac{3}{2}}M_U>M_U$. We also assume the $\lq$ and $\zb'$ are uniquely coupled to left-handed currents, i.e. $\zeta_q=\zeta_\ell= 1$ and $\zeta_t=\zeta_b=\zeta_\tau=0$. With these definitions, Figure~\ref{fig:xsinterference} shows the effect of the $\zb'$ on the $\tau\tau$ production cross-section, considering $g_U = 1$, $\beta_R=0$, and different $g_{\zb^{\prime}}$ couplings. On the top panel, the cross-sections corresponding to the cases where $M_{\zb'} = \sqrt{\tfrac{1}{2}}M_U$ are shown. As expected, the $\tau\tau$ production cross-section for the inclusive case (i.e., $g_{\zb'} \neq 0$) is larger than that for the $\lq$-only non-res process ($g_{\zb'} = 0$, depicted in blue). This effect increases with $g_{\zb'}$ and, within the evaluated values, can exceed the $\lq$-only cross-section by up to two orders of magnitude. In contrast, a more intricate behaviour can be seen in the bottom panel of Figure~\ref{fig:xsinterference}, which corresponds to $M_{\zb'} = \sqrt{\tfrac{3}{2}}M_U$. Here, for low values of $M_U$, a similar increase in the cross-section is observed. However, for higher values of $M_U$, the inclusive $\mathrm{p}\,\mathrm{p}\to\tau\tau$ cross-section is smaller than the $\lq$-only $\tau\tau$ cross-section. This behaviour suggests the presence of a dominant destructive interference at high masses, leaving its imprint on the results.
+We study two extreme cases for the ${\rm Z}'$ mass, following~\parencite{GINO_PhysRevD.102.115015}, namely $M_{{\rm Z}'} = \sqrt{\tfrac{1}{2}}M_U<M_U$ and $M_{{\rm Z}'} = \sqrt{\tfrac{3}{2}}M_U>M_U$. We also assume the $\lq$ and ${\rm Z}'$ are uniquely coupled to left-handed currents, i.e. $\zeta_q=\zeta_\ell= 1$ and $\zeta_t=\zeta_b=\zeta_\tau=0$. With these definitions, Figure~\ref{fig:xsinterference} shows the effect of the ${\rm Z}'$ on the $\tau\tau$ production cross-section, considering $g_U = 1$, $\beta_R=0$, and different $g_{{\rm Z}^{\prime}}$ couplings. On the top panel, the cross-sections corresponding to the cases where $M_{{\rm Z}'} = \sqrt{\tfrac{1}{2}}M_U$ are shown. As expected, the $\tau\tau$ production cross-section for the inclusive case (i.e., $g_{{\rm Z}'} \neq 0$) is larger than that for the $\lq$-only non-res process ($g_{{\rm Z}'} = 0$, depicted in blue). This effect increases with $g_{{\rm Z}'}$ and, within the evaluated values, can exceed the $\lq$-only cross-section by up to two orders of magnitude. In contrast, a more intricate behaviour can be seen in the bottom panel of Figure~\ref{fig:xsinterference}, which corresponds to $M_{{\rm Z}'} = \sqrt{\tfrac{3}{2}}M_U$. Here, for low values of $M_U$, a similar increase in the cross-section is observed. However, for higher values of $M_U$, the inclusive $\mathrm{p}\,\mathrm{p}\to\tau\tau$ cross-section is smaller than the $\lq$-only $\tau\tau$ cross-section. This behaviour suggests the presence of a dominant destructive interference at high masses, leaving its imprint on the results.
 \begin{figure}[]
 \centering
     \begin{subfigure}[b]{.48\linewidth}
@@ -340,7 +336,7 @@ We study two extreme cases for the $\zb'$ mass, following~\parencite{GINO_PhysRe
     \begin{subfigure}[b]{.48\linewidth}
     \includegraphics[width=\linewidth]{Images/XS_gu_gzp_upper_limit_woRHC.pdf}
     \end{subfigure}
-    \caption{$\tau \tau$ cross-section as a function of the $\lq$ mass for different values of $g_U$ and $g_{\zb^{\prime}}$. The estimates are performed at $\sqrt s=13 \tev$, $\beta_R=0$,  $M_{\zb^{\prime}} = \sqrt{1/2} M_{U}$ (left), and $M_{\zb^{\prime}} = \sqrt{3/2} M_{U}$ (right).}
+    \caption{$\tau \tau$ cross-section as a function of the $\lq$ mass for different values of $g_U$ and $g_{{\rm Z}^{\prime}}$. The estimates are performed at $\sqrt s=13 \tev$, $\beta_R=0$,  $M_{{\rm Z}^{\prime}} = \sqrt{1/2} M_{U}$ (left), and $M_{{\rm Z}^{\prime}} = \sqrt{3/2} M_{U}$ (right).}
 \label{fig:xsinterference}
 \end{figure}
 
@@ -352,16 +348,16 @@ We study two extreme cases for the $\zb'$ mass, following~\parencite{GINO_PhysRe
     \begin{subfigure}[b]{.48\linewidth}
     \includegraphics[width=\linewidth]{Images/Kinematic_Interference_gu_1.0_gzp_1.0_zp_upper_limit_woRHC.pdf}
     \end{subfigure}
-    \caption{The relative kinematic interference (RKI), as a function of the reconstructed mass of two taus, for different $\lq$ masses. The studies are performed assuming $\sqrt s=13 \tev$, $\beta_R=0$, $g_U = 1.0$, $g_{\zb^{\prime}} =1.0$, $M_{\zb^{\prime}} = \sqrt{1/2} M_{U}$ (left), and $M_{\zb^{\prime}} = \sqrt{3/2} M_{U}$ (right).
+    \caption{The relative kinematic interference (RKI), as a function of the reconstructed mass of two taus, for different $\lq$ masses. The studies are performed assuming $\sqrt s=13 \tev$, $\beta_R=0$, $g_U = 1.0$, $g_{{\rm Z}^{\prime}} =1.0$, $M_{{\rm Z}^{\prime}} = \sqrt{1/2} M_{U}$ (left), and $M_{{\rm Z}^{\prime}} = \sqrt{3/2} M_{U}$ (right).
     }    
 \label{fig:interference}
 \end{figure}
-In order to further illustrate the effect, Figure~\ref{fig:interference} shows the relative kinematic interference ($\mathrm{RKI}$) as a function of the reconstructed invariant mass $m_{\tau\tau}$, for $g_{\zb^{\prime}} = 1$ and varying values of $M_U$. The RKI parameter is defined as
+In order to further illustrate the effect, Figure~\ref{fig:interference} shows the relative kinematic interference ($\mathrm{RKI}$) as a function of the reconstructed invariant mass $m_{\tau\tau}$, for $g_{{\rm Z}^{\prime}} = 1$ and varying values of $M_U$. The RKI parameter is defined as
 \begin{equation}
-    \mathrm{RKI}(m_{\tau\tau})=\frac{1}{\sigma_{\lq+\zb'}}\left[\frac{d\sigma_{\lq+\zb'}}{dm_{\tau\tau}}-\left(\frac{d\sigma_{\lq}}{dm_{\tau\tau}}+\frac{d\sigma_{\zb'}}{dm_{\tau\tau}}\right)\right],
+    \mathrm{RKI}(m_{\tau\tau})=\frac{1}{\sigma_{\lq+{\rm Z}'}}\left[\frac{d\sigma_{\lq+{\rm Z}'}}{dm_{\tau\tau}}-\left(\frac{d\sigma_{\lq}}{dm_{\tau\tau}}+\frac{d\sigma_{{\rm Z}'}}{dm_{\tau\tau}}\right)\right],
 \end{equation}
-where $\sigma_{X}$ is the production cross-section arising due to contributions from $X$ particles. For example, $\sigma_{\lq+\zb'}$ represents the inclusive cross-section where both virtual $\lq$ and s-channel $\zb'$ exchange contribute. For both cases, we can observe the presence of deep valleys in the RKI curves when $m_{\tau\tau}\to0$, indicating destructive interference between the $\lq$ and the $\zb'$ contributions. This interference generates a suppression of the differential cross-section for lower values of $m_{\tau\tau}$ and, therefore, in the integrated cross-section. 
+where $\sigma_{X}$ is the production cross-section arising due to contributions from $X$ particles. For example, $\sigma_{\lq+{\rm Z}'}$ represents the inclusive cross-section where both virtual $\lq$ and s-channel ${\rm Z}'$ exchange contribute. For both cases, we can observe the presence of deep valleys in the RKI curves when $m_{\tau\tau}\to0$, indicating destructive interference between the $\lq$ and the ${\rm Z}'$ contributions. This interference generates a suppression of the differential cross-section for lower values of $m_{\tau\tau}$ and, therefore, in the integrated cross-section. 
  
 %The observed interference effects are consistent with detailed studies on resonant and non-res $\mathrm{p}\,\mathrm{p}\to\tq \bar{\tq}$ production, performed in reference~\parencite{Djouadi:2019cbm}.
 
-
+\section{A non-pure detector states}
