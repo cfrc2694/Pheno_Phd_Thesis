@@ -172,7 +172,6 @@ Pythia output is in HepMC2 format. With this information we run a software, DELP
 \section{Measurement of the Power of an Analysis}
 \label{sec:power_analysis}
 
-\subsection{Introduction to Hypothesis Testing in Binned Analyses}
 In high-energy physics experiments, data is often discretized into bins (e.g., histograms of collision events versus energy or momentum) to test competing hypotheses. The fundamental framework compares two scenarios: the \textit{null hypothesis} ($H_0$), representing background-only processes ($b_i$ in each bin $i$), and the \textit{alternative hypothesis} ($H_1$), including both signal and background ($s_i + b_i$). Given the Poissonian nature of event counts $n_i$, the likelihood for observing the data under each hypothesis is:
 \begin{equation}
     \mathcal{L}(n_i \mid \lambda_i) = \frac{e^{-\lambda_i} \lambda_i^{n_i}}{n_i!}, \quad \text{where } \lambda_i = 
@@ -371,7 +370,9 @@ For a single bin with strong signal ($s \gg b$), Eq.~\ref{eq:kappa_definition} r
 The power calculation can be extended to include systematic uncertainties by modifying the denominator:
 
 \begin{equation}
-\kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \sigma^2_{\text{sys,signal},i} + \sigma^2_{\text{sys,bkg},i}\right] w_i^2}},
+	\boxed{
+	\kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \sigma^2_{\text{sys,signal},i} + \sigma^2_{\text{sys,bkg},i}\right] w_i^2}},
+}
 \label{eq:kappa_with_systematics}
 \end{equation}
 where $\sigma_{\text{sys}}$ terms represent the systematic uncertainties on signal and background predictions.
