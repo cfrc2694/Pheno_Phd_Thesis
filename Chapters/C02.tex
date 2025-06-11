@@ -320,53 +320,6 @@ In practice, we must account for systematic effects by:
 
 The $\kappa$ statistic forms the foundation for establishing discoveries in high-energy physics, from Higgs boson observations to searches for new phenomena.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The statistical power of an analysis quantifies its sensitivity to discriminate between signal and background processes. For binned data following Poisson statistics, we define the power $\kappa$ as:
-
-\begin{equation}
-\kappa = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left(s_i + b_i\right) w_i^2}},
-\label{eq:kappa_definition}
-\end{equation}
-
-where:
-\begin{itemize}
-    \item $s_i$ and $b_i$ are the expected signal and background events in bin $i$
-    \item $w_i$ is the optimal weight for bin $i$, given by:
-    \begin{equation}
-        w_i = \ln\left(1 + \frac{s_i}{b_i}\right)
-        \label{eq:optimal_weights}
-    \end{equation}
-\end{itemize}
-
-\subsection*{Special Case: Single Bin Analysis}
-For a single bin with strong signal ($s \gg b$), Eq.~\ref{eq:kappa_definition} reduces to the Poisson significance:
-
-\begin{equation}
-\kappa \approx \frac{s}{\sqrt{s + b}},
-\label{eq:single_bin_kappa}
-\end{equation}
-
-\subsection*{Incorporating Systematic Uncertainties}
 The power calculation can be extended to include systematic uncertainties by modifying the denominator:
 
 \begin{equation}
