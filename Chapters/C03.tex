@@ -59,11 +59,12 @@ Additionally, from the covariant derivative as $B_\mu = c_W A_\mu - s_W Z_\mu$, 
 
 For preferential couplings to third-generation fermions in the lepton-quark vertices, we assume the texture of the Yukawa matrix $\tilde{y}_{33}$ is such that $\tilde{y}_{33} \gg \tilde{y}_{ij}$ for $i,j \neq 3$. This results in a preferential decay of the sLQ into $b\tau$ final states, with branching ratio ${\rm BR}(\tilde{S}_1 \to b\tau) \approx 1$ for large sLQ masses. 
 
-
 \begin{center}
     \includegraphics[width=\linewidth]{Images/SLQ_Cross_Section.pdf}
-    \captionof{figure}{Cross section for scalar leptoquark (sLQ) pair production decaying to $\tau^+\tau^-$ final states, showing different $\tau$ polarization configurations as a function of sLQ mass at $\sqrt{s}=13$ TeV. The coupling is fixed to  $\tilde{y}_{33} = 1.0$.}\label{fig:cross_section_sLQ}
+    \captionof{figure}{Cross section for scalar leptoquark (sLQ) pair production decaying to $\tau^+\tau^-$ final states, showing different $\tau$ polarization configurations as a function of sLQ mass at $\sqrt{s}=13.0\; \si{\tera\electronvolt}$. The coupling is fixed to  $\tilde{y}_{33} = 1.0$.}\label{fig:cross_section_sLQ}
 \end{center}
+
+It is worth noting that, due to the right-handed structure of the Yukawa interaction the scalar leptoquark $\tilde{S}_1$ couples only to right-chiral tau leptons. As a result, the dominant contribution to the $\tau^+\tau^-$ final state originates from the configuration where the outgoing taus have opposite helicities, specifically $\tau^+_L \tau^-_R$. This polarization asymmetry provides a characteristic signature that could be probed using polarization-sensitive observables, such as the asymmetry in the charged energy of the products of the $\tau$ decay. Figure~\ref{fig:cross_section_sLQ} shows the integrated production cross sections at $\sqrt{s} = 13.0\; \si{\tera\electronvolt}$.
 
 \section{A Simplified Model for the $U_1$ Vector Leptoquark}
 
@@ -111,7 +112,7 @@ The ${\rm vLQ}$ right-handed coupling is modulated with respect to the left-hand
 
 \begin{center}
     \includegraphics[width=\linewidth]{Images/VLQ_Cross_Section.pdf}
-    \captionof{figure}{Cross section for vector-like quark (vLQ) pair production decaying to $\tau^+\tau^-$ final states, showing different $\tau$ polarization configurations as a function of vLQ mass at $\sqrt{s}=13$ TeV. The couplings are fixed to $g_U = 1.0$ and $\beta_R^{b\tau} = -0.85$.}\label{fig:cross_section}
+    \captionof{figure}{Cross section for vector-like quark (vLQ) pair production decaying to $\tau^+\tau^-$ final states, showing different $\tau$ polarization configurations as a function of vLQ mass at $\sqrt{s}=13.0 \si{\tera\electronvolt}$. The couplings are fixed to $g_U = 1.0$ and $\beta_R^{b\tau} = -0.85$.}\label{fig:cross_section}
 \end{center}
 
 Unlike the scalar leptoquark ($\tilde{S}_1$) model, the vector leptoquark ($U_1$) couples to both left- and right-handed chiral currents, allowing for distinct polarization configurations in the $b \bar b \to \tau^+ \tau^-$ final states. This feature is critical for collider phenomenology, as it influences the kinematic distributions of the final-state particles. The squared amplitudes for each polarization configuration in the center-of-mass frame can be expressed as follows:
@@ -131,8 +132,23 @@ could be probed using polarization-sensitive observables like the asymmetry in t
     \abs{\mathcal{M}_R}^2&=\abs{\mathcal{M}({\tau^+_R \tau^-_R})}^2 + \abs{\mathcal{M}({\tau^+_L \tau^-_R})}^2,\\
     \abs{\mathcal{M}_L}^2&=\abs{\mathcal{M}({\tau^+_L \tau^-_L})}^2 + \abs{\mathcal{M}({\tau^+_R \tau^-_L})}^2.
 \end{align}
+Figure~\ref{fig:polarization_asymmetry} shows the polarization asymmetry $\mathcal{P}_{\tau^-}$ of the $\tau$ lepton as a function of its pseudorapidity $\eta$ for different values of the $\beta_R^{b\tau}$ parameter. The asymmetry is maximal for $\beta_R^{b\tau} = -1$, which corresponds to the scenario where the ${\rm vLQ}$ couples exclusively to right-handed currents, and minimal for $\beta_R^{b\tau} = 0$, where the ${\rm vLQ}$ couples only to left-handed currents. The polarization asymmetry is sensitive to the choice of $\beta_R^{b\tau}$, and thus can be used to probe the underlying BSM model.
 
+\begin{center}
+    \includegraphics[width=\linewidth]{Images/P_vlQ_tau_minus_vs_eta.pdf}
+    \captionof{figure}{The polarization asymmetry $\mathcal{P}_{\tau^-}$ of the $\tau$ lepton as a function of its pseudorapidity $\eta$ for different values of the $\beta_R^{b\tau}$ parameter.}\label{fig:polarization_asymmetry}
+\end{center}
 
+Going to the detector frame, in $pp$ collisions we do not have a well-defined direction for the incoming $b$-quark due to we do not know the which proton the $b$-quark comes from. So in average, we must to promediate the two proton directions, 
+\begin{equation}
+    \mathcal{P}_{\tau^-}^{\text{avg}} = \frac{1}{2}\big(\mathcal{P}_{\tau^-}(\eta) + \mathcal{P}_{\tau^-}(-\eta)\big).
+\end{equation}
+Figure~\ref{fig:polarization_asymmetry_avg} shows the average polarization asymmetry $\mathcal{P}_{\tau^-}^{\text{avg}}$ of the $\tau$ lepton as a function of its pseudorapidity $\eta$ for different values of the $\beta_R^{b\tau}$ parameter. 
+
+\begin{center}
+    \includegraphics[width=\linewidth]{Images/P_vlQ_tau_minus_vs_eta_avg.pdf}
+    \captionof{figure}{The average polarization asymmetry $\mathcal{P}_{\tau^-}^{\text{avg}}$ of the $\tau$ lepton as a function of its pseudorapidity $\eta$ for different values of the $\beta_R^{b\tau}$ parameter.}\label{fig:polarization_asymmetry_avg}
+\end{center}
 % The cross section decreases with increasing $U_1$ mass, as expected, but the relative weight of polarized contributions shifts due to the chiral structure of the couplings. For instance, a negative $\beta_R^{b\tau}$ enhances RH $\tau$ production, reducing the LH/RH asymmetry compared to the $\beta_R^{b\tau} = 0$ case. This effect is measurable in precision analyses of $\tau$-pair events at the LHC.  
 
 Moreover, we also note that to solve the $R_{D^{(*)}}$ anomaly, the authors of~\parencite{Cornella:2021sby} point out that the wilson coefficient $C_U\equiv g^2_U\,v^2_{SM}/(4\,M^2_U)$ is constrained to a specific range of values, and this range depends on the value of the $\beta_R^{b\tau}$ parameter. Therefore, the allowed values of the coupling $g_{U}$ depend on $M_{U}$ and $\beta_R^{b\tau}$, and thus our studies are performed in this multi-dimensional phase space.
