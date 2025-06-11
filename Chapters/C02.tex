@@ -149,25 +149,27 @@ Following reference~\parencite{CMS_BTV2016}, we use a flat identification effici
 For the performance of $\tau_{\textrm{h}}$ identification in DELPHES, we consider the latest technique described in~\parencite{CMS_DeepTau}, which is based on a deep neural network (i.e. DeepTau) that combines variables related to isolation and $\tau$-lepton lifetime as input to identify different $\tau_{\textrm{h}}$ decay modes. Following~\parencite{CMS_DeepTau}, we consider three possible DeepTau ``working points'': (i) the ``Medium'' working point of the algorithm, which gives a 70\% $\tau_{\textrm{h}}$-tagging efficiency and 0.5\% light-quark and gluon jet mis-identification rate; (ii) the ``Tight'' working point, which gives a 60\% $\tau_{\textrm{h}}$-tagging efficiency and 0.2\% light-quark and gluon jet mis-identification rate; and (iii) the ``VTight'' working point, which gives a 50\% $\tau_{\textrm{h}}$-tagging efficiency and 0.1\% light-quark and gluon jet mis-identification rate. Similar to the choice of $\textrm{b}$-tagging working point, the choice of $\tau_{\textrm{h}}$-tagging working point is determined through an optimization process which maximizes discovery reach. The ``Medium'' working point was ultimately shown to provide the best sensitivity and therefore chosen for this study. 
 
 \section{Phenomenological Pipeline}
-For the study of hypothetical signals for these new models and their feasibility of observation in experiments such as the LHC, one of the most widely used methods is the generation of events in colliders via Monte Carlo computational simulations. Monte Carlo simulation (MC) are used to predict what we expect to see under certain conditions:
+
+The contributions of signal and background events in this work are estimated using Monte Carlo (MC) simulations, a widely adopted methodology for studying hypothetical signals from new physics models and assessing their observability in experiments such as the LHC. Monte Carlo simulations allow us to:
 
 \begin{itemize}
-	\item To perform calculations in an automated way, such as, cross sections and disintegration widths.
-	\item To perform studies before having the data.
-	\item To compute event selection efficiency / acceptance.
-	\item To predict the amount of background events.
-	\item To distinguish different signals.
+    \item Perform automated calculations, such as cross-sections and decay widths.
+    \item Conduct feasibility studies before data collection.
+    \item Estimate event selection efficiency and acceptance.
+    \item Predict background event rates.
+    \item Distinguish between different signal hypotheses.
 \end{itemize}
 
-Today, there is a wide set of independent and modular tools that simulate the different experimental stages and that allow us to calibrate and contrast with relative ease the simulated results with the experimental ones. For pp collision simulations, the use of MadGraph5\_aMC@NLO (MadGraph)~\parencite{Alwall_2014} framework is widespread.
+The simulation process is modular, comprising several distinct stages that mimic the experimental pipeline. Model implementation is done using \texttt{FeynRules} (v2.3.43)~\parencite{Christensen:2008py,Alloul:2013bka}, which translates the Lagrangian of the new physics scenario into a Universal FeynRules Output (UFO) format containing Feynman rules. This output, along with a parameter card specifying numerical values for the free parameters, is used as input to the \texttt{MadGraph5\_aMC@NLO} (v3.5.7)~\parencite{Alwall:2014bza,Alwall:2014hca} framework.
 
-MadGraph is a modular working environment, that is, simulation occurs in several stages. First MadGraph receives the information with the Feynman rules of a specific model in a format known as Universal Feynman Output (UFO) (which is generated from the Lagrangian in Wolfram Mathematica with the use of the FeynRules library~\parencite{ALLOUL20142250}), along with a parameter card with the numerical values of the free parameters of the Lagrangian. 
+Within MadGraph, the process begins with generating the matrix elements and Feynman diagrams for a given process. Then, using the \texttt{MadEvent} submodule, hard scattering events are produced. Samples are generated for proton-proton collisions at center-of-mass energies of $\sqrt{s}=13 \tev$ and $\sqrt{s}=13.6 \tev$, using the NNPDF3.0 NLO~\parencite{NNPDF:2014otw} set for parton distribution functions (PDFs). The full squared amplitude (SDE) strategy is employed for phase-space integration to correctly handle strong interference effects, such as those involving a $\zb'$ boson.
 
-With this information MadGraph creates a directory with all the diagrams and amplitudes of a given process (Output folder). Then a subroutine known as MadEvent is run that generates \textit{hard scatter events} and creates a known output in LHE format with the information of the four vectors of each particle of the final state. Normally, to optimize the generation with MadEvent, we can modify the so-called run\_card such that the output partons are in a state to be subsequently reconstructed in the detector. If we generate events whose partons will be ignored by the detector we are wasting computational power. 
+The output of MadEvent is stored in the Les Houches Event (LHE) format, containing the four-momenta of all final-state particles. The generation is optimized through configuration of the \texttt{run\_card}, ensuring that only detectable final-state partons are included, which avoids wasting computational resources on events that will be rejected by detector simulation.
 
-Then, we can take the information from the LHE output to simulate the parton shower and the hadronization of the final state. This process is typically done with Pythia8 (Pythia)~\parencite{2203.11601}, which is possibly the most complete MC generator to simulate the parton shower and the hadronization. Here, we have the advantage that it is implemented to run automatically within MadGraph. 
+Subsequently, the parton-level events are passed to \texttt{PYTHIA} (v8.2.44)~\parencite{Sjostrand:2014zea}, which simulates parton showers, fragmentation, and hadronization. This step translates partons into stable hadrons and resonances. The resulting events, saved in HepMC2 format, are then processed by \texttt{DELPHES} (v3.4.2)~\parencite{deFavereau:2013fsa}, a fast detector simulation framework. DELPHES emulates the CMS detector response, using detector geometry and reconstruction performance input cards to simulate tracking, calorimetry, and particle identification. The final output is stored in ROOT format, ready for data analysis.
 
-Pythia output is in HepMC2 format. With this information we run a software, DELPHES~\parencite{de_Favereau_2014}, that performs a fast simulation of the detector response to interactions with particles. The output of DELPHES is in ROOT format ready for a data analysis in ROOT framework. From this point, the analysis is similar to that done in each of the experiments using the data delivered by the detector, although with an extra processing layer such as tagging processes of some particle candidates, such as light jets, b-jets, and hadronic taus.
+From this point onward, the analysis closely mirrors that of real experimental data, including event selection, reconstruction of physical objects (e.g., jets, leptons), and tagging of specific particle candidates like $b$-jets, light jets, and hadronic taus.
+
 
 \section{Measurement of the Power of an Analysis}
 \label{sec:power_analysis}
@@ -180,7 +182,7 @@ In high-energy physics experiments, data is often discretized into bins (e.g., h
         s_i + b_i & \text{for } H_1.
     \end{cases}
 \end{equation}
-The Neyman-Pearson lemma~\cite{NeymanPearson1933} provides a rigorous framework for hypothesis testing by establishing that the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$ is the most powerful test statistic for distinguishing between two simple hypotheses, $H_0$ and $H_1$. This forms the basis for quantifying the evidence for new physics signals against known backgrounds. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as,
+The Neyman-Pearson lemma~\parencite{NeymanPearson1933} provides a rigorous framework for hypothesis testing by establishing that the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$ is the most powerful test statistic for distinguishing between two simple hypotheses, $H_0$ and $H_1$. This forms the basis for quantifying the evidence for new physics signals against known backgrounds. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as,
 \begin{equation}
 Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = e^{-s_i} \left( 1+\frac{s_i}{b_i} \right)^{-n_i},
 \end{equation}
@@ -191,7 +193,7 @@ The test statistic for the full analysis is constructed as the product of indivi
 \begin{equation}
 Q = \prod_{i=1}^{N} Q_i,
 \end{equation}
-where $N$ is the total number of bins. Under this formualtion, each bin is trated as an independent experiment, allowing us to analyze the data in a modular way. particularly useful when combining results from multiple search channels or energy ranges. If we take the logarithm of the likelihood ratio this property turns into an additive form and, by the Wilks' theorem~\cite{Wilks1938}, the asymptotic distribution of the test statistic $-2\ln Q$ under the background-only hypothesis ($H_0$) follows the $\chi^2$ distribution facilitating p-value calculations and hypothesis testing. So, for convenience and connection to asymptotic distributions, we consider the logarithmic form:
+where $N$ is the total number of bins. Under this formualtion, each bin is trated as an independent experiment, allowing us to analyze the data in a modular way. particularly useful when combining results from multiple search channels or energy ranges. If we take the logarithm of the likelihood ratio this property turns into an additive form and, by the Wilks' theorem~\parencite{Wilks1938}, the asymptotic distribution of the test statistic $-2\ln Q$ under the background-only hypothesis ($H_0$) follows the $\chi^2$ distribution facilitating p-value calculations and hypothesis testing. So, for convenience and connection to asymptotic distributions, we consider the logarithmic form:
 \begin{equation}
 -2\ln Q = -2 \sum_{i=1}^{N} \ln Q_i = 2\sum_{i=1}^{N}\left[s_i - n_i \ln\left(1 + \frac{s_i}{b_i}\right)\right].
 \end{equation}
