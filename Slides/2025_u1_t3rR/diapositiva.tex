@@ -496,7 +496,35 @@ So, you have new vertex like
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Feasible Experimental Signatures}{Signal Significance}
+\begin{frame}{Hypothesis Testing}
+	In a distribution of events, the data follows a Poisson distribution (they are independent events), so the likelihood function is given by the Poisson distribution:
+	\begin{equation}
+    \mathcal{L}(n_i \mid \lambda_i) = \frac{e^{-\lambda_i} \lambda_i^{n_i}}{n_i!}, \quad \text{where } \lambda_i = 
+    \begin{cases}
+        b_i & \text{for } H_0, \\
+        s_i + b_i & \text{for } H_1.
+    \end{cases}
+	\end{equation}
+	The best discriminator is the ratio of the likelihoods, 
+	\begin{equation}
+		\mathrm{Q}_1=\frac{\mathcal{L}\left(\mathrm{n}_1 \mid \mathrm{s}_1+\mathrm{b}_1\right)}{\mathcal{L}\left(\mathrm{n}_1 \mid \mathrm{b}_1\right)}=e^{-s_1}\left(1+\frac{s_1}{b_1}\right)^{n_1},
+	\end{equation}
+	The total likelihood is $Q=\prod_{i=1}^N Q_i$. To simplify we define the $\chi^2$ like test as 
+	\begin{equation}
+		t=-2\ln Q = \sum_{i=1}^{N} \left[2s_i - 2n_i w_i\right]
+	\end{equation}
+	so, the sensitivity of our analysis is given by the difference between the expected number of events in the signal and background hypotheses
+	\begin{equation}
+	\kappa = \frac{\braket{t}_{H_0} - \braket{t}_{H_1}}{\sigma_{H_1}}=
+	\frac{\sum s_i w_i}{\sqrt{\sum (s_i + b_i) w_i^2}}
+	\end{equation}
+	The number of events is estimated from $N=\epsilon \sigma \mathcal{L}$, where $\epsilon$ is the efficiency of the selection, $\sigma$ is the cross section and $\mathcal{L}$ is the integrated luminosity.
+
+
+	
+\end{frame}
+
+\begin{frame}{Signal Significance}
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=.6\linewidth]{significance.pdf}
