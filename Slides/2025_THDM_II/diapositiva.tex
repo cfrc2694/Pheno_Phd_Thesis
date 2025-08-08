@@ -30,6 +30,9 @@
 \renewcommand{\figurename}{{\bf Fig.}}
 \usefonttheme{serif} % default family is serif
 
+% Define arXiv command for stylized formatting
+\newcommand{\arxiv}{ar$\chi$iv:}
+
 \renewcommand{\baselinestretch}{0.9}
 
 \title[THDM - PUCP Internship 2025]{Two Higgs Doublet Model(s)}
@@ -111,7 +114,7 @@
 
 \section{On the Scalar Potential}
 
-\begin{frame}{Purely Scalar Extension}
+\begin{frame}{Purely Scalar Extension (\arxiv 1106.0034)}
     \begin{itemize}
         \item With Two Higgs doublets under $SU(2)_L \times U(1)_Y$, the most general potential is
           {\small
@@ -326,7 +329,7 @@
   \end{block}
 \end{frame}
 
-\begin{frame}{Lambda Parameters in the Decoupling Limit}
+\begin{frame}{Lambda Parameters in the Decoupling Limit (\arxiv 1604.01406)}
   In the Decoupling limit the scalar mass spectrum simplifies and we can invert the relations to express the $\lambda_i$ in terms of the physical masses:
   \begin{equation}
       \begin{aligned}
@@ -356,7 +359,7 @@
 
 \section{Phenomenological Constraints}
 \subsection{Theoretical Constraints}
-\begin{frame}{{Vacuum Stability Constraints:}}
+\begin{frame}{{Vacuum Stability Constraints} (\arxiv 2203.07244)}
     The potential must be bounded from below at large field values.  
 
     \vfill
@@ -453,7 +456,7 @@
     \includegraphics[width=\textwidth]{stability_lam1_2_3_4_condition_THDM_param_scan_analysis}
 \end{frame}
 
-\begin{frame}{Electroweak Vacuum Stability}
+\begin{frame}{Electroweak Vacuum Stability (\arxiv 1303.5098)}
 
 \begin{itemize}
     \item The scalar potential can have multiple minima - we must ensure our EW-breaking vacuum is the \textbf{global minimum}\vfill
@@ -466,7 +469,7 @@
     \end{equation*}
     where $k \equiv (\lambda_1/\lambda_2)^{1/4}$ compares the quartic couplings. \vfill
 
-    \item The details of this condition requires a mapping of the potential as a Minkowskian manifold and stability of the Landau-Ginzburg effective potential is given in \cite{Barroso:2013awa}.
+    \item The details of this condition, requires a mapping of the potential as a Minkowskian manifold and stability of the Landau-Ginzburg effective potential, are given in \arxiv 1303.5098.
 \end{itemize}
 
 \end{frame}
@@ -477,7 +480,7 @@
     
 \end{frame}
 
-\begin{frame}{Unitarity Constraints}
+\begin{frame}{Unitarity Constraints (\arxiv 1805.07306)}
 
 From quantum mechanics, the S-matrix must be unitary:
 \begin{equation*}
@@ -507,7 +510,7 @@ So, we have
 \end{frame}
 
 
-\begin{frame}{Unitarity Constraints}
+\begin{frame}{Unitarity Constraints (\arxiv 1805.07306)}
     At large energies, the dominant contributions are the spherically symmetric, $J=0$, partial wave amplitudes and $s\approx \abs{\mathbf{p}}^2$. Thus, 
     \begin{equation}
         \Re{a_0} \sim \frac{1}{16 \pi} \sqrt{2 ^{-\delta_{12}-\delta_{34}}} Q_{1234} \leq \frac{1}{2}
@@ -552,7 +555,7 @@ where the eigenvalues are:
 \end{frame}
 
 \subsection{Experimental Constraints}
-\begin{frame}{Oblique Parameters}
+\begin{frame}{Oblique Parameters (DOI:  10.1093/ptep/ptaa104)}
 
   $W$-boson mass at one-loop level could have small corrections to the mass:
   $$
@@ -560,7 +563,7 @@ where the eigenvalues are:
   $$
   This corrections are parametrized by the oblique parameters $S$, $T$, and $U$ which are complicated loop-function that we calculated in Spheno.
   \vfill
-  The accuracy of the $W$ boson mass requires:
+  The accuracy of the $W$ boson mass requires :
     \begin{align}
       S & = 0.02 \pm 0.10, \\
       T & = 0.07 \pm 0.12, \\
@@ -578,7 +581,7 @@ where the eigenvalues are:
 
 \section{Yukawa Sector}
 \subsection{FCNC-free Models}
-\begin{frame}{Yukawa Sector}
+\begin{frame}{Yukawa Sector (\arxiv 1106.0034)}
     In order to suppress flavor-changing neutral currents (FCNCs), we impose a $\mathbb{Z}_2$ symmetry on the Yukawa sector resulting in four types of Yukawa interactions:
     \begin{center}
         \includegraphics[width=0.75\textwidth]{Table_Z2_charges.png}
@@ -615,14 +618,14 @@ where the eigenvalues are:
     \end{center}
     These models naturally have preferential couplings to the third generation fermions, due to the Higgs Mechanism.
 \end{frame}
-\begin{frame}{$H^\pm$ Constraints}
+\begin{frame}{$H^\pm$ Constraints (\arxiv 2412.04572)}
     % The charged Higgs boson $H^\pm$ is similar to the $W^\pm$ vector bosons, and its phenomenology is similar to the $W$ one with important contributions on the third generation fermions.
     \begin{center}
         \includegraphics[width=0.92\textwidth]{Hpm_Constrains_by_Model.png}
     \end{center}
 \end{frame}
 \subsection{Phenomenology of the Type II THDM}
-\begin{frame}{Phenomenology of the Type II THDM}
+\begin{frame}{Phenomenology of the Type II THDM (\arxiv 2203.07244)}
     We are interested in channels $\tau \tau$. As the heavy Higgs and the pseudoscalar have the structure
     $$
     \kappa_u=\frac{1}{\tan\beta}, \qquad \kappa_d=\kappa_\ell=\tan\beta,
@@ -637,7 +640,7 @@ where the eigenvalues are:
     In the same way, the branching fraction of the $H/A \rightarrow \tau \tau$ decay channel will be enhanced for large $\tan\beta$ values, while the decay to top quarks will be suppressed.
 \end{frame}
 
-\begin{frame}{$H$ Constraints For Type II THDM}
+\begin{frame}{$H$ Constraints For Type II THDM (\arxiv 2010.03730)}
     Using the software Higgs-Bounds 5, we can check the constraints on the heavy Higgs boson $H$. 
 
     \begin{minipage}{0.48\textwidth}
@@ -716,9 +719,9 @@ where the eigenvalues are:
     \end{center}
 \end{frame}
 
-% PRINT BIBLIOGRAPHY
-\begin{frame}[allowframebreaks]{References}
-    \printbibliography%[heading=none]
-\end{frame}
+% % PRINT BIBLIOGRAPHY
+% \begin{frame}[allowframebreaks]{References}
+%     \printbibliography%[heading=none]
+% \end{frame}
 
 \end{document}
