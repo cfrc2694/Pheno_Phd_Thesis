@@ -114,22 +114,27 @@ Corrections for pileup and the underlying event are necessary at the LHC. These 
 
 \subsection{$\tau$ Tagging at Multipurpose Detectors}
 
-The tau lepton, being the heaviest charged lepton in the SM, decays promptly into either a lighter lepton (electron or muon) and neutrinos, or into hadrons and a tau neutrino. About 65\% of taus decay hadronically, producing narrow jets with a characteristic signature.
+The $\tau$ lepton decays hadronically with a probability of $\sim65\%$, producing a narrow ``$\tau$-jet'' that contains only a few charged and neutral hadrons. Hadronic decays are dominated by one- and three-prong topologies and often include neutral pions that promptly convert to photons, giving a sizable electromagnetic fraction in the calorimeters. When the $\tau$ momentum is large compared to its mass the decay products are highly collimated: for $p_T>50\ \mathrm{GeV}$ roughly $90\%$ of the visible energy is contained within a cone of radius $R=\sqrt{(\Delta\eta)^2+(\Delta\varphi)^2}=0.2$. These properties motivate the use of small signal cones and narrow isolation annuli in reconstruction.
 
-Hadronic tau decays ($\tau_{\text{had}}$) typically produce one or three charged hadrons (predominantly pions) and up to two neutral pions, which decay into photons. These decay products result in a collimated energy deposit in the calorimeters and a small number of associated tracks. Tau jets are thus narrower than QCD jets and have lower track multiplicity.
+Identification exploits three complementary classes of observables:
 
-Tau identification algorithms at the LHC exploit these features by using multivariate techniques that combine:
 \begin{itemize}
-    \item the number of charged and neutral constituents,
-    \item the collimation of energy deposits,
-    \item isolation criteria based on the surrounding activity,
-    \item the invariant mass of the visible decay products,
-    \item and lifetime-related variables (e.g., impact parameter significance).
+  \item Calorimetric isolation and shower-shape variables: hadronic $\tau$ decays deposit localized energy in ECAL+HCAL. Experiments use isolation sums and shape ratios to quantify peripheral activity. Example variables are
+  \[
+    \Delta E_T^{12}=\frac{\sum_{\;0.1<\Delta R<0.2} E_{T,j}}{\sum_{\;\Delta R<0.4} E_{T,i}},\qquad
+    P_{\mathrm{ISOL}}=\sum_{\Delta R<0.40}E_T - \sum_{\Delta R<0.13}E_T,
+  \]
+  which suppress QCD jets that populate the isolation ring.
+  \item Charged-track isolation and prong topology: the few, collimated charged tracks of a $\tau$ allow powerful selections. A common procedure defines a matching cone of radius $R_{\mathrm{m}}$ around the calorimeter jet axis to select candidate tracks above a $p_T^{\min}$ threshold. The leading track (tr$_1$) is found and a narrow signal cone $R_{\mathrm{S}}$ around tr$_1$ is used to count associated tracks (1 or 3 prongs preferred). A larger isolation cone $R_{\mathrm{I}}$ is scanned for additional tracks: if no extra tracks with $\Delta z_{\text{impact}}$ consistent with tr$_1$ are found, the candidate is isolated. Typical CMS/ATLAS choices are $R_{\mathrm{S}}\sim0.07$–0.15, $R_{\mathrm{I}}\sim0.3$–0.4, and $p_T^{\min}\sim1$–2 GeV, although values depend on analysis and working point.
+  \item Lifetime and vertexing observables: the finite $\tau$ lifetime ($c\tau\approx87\ \mu\mathrm{m}$) produces displaced tracks and, for multi-prong decays, a reconstructible secondary vertex. Impact-parameter significances (2D or 3D) and secondary-vertex properties (mass, flight length significance) are used to separate genuine taus from prompt jets or leptons.
 \end{itemize}
 
-In CMS, the Hadron Plus Strips (HPS) algorithm reconstructs the decay mode and applies discriminants to distinguish taus from jets, electrons, and muons~\parencite{CMS:2022ydz}. ATLAS uses similar methods, with Boosted Decision Trees (BDTs) trained to separate taus from background~\parencite{ATLAS:2022fgo}.
+Additional discriminants include the invariant mass of the visible decay products computed from tracks and calorimeter clusters (with care to avoid double counting), electromagnetic energy fractions (sensitive to $\pi^0\to\gamma\gamma$), and dedicated shower-strip grouping for nearby photons. For example, invariant-mass reconstruction commonly uses a jet cone $\Delta R_{\text{jet}}\lesssim0.4$ while excluding calorimeter clusters matched to tracks by a minimum separation $\Delta R_{\text{track}}\gtrsim0.08$ to reduce double counting.
 
-Typical tau tagging efficiencies are around 60\% for hadronic taus, with misidentification rates of about 1\% for quark/gluon jets, depending on the working point.
+Reconstruction algorithms combine these inputs. CMS's Hadron-Plus-Strips (HPS) and modern DeepTau methods explicitly build decay-mode hypotheses and use strip-clustering of photons plus multivariate or deep-learning discriminators to reject jets, electrons and muons~\parencite{CMS:2022ydz,CMS_DeepTau}. ATLAS employs analogous calorimeter+track based MVAs and BDTs~\parencite{ATLAS:2022fgo}. Typical working points trade efficiency versus background: medium points often give $\tau_{\mathrm{h}}$ efficiencies of order 50–70\% with light-jet misidentification rates in the per-mille to percent range, depending on kinematics and pileup.
+
+Practical implementations tune cone sizes, isolation thresholds and MVA inputs to the kinematic region and analysis goals; the choice of working point is driven by the signal-to-background optimization for the search or measurement at hand.
+
 
 \subsection{B Tagging at Multipurpose Detectors}
 
