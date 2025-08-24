@@ -6,7 +6,7 @@ Specifically, the SM characterizes interactions through the gauge principle, whe
 
 In this chapter, we contextualize the SM by introducing the basic concepts of quantum field theory, including the notion of fields and symmetries. We then present the particle content of the SM, its gauge group, and the Lagrangian density that describes its dynamics. Finally, we discuss the Higgs mechanism and its role in providing mass to the weak gauge bosons and fermions.
 
-\section{Fields and Symmetries}
+\section{Fields}
 Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions of the spacetime that transform under a representation of the Lorentz group within an invariant subspace}~\parencite{Tong1995,CRodriguezUPTC}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table \ref{tab-repLorentz2}). 
 
 In classical field theory, a variational principle is established which generates the equations that govern the dynamics of the different fields in a theory, \textit{the equations of motion}. Hamilton's principle, or principle of minimal action, indicates that all possible physical configurations for a set of fields $\varphi^I$, with $I=1,2,3,\cdots,n$, are those where the integral of the action $S$ is a minimal~\parencite{Goldstein,jose1998classical}:
@@ -40,7 +40,32 @@ taken over the space of fields $\varphi$ with an appropriate measure $\mathcal{D
     \captionof{table}{Some relevant representations of the Lorentz group in  $4$-dimensional space-time. In this notation $\eta_{\mu\nu}=\diag(1,-1-,-1-,1)$, $\pmb \gamma^\mu$ are the Dirac matrices, $F_{\mu \nu}^{A}=\partial_{\mu} A_{\nu}^{A}-\partial_{\nu} A_{\mu}^{A}+g f_{B C}{ }^{A} A_{\mu}^{B} A_{\nu}^{C}$ is the stregth field and the array of real numbers $f_{A B}^{C}$ are the structure constants of the gauge group algebra~\parencite{freedman2012supergravity}, equations are written in natural units with $c=\hbar=1$.}\label{tab-repLorentz2}
 \end{center}
 
-In this paradigm, our task is to propose a Lagrangian density for a set of fields that correctly models the propagation and interactions of fundamental particles. With the formal development of QFT, a set of "rules" has been introduced, allowing the systematic construction of these Lagrangian densities.  For example, if the theory is relativistic, the equations of motion must be equal in all inertial frames, which implies that the action has to be invariant under Poincaré transformations~\parencite{pall}, \textit{i.e.} the Lagrangian density must be a Lorentz scalar and transform under translations at most as a total derivative~\parencite{jose1998classical}. Besides, $\mathcal{L}$ must be Hermitian in a way that allows the construction of physical observables~\parencite{pall,peskin}; in turn, $\mathcal{L}$ has units of energy density (dimensions of [mass]$^4$ in natural units). If the theory is required to be renormalizable (that is, we will be able to make perturbative calculations), fields can have maximum spin 1 and the associated coefficients of expansion must have, in natural units, dimensions of [mass]$^n$ where $n\geq0$~\parencite{peskin,Weinberg}. These restrictions drastically reduce the number of terms that are allowed in a Lagrangian density. In particular, the terms of interaction between allowed fields are the Yukawa vertex, the scalar potential, and gauge couplings to vectorial bosons. 
+In this paradigm, our task is to propose a Lagrangian density for a set of fields that correctly models the propagation and interactions of fundamental particles. 
+
+\section{Interactions and Symmetries}
+
+In quantum field theory, the form of the Lagrangian density is not arbitrary: it is shaped by a small set of physical and mathematical principles. These principles act as ``rules’’ that guide the construction of consistent theories, ensuring both their internal consistency and their predictive power. In particular, if we want a relativistic and renormalizable theory, the Lagrangian must satisfy several conditions that strongly restrict the kind of terms that can appear.
+
+To begin with, relativistic invariance demands that the equations of motion look the same in all inertial frames. This requirement is implemented by asking the action to be invariant under Poincaré transformations~\parencite{pall}. Equivalently, the Lagrangian density must transform as a Lorentz scalar and may change under translations at most by a total derivative~\parencite{jose1998classical}. 
+
+Another basic condition is Hermiticity: the Lagrangian density must be Hermitian so that observables are real and the time evolution of the theory is unitary~\parencite{pall,peskin}. In addition, dimensional analysis places further restrictions. In natural units, $\mathcal{L}$ carries dimensions of [mass]$^4$ (an energy density). This means that the interaction terms that we can add must be such that the overall operator has the correct dimension, which already rules out many possibilities. 
+
+In quantum field theory, loop corrections to scattering amplitudes typically produce divergences. A theory is called renormalizable if all these divergences can be absorbed into a redefinition of a \emph{finite set} of physical parameters (such as masses and couplings). In practice, this requirement translates into a restriction on the operators that may appear in the Lagrangian: only terms of mass dimension $\leq 4$ lead to renormalizable interactions. Higher-dimensional operators are still allowed, but they correspond to \emph{effective} interactions that are suppressed at low energies and signal the presence of new physics at higher scales~\parencite{peskin,Weinberg}. 
+
+
+Summarizing, the main constraints that a relativistic and renormalizable Lagrangian density must satisfy are:
+\begin{itemize}
+    \item \textbf{Poincaré (global) invariance:} the action must be invariant under Lorentz transformations and translations; the Lagrangian density is a Lorentz scalar and may change by at most a total derivative~\parencite{pall,jose1998classical}.
+    \marginpar{\footnotesize In QFT, Poincaré invariance is assumed to be global. Promoting it to a local symmetry leads to gravity, with spin-2 fields (the graviton) as mediators. Perturbatively, such a theory is not renormalizable, so it lacks predictivity at high energies, although it can still be understood as an effective field theory.}
+    \item \textbf{Hermiticity:} $\mathcal{L}$ must be Hermitian to ensure real observables and unitary evolution~\parencite{pall,peskin}.
+    \item \textbf{Mass dimension:} in natural units, $\mathcal{L}$ has dimension [mass]$^4$; interaction terms must be constructed accordingly.
+    \item \textbf{Renormalizability:} demanding perturbative renormalizability restricts operators to dimension $\leq 4$, which in practice allows interactions built out of fields with spin $0$, $1/2$, or $1$ and couplings of non-negative mass dimension~\parencite{peskin,Weinberg}.
+
+\end{itemize}
+
+These constraints drastically reduce the number of possible terms in the Lagrangian. As a result, the renormalizable interaction structures that typically arise are limited to: Yukawa couplings between fermions and scalars, scalar self-interactions (up to quartic order), and gauge interactions between matter fields and vector bosons.
+
+
 
 At this point, we seem to have total freedom to mix these terms as possible interactions. However, the concept of symmetry has proven to be our most powerful ally for the construction of terms of interaction between fields. 
 The procedure turns out to be simple; once a set of spin 0 and spin 1/2 fields has been established as part of the theory, these are organized to transform under a representation of a unitary gauge group $G$ such that the Lagrangian density must be a global scalar of $G$. Then, once the global Lagrangian density is known, it is sought to ``promote'' symmetry to a local symmetry by a slight modification of associated kinematic terms~\parencite{pokorski2000gauge,freedman2012supergravity, Gallego2016,VanProeyen1999,Martin2012}.
