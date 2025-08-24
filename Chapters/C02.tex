@@ -193,7 +193,7 @@ The test statistic for the full analysis is constructed as the product of indivi
 \begin{equation}
 Q = \prod_{i=1}^{N} Q_i,
 \end{equation}
-where $N$ is the total number of bins. Under this formualtion, each bin is trated as an independent experiment, allowing us to analyze the data in a modular way. particularly useful when combining results from multiple search channels or energy ranges. If we take the logarithm of the likelihood ratio this property turns into an additive form and, by the Wilks' theorem~\parencite{Wilks1938}, the asymptotic distribution of the test statistic $-2\ln Q$ under the background-only hypothesis ($H_0$) follows the $\chi^2$ distribution facilitating p-value calculations and hypothesis testing. So, for convenience and connection to asymptotic distributions, we consider the logarithmic form:
+where $N$ is the total number of bins. Under this formulation, each bin is treated as an independent experiment, allowing us to analyze the data in a modular way. This is particularly useful when combining results from multiple search channels or energy ranges. If we take the logarithm of the likelihood ratio this property turns into an additive form and, by the Wilks' theorem~\parencite{Wilks1938}, the asymptotic distribution of the test statistic $-2\ln Q$ under the background-only hypothesis ($H_0$) follows the $\chi^2$ distribution facilitating p-value calculations and hypothesis testing. So, for convenience and connection to asymptotic distributions, we consider the logarithmic form:
 \begin{equation}
 -2\ln Q = -2 \sum_{i=1}^{N} \ln Q_i = 2\sum_{i=1}^{N}\left[s_i - n_i \ln\left(1 + \frac{s_i}{b_i}\right)\right].
 \end{equation}
@@ -222,7 +222,7 @@ The expected behavior differs under the signal-plus-background ($H_1$) and backg
 	\implies \sigma^2_{b} = 4\sum_i b_i w_i^2
 	\end{equation}
 \end{itemize}
-Substituting in $\kappa$ gives the a useful expression for the discovery significance,
+Substituting in $\kappa$ gives a useful expression for the discovery significance,
 \begin{align}
 \kappa = \frac{\sum s_i w_i}{\sqrt{\sum (s_i + b_i) w_i^2}}
 \end{align}
@@ -231,7 +231,7 @@ It quantifies the separation between the signal+background ($s+b$) and backgroun
 
 This figure of merit automatically optimizes sensitivity through the logarithmic weights $w_i = \ln(1 + s_i/b_i)$, which naturally emphasize bins with either high signal-to-background ratios ($s_i/b_i$) or large absolute signal contributions ($s_i$). In asymptotic limits, $\kappa$ simplifies to intuitive forms: for dominant signals ($s_i \gg b_i$), it approaches $\sqrt{\sum s_i}$ (Poisson counting), while in background-dominated regimes ($s_i \ll b_i$), it reduces to an inverse-variance-weighted sum $\sum s_i / \sqrt{\sum b_i (s_i/b_i)^2}$. This dual behavior ensures optimal discrimination power across all signal regimes.
 
-In practice, we must take in account for systematic effects by to incorporate nuisance parameters into the likelihood, and profiling over uncertainty ranges. The power calculation can be extended to include systematic uncertainties by modifying the denominator as,
+In practice, we must take into account systematic effects by incorporating nuisance parameters into the likelihood and profiling over uncertainty ranges. The power calculation can be extended to include systematic uncertainties by modifying the denominator as,
 \begin{equation}
 	\boxed{
 	\kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \sigma^2_{\text{sys,signal},i} + \sigma^2_{\text{sys,bkg},i}\right] w_i^2}},
