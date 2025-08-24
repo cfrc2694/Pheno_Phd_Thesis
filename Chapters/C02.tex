@@ -58,7 +58,7 @@ The following variables are related to the particles being produced rather than 
 A typical collider experiment comprises several main detector subsystems that are used jointly to detect and measure the properties of particles produced in the collision. A \textit{schematic representation} of such a generic multipurpose detector is shown in Fig.~\ref{fig_detector}. The detector is typically composed of several concentric layers, each designed to measure different properties of the particles produced in the collisions. 
 
 \begin{center}
-	\includegraphics[width=0.98\textwidth]{Images/transversal_detector.pdf}
+	\includegraphics[width=0.8\textwidth]{Images/transversal_detector.pdf}
 	\captionof{figure}{Schematic representation of transversal section of a generic multipurpose detector. The inner detector (ID) is used to measure the trajectories of charged particles, the electromagnetic calorimeter (ECAL) measures the energy of photons and electrons, the hadronic calorimeter (HCAL) measures the energy of hadrons, and the muon system (MS) measures the trajectories of muons. The missing transverse energy (MET) is measured by combining information from all subsystems..}\label{fig_detector}
 \end{center}
 
@@ -76,15 +76,41 @@ When studying final states that include long-lived, weakly interacting particles
 
 Collider detectors are mostly designed and constructed for optimal detection of SM particles produced in the collision. However, they can also be used to search for new physics (NP) beyond the SM. In this case, the detector is used to search for signatures of NP, such as new particles or interactions that are not predicted by the SM. The detector subsystems are designed to be sensitive to a wide range of particles and interactions, allowing for the detection of a variety of NP signatures.
 
+
 \subsection{Jets Reconstruction}
 
-At the LHC, jets are reconstructed as proxies for the quarks and gluons produced in the hard scattering process. Due to color confinement, these partons cannot be observed directly, and instead hadronize into collimated sprays of particles. These sprays are clustered into jets using algorithms that group together the signals of their constituents in the detector.
+Quarks and gluons are never observed as free particles because of colour confinement. Nevertheless, perturbative QCD treats them as the relevant short-distance degrees of freedom: factorization theorems and asymptotic freedom justify computing hard-scattering matrix elements for incoming and outgoing partons even though QCD becomes non-perturbative at low scales. The strong coupling \(\alpha_s\) grows large and effectively ``blows up'' around the confinement scale \(\Lambda_{\mathrm{QCD}}\); consequently something must happen to quarks and gluons before they reach the detector. In practice the gluon and all quarks except the top hadronize, producing cascades of baryons and mesons that themselves undergo further decays. At the LHC these hadrons typically carry energies comparable to the electroweak scale, and relativistic boosts tend to collimate their decay products into narrow bunches. Those collimated collections of hadrons are the jets we measure at hadron colliders and the objects we use to infer the partons produced in the hard interaction.
 
-The most widely used algorithm in ATLAS and CMS is the anti-$k_T$ clustering algorithm~\parencite{Cacciari:2008gp}, implemented in the \texttt{FastJet} package~\parencite{Cacciari:2011ma}. This algorithm groups particle candidates or calorimeter deposits into jets based on their proximity in the rapidity-azimuth $(y,\phi)$ plane, with a distance parameter $R$ typically set to values like 0.4 or 0.6. The resulting jets have a regular conical shape and are relatively insensitive to soft radiation and pileup.
+Phenomenologically one usually assumes that each high-energy parton yields a jet and that the measured jet four-momentum can, to useful accuracy, be related to the original parton four-momentum. Jets are therefore defined operationally using recombination (clustering) algorithms such as Cambridge-Aachen or the (anti-)kT family. Experimentally this means grouping a large number of energy depositions (or particle-flow candidates) observed in the calorimeters and tracker into a much smaller set of jets or subjets. Nothing in the raw detector data, however, indicates a priori how many jets there should be: the clustering procedure and the choice of a resolution scale fix the outcome. In practice one must either specify the desired number of final jets or choose a resolution/stop criterion (for example a distance parameter \(R\), a clustering distance cut, or a jet-mass/subjet-resolution threshold) that determines the smallest substructure to be considered a separate parton-like object.
 
-Modern jet reconstruction exploits particle-flow (PF) algorithms, which combine information from all detector subsystems to reconstruct individual particles (charged hadrons, neutral hadrons, photons, electrons, and muons). The momenta of PF candidates are then used as input for jet clustering. This approach improves the resolution of jet energy and direction, especially at low transverse momentum.
+Modern reconstruction at the LHC typically uses particle-flow (PF) candidates as input together with infrared- and collinear-safe clustering algorithms to define jet four-momenta. The anti-\(k_T\) algorithm~\parencite{Cacciari:2008gp}, implemented in \texttt{FastJet}~\parencite{Cacciari:2011ma}, is widely used in ATLAS and CMS; it groups candidates by proximity in the rapidity–azimuth \((y,\phi)\) plane with a typical distance parameter \(R\sim0.4\)–0.6 and is relatively insensitive to soft radiation and pileup. After clustering, jet energy corrections (JEC) derived from simulation and in-situ calibrations compensate for detector response, pileup, and underlying-event effects, while jet-substructure and tagging algorithms help infer the flavour and origin of the initiating parton.
 
-After clustering, several levels of jet energy corrections (JEC) are applied to account for detector response, pileup, and underlying event contributions. These corrections are derived from simulation and in-situ calibrations using well-known processes like dijet balance or photon+jet events.
+\subsubsection{Jet algorithms}
+
+Recombination (or sequential clustering) algorithms formalise the intuitive idea that parton showering produces collinear and soft splittings: two nearby and kinematically compatible subjets are merged if they are more likely to have originated from a single parton. A practical implementation requires a measure of ``distance'' between objects; common choices combine an angular separation in the rapidity–azimuth plane, \(\Delta R_{ij}\), with a transverse-momentum weighting. Typical distance measures are
+\[
+\begin{array}{lll}
+k_T: & y_{ij}=\dfrac{\Delta R_{ij}}{R}\min(p_{T,i},p_{T,j}), & y_{iB}=p_{T,i},\\[6pt]
+\mathrm{C/A}: & y_{ij}=\dfrac{\Delta R_{ij}}{R}, & y_{iB}=1,\\[6pt]
+\text{anti-}k_T: & y_{ij}=\dfrac{\Delta R_{ij}}{R}\min(p_{T,i}^{-1},p_{T,j}^{-1}), & y_{iB}=p_{T,i}^{-1}.
+\end{array}
+\]
+The parameter \(R\) balances jet–jet and jet–beam criteria and sets the geometric size of jets; in LHC analyses typical values are \(R\sim0.4\text{--}0.7\) depending on the physics target.
+
+Two operational modes are useful to distinguish. In an exclusive algorithm one supplies a resolution scale \(y_{\text{cut}}\) and proceeds iteratively:
+\begin{enumerate}
+  \item compute \(y^{\min}=\min_{i,j}\{y_{ij},y_{iB}\}\);
+  \item if \(y^{\min}=y_{ij}<y_{\text{cut}}\) merge \(i\) and \(j\) and repeat;
+  \item if \(y^{\min}=y_{iB}<y_{\text{cut}}\) remove \(i\) as beam radiation and repeat;
+  \item stop when \(y^{\min}>y_{\text{cut}}\) and keep remaining subjets as jets.
+\end{enumerate}
+An inclusive algorithm omits \(y_{\text{cut}}\) and instead declares a subjet a final-state jet when its jet–beam distance is the smallest quantity; iteration continues until no inputs remain. Inclusive algorithms therefore produce a variable number of jets, while exclusive algorithms deliver a scale-dependent fixed set.
+
+A practical question is how to combine the kinematics of merged objects. The most common choice in modern experiments is the E-scheme: four-vectors are added, which preserves energy–momentum and yields a physical jet mass useful for substructure and boosted-object tagging. An alternative is to sum three-momenta and rescale the energy to enforce a massless jet; this can be appropriate when the analysis targets massless parton kinematics, but it discards potentially useful jet-mass information.
+
+From a theoretical and experimental viewpoint important properties are infrared and collinear safety: a jet algorithm should give stable results under emission of soft particles or collinear splittings. The \(k_T\), C/A and anti-\(k_T\) families are constructed to satisfy these requirements. Their practical behaviour differs: \(k_T\) naturally follows the physical shower history (soft-first clustering), C/A is purely geometric (useful for declustering and substructure studies), while anti-\(k_T\) produces regular, cone-like jets that are robust and convenient experimentally.
+
+Corrections for pileup and the underlying event are necessary at the LHC. These corrections depend on the jet area (a well-defined concept for sequential algorithms) and are typically performed by estimating an event-wide transverse-momentum density and subtracting the corresponding contribution proportional to the jet area. Finally, because inclusive algorithms can produce jets arbitrarily close to the beam, a minimum jet \(p_T\) threshold (commonly 20–100 GeV depending on the analysis) is imposed to ensure experimental observability and theoretical control.
 
 \subsection{$\tau$ Tagging at Multipurpose Detectors}
 
