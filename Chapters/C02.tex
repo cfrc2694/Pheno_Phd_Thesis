@@ -135,23 +135,29 @@ Reconstruction algorithms combine these inputs. CMS's Hadron-Plus-Strips (HPS) a
 
 Practical implementations tune cone sizes, isolation thresholds and MVA inputs to the kinematic region and analysis goals; the choice of working point is driven by the signal-to-background optimization for the search or measurement at hand.
 
-
 \subsection{B Tagging at Multipurpose Detectors}
 
-Jets originating from bottom quarks ($b$-jets) exhibit distinct features due to the relatively long lifetime ($\sim 1.5$ ps) and large mass ($\sim 4.2$ GeV) of the $b$ hadrons. These hadrons travel a few millimeters before decaying, often producing secondary vertices displaced from the primary interaction point.
+Jets originating from bottom quarks ($b$-jets) exhibit several distinctive properties that enable their identification. The relatively long lifetime of $b$ hadrons (order 1.5 ps) produces displaced charged tracks and often reconstructible secondary vertices a few millimetres from the primary interaction point. The large $b$-hadron mass yields decay products with sizable transverse momentum relative to the jet axis, and semileptonic branching fractions produce soft electrons or muons inside the jet. These features form the basis for $b$-tagging.
 
-$b$-tagging algorithms exploit this property by reconstructing tracks with large impact parameters and identifying displaced secondary vertices. Some algorithms also make use of the presence of soft leptons inside the jet from semileptonic $b$ decays.
-
-Classical algorithms include:
+Practical algorithms exploit individual signatures or combine them:
 \begin{itemize}
-    \item \textbf{Track Counting:} based on the number of tracks with high impact parameter.
-    \item \textbf{Jet Probability:} uses the probability that the jet’s tracks originate from the primary vertex.
-    \item \textbf{Secondary Vertex:} reconstructs displaced vertices within the jet.
+  \item \textbf{Track-counting:} counts tracks with large impact-parameter significance to identify a $b$-like topology.
+  \item \textbf{Jet-probability:} evaluates the compatibility of the jet's track impact-parameter distribution with the primary vertex hypothesis.
+  \item \textbf{Secondary-vertex:} explicitly reconstructs displaced vertices and uses their kinematic properties (decay length significance, vertex mass).
+  \item \textbf{Soft-lepton taggers:} identify low-$p_T$ leptons inside jets from semileptonic $b$ decays.
 \end{itemize}
 
-Modern approaches rely on machine learning techniques to combine multiple observables. CMS uses DeepCSV and DeepJet algorithms~\parencite{CMS:2017wtu}, based on deep neural networks. ATLAS employs algorithms like MV2 and DL1~\parencite{ATLAS:2019bwq}. These classifiers achieve improved performance in distinguishing $b$-jets from $c$-jets and light-flavor jets.
+Modern taggers combine many observables in multivariate or deep-learning classifiers to maximize discrimination power. Contemporary approaches exploit rich, low-level inputs (track-by-track and PF-candidate information, vertex features and kinematics) and advanced network architectures:
 
-Typical $b$-tagging efficiencies range from 60\% to 80\%, depending on the working point, with light-jet misidentification rates of 1\% or lower. Calibrations are performed using data-driven methods in control samples enriched in $t\bar{t}$ or multijet events.
+\begin{itemize}
+  \item Deep feed-forward networks (e.g. DeepCSV/DeepJet) ingest a large set of high-level and per-track inputs to produce powerful binary or multi-class discriminants that separate $b$, $c$ and light-flavour jets.
+  \item Sequence models and recurrent networks (RNN-based taggers) process an arbitrary ordered list of track-level variables, improving sensitivity by directly exploiting per-track correlations and order-dependent information (impact-parameter sequences, track kinematics).
+  \item Graph- and set-based architectures and combined particle+vertex networks (sometimes referred to as ``DeepFlavour''-style models) aggregate heterogeneous inputs and return per-flavour probabilities, enabling natural multi-classification and calibrated operating points.
+\end{itemize}
+
+These developments yield measurable performance gains: modern deep classifiers typically improve $b$ efficiency at fixed mistag rate (or reduce mistag rates at fixed efficiency) relative to classical taggers. The continuous output of such networks permits analyses to choose operating points (loose/medium/tight) corresponding to desired efficiencies or mistag targets. Calibration remains essential: data-driven scale factors derived from control samples (e.g. $t\bar t$, multijet, dilepton) are applied to correct simulation, and systematic uncertainties from the calibration, flavour composition and kinematic extrapolation are propagated to physics results.
+
+Examples in use are CMS DeepCSV / DeepJet and ATLAS MV2 / DL1~\parencite{CMS:2017wtu,ATLAS:2019bwq}, which illustrate the transition from expert-designed high-level variables to large-scale machine learning leveraging low-level detector information. Typical medium working points yield $b$-tag efficiencies of order 60–80\% with light-jet misidentification rates at or below the percent level; the precise choice of working point is tuned per-analysis to optimise sensitivity while accounting for calibration and systematic uncertainties.
 
 \subsection{The CMS Detector}
 Particularly the CMS multi-purpose detector has a length of $21.6$ meters, with a diameter of $14.6$ meters and weights 12500 tonnes. The detector is composed of a set of different sub-detectors as seen in figure \ref{fig_cms}. The CMS detector has a cylindrical shape and it is divided into two main sections: barrel and endcaps. 
