@@ -54,7 +54,8 @@ The innermost subsystem, the inner detector (ID) or tracker, is immersed in a st
 
 After the tracker, particles enter the electromagnetic calorimeter (ECAL), which is designed to fully absorb photons, electrons, and positrons. These particles deposit all their energy in the ECAL by initiating an electromagnetic shower via bremsstrahlung and $e^{+}e^{-}$ pair production. Electrons are identified as charged tracks that point to a compact, high-energy deposit in the ECAL.
 
-The hadronic calorimeter (HCAL) surrounds the ECAL. Its purpose is to absorb hadrons (e.g., neutrons, protons, pions, kaons) and measure their energy through hadronic interactions. High-energy quarks and gluons do not appear as individual particles but instead \textbf{hadronize} into collimated sprays of hadrons known as \textbf{jets}, see Sec.~\ref{sec:jets}. A jet's energy is measured by combining the energy deposited in the ECAL and HCAL with the momenta of charged tracks associated with it. This approach, known as particle flow (PF) reconstruction, provides a more accurate measurement. Neutral hadrons are identified as energy deposits in the calorimeters with no associated track in the ID.
+The hadronic calorimeter (HCAL) surrounds the ECAL. Its purpose is to absorb hadrons (e.g., neutrons, protons, pions, kaons) and measure their energy through hadronic interactions. High-energy quarks and gluons do not appear as individual particles but instead \textbf{hadronize} into collimated sprays of hadrons known as \textbf{jets}, see Sec.~\ref{sec:jets}. A jet's energy is measured by combining the energy deposited in the ECAL and HCAL with the momenta of charged tracks associated with it. This approach, known as particle flow (PF) reconstruction, which combines information from all detector subsystems to identify each individual particle, provides a more accurate measurement.
+
 
 Muons are unique as they are the only charged particles (apart from neutrinos) that can penetrate the entire calorimeter system, losing only a small amount of energy via ionization. Therefore, a dedicated muon system (MS) is built outside the calorimeters. Muons are identified as tracks in the ID that are matched to tracks in the MS. The MS, often within its own magnetic field, provides a standalone momentum measurement, which is combined with the ID measurement for high precision.
 
@@ -67,41 +68,43 @@ where the sum runs over all reconstructed particles (e.g., leptons, photons, jet
 This sophisticated detector design, optimized for identifying and measuring Standard Model particles, also makes it a powerful instrument for searching for new physics beyond the SM through unusual signatures or an excess of events with large MET.
 
 
-The event rate $R$ for a physical process (e.g., $pp \to X$) is governed by the accelerator's luminosity $\mathcal{L}$ and the process cross section $\sigma$. Luminosity quantifies the performance of a collider to produce interactions, establishing the proportionality,
+
+\subsection{Collision Parameters}\label{sec:cross_sec_lumi}
+
+A aim of particle physics experiments is to quantify how frequently different processes occur and to characterize the properties of the particles involved. These quantities are expressed in terms of \textbf{cross-sections}, normalized to the \textbf{luminosity} delivered by the accelerator.
+
+
+The cross-section ($\sigma$) quantifies the probability for a specific process to occur. Formally, it represents the effective area of a target particle presented to an incoming beam particle for an interaction to happen. It has units of area, typically barn (b), where $1\,\text{b} = 10^{-28}\,\text{m}^2$.
+
+In the context of proton-proton ($pp$) collisions at the LHC, the concept is generalized. Since both colliding particles are composite, the cross-section for a specific process (e.g., Higgs boson production, $t\bar{t}$ production, or BSM particle production) is calculated by considering the interactions between their constituent partons (quarks and gluons). The total cross-section for a process $pp \to X$ is given by the convolution of the parton distribution functions (PDFs) and the partonic cross-section $\hat{\sigma}_{ij \to X}$:
 \begin{equation}
-	\frac{d R}{d t} = \mathcal{L} \sigma,
+\sigma(pp \to X) = \sum_{i,j} \int_0^1 dx_1 dx_2\, f_i(x_1, \mu_F^2) f_j(x_2, \mu_F^2)\, \hat{\sigma}_{ij \to X}(\hat{s}, \mu_F^2, \mu_R^2),
+\label{eq:cross_section}
 \end{equation}
-where $\sigma$ (typically measured in barns, $1\,\text{b} = 10^{-24}\,\text{cm}^2$) encodes the interaction probability. For LHC proton bunches colliding head-on with Gaussian transverse profiles, the instantaneous luminosity is~\parencite{Herr:941318,book:1123430}:
+where:
+\begin{itemize}
+    \item The sum runs over all possible parton types $i, j$ (e.g., $u, d, g$) in the two protons.
+    \item $f_i(x, \mu_F^2)$ is the PDF, representing the probability density to find a parton of type $i$ carrying a fraction $x$ of the proton's momentum at a factorization scale $\mu_F$.
+		\item $\hat{s} = x_1 x_2 s$ is the square of the center-of-mass energy for the colliding partons, with $s$ being the square of the $pp$ center-of-mass energy (e.g., 13.6 TeV).
+    \item $\hat{\sigma}_{ij \to X}$ is the partonic cross-section for the hard scattering process $ij \to X$.
+    \item $\mu_R$ is the renormalization scale.
+\end{itemize}
+Then, in one hand, the cross-section $\sigma$ is a theoretical quantity that encapsulates the fundamental physics of the interaction, independent of the accelerator's performance. On the other hand, the \textbf{luminosity} ($\mathcal{L}$) is a property of the particle accelerator and beams. It measures the density of particles in the colliding beams and thus the rate at which interactions can occur. The instantaneous luminosity is defined by:
 \begin{equation}
-	\mathcal{L} = \frac{f N_{b}}{4\pi} \frac{N_{1} N_{2}}{\sigma_{x} \sigma_{y}}\label{eq_lumi}
+\mathcal{L} = \frac{f n_1 n_2}{4\pi \sigma_x \sigma_y},
 \end{equation}
-Here, $N_{1,2}$ are proton counts per bunch, $f$ is the bunch collision frequency, $N_{b}$ is the number of bunches, and $\sigma_{x,y}$ are transverse beam widths. 
-
-Integrating $\mathcal{L}$ over time yields the total integrated luminosity $L$, linking directly to the observed event count $N$:
+where $f$ is the revolution frequency of the bunches, $n_1$ and $n_2$ are the numbers of particles in each bunch, and $\sigma_x$ and $\sigma_y$ are the transverse dimensions of the beams at the interaction point. The integrated luminosity is the integral of the instantaneous luminosity over time:
 \begin{equation}
-	L = \int \mathcal{L}\, dt \quad \Rightarrow \quad N = L \sigma.
+L = \int \mathcal{L}\, dt.
 \end{equation}
+The primary unit of integrated luminosity is the inverse barn ($\text{b}^{-1}$), commonly $\text{fb}^{-1}$.
 
-%This major upgrade aims to increase the integrated luminosity by more than an order of magnitude, targeting up to $3\,\mathrm{ab}^{-1}$ of data per experiment. The HL-LHC will significantly enhance the sensitivity to rare processes, improve the precision of Standard Model measurements, and boost the discovery potential for BSM phenomena.
+The expected number of events ($N$) for a given process in a collider experiment connects the cross-section and integrated luminosity through the relation
+\begin{equation}
+N = \sigma \cdot L \cdot \epsilon.
+\label{eq:N_sigma_L}
+\end{equation}
+Here, $\epsilon$ is the total efficiency and acceptance of the detector for the process in question. It estimates the fraction of produced events that are actually detected and reconstructed, accounting for detector geometry, resolution, and analysis selection criteria.
 
-  
-The Gaussian beam approximation in~\eqref{eq_lumi} ignores hourglass effects (beam divergence near interaction points) and dynamic $\sigma_{x,y}$ variations during fills. CMS mitigates these via real-time luminosity monitoring using pixel clusters~\parencite{Sirunyan2021}, with systematic uncertainties below $2\%$. High $\mathcal{L}$ also introduces pileup—multiple $pp$ interactions per bunch crossing—which complicates $\eta$/$\phi$ measurements but is corrected using vertex isolation algorithms.
-
-
-The following variables are related to the particles being produced rather than the accelerator.
-\begin{description}
-	\item[Decay width] ( $\Gamma)$ The decay rate is the probability that a given particle will decay per unit time. Since a particle can have multiple decay modes, the total decay rate is the sum of the decay rates for each mode~\parencite{book:1123430}. The relative frequency of a decay mode is the branching ratio, given by
-	$$
-	\mathrm{BR}(j)=\frac{\Gamma(j)}{\Gamma} .
-	$$
-	\item[Cross-section] $(\sigma)$ The cross-section is a measure of the probability that an interaction will occur from a collision. It is a quantum-mechanical analogue of the "effective size" of the particles involved in an interaction.
-
-	\item[Pseudo-rapidity] $(\eta)$ Instead of using the polar angle, CMS measurements involve the pseudo-rapidity, defined by
-	$$
-	\eta=-\ln \left(\tan \frac{\theta}{2}\right)
-	$$
-	The main advantage of using the pseudo-rapidity is that distributions over it tend to be closer to a uniform distribution than those over the polar angle, see Fig.~\ref{fig_cms_coor}. Furthermore, the difference in pseudo-rapidity is invariant under Lorentz boosts along the beam direction~\parencite{book:1123430}.
-	\item[Transverse Momentum] ($p_T$) Refers to the component of momentum which is perpendicular to the beam line. It is usually preferred over full momentum because momentum along the beamline may just be left over from the beam particles, while the transverse momentum is always associated with whatever physics happened at the vertex, see Fig.~\ref{fig_cms_coor}.
-	\item[Missing transverse energy and momentum] $\left(E_{T}^{\text {miss }} \& p_{T}^{\text {miss }}\right)$ Missing energy and momentum refers to the energy and momentum that is not detected but is expected to be there as a consequence of energy conservation and momentum conservation. This momentum is often carried by particles that do not interact electromagnetically or strongly and are therefore difficult to detect~\parencite{book:1123430}. Missing energy and momentum provides an indirect measurement of undetectable particles in hadron colliders such as neutrinos. Missing momentum reconstructions focus on the transverse direction, where total momentum is expected to be zero.
-\end{description}
+This equation is the cornerstone of data analysis at colliders. A measurement can proceed in two directions: On one side, if a process is known, we can measure the number of events $N$, know the integrated luminosity $L$ from accelerator measurements, and calculate the efficiency $\epsilon$ from simulation. Equation~\ref{eq:N_sigma_L} is then solved for $\sigma$ to provide a measurement of the production rate. On the other side, if we are searching for a new process not predicted by the Standard Model, we calculate the expected background $N_\text{bkg}$ from known SM processes. We then observe a number of events $N_\text{obs}$. Any significant excess, $N_\text{obs} - N_\text{bkg}$, can be interpreted as a potential signal, and Equation~\ref{eq:N_sigma_L} can be used to set an upper limit on the cross-section $\sigma_\text{BSM}$ of the hypothetical new process.
 
