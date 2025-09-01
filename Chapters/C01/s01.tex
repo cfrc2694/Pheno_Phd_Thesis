@@ -1,0 +1,250 @@
+
+
+\section{Fields}
+Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions of the spacetime that transform under a representation of the Lorentz group within an invariant subspace}~\parencite{Tong1995,CRodriguezUPTC}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table \ref{tab-repLorentz2}). 
+
+In classical field theory, a variational principle is established which generates the equations that govern the dynamics of the different fields in a theory, \textit{the equations of motion}. Hamilton's principle, or principle of minimal action, indicates that all possible physical configurations for a set of fields $\varphi^I$, with $I=1,2,3,\cdots,n$, are those where the integral of the action $S$ is a minimal~\parencite{Goldstein,jose1998classical}:
+\begin{equation}\label{eq-action}
+	S=\int \mathcal{L}(\varphi^I,\partial_\mu\varphi^I) d^4x,
+\end{equation}
+here, $d^4x=dx^0dx^1 dx^2dx^3$ and $x\equiv(ct,x^1,x^2,x^3)\equiv(x^0,x^1,x^2,x^3)\in\mathcal{M}^4$ are the space-time coordinates in the Minkowskian spacetime $\mathcal M^4$, and the function $\lag(\varphi^I,\partial_\mu\varphi^I)$ is called \textit{the Lagrangian density} of a theory~\parencite{greiner2000relativistic,Goldstein}. The problem in classical field dynamics is to find the functions $\varphi^I(x)$ in a space-time $\mathcal{M}^4$, fixing their boundary conditions. The solution to this classical problem is given by the Euler-Lagrange equations:
+\begin{equation}\label{eq_EulerLag}
+	\dpr{\mathcal{L}}{\varphi^I}-\dpr{}{x^\mu}\dpr{\lag}{\fac{\partial_\mu \varphi^I}}=0,
+\end{equation}
+and they are used to obtain the equations of motion of the set of fields $\varphi^I$~\parencite{jose1998classical}. 
+
+In quantum field theory, the situation is more complicated: if we adopt the approach of quantization by path integrals~\parencite{martinez2002,Weinberg}, the idea of an equation of motion vanishes and we go on to searching correlations between free particle states. However, the notion of action remains the cornerstone in the description of these observables.
+Explicitly, the correlation functions are calculated through the LSZ formula from the path integral~\parencite{greiner1996qft,peskin}:
+\begin{equation}
+	\begin{aligned}
+		Z[J]&=\braket{\text { out, } 0| 0, \text { in }}
+		\\&=\mathcal{N}\int \mathcal{D}(\varphi, \bar{\varphi})  e^{i S[\varphi]} e^{i \int J_I\varphi^I  d^{4} x}
+		\\&=\mathcal{N}\int \mathcal{D}(\varphi, \bar{\varphi})  e^{i \int d^{4} x \mathcal{L}} e^{i \int J_I\varphi^I  d^{4} x},
+	\end{aligned}
+\end{equation}
+taken over the space of fields $\varphi$ with an appropriate measure $\mathcal{D}(\varphi, \bar{\varphi})$ and normalized by $\mathcal{N}$. The quantity $Z$ is known as the partition function of the theory and gives the transition amplitude from the initial vacuum $\ket{0,\text{ in}}$ to the final vacuum $\ket{0,\text{ out}}$ in the presence of a source $J(x)$ producing particles~\parencite{birrell75900}. Therefore, the dynamics, at both the classical and quantum levels, in a theory are entirely determined by the Lagrangian density. Table \ref{tab-repLorentz2} records the Lagrangian density for different types of free fields, i.e., non-interacting fields.
+
+\begin{center}
+    \begin{tabular}{|l|c|c|l|}\hline\bigstrut
+        Name							& Field				& Spin & Free-Lagrangian	\\\hline\hline\bigstrut
+        Klein-Gordón				&	$\phi$					& $0$			&	$\lag=\fac{\partial^\mu\bar \phi\partial_\mu \phi-m^2 \bar \phi\phi}$						\\\hline\bigstrut
+        Dirac								& $\chi$			& $1/2$	&$\lag=\bar\chi\fac{i\pmb\gamma^\mu \partial_\mu -m\pmb 1}\chi$\\\hline\bigstrut
+        Maxwell	& $A^\mu$ 		& $1$		&$\lag=-\frac{1}{4} F^{\mu v} F_{\mu v} $\\\hline
+    \end{tabular}
+    \captionof{table}{Some relevant representations of the Lorentz group in  $4$-dimensional space-time. In this notation $\eta_{\mu\nu}=\diag(1,-1-,-1-,1)$, $\pmb \gamma^\mu$ are the Dirac matrices, $F_{\mu \nu}^{A}=\partial_{\mu} A_{\nu}^{A}-\partial_{\nu} A_{\mu}^{A}+g f_{B C}{ }^{A} A_{\mu}^{B} A_{\nu}^{C}$ is the stregth field and the array of real numbers $f_{A B}^{C}$ are the structure constants of the gauge group algebra~\parencite{freedman2012supergravity}, equations are written in natural units with $c=\hbar=1$.}\label{tab-repLorentz2}
+\end{center}
+
+In this paradigm, our task is to propose a Lagrangian density for a set of fields that correctly models the propagation and interactions of fundamental particles. 
+
+\subsection{Interactions and Symmetries}
+
+In quantum field theory, the form of the Lagrangian density is not arbitrary: it is shaped by a small set of physical and mathematical principles. These principles act as ``rules’’ that guide the construction of consistent theories, ensuring both their internal consistency and their predictive power. In particular, if we want a relativistic and renormalizable theory, the Lagrangian must satisfy several conditions that strongly restrict the kind of terms that can appear.
+
+To begin with, relativistic invariance demands that the equations of motion look the same in all inertial frames. This requirement is implemented by asking the action to be invariant under Poincaré transformations~\parencite{pall}. Equivalently, the Lagrangian density must transform as a Lorentz scalar and may change under translations at most by a total derivative~\parencite{jose1998classical}. 
+
+Another basic condition is Hermiticity: the Lagrangian density must be Hermitian so that observables are real and the time evolution of the theory is unitary~\parencite{pall,peskin}. In addition, dimensional analysis places further restrictions. In natural units, $\mathcal{L}$ carries dimensions of [mass]$^4$ (an energy density). This means that the interaction terms that we can add must be such that the overall operator has the correct dimension, which already rules out many possibilities. 
+
+In quantum field theory, loop corrections to scattering amplitudes typically produce divergences. A theory is called renormalizable if all these divergences can be absorbed into a redefinition of a \emph{finite set} of physical parameters (such as masses and couplings). In practice, this requirement translates into a restriction on the operators that may appear in the Lagrangian: only terms of mass dimension $\leq 4$ lead to renormalizable interactions. Higher-dimensional operators are still allowed, but they correspond to \emph{effective} interactions that are suppressed at low energies and signal the presence of new physics at higher scales~\parencite{peskin,Weinberg}. 
+
+
+Summarizing, the main constraints that a relativistic and renormalizable Lagrangian density must satisfy are:
+\begin{itemize}
+    \item \textbf{Poincaré (global) invariance:} the action must be invariant under Lorentz transformations and translations; the Lagrangian density is a Lorentz scalar and may change by at most a total derivative~\parencite{pall,jose1998classical}.
+    \marginpar{\footnotesize In QFT, Poincaré invariance is assumed to be global. Promoting it to a local symmetry leads to gravity, with spin-2 fields (the graviton) as mediators. Perturbatively, such a theory is not renormalizable, so it lacks predictivity at high energies, although it can still be understood as an effective field theory.}
+    \item \textbf{Hermiticity:} $\mathcal{L}$ must be Hermitian to ensure real observables and unitary evolution~\parencite{pall,peskin}.
+    \item \textbf{Mass dimension:} in natural units, $\mathcal{L}$ has dimension [mass]$^4$; interaction terms must be constructed accordingly.
+    \item \textbf{Renormalizability:} demanding perturbative renormalizability restricts operators to dimension $\leq 4$, which in practice allows interactions built out of fields with spin $0$, $1/2$, or $1$ and couplings of non-negative mass dimension~\parencite{peskin,Weinberg}.
+
+\end{itemize}
+
+These constraints drastically reduce the number of possible terms in the Lagrangian. As a result, the renormalizable interaction structures that typically arise are limited to: Yukawa couplings between fermions and scalars, scalar self-interactions (up to quartic order), and gauge interactions between matter fields and vector bosons.
+
+
+
+At this point, we seem to have total freedom to mix these terms as possible interactions. However, the concept of symmetry has proven to be our most powerful ally for the construction of terms of interaction between fields. 
+The procedure turns out to be simple; once a set of spin 0 and spin 1/2 fields has been established as part of the theory, these are organized to transform under a representation of a unitary gauge group $G$ such that the Lagrangian density must be a global scalar of $G$. Then, once the global Lagrangian density is known, it is sought to ``promote'' symmetry to a local symmetry by a slight modification of associated kinematic terms~\parencite{pokorski2000gauge,freedman2012supergravity, Gallego2016,VanProeyen1999,Martin2012}.
+This ``promotion'' is described in more detail below.
+
+Given a Lagrangian density $\lag(\varphi_i,\partial_\mu \varphi_i)$, a given field $\varphi$ is said to be \textit{globally simmetric} under unitary transformations, $\varphi_i\mapsto \mathcal{U}_G(\varphi_i)$, if the action is invariant under the variations of the fields $\phi^{I}$ which are given, at infinitesimal level, by:
+\begin{equation}
+	\delta_G(\theta) \varphi^I\approx i\theta^A(T_A)_{J}^I\varphi^J,
+\end{equation}
+where $\theta^{A}$ are the parameters of the transformation $\mathcal{U}$ and $T_{A}$ are the representations of the generators of a unitary continuous group $G$. This considers an expansion of $U$ at first order in $\theta^{A}$. This group, $G$, supports unitary representations of the shape:
+\begin{equation}
+	\mathcal{U}_G\dot=U(\theta)=\exp\fac{i\theta^A T_A}.
+\end{equation}
+The operators $T_A$ satisfy a commutation relation according to the Lie algebra:
+\begin{equation}
+	\cor{ T_A,T_B }= if_{ab}^{\;\;C}T_C,
+\end{equation}
+where $f_{AB}^{\;\;C}$ are the structure constants of $G$.
+
+If invariance under local symmetry is desired, it is required to replace all the space-time derivatives $\partial_\mu$ that appear in $\lag$ by a new type known as \textit{covariant derivatives} $\mathcal{D}_\mu$, which implicitly brings the coupling of the given fields with new fields $B_\mu$, known as \textit{gauge fields}:
+\begin{equation}
+	\partial_\mu\rightarrow \mathcal{D}_\mu=\partial_\mu-
+	\delta_G(B_\mu)\quad
+	\Longrightarrow
+	\quad\lag(\varphi_i,\partial_\mu\varphi_i)\rightarrow 
+	\lag(\varphi_i,\mathcal{D}_\mu
+	\varphi_i;B_\mu).  
+\end{equation}
+Term $\delta_G(B_\mu)$ is called \textit{connection} and it introduces a \textit{gauge} field $B_\mu^A$ for each generator $T_A$ of $G$ (note that 
+$\delta_T(B_\mu)\equiv iB_\mu^AT_A$).
+The covariant derivative is defined such that its transformation is of the form
+\begin{equation}
+	\Dcov'_\mu=U\Dcov_\mu U^\dagger,
+	\entonces \mathcal{D}_\mu (\varphi) \rightarrow U \mathcal{D}_\mu (\varphi).
+\end{equation} 
+For this, it is enough that ${B}_\mu^C$ transforms as
+\begin{equation}
+	\delta_G(\theta){B}_\mu^C=\theta^Af_{AB}^{\;\;\;\;C} B^B_\mu
+	+\partial_\mu \theta^C.\label{eq2}
+\end{equation}
+
+Since additional fields have been introduced, and, in order to implement local symmetry, it is necessary to construct a kinetic Lagrangian for such fields. Following the ideas of Yang and Mills based on the antisymmetric curvature tensor which is defined as
+\begin{equation}
+	F_{\mu\nu}^CT_C
+		=F_{\mu\nu}
+		=-\cor{\Dcov_\mu,\Dcov_\nu}
+		=\fac{
+			\partial_\mu B^C_\nu-\partial_\nu B^C_\mu+f_{AB}^{\;\;\;\;C}B^A_\mu B^B_\nu
+		}T_C,
+\end{equation}
+and with it the kinetic Lagrangian for gauge fields is generalized as:
+$$
+\lag=-\frac{\delta_{AB}}{4 g^2} F^A_{\nu\mu}F^{\nu\mu B},
+$$
+where $g$ is known as the gauge coupling constant which indicates the strength of the interaction. Usually, the gauge fields are rescaled so that the coefficient of the kinetic term is $1 / 4$ and $g$ appears in the covariant derivative.
+
+\subsubsection{Example}
+As a way of illustration let us consider a renormalizable theory with a real scalar $\phi$ and a  Dirac spinor $\psi$ so that both are non-interacting, and suppose that this theory is globally invariant under phase transformations, i.e. the fields $\varphi\in\{\phi,\psi\}$ transform as $\varphi\mapsto e^{i\theta \hat Q}\varphi $ such that $\hat Q \psi = q \psi$ and $\hat Q \phi=0\phi=0$. The free lagrangian density for the real scalar field and the Dirac field is
+\begin{equation}
+	\mathcal L_{\text{free}}=\frac{1}{2} \partial^{\mu} \phi \partial_{\mu} \phi-\frac{1}{2}\mu^2\phi^2+\bar{\psi}(i \gamma_\mu  \partial^\mu-m) \psi
+\end{equation}
+If we want to add globally symmetric interaction terms, the scalar potential must be an expansion in the fields of order four at maximum, so that it remains renormalizable. The linear term of the potential does not contribute to the action, and the quadratic term of the potential is contained by the mass term. Whereas, a fermionic potential is not allowed since the only term renormalizable is precisely the term of mass. A cross term is allowed $\sim \phi\bar\psi\psi$, which is called \textit{Yukawa coupling}, then the globally invariant Lagrangian is
+\begin{equation}
+	\begin{aligned}
+		\mathcal L_{\text{global}}&=\frac{1}{2} \partial^{\mu} \phi \partial_{\mu} \phi-V(\phi)+\bar{\psi}(i \gamma_\mu  \partial^\mu-m) \psi + k_1 \phi\bar\psi\psi,
+		\\
+		V(\phi)&=\frac{\mu^2}{2!}\phi^2 +\frac{\alpha}{3!}\phi^3+\frac{\lambda}{4!}\phi^4.
+	\end{aligned}
+\end{equation}
+Promoting to local, 
+\begin{multline}
+	\mathcal L_{\text{local}}=\frac{1}{2} \mathcal D^{\mu} \phi \mathcal D_{\mu} \phi-V(\phi)
+	+\bar{\psi}(i \gamma_\mu  \mathcal D^{\mu}-m) \psi 
+	+ k_1 \phi\bar\psi\psi-\frac1{4g^2} F_{\mu\nu}F^{\mu\nu},
+\end{multline}
+where, 
+\begin{equation}
+	\mathcal D_\mu\varphi=\fac{\partial_{\mu}-ig A_\mu\hat Q }\varphi
+	\Longrightarrow
+	\begin{cases}
+		\mathcal D_\mu\phi=\partial_\mu \phi,\\
+		\mathcal D_\mu\psi=\partial_\mu \psi-ig q A_\mu \psi.
+	\end{cases}
+\end{equation}
+With these ingredients, we are ready to approach the standard model Lagrangian. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph1} 
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{dashes,tension=2.0}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
+
+                \fmflabel{$\phi$}{i1}
+                \fmflabel{$\bar\psi$}{o1}
+                \fmflabel{$\psi$}{o2}
+
+				\fmfv{lab=$ik_1$, lab.dist=0.25cm, lab.angle=115}{v1}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Yukawa coupling with a scalar $\phi$.}
+        \label{fig-yukawa-scalar}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph2}
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{photon,tension=2.0}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
+
+                \fmflabel{$\gamma$}{i1}
+                \fmflabel{$\bar\psi$}{o1}
+                \fmflabel{$\psi$}{o2}
+
+				\fmfv{lab=$ig$, lab.dist=0.25cm, lab.angle=115}{v1}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Interaction with a photon $\gamma$.}
+        \label{fig-qed-photon}
+    \end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph3}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1}
+				\fmfright{o1,o2}
+
+				\fmf{dashes}{i1,v1}
+				\fmf{dashes}{v1,o1}
+				\fmf{dashes}{v1,o2}
+
+				\fmflabel{$\phi$}{i1}
+				\fmflabel{$\phi$}{o1}
+				\fmflabel{$\phi$}{o2}
+
+				\fmfv{lab=$i\alpha$, lab.dist=0.25cm, lab.angle=115}{v1}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Triple scalar coupling.}
+		\label{fig-triple-scalar}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph4}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1,i2}
+				\fmfright{o1,o2}
+
+				\fmf{dashes}{i1,v1}
+				\fmf{dashes}{i2,v1}
+				\fmf{dashes}{v1,o1}
+				\fmf{dashes}{v1,o2}
+
+				\fmflabel{$\phi$}{i1}
+				\fmflabel{$\phi$}{i2}
+				\fmflabel{$\phi$}{o1}
+				\fmflabel{$\phi$}{o2}
+
+				\fmfv{lab=$i\lambda$, lab.dist=0.3cm, lab.angle=90}{v1}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Quartic scalar coupling.}
+		\label{fig-quartic-scalar}
+	\end{subfigure}
+    \caption{Feynman diagrams for Yukawa coupling, gauge boson coupling and quartic scalar coupling.}
+\end{figure}
+
+%TO DO -> Feynman Diagramans
+%TO DO -> Extend about the higgs mechanism
