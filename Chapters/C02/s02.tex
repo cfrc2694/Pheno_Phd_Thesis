@@ -1,28 +1,4 @@
-\section{Detectors and Subsystems}
-
-A typical collider experiment comprises several main detector subsystems that are used jointly to detect and measure the properties of particles produced in the collision. A \textit{schematic representation} of such a generic multipurpose detector is shown in Fig.~\ref{fig_detector}. The detector is typically composed of several concentric layers, each designed to measure different properties of the particles produced in the collisions. 
-
-\begin{center}
-	\includegraphics[width=0.8\textwidth]{Images/transversal_detector.pdf}
-	\captionof{figure}{Schematic representation of transversal section of a generic multipurpose detector. The inner detector (ID) is used to measure the trajectories of charged particles, the electromagnetic calorimeter (ECAL) measures the energy of photons and electrons, the hadronic calorimeter (HCAL) measures the energy of hadrons, and the muon system (MS) measures the trajectories of muons. The missing transverse energy (MET) is measured by combining information from all subsystems..}\label{fig_detector}
-\end{center}
-
-The innermost subsystem, called the inner detector (ID), is designed to detect electrically charged particles that are long-lived enough to traverse the ID. The most common such particles from the SM are two charged leptons (the electron $e$ and the muon $\mu$ ) and three hadrons (the pion $\pi$, kaon $K$, and proton $p$ ). Regions of ionization produced by such a particle in solid-state or gaseous detector sensors are detected as spatial hits that are fit into a trajectory, referred to as a \textbf{track}. The direction and curvature of the track in a magnetic field yield the particle's momentum vector and electric charge. In some detectors, the ID is enclosed in a Cherenkov-light detector used to measure the velocity of the tracked particles. Combined with the momentum measurement in the ID, this yields the particle mass with sufficient resolution to differentiate between pions, kaons, and protons in a relevant momentum range.
-
-After passing through the tracker, particles produced in the collisions typically enter an electromagnetic calorimeter (ECAL), designed to measure the energies of photons, electrons and positrons. The energy measurement exploits the properties of electromagnetic shower production via photon radiation and $e^{+} e^{-}$ pair production, resulting from the interaction of energetic particles with the ECAL material.
-
-Hadrons deposit energy via hadronic interactions with the detector material. Since this process involves large fluctuations and a variety of energy-deposition mechanisms, precise hadron-energy measurement is achievable only at high-energy colliders, where fluctuations are effectively averaged out. In particular, high-energy quarks and gluons hadronize into a collimated spray of hadrons known as a \textbf{jet}. Containing the jet requires use of a deep hadronic calorimeter (HCAL) beyond the ECAL. While a jet can be identified solely in the calorimeters, its energy is nowadays measured from a combination of the momenta of tracks in the ID and the signals integrated in the ECAL and HCAL. 
-
-The signals from the calorimeters, know as \textbf{towers}, are grouped into jets using a jet clustering algorithm. If and hadronic particle is neutral, it will not leave a track in the ID, but it will still deposit energy in the towers. So, the towers are used to measure the energy of neutral particles, such as photons and neutral hadrons, while the ID tracks are used to measure the energy of charged particles. This approach is known as particle flow (PF) reconstruction and provides a more accurate measurement of the energy of jets. 
-
-Muons do not undergo hadronic interactions, and are heavy enough that they lose energy due to ionization at a low rate. Therefore, they lose only a few GeV while traversing a typical LHC-detector calorimeter. Using this property to identify them, a muon system (MS) is built outside the calorimeter. In high-energy collider detectors, the MS is usually immersed in a magnetic field in order to measure the momenta of muons. Tracks reconstructed in the MS are often combined with tracks in the ID to obtain a high-quality momentum measurement.
-
-When studying final states that include long-lived, weakly interacting particles, such as neutrinos in the SM or dark matter candidates in BSM models, an important reconstructed quantity is missing momentum.  Using three-momentum conservation and the approximate hermeticity of the detector, it is possible to measure the momentum imbalance in the event and to infer the combined momentum of the invisible set of particles. Since the interacting partons in proton collisions generally carry different fractions of the momenta of the incoming hadrons and many of the particles produced fall outside of the acceptance of the sensitive detector, the summed momenta of measured final-state particles along the beam axis $z$ are not expected to cancel. Therefore, experiments at the LHC measure the missing transverse momentum, denoted $E_{\mathrm{T}}^{\text {miss }}$ known as Missing Energy Transverse (\textbf{MET}), where momentum balance is assumed only in the $x-y$ plane transverse to the beam direction.
-
-Collider detectors are mostly designed and constructed for optimal detection of SM particles produced in the collision. However, they can also be used to search for new physics (NP) beyond the SM. In this case, the detector is used to search for signatures of NP, such as new particles or interactions that are not predicted by the SM. The detector subsystems are designed to be sensitive to a wide range of particles and interactions, allowing for the detection of a variety of NP signatures.
-
-
-\subsection{Jets Reconstruction}
+\section{Jets Reconstruction}\label{sec:jets}
 
 Quarks and gluons are never observed as free particles because of colour confinement. Nevertheless, perturbative QCD treats them as the relevant short-distance degrees of freedom: factorization theorems and asymptotic freedom justify computing hard-scattering matrix elements for incoming and outgoing partons even though QCD becomes non-perturbative at low scales. The strong coupling \(\alpha_s\) grows large and effectively ``blows up'' around the confinement scale \(\Lambda_{\mathrm{QCD}}\); consequently something must happen to quarks and gluons before they reach the detector. In practice the gluon and all quarks except the top hadronize, producing cascades of baryons and mesons that themselves undergo further decays. At the LHC these hadrons typically carry energies comparable to the electroweak scale, and relativistic boosts tend to collimate their decay products into narrow bunches. Those collimated collections of hadrons are the jets we measure at hadron colliders and the objects we use to infer the partons produced in the hard interaction.
 
@@ -32,7 +8,7 @@ Phenomenologically one usually assumes that each high-energy parton yields a jet
 
 Modern reconstruction at the LHC typically uses particle-flow (PF) candidates as input together with infrared- and collinear-safe clustering algorithms to define jet four-momenta. The anti-\(k_T\) algorithm~\parencite{Cacciari:2008gp}, implemented in \texttt{FastJet}~\parencite{Cacciari:2011ma}, is widely used in ATLAS and CMS; it groups candidates by proximity in the rapidity–azimuth \((y,\phi)\) plane with a typical distance parameter \(R\sim0.4\)–0.6 and is relatively insensitive to soft radiation and pileup. After clustering, jet energy corrections (JEC) derived from simulation and in-situ calibrations compensate for detector response, pileup, and underlying-event effects, while jet-substructure and tagging algorithms help infer the flavour and origin of the initiating parton.
 
-\subsubsection{Jet algorithms}
+\subsection{Jet algorithms}
 
 Recombination (or sequential clustering) algorithms formalise the intuitive idea that parton showering produces collinear and soft splittings: two nearby and kinematically compatible subjets are merged if they are more likely to have originated from a single parton. A practical implementation requires a measure of ``distance'' between objects; common choices combine an angular separation in the rapidity–azimuth plane, \(\Delta R_{ij}\), with a transverse-momentum weighting. Typical distance measures are
 \[
@@ -106,7 +82,7 @@ These developments yield measurable performance gains: modern deep classifiers t
 
 Examples in use are CMS DeepCSV / DeepJet and ATLAS MV2 / DL1~\parencite{CMS:2017wtu,ATLAS:2019bwq}, which illustrate the transition from expert-designed high-level variables to large-scale machine learning leveraging low-level detector information. Typical medium working points yield $b$-tag efficiencies of order 60–80\% with light-jet misidentification rates at or below the percent level; the precise choice of working point is tuned per analysis to optimise sensitivity while accounting for calibration and systematic uncertainties.
 
-\subsection{The CMS Detector}
+\section{The CMS Detector}
 
 CMS is a general-purpose detector at the LHC~\parencite{CMS_2008}. With a length of 21.6~m, a diameter of 14.6~m, and a weight of 14,000 tonnes, its cylindrical geometry is divided into a central barrel section and two endcaps. This design provides hermetic coverage to accurately measure momentum and energy balance, which is crucial for identifying non-interacting particles like neutrinos through missing transverse energy.
 
