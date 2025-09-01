@@ -1,6 +1,6 @@
 		% CMS detector - left perspective
 		\tdplotsetmaincoords{75}{50} % to reset previous setting
-		\begin{tikzpicture}[scale=2.0,tdplot_main_coords,rotate around x=90]
+		\begin{tikzpicture}[scale=2.6,tdplot_main_coords,rotate around x=90]
 			
 			% VARIABLES
 			\def\rvec{\L/2/cos(\thetavec)}
@@ -55,15 +55,14 @@
 			%\draw[thick,->] (0,0,0) -- (0,0,1) node[below right]{$z$}; % short
 			\draw[axis,-] (0,0,\zmin) -- (0,0,0); % long
 			\fill[CMScol] (O) circle(0.5pt) node[right=1,below=1] {IP};
-			\draw[axis] (0,0,0.020) -- (0,0,\zmax) node[right=3,below=1]{$z$}; % long
+			\draw[axis] (0,0,0.020) -- (0,0,\zmax) node[right=3,above=0.1]{$z$}; % long
 			\draw[axis] (0,0.019,0) -- (0,\ymax,0) node[below left]{$y$};
-			\draw[dashed,myred] (O'')  -- (Pxy);
 			\draw[axis] (0.022,0,0) -- (\xmax,0,0) node[below=1,right=-2]{$x$};
 			
 			% LABELS
 			\node[mydarkred,above] at (0,\ymax,0) {$\eta=0$};
-			\node[mydarkred,above=2.0] at (0,\R,0.3*\L) {$\eta>0$};
-			\node[mydarkred,above=2.0] at (0,\R,-0.2*\L) {$\eta<0$};
+			\node[mydarkred,above=0.6, left] at (0,\R,0.3*\L) {$\eta>0$};
+			\node[mydarkred,above=0.7, right] at (0,\R,-0.2*\L) {$\eta<0$};
 			\node[mydarkred,below=1,left] at (0,0,\zmax) {$\eta=\infty$};
 			\node[mydarkred,above=1,right] at (0,0,\zmin) {$\eta=-\infty$};
 			
@@ -72,8 +71,14 @@
 			\draw[dashed,myred] (P)  -- (Pxy);
 			\draw[dashed,myred] (Py) -- (Pxy);
 			\draw[dashed,myred] (P) -- (Pz);
-			\draw[->,red,line cap=round] (O') -- (P) node[anchor=-30] {$\va*{p}$};
-			\draw[->,red,line cap=round] (O') -- (Pxy) node[right] {$\va*{p}_T$};
+			
+			
+			\draw[->,miverde,line cap=round,draw opacity=0.9] (O') -- (P) node[anchor=-30] {\contour{white}{$\va*{p}$}};
+			\draw[->,miverde,line cap=round] (O') -- (P) node[anchor=-30] {$\va*{p}$};
+			
+			\draw[->,azulF,line cap=round,draw opacity=0.9] (O') -- (Pxy) node[right, anchor=-100] {\contour{white}{$\va*{p}_T$}};
+			% \draw[->,azulF,line cap=round] (O') -- (Pxy) node[right , anchor=-100] {$\va*{p}_T$};
+			
 			
 			% CYLINDER front
 			\draw[beam pipe,fill=none] (0,\r,-\l/2) arc(90:-90:\r);
@@ -90,34 +95,34 @@
 			% ANGLES
 			\tdplotdrawarc[thick,red!57!black!3] % contour
 			{(O)}{0.2}{4}{0.7*\phivec}{}{}
-			\tdplotdrawarc[draw=none,opacity=0.8]{(O)}{0.2}{0}{\phivec} % transparant contour
-			{above=2,right=-1,anchor=mid west}{\contour{red!55!black!3}{$\phi$}}
-			\tdplotdrawarc[->]{(O)}{0.2}{0}{\phivec}
-			{above=2,right=-1,anchor=mid west}{$\phi$}
+
+			% white to contour
+			\tdplotdrawarc[draw=azulF, line width=0.6pt, draw opacity=0.9]{(O)}{0.2}{0}{\phivec}{above=2,right=0.75,anchor=-30,text=black}{\contour{white}{$\phi$}}
+			\tdplotdrawarc[->, azulF]{(O)}{0.2}{0}{\phivec}{above=2,right=0.75,anchor=-30}{$\phi$}
+
+
 			\tdplotdrawarc[->,rotate around z=\phivec-90,rotate around y=-90]
 			{(O)}{0.88}{0}{\thetavec}{anchor=mid east}{$\theta$}
 			\tdplotdrawarc[thick,red!58!black!4,rotate around z=\phivec-90,rotate around y=-90] % contour
 			{(O)}{0.3}{88}{0.5*(90+\thetavec)}{}{}
 			\tdplotdrawarc[-{>[flex'=1]},rotate around z=\phivec-90,rotate around y=-90,line cap=round]
-			{(O)}{0.3}{90}{\thetavec}{above=4,right=2,anchor=mid east}{$\eta$}
+			{(O)}{0.3}{90}{\thetavec}{above=4.5,right=0.5,anchor=mid east}{$\eta$}
 			\draw[mydarkred] (0,0,\L/2) --++ (\R,0,0);
 			\tdplotdrawarc[thick,red!60!black!6] % contour
 			{(Z)}{0.2}{4}{0.7*\phivec}{}{}
-			\tdplotdrawarc[draw=none,opacity=0.8]{(Z)}{0.2}{0}{\phivec} % transparant contour
-			{above=2,right=-1,anchor=mid west}{\contour{red!60!black!6}{$\phi$}}
-			\tdplotdrawarc[->]{(Z)}{0.2}{0}{\phivec}
-			{above=2,right=-1,anchor=mid west}{$\phi$}
+			\tdplotdrawarc[draw=none,opacity=0.8]{(Z)}{0.2}{0}{\phivec}{above=2,right=0.7,anchor=-30}{\contour{red!60!black!6}{$\phi$}}
+			\tdplotdrawarc[->]{(Z)}{0.2}{0}{\phivec}{above=2,right=0.7,anchor=-30}{$\phi$}
 			
 			% COMPASS - CMS-ATLAS axis has a ~12° declination (http://googlecompass.com)
 			\begin{scope}[shift={(1.1*\R,-\R,0.2*\L)},rotate around y=12]
 				\draw[<->,black!50] (-\w,0,0) -- (\w,0,0);
 				\draw[<->,black!50] (0,0,-\w) -- (0,0,\w);
-				\node[above=1,left,black!50,scale=0.6] at (-\w,0,0) {N};
+				\node[left,black!50,scale=0.6] at (-\w,0,0) {N};
 				\node[below=3,left=-2,green!20!black!50,scale=0.6] at (0,0,\w) {Jura};
 				%\node[below=1,right,black!50,scale=0.6,align=center] at (\w,0,0) {center of\\the LHC};
 				%\node[below=1,right,blue!30!black!50,scale=0.6] at (\w,0,0) {ATLAS};
 			\end{scope}
 			\draw[->,thick,orange!30!black] (1.4*\w,-\R,-0.1*\L) --++ (2*\w,0,0)
-			node[below=1,right,scale=0.8,align=center] {center of\\[-1pt]the LHC};
+			node[right,scale=0.8,align=center] {center of\\[-1pt]the LHC};
 			
 		\end{tikzpicture}

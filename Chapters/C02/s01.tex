@@ -1,0 +1,107 @@
+\section{Detectors and Subsystems}\label{sec:detectors}
+
+When two particle bunches from colliding beams cross each other, they generate individual interactions known as events. At the LHC, the beam intensity is so high that multiple interactions can take place in a single event; this phenomenon is referred to as pile-up. In other words, the probability that several proton-proton interactions occur within the same bunch crossing is non-negligible, leading to multiple overlapping events in a single detector readout. These collisions occur at four main interaction points, each hosting a large particle detector designed to record and analyze the outcomes. 
+
+Among them, the Compact Muon Solenoid (CMS) and ATLAS are the largest and most comprehensive experiments. Both are multipurpose detectors with broad physics programs, capable of exploring a wide range of phenomena. They perform precision measurements within the electroweak sector of the Standard Model, probe the dynamics of quarks and gluons (including through heavy-ion collisions), and conduct extensive searches for physics beyond the Standard Model using $pp$ collision data. While CMS and ATLAS differ in their detector designs and reconstruction strategies, their physics goals are largely overlapping, and their results are complementary.
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{Images/coordinatechart.png}
+    \captionof{figure}{Coordinate system employed by the CMS experiment (retrieved from~\parencite{cmsplots}).}\label{fig_coordinates}
+\end{center}
+
+Throughout this work, phenomenological studies and comparisons are primarily developed in the context of CMS, although several results from ATLAS are also referenced, given the close alignment in sensitivity and scope. Measurements performed at CMS adopt a right-handed coordinate system with its origin at the nominal collision point. The $z$-axis is defined along the beam direction, the $x$-axis points radially inward toward the center of the LHC ring, and the $y$-axis points vertically upward. The azimuthal angle $\phi$ is measured in the transverse ($xy$) plane from the $x$-axis, while the polar angle $\theta$ is measured from the $z$-axis, as shown in Fig.~\ref{fig_coordinates}. Moreover, for kinematic analysis at hadron colliders, the Cartesian coordinate system is often reparameterized into quantities that are more physically meaningful and experimentally convenient as shown in Fig.~\ref{fig_cms_coor}:
+
+\begin{description}
+	\item[Pseudo-rapidity] $(\eta)$ Instead of using the polar angle, CMS measurements involve the pseudo-rapidity, defined by
+	$$
+	\eta=-\ln \left(\tan \frac{\theta}{2}\right)
+	$$
+	The main advantage of using the pseudo-rapidity is that distributions over it tend to be closer to a uniform distribution than those over the polar angle, see Fig.~\ref{fig_cms_coor}. Furthermore, the difference in pseudo-rapidity is invariant under Lorentz boosts along the beam direction~\parencite{book:1123430}.
+	
+	\item[Transverse Momentum] ($p_T$) Refers to the component of momentum which is perpendicular to the beam line. It is usually preferred over full momentum because momentum along the beamline may just be left over from the beam particles, while the transverse momentum is always associated with whatever physics happened at the vertex, see Fig.~\ref{fig_cms_coor}.
+	
+	\item[Azimuthal Angle] ($\phi$) Measures the angle in the transverse plane relative to the $x$-axis, providing the directional component perpendicular to the beam line.
+\end{description}
+
+\begin{center}
+  \input{Images/kin_var.tex}
+  \captionof{figure}{Detailed reparametrization of the coordinate system employed by the CMS experiment (retrieved from~\parencite{cmsplots})}\label{fig_cms_coor}
+\end{center}
+
+Together, the triplet $(p_T, \phi, \eta)$ forms a natural coordinate system that fully describes a particle's three-momentum vector at a hadron collider. The full four-momentum $(E, p_x, p_y, p_z)$ can be reconstructed from these quantities, typically supplemented by either the particle's mass hypothesis (for identified particles like electrons or muons) or the energy deposited in the calorimeters (for neutral objects like photons or jets). This $(p_T, \phi, \eta)$ system serves as the fundamental framework for defining physical objects, calculating event variables, and performing analyses at the LHC, providing both experimental convenience and physical insight into the collision dynamics.
+
+
+A key challenge is isolating the primary hard interaction from the additional concurrent pile-up interactions. This is accomplished by reconstructing distinct interaction vertices along the beam direction and associating charged particles to their point of origin. The ultimate aim of the reconstruction chain is to identify all stable particles produced in the collision and measure their four-momenta, thereby enabling the identification of the underlying fundamental process.
+
+However, the reconstruction is complicated by several factors. The initial state of the colliding protons is not fully known, as they are composite particles made up of quarks and gluons (collectively referred to as partons). The fraction of the proton's momentum carried by each parton is described by parton distribution functions (PDFs), which are determined experimentally. Consequently, the total momentum along the beam axis ($z$) is not balanced on an event-by-event basis. Furthermore, not all particles are stable enough to reach the detector; some decay before being detected, and only their decay products are observed. The design of a collider experiment, illustrated in Fig.~\ref{fig_layers}, is optimized for the identification and energy measurement of the particles produced in high-energy collisions.
+
+\begin{center}
+    \includegraphics[width=0.95\textwidth]{Images/Layers.pdf}
+    \captionof{figure}{Illustration of high-energy particles being identified by consecutive types of subdetectors in a typical collider experiment. The curvature of the tracks in the magnetic field is not shown for simplicity. Representation of which particles and kinds of detectors are used in a multipurpose detector such as CMS or ATLAS.}\label{fig_layers}
+\end{center}
+
+Finally, some hypothetical particles, such as those comprising dark matter, along with known neutrinos, interact very weakly with matter and escape direct detection. Therefore, a hermetic detector design is crucial to infer their presence by accurately measuring the imbalance of energy and momentum in the transverse plane, referred to as missing transverse momentum.
+
+
+In this way, a typical collider experiment comprises several main detector subsystems that are used jointly to detect and measure the properties of particles produced in the collision. A \textit{schematic representation} of such a generic multipurpose detector is shown in Fig.~\ref{fig_detector}. The detector features an "onion-like" design of several concentric layers, each optimized to identify different types of particles and measure their properties.
+
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{Images/transversal_detector.pdf}
+    \captionof{figure}{Schematic representation of a transverse section of a generic multipurpose detector. The inner detector (ID) is used to measure the trajectories of charged particles, the electromagnetic calorimeter (ECAL) measures the energy of photons and electrons, the hadronic calorimeter (HCAL) measures the energy of hadrons, and the muon system (MS) identifies and measures muons. The missing transverse momentum (MET) is inferred from the momentum imbalance in the transverse plane.}\label{fig_detector}
+\end{center}
+
+The innermost subsystem, the inner detector (ID) or tracker, is immersed in a strong axial magnetic field (typically 1–4 T). It is designed to reconstruct the trajectories of charged particles, which are bent by the magnetic field. The direction and curvature of these trajectories, called \textbf{tracks}, yield the particle's momentum vector and electric charge. The most common long-lived charged particles from the SM are leptons (electrons $e$ and muons $\mu$) and hadrons (pions $\pi$, kaons $K$, and protons $p$). In some detectors, the ID is complemented by a Cherenkov-light detector to measure particle velocity. Combined with the momentum measurement, this velocity helps determine the particle mass, allowing for differentiation between pions, kaons, and protons.
+
+After the tracker, particles enter the electromagnetic calorimeter (ECAL), which is designed to fully absorb photons, electrons, and positrons. These particles deposit all their energy in the ECAL by initiating an electromagnetic shower via bremsstrahlung and $e^{+}e^{-}$ pair production. Electrons are identified as charged tracks that point to a compact, high-energy deposit in the ECAL.
+
+The hadronic calorimeter (HCAL) surrounds the ECAL. Its purpose is to absorb hadrons (e.g., neutrons, protons, pions, kaons) and measure their energy through hadronic interactions. High-energy quarks and gluons do not appear as individual particles but instead \textbf{hadronize} into collimated sprays of hadrons known as \textbf{jets}, see Sec.~\ref{sec:jets}. A jet's energy is measured by combining the energy deposited in the ECAL and HCAL with the momenta of charged tracks associated with it. This approach, known as particle flow (PF) reconstruction, provides a more accurate measurement. Neutral hadrons are identified as energy deposits in the calorimeters with no associated track in the ID.
+
+Muons are unique as they are the only charged particles (apart from neutrinos) that can penetrate the entire calorimeter system, losing only a small amount of energy via ionization. Therefore, a dedicated muon system (MS) is built outside the calorimeters. Muons are identified as tracks in the ID that are matched to tracks in the MS. The MS, often within its own magnetic field, provides a standalone momentum measurement, which is combined with the ID measurement for high precision.
+
+Since the detector is nearly hermetic (covering almost the full solid angle), momentum conservation in the plane transverse to the beam line ($x$-$y$ plane) is a powerful tool. The vector sum of the momenta in the transverse plane ($\vec{p}_T$) of all detected particles should be zero. Any significant imbalance indicates the presence of undetected, neutral particles that did not interact with the detector, such as neutrinos or hypothetical new particles. This imbalance is called missing transverse momentum (MET) and is formally defined as:
+$$
+\vec{p}_T^{\text{miss}} \equiv -\sum_i \vec{p}_{T,i}
+$$
+where the sum runs over all reconstructed particles (e.g., leptons, photons, jets) or calorimeter deposits in the event.
+
+This sophisticated detector design, optimized for identifying and measuring Standard Model particles, also makes it a powerful instrument for searching for new physics beyond the SM through unusual signatures or an excess of events with large MET.
+
+
+The event rate $R$ for a physical process (e.g., $pp \to X$) is governed by the accelerator's luminosity $\mathcal{L}$ and the process cross section $\sigma$. Luminosity quantifies the performance of a collider to produce interactions, establishing the proportionality,
+\begin{equation}
+	\frac{d R}{d t} = \mathcal{L} \sigma,
+\end{equation}
+where $\sigma$ (typically measured in barns, $1\,\text{b} = 10^{-24}\,\text{cm}^2$) encodes the interaction probability. For LHC proton bunches colliding head-on with Gaussian transverse profiles, the instantaneous luminosity is~\parencite{Herr:941318,book:1123430}:
+\begin{equation}
+	\mathcal{L} = \frac{f N_{b}}{4\pi} \frac{N_{1} N_{2}}{\sigma_{x} \sigma_{y}}\label{eq_lumi}
+\end{equation}
+Here, $N_{1,2}$ are proton counts per bunch, $f$ is the bunch collision frequency, $N_{b}$ is the number of bunches, and $\sigma_{x,y}$ are transverse beam widths. 
+
+Integrating $\mathcal{L}$ over time yields the total integrated luminosity $L$, linking directly to the observed event count $N$:
+\begin{equation}
+	L = \int \mathcal{L}\, dt \quad \Rightarrow \quad N = L \sigma.
+\end{equation}
+
+%This major upgrade aims to increase the integrated luminosity by more than an order of magnitude, targeting up to $3\,\mathrm{ab}^{-1}$ of data per experiment. The HL-LHC will significantly enhance the sensitivity to rare processes, improve the precision of Standard Model measurements, and boost the discovery potential for BSM phenomena.
+
+  
+The Gaussian beam approximation in~\eqref{eq_lumi} ignores hourglass effects (beam divergence near interaction points) and dynamic $\sigma_{x,y}$ variations during fills. CMS mitigates these via real-time luminosity monitoring using pixel clusters~\parencite{Sirunyan2021}, with systematic uncertainties below $2\%$. High $\mathcal{L}$ also introduces pileup—multiple $pp$ interactions per bunch crossing—which complicates $\eta$/$\phi$ measurements but is corrected using vertex isolation algorithms.
+
+
+The following variables are related to the particles being produced rather than the accelerator.
+\begin{description}
+	\item[Decay width] ( $\Gamma)$ The decay rate is the probability that a given particle will decay per unit time. Since a particle can have multiple decay modes, the total decay rate is the sum of the decay rates for each mode~\parencite{book:1123430}. The relative frequency of a decay mode is the branching ratio, given by
+	$$
+	\mathrm{BR}(j)=\frac{\Gamma(j)}{\Gamma} .
+	$$
+	\item[Cross-section] $(\sigma)$ The cross-section is a measure of the probability that an interaction will occur from a collision. It is a quantum-mechanical analogue of the "effective size" of the particles involved in an interaction.
+
+	\item[Pseudo-rapidity] $(\eta)$ Instead of using the polar angle, CMS measurements involve the pseudo-rapidity, defined by
+	$$
+	\eta=-\ln \left(\tan \frac{\theta}{2}\right)
+	$$
+	The main advantage of using the pseudo-rapidity is that distributions over it tend to be closer to a uniform distribution than those over the polar angle, see Fig.~\ref{fig_cms_coor}. Furthermore, the difference in pseudo-rapidity is invariant under Lorentz boosts along the beam direction~\parencite{book:1123430}.
+	\item[Transverse Momentum] ($p_T$) Refers to the component of momentum which is perpendicular to the beam line. It is usually preferred over full momentum because momentum along the beamline may just be left over from the beam particles, while the transverse momentum is always associated with whatever physics happened at the vertex, see Fig.~\ref{fig_cms_coor}.
+	\item[Missing transverse energy and momentum] $\left(E_{T}^{\text {miss }} \& p_{T}^{\text {miss }}\right)$ Missing energy and momentum refers to the energy and momentum that is not detected but is expected to be there as a consequence of energy conservation and momentum conservation. This momentum is often carried by particles that do not interact electromagnetically or strongly and are therefore difficult to detect~\parencite{book:1123430}. Missing energy and momentum provides an indirect measurement of undetectable particles in hadron colliders such as neutrinos. Missing momentum reconstructions focus on the transverse direction, where total momentum is expected to be zero.
+\end{description}
+
