@@ -31,7 +31,7 @@ taken over the space of fields $\varphi$ with an appropriate measure $\mathcal{D
         Dirac								& $\chi$			& $1/2$	&$\lag=\bar\chi\fac{i\pmb\gamma^\mu \partial_\mu -m\pmb 1}\chi$\\\hline\bigstrut
         Maxwell	& $A^\mu$ 		& $1$		&$\lag=-\frac{1}{4} F^{\mu v} F_{\mu v} $\\\hline
     \end{tabular}
-    \captionof{table}{Some relevant representations of the Lorentz group in  $4$-dimensional space-time. In this notation $\eta_{\mu\nu}=\diag(1,-1-,-1-,1)$, $\pmb \gamma^\mu$ are the Dirac matrices, $F_{\mu \nu}^{A}=\partial_{\mu} A_{\nu}^{A}-\partial_{\nu} A_{\mu}^{A}+g f_{B C}{ }^{A} A_{\mu}^{B} A_{\nu}^{C}$ is the stregth field and the array of real numbers $f_{A B}^{C}$ are the structure constants of the gauge group algebra~\parencite{freedman2012supergravity}, equations are written in natural units with $c=\hbar=1$.}\label{tab-repLorentz2}
+	\captionof{table}{Some relevant representations of the Lorentz group in  $4$-dimensional space-time. In this notation $\eta_{\mu\nu}=\diag(1,-1,-1,-1)$, $\pmb \gamma^\mu$ are the Dirac matrices, $F_{\mu \nu}^{A}=\partial_{\mu} A_{\nu}^{A}-\partial_{\nu} A_{\mu}^{A}+g f_{B C}{ }^{A} A_{\mu}^{B} A_{\nu}^{C}$ is the field strength (for abelian groups, the last term vanishes), and the array of real numbers $f_{A B}^{C}$ are the structure constants of the gauge group algebra~\parencite{freedman2012supergravity}. All equations are written in natural units with $c=\hbar=1$. Fields are shown in their standard representations.}\label{tab-repLorentz2}
 \end{center}
 
 In this paradigm, our task is to propose a Lagrangian density for a set of fields that correctly models the propagation and interactions of fundamental particles. 
@@ -46,15 +46,19 @@ Another basic condition is Hermiticity: the Lagrangian density must be Hermitian
 
 In quantum field theory, loop corrections to scattering amplitudes typically produce divergences. A theory is called renormalizable if all these divergences can be absorbed into a redefinition of a \emph{finite set} of physical parameters (such as masses and couplings). In practice, this requirement translates into a restriction on the operators that may appear in the Lagrangian: only terms of mass dimension $\leq 4$ lead to renormalizable interactions. Higher-dimensional operators are still allowed, but they correspond to \emph{effective} interactions that are suppressed at low energies and signal the presence of new physics at higher scales~\parencite{peskin,Weinberg}. 
 
+A classical symmetry of the Lagrangian may not always survive the process of quantization. If it fails to do so, it is said to be anomalous. Chiral anomalies, specifically, arise from the regularization of fermion loops in triangle diagrams and can break the gauge symmetry at the quantum level. Since the gauge symmetry is the very principle that dictates the form of interactions and removes unphysical states, its violation would destroy the renormalizability and unitarity of the theory. Therefore, the particle content must be carefully chosen so that these potential anomalies cancel amongst the fermions, a non-trivial condition famously satisfied by the quarks and leptons of the Standard Model.
+
+Furthermore, the stability of the vacuum is a prerequisite for a physically meaningful theory. This is ensured by demanding that the scalar potential, which governs the self-interactions of the Higgs field, is bounded from below. If the potential were unbounded, it would imply that the system could lower its energy indefinitely by rolling down the potential to field values of ever-greater magnitude, meaning no stable ground state could exist. For a renormalizable potential, this stability condition typically translates into the requirement that the quartic coupling constant $\lambda > 0$. However, this condition must hold not just at tree-level but also at the quantum level, as running couplings can change sign at different energy scales, potentially leading to metastability or instability of the vacuum.
+
 
 Summarizing, the main constraints that a relativistic and renormalizable Lagrangian density must satisfy are:
 \begin{itemize}
-    \item \textbf{Poincaré (global) invariance:} the action must be invariant under Lorentz transformations and translations; the Lagrangian density is a Lorentz scalar and may change by at most a total derivative~\parencite{pall,jose1998classical}.
-    \marginpar{\footnotesize In QFT, Poincaré invariance is assumed to be global. Promoting it to a local symmetry leads to gravity, with spin-2 fields (the graviton) as mediators. Perturbatively, such a theory is not renormalizable, so it lacks predictivity at high energies, although it can still be understood as an effective field theory.}
-    \item \textbf{Hermiticity:} $\mathcal{L}$ must be Hermitian to ensure real observables and unitary evolution~\parencite{pall,peskin}.
-    \item \textbf{Mass dimension:} in natural units, $\mathcal{L}$ has dimension [mass]$^4$; interaction terms must be constructed accordingly.
-    \item \textbf{Renormalizability:} demanding perturbative renormalizability restricts operators to dimension $\leq 4$, which in practice allows interactions built out of fields with spin $0$, $1/2$, or $1$ and couplings of non-negative mass dimension~\parencite{peskin,Weinberg}.
-
+	\item \textbf{Poincaré (global) invariance:} the action must be invariant under Lorentz transformations and translations; the Lagrangian density is a Lorentz scalar and may change by at most a total derivative~\parencite{pall,jose1998classical}. \marginpar{\footnotesize In QFT, Poincaré invariance is assumed to be global. Promoting it to a local symmetry leads to gravity, with spin-2 fields (the graviton) as mediators. Perturbatively, such a theory is not renormalizable, so it lacks predictivity at high energies, although it can still be understood as an effective field theory.}
+	\item \textbf{Hermiticity:} $\mathcal{L}$ must be Hermitian to ensure real observables and unitary evolution~\parencite{pall,peskin}.
+	\item \textbf{Mass dimension:} in natural units, $\mathcal{L}$ has dimension [mass]$^4$; interaction terms must be constructed accordingly.
+	\item \textbf{Renormalizability:} demanding perturbative renormalizability restricts operators to dimension $\leq 4$, which in practice allows interactions built out of fields with spin $0$, $1/2$, or $1$ and couplings of non-negative mass dimension~\parencite{peskin,Weinberg}.
+	\item \textbf{Absence of chiral anomalies:} gauge symmetries must be free of chiral (gauge) anomalies to ensure the consistency and unitarity of the quantum theory~\parencite{peskin,Weinberg,bertlmann1996anomalies}. In the Standard Model, the particle content is such that all gauge anomalies cancel exactly.
+	\item \textbf{Stability of the potential:} the scalar potential must be bounded from below to guarantee the existence of a stable vacuum state. This typically requires that the quartic couplings in the potential are positive at the relevant energy scales.
 \end{itemize}
 
 These constraints drastically reduce the number of possible terms in the Lagrangian. As a result, the renormalizable interaction structures that typically arise are limited to: Yukawa couplings between fermions and scalars, scalar self-interactions (up to quartic order), and gauge interactions between matter fields and vector bosons.
@@ -144,7 +148,8 @@ where,
 		\mathcal D_\mu\psi=\partial_\mu \psi-ig q A_\mu \psi.
 	\end{cases}
 \end{equation}
-With these ingredients, we are ready to approach the standard model Lagrangian. 
+
+With these ingredients and principles, we are now equipped to understand the structure of the Standard Model Lagrangian, which will be discussed in the next section.
 
 \begin{figure}[h!]
     \centering
