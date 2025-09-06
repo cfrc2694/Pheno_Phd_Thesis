@@ -67,8 +67,8 @@ This figure of merit automatically optimizes sensitivity through the logarithmic
 In practice, we must take into account systematic effects by incorporating nuisance parameters into the likelihood and profiling over uncertainty ranges. The power calculation can be extended to include systematic uncertainties by modifying the denominator as,
 \begin{equation}
 	\boxed{
-	\kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \sigma^2_{\text{sys,signal},i} + \sigma^2_{\text{sys,bkg},i}\right] w_i^2}},
+	\kappa_{\text{sys}} = \frac{\sum_i s_i w_i}{\sqrt{\sum_i \left[(s_i + b_i) + \delta^2_{\text{sys,signal},i} + \delta^2_{\text{sys,bkg},i}\right] w_i^2}},
 }
 \label{eq:kappa_with_systematics}
 \end{equation}
-where $\sigma_{\text{sys}}$ terms represent the systematic uncertainties on signal and background predictions.
+where $\delta_{\text{sys}}$ terms represent the systematic uncertainties on signal and background predictions.
