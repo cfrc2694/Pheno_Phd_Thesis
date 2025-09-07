@@ -29,3 +29,70 @@ The spontaneous breaking of the full $\mathcal{G}_{\rm 4321}$ symmetry down to t
 \end{itemize}
 Heuristically, each of these bosons originates from a distinct part of the symmetry breaking pattern: the leptoquark ($U$) emerges from the breaking $SU(4)\to SU(3)_{[4]}\times U(1)_{B-L}$, the coloron ($g'$) from the breaking $SU(3)_{[4]}\times SU(3)'\to SU(3)_c$, and the $Z'$ from the subsequent breaking $U(1)_{B-L}\times U(1)_{T_R^3}\to U(1)_Y$.
 
+\section{Scalar Potential and Symmetry Breaking}
+
+The spontaneous breaking of the $\mathcal{G}_{\rm 4321}$ symmetry down to the Standard Model $\mathcal{G}_{\rm 321}$ and subsequently to electromagnetism is achieved through a scalar sector comprising four multiplets. The primary breaking $\mathcal{G}_{\rm 4321} \to \mathcal{G}_{\rm 321}$ is induced by the vacuum expectation values (VEVs) of three scalar fields:
+\begin{itemize}
+    \item $\Omega_3 \sim \left( \mathbf{\bar 4}, \mathbf{3}, \mathbf{1}, 1/6 \right)$,
+    \item $\Omega_1 \sim \left( \mathbf{\bar 4}, \mathbf{1}, \mathbf{1}, -1/2 \right)$,
+    \item $\Omega_{15} \sim \left( \mathbf{15}, \mathbf{1}, \mathbf{1}, 0 \right)$ (taken to be a real field).
+\end{itemize}
+The final electroweak symmetry breaking, $\mathcal{G}_{\rm 321} \to U(1)_{\rm EM}$, is triggered by the Higgs doublet $H \sim (\mathbf{1},\mathbf{1},\mathbf{2},1/2)$.
+
+A suitable scalar potential (analysed in detail in Section~\ref{scalpot}) allows for a VEV configuration that ensures this breaking pattern. Phenomenological constraints suggest a clear hierarchy between these scales:
+\begin{equation}
+    \langle \Omega_{3} \rangle > \langle \Omega_{1} \rangle \gg \langle \Omega_{15} \rangle \gg \langle H \rangle.
+\end{equation}
+Given this hierarchy, we simplify the analysis by first considering the $\Omega_{3}$ and $\Omega_{1}$ system in isolation to understand the primary TeV-scale breaking. The effects of incorporating the smaller VEVs of $\Omega_{15}$ and $H$ will be discussed subsequently.
+
+To analyze the $\Omega_3$--$\Omega_1$ subsystem, we represent these fields as a $4 \times 3$ matrix and a $4$-vector, transforming as $\Omega_3 \to U^*_4 \Omega_3 U_{3'}^T$ and $\Omega_1 \to U^*_4 \Omega_1$ under $SU(4) \times SU(3)'$, respectively. The desired vacuum configuration that breaks $\mathcal{G}_{\rm 4321}$ to $\mathcal{G}_{\rm 321}$ is:
+\begin{equation}
+\label{vevconf}
+\langle \Omega_3 \rangle = 
+\tfrac{1}{\sqrt{2}}
+\left(
+\begin{array}{ccc}
+v_3 & 0 & 0 \\
+0 & v_3 & 0 \\ 
+0 & 0 & v_3 \\
+0 & 0 & 0
+\end{array}
+\right) \, , \qquad
+\langle \Omega_1 \rangle = 
+\tfrac{1}{\sqrt{2}}
+\left(
+\begin{array}{c}
+0 \\ 
+0 \\ 
+0 \\
+v_1
+\end{array}
+\right).
+\end{equation}
+The most general renormalizable scalar potential that admits this vacuum as a stationary point, and in the limit where the bare masses vanish ($\mu_3 = \mu_1 = 0$) and the cubic coupling is absent ($\lambda_6 = 0$), can be written as:
+{\small
+\begin{equation}\label{eqscalpot}
+\begin{aligned}
+V_{\Omega_{3},\Omega_{1}}
+= & \mu_1^2 \abs{\Omega_1}^2 + \mu_3^2 \, \Tr (\Omega_3^\dag \Omega_3) 
+\\&+ \lambda_1 \left( \Tr (\Omega_3^\dag \Omega_3) - \tfrac{3}{2} v_3^2 \right)^2 
++ \lambda_2 \Tr \left( \Omega_3^\dag \Omega_3 - \tfrac{1}{2} v_3^2 \mathbb{1}_3 \right)^2 \\
+& 
++\lambda_3 \left( \abs{\Omega_1}^2 - \tfrac{1}{2} v_1^2 \right)^2 
++ \lambda_4 \left( \Tr (\Omega_3^\dag \Omega_3) - \tfrac{3}{2} v_3^2 \right) \left( \abs{\Omega_1}^2 - \tfrac{1}{2} v_1^2 \right)  \\
+& + \lambda_5 \Omega_1^\dag \Omega_3 \Omega_3^\dag \Omega_1 + \lambda_6 \left( \left[ \Omega_3 \Omega_3 \Omega_3 \Omega_1 \right]_1 + \text{h.c.} \right).
+\end{aligned}  
+\end{equation}
+}
+
+\noindent
+Here, $\mathbb{1}_3$ denotes the $3\times 3$ identity matrix. We have used a relative rephasing between the fields $\Omega_{1}$ and $\Omega_{3}$ to remove the phase of $\lambda_6$. The unique quartic term,
+\begin{equation}
+  \left[ \Omega_3 \Omega_3 \Omega_3 \Omega_1 \right]_1 \equiv 
+\epsilon_{\alpha\beta\gamma\delta} \epsilon^{abc} (\Omega_3)^\alpha_a (\Omega_3)^\beta_b (\Omega_3)^\gamma_c (\Omega_1)^\delta,
+\end{equation}
+is required to avoid accidental global symmetries in the scalar potential that would lead to unwanted massless Goldstone bosons.
+
+The inclusion of the other two representations, $\Omega_{15}$ and $H$, in the scalar potential can be safely considered as a perturbation. They are assumed to take the VEVs $\langle \Omega_{15} \rangle = T_{15} v_{15}$ and $\langle H \rangle = \tfrac{1}{\sqrt{2}} (0, v)^T$, with $v = 246$ GeV. This treatment is justified because their VEVs are subleading for phenomenological reasons and they do not alter the pattern of global symmetries of the $\Omega_3$--$\Omega_1$ potential.
+Finally, the decomposition of $\Omega_{15}$ under $\mathcal{G}_{321}$ is $\Omega_{15} \to (\mathbf{1},\mathbf{1},0) \oplus (\mathbf{3},\mathbf{1},2/3) \oplus (\mathbf{\bar 3},\mathbf{1},-2/3) \oplus (\mathbf{8}, \mathbf{1}, 0)$. The mixing of these states with those contained in $\Omega_{3,1}$ is parametrically suppressed by the ratio $v^2_{15} / v^2_{3,1}$, hence they play a subleading role in phenomenology.
+
