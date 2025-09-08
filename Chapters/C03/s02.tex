@@ -100,6 +100,33 @@ where $\psi_f = (f, \chi_f)^T$. The Yukawa matrices are:
 \end{align}
 with $\sigma_{\pm} = (\sigma_1 \pm i \sigma_2)/2$ being the ladder Pauli matrices.
 
+The expressions above provide a simplified, one-generation view. The complete model involves a non-trivial flavor structure where the mass matrices are general $3 \times 3$ matrices. The diagonalization of the full $6 \times 6$ mass matrices, the procedure for absorbing unphysical unitary rotations, and the emergence of the CKM matrix are detailed in Appendix~\ref{app:universal_seesaw}. Furthermore, the appendix contains a rigorous treatment of the mass eigenvalue problem, deriving the exact relationship between the fundamental parameters $(m_L, m_R, m_\chi)$ and the physical observables $(m_f, m_F, \theta_L)$, which leads to critical constraints on the model's parameter space to ensure perturbativity.
+
+
+
+\subsection{Minimal UV-complete Theory}
+
+To generate non-zero masses for all SM fermions and ensure gauge anomaly cancellation, the model must include at least one full generation of vector-like fermions $\{\chi_\mathrm{u}, \chi_\mathrm{d}, \chi_\mathrm{\ell}, \chi_\mathrm{\nu}\}$ and the right-handed neutrinos $\nu_R$ for each SM generation. Their quantum numbers are listed in Table~\ref{tab:QMnumbers}. The Yukawa interactions in the UV-complete theory are:
+\begin{equation}
+    \begin{aligned}
+        -\mathcal{L} \supset&\,
+        Y_{L u}^{ij} \bar{q}_L^{\prime i} \chi_{u R}^{\prime j} \widetilde{H}
+        + Y_{R u}^{ij} \bar{\chi}_{u L}^{\prime i} u_R^{\prime j} \phi^*
+        + m_{\chi_\mathrm{u}}^{ij} \bar{\chi}_{u L}^{\prime i} \chi_{u R}^{\prime j} \\
+        &+ Y_{L d}^{ij} \bar{q}_L^{\prime i} \chi_{d R}^{\prime j} H
+        + Y_{R d}^{ij} \bar{\chi}_{d L}^{\prime i} d_R^{\prime j} \phi
+        + m_{\chi_d}^{ij} \bar{\chi}_{d L}^{\prime i} \chi_{d R}^{\prime j} \\
+        &+ Y_{L \ell}^{ij} \bar{\ell}_L^{\prime i} \chi_{\ell R}^{\prime j} H
+        + Y_{R \ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \ell_R^{\prime j} \phi
+        + m_{\chi_\ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \chi_{\ell R}^{\prime j} \\
+        &+ Y_{L \nu}^{ij} \bar{\ell}_L^{\prime i} \chi_{\nu R}^{\prime j} \widetilde{H}
+        + Y_{R \nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \nu_R^{\prime j} \phi^*
+        + m_{\chi_\nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \chi_{\nu R}^{\prime j}
+        + \text{h.c.}
+    \end{aligned}
+\end{equation}
+Here, $i, j = 1,2,3$ are generation indices. The diagonalization of the mass matrices for each fermion type follows the structure outlined in Eqs.~\eqref{eq:prodmass} and~\eqref{eq:summass}, while the Yukawa matrices generalize the structure of Eqs.~\eqref{eq:YukawaL} and~\eqref{eq:YukawaR}, now encoding the CKM and PMNS mixing matrices. The neutrino sector has a more complex structure due to the possibility of a Majorana mass term for the vector-like neutrinos $\chi_\nu'$.
+
 \begin{table}[h!]
     \centering
     \begin{tabular}{ccccc}
@@ -131,26 +158,3 @@ with $\sigma_{\pm} = (\sigma_1 \pm i \sigma_2)/2$ being the ladder Pauli matrice
     \caption{Minimal field content of the model and their representations under the SM and $U(1)_{T^3_R}$ gauge groups.}
     \label{tab:QMnumbers}
 \end{table}
-
-\subsection{Minimal UV-complete Theory}
-
-To generate non-zero masses for all SM fermions and ensure gauge anomaly cancellation, the model must include at least one full generation of vector-like fermions $\{\chi_\mathrm{u}, \chi_\mathrm{d}, \chi_\mathrm{\ell}, \chi_\mathrm{\nu}\}$ and the right-handed neutrinos $\nu_R$ for each SM generation. Their quantum numbers are listed in Table~\ref{tab:QMnumbers}. The Yukawa interactions in the UV-complete theory are:
-\begin{equation}
-    \begin{aligned}
-        -\mathcal{L} \supset&\,
-        Y_{L u}^{ij} \bar{q}_L^{\prime i} \chi_{u R}^{\prime j} \widetilde{H}
-        + Y_{R u}^{ij} \bar{\chi}_{u L}^{\prime i} u_R^{\prime j} \phi^*
-        + m_{\chi_\mathrm{u}}^{ij} \bar{\chi}_{u L}^{\prime i} \chi_{u R}^{\prime j} \\
-        &+ Y_{L d}^{ij} \bar{q}_L^{\prime i} \chi_{d R}^{\prime j} H
-        + Y_{R d}^{ij} \bar{\chi}_{d L}^{\prime i} d_R^{\prime j} \phi
-        + m_{\chi_d}^{ij} \bar{\chi}_{d L}^{\prime i} \chi_{d R}^{\prime j} \\
-        &+ Y_{L \ell}^{ij} \bar{\ell}_L^{\prime i} \chi_{\ell R}^{\prime j} H
-        + Y_{R \ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \ell_R^{\prime j} \phi
-        + m_{\chi_\ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \chi_{\ell R}^{\prime j} \\
-        &+ Y_{L \nu}^{ij} \bar{\ell}_L^{\prime i} \chi_{\nu R}^{\prime j} \widetilde{H}
-        + Y_{R \nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \nu_R^{\prime j} \phi^*
-        + m_{\chi_\nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \chi_{\nu R}^{\prime j}
-        + \text{h.c.}
-    \end{aligned}
-\end{equation}
-Here, $i, j = 1,2,3$ are generation indices. The diagonalization of the mass matrices for each fermion type follows the structure outlined in Eqs.~\eqref{eq:prodmass} and~\eqref{eq:summass}, while the Yukawa matrices generalize the structure of Eqs.~\eqref{eq:YukawaL} and~\eqref{eq:YukawaR}, now encoding the CKM and PMNS mixing matrices. The neutrino sector has a more complex structure due to the possibility of a Majorana mass term for the vector-like neutrinos $\chi_\nu'$.
