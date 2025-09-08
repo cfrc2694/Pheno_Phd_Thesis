@@ -1,4 +1,4 @@
-\documentclass[10pt, letterpaper]{book}%tipo
+\documentclass[11pt, letterpaper]{book}%tipo
 
 \usepackage{template}
 \usepackage{lipsum}
@@ -47,7 +47,7 @@
 \usepackage{pdfpages}
 \usepackage{tocbibind}
 \usepackage{listings}
-\title{Feasibility studies on the production of new particles with preferential couplings to third generation fermions at the LHC}
+\title{Machine Learning-enhanced feasibility studies on the production of new particles with preferential couplings to third generation fermions at the LHC}
 \author{Cristian Fernando Rodríguez Cruz}
 \date{\today}
 \def\tev{\, {\rm TeV}}
@@ -72,22 +72,20 @@
 \include{Chapters/Introduction.tex}
 \include{Chapters/C01/in.tex} %Standard Model
 \include{Chapters/C02/in.tex} %LHC observables, searches and analysis
-% \include{Chapters/C03.tex} %BSM signatures in ditau-models
-\include{Chapters/C04/in.tex} %BSM exotic channel
+\include{Chapters/C03/in.tex} %BSM exotic channel
 % \include{Chapters/C05.tex} %Conclusions
-
 
 \appendix
 % \include{Appendices/A01.tex}
 % \include{Appendices/A02.tex}
-% \include{Appendices/A03.tex}
+\include{Appendices/A03.tex}
 % \include{Appendices/A04.tex}
 % \include{Appendices/A06.tex}
 % \include{Appendices/A07.tex}
-% \include{Appendices/A08.tex}
+\include{Appendices/A08.tex}
 % \include{Appendices/A05.tex}
 \backmatter
-\nocite{*}%Imprimir todas las referencias
+% \nocite{*}%Imprimir todas las referencias
 
 \renewcommand{\theequation}{{\Alph{chapter}.\arabic{equation}}}
 \renewcommand{\thefigure}{{\Alph{chapter}.\arabic{figure}}}
