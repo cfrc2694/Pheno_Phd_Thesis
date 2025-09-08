@@ -43,13 +43,13 @@ The discovery significance $\kappa$ quantifies the statistical separation of $t$
 The expected behavior differs under the signal-plus-background ($H_1$) and background-only ($H_0$) hypotheses:
 
 \begin{itemize}
-	\item \textbf{Under $H_1$ ($n_i \sim \text{Pois}(s_i + b_i)$)}:
+	\item \textbf{Under $H_1$} we expect that the $n_i$ data distribution follows $\sim \text{Pois}(s_i + b_i)$:
 	\begin{equation}
 	\langle -2\ln Q \rangle_{s+b} = \sum_i \left[2s_i - 2(s_i + b_i)w_i\right]
 	\implies \sigma^2_{s+b} = 4\sum_i (s_i + b_i) w_i^2.
 	\end{equation}
 
-	\item \textbf{Under $H_0$ ($n_i \sim \text{Pois}(b_i)$)}:
+	\item \textbf{Under $H_0$} we expect that the $n_i$ data distribution follows $\text{Pois}(b_i)$
 	\begin{equation}
 	\langle -2\ln Q \rangle_{b} = \sum_i \left[2s_i - 2b_i w_i\right]
 	\implies \sigma^2_{b} = 4\sum_i b_i w_i^2
