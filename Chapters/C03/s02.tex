@@ -1,215 +1,156 @@
+\section{The Minimal $U(1)_{T_R^3}$ Model}\label{sec:model}
 
-\section{\boldmath The Minimal $U(1)_{T_R^3}$ Model}\label{sec:model}
 \subsection{Scalar Potential}
-In this model, the SM is extended by the Abelian gauge symmetry $U(1)_{T^3_R}$, where only right-handed fermions are charged. We assume two independent Higgs mechanisms, one with a Higgs doublet $\mathrm{H}$ for electroweak symmetry breaking and the other with a Higgs singlet $\phi$ for the $U(1)_{T^3_R}$ symmetry breaking. Both scalars have independent vacuum expectation values (VEVs), $\expval{H}=v_h/\sqrt2$ and $\expval\phi =v_\phi/\sqrt2$, allowing us to express the doublet and singlet Higgs fields, following a Kibble parametrization, as 
+
+The model extends the SM by an Abelian gauge symmetry $U(1)_{T^3_R}$, under which only the right-handed fermions are charged. The symmetry breaking is achieved via two independent Higgs mechanisms: one with the SM Higgs doublet $H$ for electroweak symmetry breaking, and another with a Higgs singlet $\phi$ for breaking $U(1)_{T^3_R}$. These scalars acquire independent vacuum expectation values (VEVs), $\langle H \rangle = v_h / \sqrt{2}$ and $\langle \phi \rangle = v_\phi / \sqrt{2}$. In the Kibble parametrization, the fields are written as:
 \begin{align}
     H & = \begin{pmatrix}
         G_{+} \\
-        \frac{1}{\sqrt{2}}\left(v_h+\rho_0+i G_{0}\right)
-    \end{pmatrix}\label{eq:higgskibblepara1}
-    \\
-    \phi & =\frac{1}{\sqrt{2}}\left(v_\phi + \rho_\phi+i G_{\phi}\right). \label{eq:higgskibblepara2}
+        \frac{1}{\sqrt{2}}\left(v_h + \rho_0 + i G_{0}\right)
+    \end{pmatrix}, \label{eq:higgskibblepara1} \\
+    \phi & = \frac{1}{\sqrt{2}}\left(v_\phi + \rho_\phi + i G_{\phi}\right). \label{eq:higgskibblepara2}
 \end{align}
-In Eqs.\ref{eq:higgskibblepara1} and Eq.\ref{eq:higgskibblepara2}, $G_\pm$, $G_0$, and $G_\phi$ are the Goldstone bosons that allow the SM $\textrm{W}^\pm$ and $\textrm{Z}$ bosons and the dark photon $A'$, associated with the $U(1)_{T^3_R}$ symmetry, to acquire mass. The $\rho_h$ and $\rho_\phi$ are an orthogonal mixture of the SM Higgs boson and the dark Higgs
+In Eqs.~\eqref{eq:higgskibblepara1} and~\eqref{eq:higgskibblepara2}, $G_\pm$, $G_0$, and $G_\phi$ are the Goldstone bosons absorbed by the SM $W^\pm$ and $Z$ bosons and the dark photon $A'$ (associated with $U(1)_{T^3_R}$) to acquire mass. The fields $\rho_h$ and $\rho_\phi$ mix to form the physical mass eigenstates, the SM-like Higgs boson $h$ and a dark Higgs $\phi'$:
 \begin{equation}
     \begin{pmatrix}
-        h
-        \\
+        h \\
         \phi'
     \end{pmatrix}
     =
     \begin{pmatrix}
-        \cos\alpha & -\sin\alpha
-        \\
+        \cos\alpha & -\sin\alpha \\
         \sin\alpha & \cos\alpha
     \end{pmatrix}
     \begin{pmatrix}
-        \rho_0
-        \\
+        \rho_0 \\
         \rho_\phi
-    \end{pmatrix},
-\end{equation}
-that results from the diagonalization of the mass matrices arising from the gauge invariant potential
-\begin{equation}
-    \begin{aligned}
-        \mathcal V(\phi,H)
-    &= \mu_H^2 H^{\dagger} H 
-    +\mu_\phi^2 \phi^* \phi
-    \\
-    &+\lambda\left(H^{\dagger} H\right)\left(\phi^* \phi\right)
-    +\lambda_H\left(H^{\dagger} H\right)^2
-    +\lambda_\phi\left(\phi^* \phi\right)^2.
-    \end{aligned}
-\end{equation}
-The tadpole equations are given from the minimization of the potential as
-\begin{align}
-    \pdv{\mathcal V}{H} 
-     &= \frac{v_h}{\sqrt2} \left( \mu_H^2 +\lambda_Hv_h^2 + \frac{1}{2} \lambda v_\phi^2 \right) = 0,
-    \\
-    \pdv{\mathcal V}{\phi}
-    &= \frac{v_\phi}{\sqrt2} \left( \mu_\phi^2 +\lambda_\phi v_\phi^2 + \frac{1}{2} \lambda v_h^2 \right) = 0.
-\end{align}
-The masses of the scalar bosons can be written as
-\begin{equation}
-    \begin{aligned}
-        m_{h,\phi'}^2 &= \frac{1}{2}\left( 
-    \lambda_H v_h^2 + \lambda_\phi v_\phi^2
-    \right)
-    \pm 
-    \sqrt{
-        \lambda^2 v_h^2 v_\phi^2
-        +
-        \left(
-        \lambda_H v_h^2 - \lambda_\phi v_\phi^2
-        \right)^2
-    },
-    \end{aligned}
-\end{equation}
-and the mixing angle $\alpha$ as
-\begin{equation}
-    \tan 2\alpha = \frac{-\lambda v_h v_\phi}{ \lambda_\phi v_\phi^2-\lambda_H v_h^2}.
-\end{equation}
-
-If we invert this relations, we can express the quartic couplings in terms of the masses and mixing angle as
-\begin{align}
-  \lambda_H &= \frac{m_{\phi'}^2+m_h^2+(m_{\phi'}^2 -m_h^2)\cos(2\alpha)}{4 v_h^2},\\
-  \lambda_\phi &= \frac{m_{\phi'}^2+m_h^2+(m_{\phi'}^2 -m_h^2)\cos(2\alpha)}{4 v_\phi^2},\\
-  \lambda &= \frac{m_{\phi'}^2-m_h^2}{2 v_h v_\phi}\sin(2\alpha).
-\end{align}
-
-So, we have four free parameters in the scalar potential, the masses of the physical scalar bosons $m_h$ and $m_{\phi'}$, the mixing angle $\alpha$, and the VEV of the dark Higgs $v_\phi$. In a similar way that the $v_h$ is fixed by de mass of the electroweak gauge bosons, the $v_\phi$ can be fixed by the mass of the dark photon $A'$, which is given by $m_{A'}^2 = g_{T^3_R}^2 v_\phi^2$, where $g_{T^3_R}$ is the gauge coupling of the $U(1)_{T^3_R}$ group. Depending on the range of values of $g_{T^3_R}$ this gauge bosson correspond to a $Z'$ boson or a dark photon. In this chapter, we will assume that the $g_{T^3_R}$ is small enough so that the $A'$ boson can be considered as a dark photon.
-
-\subsection{The Universal Seesaw Mechanism}
-In the model, each electrically charged SM fermion $f$ has a mass protected by both VEVs. In turn, they  acquire mass from the mixture with a vector-like fermion $\chi_f$, which is charged as the right-handed component of the respective SM fermion, in a UV complete theory. The terms in the Lagrangian density that contribute to the mass of physical fermions are,
-\begin{equation}
-    \begin{aligned}
-        -\mathcal{L}&\supset 
-    Y_{f_L} \bar{f}_L' \chi_{fR}' H 
-    +Y_{f_R} \bar\chi_{fL}' f'_R  \phi^* 
-    + m_{\chi_f'} \bar{\chi}_{f L}' \chi_{f R}'\\
-&+\text { h.c.}
-    \end{aligned}
-\end{equation}
-Therefore, in the vacuum, the mass matrix is
-\begin{equation}
-    M_f=
-    \begin{pmatrix}
-    0 & Y_{f_L} v_h /\sqrt2\\
-    Y_{f_R} v_\phi /\sqrt2 & m_{\chi_f'}    
     \end{pmatrix}.
 \end{equation}
-The left- and right-handed components of the physical fermions $(f,\,\chi_f)$ are given by two rotations $\mathcal R(\theta_{f_{L,R}})$ as, 
+This mixing arises from diagonalizing the mass matrix derived from the gauge-invariant scalar potential:
+\begin{equation}
+    \begin{aligned}
+        V(H, \phi) &= \mu_H^2 H^\dagger H + \mu_\phi^2 \phi^* \phi \\
+                    &\quad + \lambda (H^\dagger H)(\phi^* \phi) + \lambda_H (H^\dagger H)^2 + \lambda_\phi (\phi^* \phi)^2.
+    \end{aligned}
+\end{equation}
+Minimizing the potential yields the tadpole equations:
+\begin{align}
+    \frac{\partial V}{\partial H} &= \frac{v_h}{\sqrt{2}} \left( \mu_H^2 + \lambda_H v_h^2 + \frac{1}{2} \lambda v_\phi^2 \right) = 0, \\
+    \frac{\partial V}{\partial \phi} &= \frac{v_\phi}{\sqrt{2}} \left( \mu_\phi^2 + \lambda_\phi v_\phi^2 + \frac{1}{2} \lambda v_h^2 \right) = 0.
+\end{align}
+The physical scalar masses are given by:
+\begin{equation}
+    m_{h,\phi'}^2 = \frac{1}{2} \left( \lambda_H v_h^2 + \lambda_\phi v_\phi^2 \right) \pm \sqrt{ \lambda^2 v_h^2 v_\phi^2 + \left( \lambda_H v_h^2 - \lambda_\phi v_\phi^2 \right)^2 },
+\end{equation}
+and the mixing angle $\alpha$ satisfies:
+\begin{equation}
+    \tan 2\alpha = \frac{-\lambda v_h v_\phi}{ \lambda_\phi v_\phi^2 - \lambda_H v_h^2}.
+\end{equation}
+The quartic couplings can be expressed in terms of the physical parameters:
+\begin{align}
+  \lambda_H &= \frac{m_{\phi'}^2 + m_h^2 + (m_{\phi'}^2 - m_h^2)\cos 2\alpha}{4 v_h^2}, \\
+  \lambda_\phi &= \frac{m_{\phi'}^2 + m_h^2 + (m_{\phi'}^2 - m_h^2)\cos 2\alpha}{4 v_\phi^2}, \\
+  \lambda &= \frac{m_{\phi'}^2 - m_h^2}{2 v_h v_\phi} \sin 2\alpha.
+\end{align}
+Thus, the scalar sector has four free parameters: the masses $m_h$ and $m_{\phi'}$, the mixing angle $\alpha$, and the dark Higgs VEV $v_\phi$. Similar to how $v_h$ is fixed by the electroweak gauge boson masses, $v_\phi$ is related to the dark photon mass by $m_{A'}^2 = g_{T^3_R}^2 v_\phi^2$, where $g_{T^3_R}$ is the $U(1)_{T^3_R}$ gauge coupling. Depending on the value of $g_{T^3_R}$, this gauge boson can behave as a heavy $Z'$ or a light dark photon. In this chapter, we assume $g_{T^3_R}$ is sufficiently small such that $A'$ can be treated as a dark photon.
+
+\subsection{The Universal Seesaw Mechanism}
+
+In this model, the masses of the SM fermions are generated through a universal seesaw mechanism by mixing with vector-like fermions $\chi_f$. The relevant mass terms in the Lagrangian are:
+\begin{equation}
+    -\mathcal{L} \supset Y_{f_L} \bar{f}_L' \chi_{fR}' H + Y_{f_R} \bar{\chi}_{fL}' f_R' \phi^* + m_{\chi_f'} \bar{\chi}_{f L}' \chi_{f R}' + \text{h.c.}
+\end{equation}
+This leads to the mass matrix:
+\begin{equation}
+    M_f = \begin{pmatrix}
+        0 & Y_{f_L} v_h / \sqrt{2} \\
+        Y_{f_R} v_\phi / \sqrt{2} & m_{\chi_f'}
+    \end{pmatrix}.
+\end{equation}
+The mass eigenstates $(f, \chi_f)$ are obtained by rotating the gauge eigenstates:
 \begin{equation}
     \begin{pmatrix}
-        f_{L,R}
-        \\
+        f_{L,R} \\
         \chi_{f_{L,R}}
     \end{pmatrix}
     =
     \begin{pmatrix}
-        \pm\cos\theta_{f_{L,R}} & \mp \sin \theta_{f_{L,R}}
-        \\
+        \pm \cos\theta_{f_{L,R}} & \mp \sin \theta_{f_{L,R}} \\
         \sin \theta_{f_{L,R}} & \cos\theta_{f_{L,R}}
     \end{pmatrix}
     \begin{pmatrix}
-        f_{L,R}'
-        \\
+        f_{L,R}' \\
         \chi_{f_{L,R}}'
     \end{pmatrix},
 \end{equation}
-in a way that $\mathcal{R}(\theta_{f_L})M_f\mathcal{R}^{-1}(\theta_{f_R})=\text{diag}(m_f,m_{\chi_f})$ up to a phase. Assuming real parameters, the physical masses and the mixing angles are given by
+such that $\mathcal{R}(\theta_{f_L}) M_f \mathcal{R}^{-1}(\theta_{f_R}) = \text{diag}(m_f, m_{\chi_f})$. For real parameters, the physical masses and mixing angles are given by:
 \begin{gather}
-    m_f m_{\chi_f}=\frac{ \left(Y_{f_{L}} v_h\right) \left(Y_{f_R} v_\phi\right)}{2}, \label{eq:prodmass}
-     \\ 
-    m_f^2 + m_{\chi_f}^2 = m_{\chi_f'}^2 + \frac{1}{2}\left(Y_{f_L}^2v_h^2+Y_{f_R}^2v_\phi^2\right),\label{eq:summass}
-    \\
-    \tan \theta_{f_{L,R}} =  \frac{\sqrt 2}{m_{\chi_f'}}\left(\frac{Y_{f_{L,R}}v_{h,\phi}}{2} - 
-    \frac{m_f^2}{Y_{f_{L,R}}v_{h,\phi}} \right).
+    m_f m_{\chi_f} = \frac{ Y_{f_L} v_h Y_{f_R} v_\phi }{2}, \label{eq:prodmass} \\
+    m_f^2 + m_{\chi_f}^2 = m_{\chi_f'}^2 + \frac{1}{2} \left( Y_{f_L}^2 v_h^2 + Y_{f_R}^2 v_\phi^2 \right), \label{eq:summass} \\
+    \tan \theta_{f_{L,R}} = \frac{\sqrt{2}}{m_{\chi_f'}} \left( \frac{Y_{f_{L,R}} v_{h,\phi}}{2} - \frac{m_f^2}{Y_{f_{L,R}} v_{h,\phi}} \right).
 \end{gather}
-
-\noindent The Yukawa interactions of the physical fermions with the scalar bosons have the form
+The Yukawa interactions of the physical fermions with the scalars $h$ and $\phi'$ are:
 \begin{equation}
-    -\mathcal{L}_{\text{yuk}} 
-    = h \bar\psi_{f_L} \mathcal{Y}_{h}\psi_{f_R} + \phi' \bar\psi_{f_L} \mathcal{Y}_{\phi}\psi_{f_R},
-\end{equation} 
-with $\psi_{f} = (f,\chi_{f})^T$, and the matrices $\mathcal{Y}_{f_{L,R}}$ given by
+    -\mathcal{L}_{\text{yuk}} = h \, \bar{\psi}_{f_L} \, \mathcal{Y}_{h} \, \psi_{f_R} + \phi' \, \bar{\psi}_{f_L} \, \mathcal{Y}_{\phi} \, \psi_{f_R},
+\end{equation}
+where $\psi_f = (f, \chi_f)^T$. The Yukawa matrices are:
 \begin{align}
-    \mathcal{Y}_{h} &= \frac{1}{\sqrt{2}}
-    \mathcal{R}(\theta_{f_L})
-    \left(
-        Y_{f_L}\sigma_+ \cos\alpha 
-    - 
-    Y_{f_R}\sigma_-\sin\alpha
-    \right)
-    \mathcal{R}^{-1}(\theta_{f_R})\label{eq:YukawaL}
-    \\
-    \mathcal{Y}_{\phi} &= \frac{1}{\sqrt{2}}
-    \mathcal{R}(\theta_{f_L})
-    \left(
-    Y_{f_L}\sigma_+ \sin\alpha
-    +
-    Y_{f_R}\sigma_-\cos\alpha
-    \right)
-    \mathcal{R}^{-1}(\theta_{f_R}),\label{eq:YukawaR}
+    \mathcal{Y}_{h} &= \frac{1}{\sqrt{2}} \mathcal{R}(\theta_{f_L}) \left( Y_{f_L} \sigma_+ \cos\alpha - Y_{f_R} \sigma_- \sin\alpha \right) \mathcal{R}^{-1}(\theta_{f_R}), \label{eq:YukawaL} \\
+    \mathcal{Y}_{\phi} &= \frac{1}{\sqrt{2}} \mathcal{R}(\theta_{f_L}) \left( Y_{f_L} \sigma_+ \sin\alpha + Y_{f_R} \sigma_- \cos\alpha \right) \mathcal{R}^{-1}(\theta_{f_R}), \label{eq:YukawaR}
 \end{align}
-where $\sigma_{\pm}=(\sigma_1\pm i\sigma_2)/2$ are the ladder Pauli matrices.
-\begin{center}
+with $\sigma_{\pm} = (\sigma_1 \pm i \sigma_2)/2$ being the ladder Pauli matrices.
+
+\begin{table}[h!]
+    \centering
     \begin{tabular}{ccccc}
-    \hline
-    \hline
+        \hline
+        \hline
         Field & $SU(3)_C$  & $SU(2)_L$ & $U(1)_Y$ & $U(1)_{T^3_R}$ \\
-    \hline\hline
-        $q_L'$                    & \bf{3} & \bf{2} & 1/6 & 0\\
-        $\ell_L'$                 & \bf{1} & \bf{2} & -1/2 & 0\\
-        $H$                         & \bf{1} & \bf{2} & 1/2 & 0\\
+        \hline\hline
+        $q_L'$                    & \textbf{3} & \textbf{2} & 1/6 & 0\\
+        $\ell_L'$                 & \textbf{1} & \textbf{2} & -1/2 & 0\\
+        $H$                       & \textbf{1} & \textbf{2} & 1/2 & 0\\
         \hline
-        $u_R^{\prime c}$          & \bf{3} & \bf{1} & -2/3 & -2\\
-        $d_R^{\prime c}$          & \bf{3} & \bf{1} & 1/3 & 2\\
-        $\ell_R^{\prime c}$       & \bf{1} & \bf{1} & 1 & 2\\
-        $\nu_R^{\prime c}$        & \bf{1} & \bf{1} & 0 & -2\\
-        $\phi$                      & \bf{1} & \bf{1} & 0 & 2\\
+        $u_R^{\prime c}$          & \textbf{3} & \textbf{1} & -2/3 & -2\\
+        $d_R^{\prime c}$          & \textbf{3} & \textbf{1} & 1/3 & 2\\
+        $\ell_R^{\prime c}$       & \textbf{1} & \textbf{1} & 1 & 2\\
+        $\nu_R^{\prime c}$        & \textbf{1} & \textbf{1} & 0 & -2\\
+        $\phi$                    & \textbf{1} & \textbf{1} & 0 & 2\\
         \hline
-        $\chi_{u_L}'$               & \bf{3} & \bf{1} & 2/3 & 0\\
-        $\chi_{u_R}^{\prime c}$     & \bf{3} & \bf{1} & -2/3 & 0\\
-        $\chi_{d_L}'$               & \bf{3} & \bf{1} & -1/3 & 0\\
-        $\chi_{d_R}^{\prime c}$     & \bf{3} & \bf{1} & 1/3 & 0\\
-        $\chi_{\ell_L}'$            & \bf{1} & \bf{1} & -1 & 0\\
-        $\chi_{\ell_R}^{\prime c}$  & \bf{1} & \bf{1} & 1 & 0\\
-        $\chi_{\nu_L}'$             & \bf{1} & \bf{1} & 0 & 0\\
-        $\chi_{\nu_R}^{\prime c}$   & \bf{1} & \bf{1} & 0 & 0\\
-    \hline
-    \hline
+        $\chi_{u_L}'$             & \textbf{3} & \textbf{1} & 2/3 & 0\\
+        $\chi_{u_R}^{\prime c}$   & \textbf{3} & \textbf{1} & -2/3 & 0\\
+        $\chi_{d_L}'$             & \textbf{3} & \textbf{1} & -1/3 & 0\\
+        $\chi_{d_R}^{\prime c}$   & \textbf{3} & \textbf{1} & 1/3 & 0\\
+        $\chi_{\ell_L}'$          & \textbf{1} & \textbf{1} & -1 & 0\\
+        $\chi_{\ell_R}^{\prime c}$& \textbf{1} & \textbf{1} & 1 & 0\\
+        $\chi_{\nu_L}'$           & \textbf{1} & \textbf{1} & 0 & 0\\
+        $\chi_{\nu_R}^{\prime c}$ & \textbf{1} & \textbf{1} & 0 & 0\\
+        \hline
+        \hline
     \end{tabular}
-    \captionof{figure}{Minimal field content of the model and their representations under the SM and $U(1)_{T^3_R}$ gauge groups.}
+    \caption{Minimal field content of the model and their representations under the SM and $U(1)_{T^3_R}$ gauge groups.}
     \label{tab:QMnumbers}
-\end{center}
+\end{table}
 
+\subsection{Minimal UV-complete Theory}
 
-\subsection{Minimal UV-complete theory}
-
-The model must provide non-zero masses for all the SM fermions and be free of gauge anomalies. So, we must have at least one full generation of vector-like fermions $\{\chi_\mathrm{u}$, $\chi_\mathrm{d}$, $\chi_\mathrm{\ell}$, $\chi_\mathrm{\nu}\}$ and the right-handed component of the SM neutrinos, $\nu_R$, charged as shown in Table~\ref{tab:QMnumbers} \textit{for each SM generation}. Therefore, the Yukawa interactions in the UV-complete theory must be of the form
+To generate non-zero masses for all SM fermions and ensure gauge anomaly cancellation, the model must include at least one full generation of vector-like fermions $\{\chi_\mathrm{u}, \chi_\mathrm{d}, \chi_\mathrm{\ell}, \chi_\mathrm{\nu}\}$ and the right-handed neutrinos $\nu_R$ for each SM generation. Their quantum numbers are listed in Table~\ref{tab:QMnumbers}. The Yukawa interactions in the UV-complete theory are:
 \begin{equation}
     \begin{aligned}
-        -\mathcal{L}
-        \supset&\quad
+        -\mathcal{L} \supset&\,
         Y_{L u}^{ij} \bar{q}_L^{\prime i} \chi_{u R}^{\prime j} \widetilde{H}
-        + Y_{R u}^{ij} \bar{\chi}_{u L}^{\prime i} u_R^{\prime j} \phi^*  
-        + m_{\chi_\mathrm{u}}^{ij} \bar{\chi}_{u L}^{\prime i} \chi_{u R}^{\prime j}
-        \\&
-        +Y_{L d}^{ij} \bar{q}_L^{\prime i} \chi_{d R}^{\prime j} H 
-        +Y_{R d}^{ij} \bar{\chi}_{d L}^{\prime i} d_R^{\prime j} \phi
-        +m_{\chi_d}^{ij} \bar{\chi}_{d L}^{\prime i} \chi_{d R}^{\prime j}
-        \\&
-        +Y_{L \ell}^{ij} \bar{\ell}_L^{\prime i} \chi_{\ell R}^{\prime j} H
-        +Y_{R \ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \ell_R^{\prime j} \phi
-        +m_{\chi_\ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \chi_{\ell R}^{\prime j}
-        \\
-        &
-        +Y_{L \nu}^{ij} \bar{\ell}_L^{\prime i} \chi_{\nu R}^{\prime j} \widetilde{H}
-        +Y_{R \nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \nu_R^{\prime j} \phi^*
-        +m_{\chi_\nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \chi_{\nu R}^{\prime j} \\
-        &+\text { h.c., }
+        + Y_{R u}^{ij} \bar{\chi}_{u L}^{\prime i} u_R^{\prime j} \phi^*
+        + m_{\chi_\mathrm{u}}^{ij} \bar{\chi}_{u L}^{\prime i} \chi_{u R}^{\prime j} \\
+        &+ Y_{L d}^{ij} \bar{q}_L^{\prime i} \chi_{d R}^{\prime j} H
+        + Y_{R d}^{ij} \bar{\chi}_{d L}^{\prime i} d_R^{\prime j} \phi
+        + m_{\chi_d}^{ij} \bar{\chi}_{d L}^{\prime i} \chi_{d R}^{\prime j} \\
+        &+ Y_{L \ell}^{ij} \bar{\ell}_L^{\prime i} \chi_{\ell R}^{\prime j} H
+        + Y_{R \ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \ell_R^{\prime j} \phi
+        + m_{\chi_\ell}^{ij} \bar{\chi}_{\ell L}^{\prime i} \chi_{\ell R}^{\prime j} \\
+        &+ Y_{L \nu}^{ij} \bar{\ell}_L^{\prime i} \chi_{\nu R}^{\prime j} \widetilde{H}
+        + Y_{R \nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \nu_R^{\prime j} \phi^*
+        + m_{\chi_\nu}^{ij} \bar{\chi}_{\nu L}^{\prime i} \chi_{\nu R}^{\prime j}
+        + \text{h.c.}
     \end{aligned}
 \end{equation}
-where the $i$ index runs over the three generations of fermions. The simultaneous diagonalization of the mass matrices of each fermion sector will have a similar structure to the one presented in Eqs.~\ref{eq:prodmass} and~\ref{eq:summass} and the Yukawa matrices will have a similar structure of Eqs.~\ref{eq:YukawaL} and~\ref{eq:YukawaR} but codifying the $CKM$ matrix. For the neutrino sector, the structure of the mass matrix will be more complicated due to the presence of the additional Majorana mass term for the vector-like neutrino $\chi_\nu'$.
-
+Here, $i, j = 1,2,3$ are generation indices. The diagonalization of the mass matrices for each fermion type follows the structure outlined in Eqs.~\eqref{eq:prodmass} and~\eqref{eq:summass}, while the Yukawa matrices generalize the structure of Eqs.~\eqref{eq:YukawaL} and~\eqref{eq:YukawaR}, now encoding the CKM and PMNS mixing matrices. The neutrino sector has a more complex structure due to the possibility of a Majorana mass term for the vector-like neutrinos $\chi_\nu'$.
