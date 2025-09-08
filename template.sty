@@ -309,4 +309,92 @@
 \let\myPart\part
 \let\graffito\marginpar
 
+% ********************************************************************
+% Thesis Title Page Setup
+% ********************************************************************
+
+% Define metadata commands for thesis
+\newcommand{\university}[1]{\gdef\@university{#1}}
+\newcommand{\faculty}[1]{\gdef\@faculty{#1}}
+\newcommand{\department}[1]{\gdef\@department{#1}}
+\newcommand{\researchgroup}[1]{\gdef\@researchgroup{#1}}
+\newcommand{\lineofinvestigation}[1]{\gdef\@lineofinvestigation{#1}}
+\newcommand{\advisor}[1]{\gdef\@advisor{#1}}
+\newcommand{\advisoraffiliation}[1]{\gdef\@advisoraffiliation{#1}}
+\newcommand{\coadvisor}[1]{\gdef\@coadvisor{#1}}
+\newcommand{\coadvisoraffiliation}[1]{\gdef\@coadvisoraffiliation{#1}}
+\newcommand{\degree}[1]{\gdef\@degree{#1}}
+\newcommand{\citycountry}[1]{\gdef\@citycountry{#1}}
+\newcommand{\thesistype}[1]{\gdef\@thesistype{#1}}
+
+
+
+% Define abstract environment for book class
+\newenvironment{abstract}%
+{\cleardoublepage\null\vfill\begin{center}%
+\bfseries Abstract\end{center}\vspace{1em}}%
+{\vfill\null}
+
+% Define dedication environment for book class
+\newenvironment{dedication}%
+{\cleardoublepage\null\vfill\begin{center}%
+\bfseries Dedication\end{center}\vspace{1em}}%
+{\vfill\null}
+
+% Define acknowledgements environment for book class
+\newenvironment{acknowledgements}%
+{\cleardoublepage\null\vfill\begin{center}%
+\bfseries Acknowledgements\end{center}\vspace{1em}}%
+{\vfill\null}
+
+% Redefine \maketitle for thesis format
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \begin{center}
+      
+      % Title in the middle
+      {\LARGE\bfseries \@title \par}
+      
+      \vfill
+      
+      % Thesis type and degree
+      {\large \@thesistype\ submitted in partial fulfillment \\[0.3cm]
+      of the requirements for the degree of \\[0.3cm]
+      \textbf{\@degree} \par}
+      
+      \vfill
+      
+      % Author
+      {\large\bfseries Presented by: \par}
+      {\Large \@author \par}
+      
+      \vfill
+      
+      % Advisors
+      {\large\bfseries Directed by: \par}
+      {\large \@advisor\  \par}
+      {\normalsize \@advisoraffiliation \par}
+      \ifx\@coadvisor\@empty\else
+        \medskip
+        {\large \@coadvisor\  \par}
+        {\normalsize \@coadvisoraffiliation \par}
+      \fi
+      
+			\vfill
+			{\normalsize \@researchgroup \par}
+      {\normalsize \@lineofinvestigation \par}
+
+      \vfill
+			% Location and date at bottom
+			{\Large\bfseries \@university \par}
+      {\large \@faculty \par}
+      {\large \@department \par}
+      {\large \@citycountry \par}
+      {\large \@date \par}
+    \end{center}
+  \end{titlepage}
+  \cleardoublepage
+}
+
 

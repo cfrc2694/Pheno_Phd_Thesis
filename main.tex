@@ -47,8 +47,22 @@
 \usepackage{pdfpages}
 \usepackage{tocbibind}
 \usepackage{listings}
+
 \title{Machine Learning-enhanced feasibility studies on the production of new particles with preferential couplings to third generation fermions at the LHC}
 \author{Cristian Fernando Rodríguez Cruz}
+% Default values
+\university{Universidad de los Andes}
+\faculty{Faculty of Sciences}
+\department{Department of Physics}
+\researchgroup{High Energy Physics Research Group}
+\lineofinvestigation{Phenomenology of Particle Physics}
+\advisor{Prof. Andrés Florez}
+\advisoraffiliation{Universidad de los Andes}
+\coadvisor{Prof. Joel Jones-Perez}
+\coadvisoraffiliation{Pontificia Universidad Católica del Perú}
+\degree{Doctor in Science - Physics}
+\citycountry{Bogotá D.C., Colombia}
+\thesistype{Thesis}
 \date{\today}
 \def\tev{\, {\rm TeV}}
 \def\gev{\, {\rm GeV}}
@@ -62,10 +76,26 @@
 \def\el{{\rm e}}
 \def\Bm{{\rm B}}
 \begin{document}
-	
 \frontmatter
 
 \maketitle
+
+\begin{dedication}
+to be added
+\end{dedication}
+
+\begin{acknowledgements}
+to be added
+\end{acknowledgements}
+
+\begin{abstract}
+The Standard Model (SM) of particle physics is the most successful framework for describing the subatomic world. It is continuously tested in experiments worldwide, with the Large Hadron Collider (LHC) being the flagship project in this endeavor. One of the primary goals of the LHC is to precisely measure SM parameters and search for deviations that could signal new physics.  
+
+In recent years, reported anomalies, such as those in $B$-meson decays from LHCb, BaBar, and Belle experiments, along with the potential discrepancy in the muon's magnetic moment ($g-2$) from Fermilab, suggest a violation of lepton flavor universality (LFU). These observations provide a compelling window into physics beyond the SM. Among the proposed SM extensions to explain LFU violation, many introduce new particles with preferential couplings to third and second-generation fermions. Popular candidates include heavy states such as $Z'$ bosons, $\phi'$ scalars, and leptoquarks (LQs), among others.
+
+This work presents two phenomenological studies propossing different strategies to probe new models, such as the $4321$ \cite{Florez2023}, $U(1)_{T^3_R}$ \cite{Qureshi:2024naw}, that extend the SM particle content to explain clues on LFU violation. The studies use benchmark scenarios where the new particle fields have preferential couplings to second and third generation SM-fermions, depending on the model. The hypothetical signal and background samples are generated using Monte Carlo simulations, emulating the current running conditions of the LHC and the performance of the CMS detector. The expected sensitivity for the different signal models under study is obtained by performing a detailed analysis of the available (non-excluded) experimental phase-space, boosted by  machine learning (ML) techniques to optimize the discovery potential for these exotic states.
+\end{abstract}
+
 \tableofcontents
 
 \mainmatter
@@ -73,7 +103,7 @@
 \include{Chapters/C01/in.tex} %Standard Model
 \include{Chapters/C02/in.tex} %LHC observables, searches and analysis
 \include{Chapters/C03/in.tex} %Vector-like quarks, p p > t t mu mu
-\include{Chapters/C04/in.tex} %Machine Learning
+\include{Chapters/C04/in.tex} %vectorial leptoquarks p p > ta+ ta- + bjets
 % \include{Chapters/C04.tex}
 % \include{Chapters/C05.tex} %Conclusions
 
@@ -96,5 +126,5 @@
 \addcontentsline{toc}{chapter}{\numberline{}\spacedlowsmallcaps{Bibliography}}
 \printbibliography
 
-\include{Appendices/A00.tex}
+% \include{Appendices/A00.tex}
 \end{document}
