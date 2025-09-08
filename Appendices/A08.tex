@@ -349,4 +349,86 @@ m_{f_i} &\approx |\hat Y_f^i| \cos\theta_{f_i} \frac{v}{\sqrt{2}} & (f &= u, d, 
 \end{aligned}
 \end{align}
 
+The interaction terms of the massive gauge bosons with the fermions in the interaction basis, are readily obtained from the action of the covariant derivative on the fermion fields: 
+\begin{align}
+\mathcal{L}_L &= \frac{g_4}{\sqrt{2}} \bar{Q}'_L \gamma^\mu L'_L \, U_\mu + \textrm{h.c.}~\nonumber \\
+& + g_s \left( \frac{g_4}{g_3} \, \bar{Q}'_L \gamma^\mu T^a Q'_L - \frac{g_3}{g_4} \,\bar{q}'_L \gamma^\mu T^a q'_L \right) g'^a_\mu ~\nonumber \\
+&+g_Y \left( \sqrt{\frac{3}{2}}\,\frac{g_4}{g_1}\,Y(Q'_L) \, \bar{Q}'_L \gamma^\mu Q'_L - \sqrt{\frac{2}{3}}\,\frac{g_1}{g_4}\,Y(q'_L) \, \bar{q}'_L \gamma^\mu q'_L \right) Z'_\mu ~\nonumber\\
+&+ g_Y \left( \sqrt{\frac{3}{2}}\,\frac{g_4}{g_1}\,Y(L'_L) \, \bar{L}'_L \gamma^\mu L'_L - \sqrt{\frac{2}{3}}\,\frac{g_1}{g_4}\,Y(\ell'_L) \, \bar{\ell}'_L \gamma^\mu \ell'_L \right) Z'_\mu~,\label{eq:coupL}\\[10pt]
+\mathcal{L}_R &= \frac{g_4}{\sqrt{2}} \bar{Q}'_R \gamma^\mu L'_R \, U_\mu + \textrm{h.c.}~\nonumber \\
+& + g_s \left( \frac{g_4}{g_3} \, \bar{Q}'_R \gamma^\mu T^a Q'_R - \frac{g_3}{g_4}  \,\bar{u}'_R \gamma^\mu T^a u'_R -\frac{g_3}{g_4} \,\bar{d}'_R \gamma^\mu T^a d'_R  \right) g'^a_\mu ~\nonumber \\
+&+ g_Y \left( \sqrt{\frac{3}{2}}\,\frac{g_4}{g_1}\,Y(Q'_R) \,\bar{Q}'_R \gamma^\mu Q'_R - \sqrt{\frac{2}{3}}\,\frac{g_1}{g_4}\, Y(u'_R) \, \bar{u}'_R \gamma^\mu u'_R -\sqrt{\frac{2}{3}}\,\frac{g_1}{g_4}\, Y(d'_R) \, \bar{d}'_R \gamma^\mu d'_R \right) Z'_\mu ~\nonumber\\
+&+g_Y \left( \sqrt{\frac{3}{2}}\,\frac{g_4}{g_1}\,Y(L'_R) \, \bar{L}'_R \gamma^\mu L'_R - \sqrt{\frac{2}{3}}\,\frac{g_1}{g_4}\,
+Y(e'_R) \, \bar{e}'_R \gamma^\mu e'_R \right) Z'_\mu~,\label{eq:coupR}
+\end{align}
+where we left implicit the SM hypercharges: 
+$Y(Q'_{L}) = Y(Q'_{R}) = Y(q'_{L}) = \tfrac{1}{6}$, $Y(u'_R) = \tfrac{2}{3}$, $Y(d'_R) = -\tfrac{1}{3}$, 
+$Y(L'_L) = Y(L'_R) = Y(\ell'_L) = -\tfrac{1}{2}$ and $Y(e'_R) = -1$.   
+
+To express the interactions above in the fermion mass basis, we collect the fields in 6-dimensional multiplets, $\psi_x$ ($x=q,u,d,\ell,e$), and apply the unitary transformations defined in equation~\ref{eq:RotMass}. Neglecting right-handed rotations, suppressed by the small masses of the SM fermions, we have
+\begin{align}
+\begin{aligned}
+\mathcal{L}_U&=\frac{g_4}{\sqrt{2}}\,U_\mu\left[\beta\,\bar \psi_q\gamma^\mu \psi_\ell+W\,\bar Q_R\gamma^\mu L_R\right]+h.c.\,,\\
+\mathcal{L}_{g^\prime}&= g_s\,\frac{g_4}{g_3}\,g^{\prime\,a}_\mu\left[\kappa_q\,\bar \psi_q\gamma^\mu\,T^a\, \psi_q+\kappa_u\,\bar \psi_u\gamma^\mu\,T^a\, \psi_u+\kappa_d\,\bar \psi_d\gamma^\mu\,T^a\, \psi_d\right]\,,\\
+\mathcal{L}_{Z^\prime}&=\frac{g_Y}{2\sqrt{6}}\,\frac{g_4}{g_1}\,Z_\mu^\prime\left[\zeta_q\,\bar \psi_q\gamma^\mu \psi_q+\zeta_u\,\bar \psi_u\gamma^\mu \psi_u
+\right.
+\\&\qquad
+\left.
++\zeta_d\,\bar \psi_d\gamma^\mu \psi_d-3\,\zeta_\ell\,\bar \psi_\ell\gamma^\mu \psi_\ell-3\,\zeta_e\,\bar \psi_e\gamma^\mu \psi_e\right]\,,\label{eq:LLmbS}
+\end{aligned}
+\end{align}
+with ($A,B=4,5,6$ and $\alpha,\beta=1,\dots,6$)
+\begin{align}
+\begin{aligned}
+\beta^{\alpha\beta}&= \big[U_q\big]^*_{A\alpha}\big[W\big]_{AB} \big[U_\ell\big]_{B\beta}\,,\\
+\kappa_q^{\alpha\beta}&= \big[U_q\big]^*_{A\alpha} \big[U_q\big]_{A\beta}-\frac{g_3^2}{g_4^2}\,\delta_{\alpha\beta}\,,&\kappa_u\approx\kappa_d&\approx
+\begin{pmatrix}
+0 & 0\\
+0 & \mathbb{1}_{3\times3}
+\end{pmatrix}
+-\frac{g_3^2}{g_4^2}\,\mathbb{1}_{6\times6}\,,\\
+\zeta_q^{\alpha\beta}&= \big[U_q\big]^*_{A\alpha} \big[U_q\big]_{A\beta}-\frac{2\,g_1^2}{3\,g_4^2}\,\delta_{\alpha\beta}\,,& \zeta_u\approx\zeta_d&\approx
+\begin{pmatrix}
+0 & 0\\
+0 & \mathbb{1}_{3\times3}
+\end{pmatrix}
+-\frac{2\,g_1^2}{3\,g_4^2}\,\mathbb{1}_{6\times6}\,,\\
+\zeta_\ell^{\alpha\beta}&= \big[U_\ell\big]^*_{A\alpha} \big[U_\ell\big]_{A\beta}-\frac{2\,g_1^2}{3\,g_4^2}\,\delta_{\alpha\beta}\,,& \zeta_e&\approx
+\begin{pmatrix}
+0 & 0\\
+0 & \mathbb{1}_{3\times3}
+\end{pmatrix}
+-\frac{2\,g_1^2}{3\,g_4^2}\,\mathbb{1}_{6\times6}\,.
+\end{aligned}
+\end{align}
+Note in particular that the $W$ matrix cancels by unitarity in the $Z^\prime$ and $g^\prime$ interactions. This is a key result of the assumed flavour structure. Assuming $W=\mathcal{R}_{56}(\theta_{LQ})$ and no CP violation in the mixing angles, the left-handed couplings can be rewritten as
+\begin{align}\label{eq:Beta}
+\beta &\approx
+\begin{pmatrix}
+  \diag( s_{q_1}s_{\ell_1}, s_{q_2}s_{\ell_2}, s_{q_3}s_{\ell_3} ) W& -\diag( s_{q_1}c_{\ell_1}, s_{q_2}c_{\ell_2}, s_{q_3}c_{\ell_3} ) W \\
+  \diag( c_{q_1}s_{\ell_1}, c_{q_2}s_{\ell_2}, c_{q_3}s_{\ell_3} ) W & -\diag( c_{q_1}c_{\ell_1}, c_{q_2}c_{\ell_2}, c_{q_3}c_{\ell_3} ) W
+\end{pmatrix},
+\\
+\kappa_q &\approx
+\begin{pmatrix}
+  \diag( s_{q_1}^2, s_{q_2}^2, s_{q_3}^2 ) & -\frac{1}{2}\diag( s_{2q_1}, s_{2q_2}, s_{2q_3} ) \\
+  -\frac{1}{2}\diag( s_{2q_1}, s_{2q_2}, s_{2q_3} )  & \diag( c_{q_1}^2, c_{q_2}^2, c_{q_3}^2 )
+\end{pmatrix}
+-\frac{g_3^2}{g_4^2}\,\mathbb{1}_{6\times6},
+\\
+\zeta_q &\approx
+\begin{pmatrix}
+  \diag( s_{q_1}^2, s_{q_2}^2, s_{q_3}^2 ) & -\frac{1}{2}\diag( s_{2q_1}, s_{2q_2}, s_{2q_3} ) \\
+  -\frac{1}{2}\diag( s_{2q_1}, s_{2q_2}, s_{2q_3} )  & \diag( c_{q_1}^2, c_{q_2}^2, c_{q_3}^2 )
+\end{pmatrix}
+-\frac{2\,g_1^2}{3\,g_4^2}\,\mathbb{1}_{6\times6},
+\\
+\zeta_\ell &\approx
+\begin{pmatrix}
+  \diag( s_{\ell_1}^2, s_{\ell_2}^2, s_{\ell_3}^2 ) & -\frac{1}{2}\diag( s_{2\ell_1}, s_{2\ell_2}, s_{2\ell_3} ) \\
+  -\frac{1}{2}\diag( s_{2\ell_1}, s_{2\ell_2}, s_{2\ell_3} )  & \diag( c_{\ell_1}^2, c_{\ell_2}^2, c_{\ell_3}^2 )
+\end{pmatrix}
+-\frac{2\,g_1^2}{3\,g_4^2}\,\mathbb{1}_{6\times6}.
+\label{eq:LLmbE}
+\end{align}
 
