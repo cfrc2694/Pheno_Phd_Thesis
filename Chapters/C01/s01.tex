@@ -1,7 +1,5 @@
-
-
 \section{Fields}
-Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions of the spacetime that transform under a representation of the Lorentz group within an invariant subspace}~\parencite{Tong1995,CRodriguezUPTC}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table \ref{tab-repLorentz2}). 
+Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions of the spacetime that transform under a representation of the Lorentz group within an invariant subspace}~\parencite{Tong1995,CRodriguezUPTC}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table~\ref{tab-repLorentz2}). 
 
 In classical field theory, a variational principle is established which generates the equations that govern the dynamics of the different fields in a theory, \textit{the equations of motion}. Hamilton's principle, or principle of minimal action, indicates that all possible physical configurations for a set of fields $\varphi^I$, with $I=1,2,3,\cdots,n$, are those where the integral of the action $S$ is a minimal~\parencite{Goldstein,jose1998classical}:
 \begin{equation}\label{eq-action}
@@ -13,8 +11,8 @@ here, $d^4x=dx^0dx^1 dx^2dx^3$ and $x\equiv(ct,x^1,x^2,x^3)\equiv(x^0,x^1,x^2,x^
 \end{equation}
 and they are used to obtain the equations of motion of the set of fields $\varphi^I$~\parencite{jose1998classical}. 
 
-In quantum field theory, the situation is more complicated: if we adopt the approach of quantization by path integrals~\parencite{martinez2002,Weinberg}, the idea of an equation of motion vanishes and we go on to searching correlations between free particle states. However, the notion of action remains the cornerstone in the description of these observables.
-Explicitly, the correlation functions are calculated through the LSZ formula from the path integral~\parencite{greiner1996qft,peskin}:
+While in classical field theory the Euler–Lagrange equations directly determine the dynamics, in quantum field theory the picture changes: if we adopt the path-integral formulation~\parencite{martinez2002,Weinberg}, the idea of an equation of motion vanishes and we move on to searching for correlations between free particle states. However, the notion of action remains the cornerstone in the description of these observables.
+Explicitly, the correlation functions (or Green's functions) are calculated through the Lehmann–Symanzik–Zimmermann (LSZ) reduction formula, which connects these correlators with physical scattering amplitudes. These are computed from the path integral~\parencite{greiner1996qft,peskin}
 \begin{equation}
 	\begin{aligned}
 		Z[J]&=\braket{\text { out, } 0| 0, \text { in }}
@@ -22,7 +20,8 @@ Explicitly, the correlation functions are calculated through the LSZ formula fro
 		\\&=\mathcal{N}\int \mathcal{D}(\varphi, \bar{\varphi})  e^{i \int d^{4} x \mathcal{L}} e^{i \int J_I\varphi^I  d^{4} x},
 	\end{aligned}
 \end{equation}
-taken over the space of fields $\varphi$ with an appropriate measure $\mathcal{D}(\varphi, \bar{\varphi})$ and normalized by $\mathcal{N}$. The quantity $Z$ is known as the partition function of the theory and gives the transition amplitude from the initial vacuum $\ket{0,\text{ in}}$ to the final vacuum $\ket{0,\text{ out}}$ in the presence of a source $J(x)$ producing particles~\parencite{birrell75900}. Therefore, the dynamics, at both the classical and quantum levels, in a theory are entirely determined by the Lagrangian density. Table \ref{tab-repLorentz2} records the Lagrangian density for different types of free fields, i.e., non-interacting fields.
+taken over the space of fields $\varphi$ with an appropriate measure $\mathcal{D}(\varphi, \bar{\varphi})$ and normalized by $\mathcal{N}$. The quantity $Z$ is known as the partition function of the theory and gives the transition amplitude from the initial vacuum $\ket{0,\text{ in}}$ to the final vacuum $\ket{0,\text{ out}}$ in the presence of a source $J(x)$ producing particles~\parencite{birrell75900}.
+
 
 \begin{center}
     \begin{tabular}{|l|c|c|l|}\hline\bigstrut
@@ -34,11 +33,16 @@ taken over the space of fields $\varphi$ with an appropriate measure $\mathcal{D
 	\captionof{table}{Some relevant representations of the Lorentz group in  $4$-dimensional space-time. In this notation $\eta_{\mu\nu}=\diag(1,-1,-1,-1)$, $\pmb \gamma^\mu$ are the Dirac matrices, $F_{\mu \nu}^{A}=\partial_{\mu} A_{\nu}^{A}-\partial_{\nu} A_{\mu}^{A}+g f_{B C}{ }^{A} A_{\mu}^{B} A_{\nu}^{C}$ is the field strength (for abelian groups, the last term vanishes), and the array of real numbers $f_{A B}^{C}$ are the structure constants of the gauge group algebra~\parencite{freedman2012supergravity}. All equations are written in natural units with $c=\hbar=1$. Fields are shown in their standard representations.}\label{tab-repLorentz2}
 \end{center}
 
-In this paradigm, our task is to propose a Lagrangian density for a set of fields that correctly models the propagation and interactions of fundamental particles. 
+Therefore, the dynamics, at both the classical and quantum levels, are entirely determined by the Lagrangian density. For free fields (i.e., non-interacting), the Lagrangian is quadratic in the fields and the path integral can be evaluated exactly. Table~\ref{tab-repLorentz2} records the Lagrangian density for these free fields. However, to describe physics, we must include interactions, which render the path integral impossible to compute exactly.
+
+The framework of \textit{perturbation theory} addresses this by expanding the interaction part of the Lagrangian as a power series. This expansion is organized using \textit{Feynman diagrams}, which provides a pictorial representation of each term, and a set of \textit{Feynman rules}, which provides a precise dictionary to translate these diagrams into mathematical expressions for scattering amplitudes~\parencite{peskin,Weinberg}. The importance of these rules cannot be overstated, as they are the practical computational tool of perturbative QFT.
+
+
+In this paradigm, our task is to propose a Lagrangian density for a set of fields that correctly models the propagation and interactions of fundamental particles. The free part defines the particle content and propagators, while the interaction part defines the vertices and possible scattering processes.
 
 \subsection{Interactions and Symmetries}
 
-In quantum field theory, the form of the Lagrangian density is not arbitrary: it is shaped by a small set of physical and mathematical principles. These principles act as ``rules’’ that guide the construction of consistent theories, ensuring both their internal consistency and their predictive power. In particular, if we want a relativistic and renormalizable theory, the Lagrangian must satisfy several conditions that strongly restrict the kind of terms that can appear.
+In quantum field theory, the form of the Lagrangian density is not arbitrary: it is shaped by a small set of physical and mathematical principles. These principles act as ``rules'' that guide the construction of consistent theories, ensuring both their internal consistency and their predictive power. In particular, if we want a relativistic and renormalizable theory, the Lagrangian must satisfy several conditions that strongly restrict the kind of terms that can appear.
 
 To begin with, relativistic invariance demands that the equations of motion look the same in all inertial frames. This requirement is implemented by asking the action to be invariant under Poincaré transformations~\parencite{pall}. Equivalently, the Lagrangian density must transform as a Lorentz scalar and may change under translations at most by a total derivative~\parencite{jose1998classical}. 
 
