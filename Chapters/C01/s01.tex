@@ -42,7 +42,18 @@ In this paradigm, our task is to propose a Lagrangian density for a set of field
 
 \subsection{Interactions and Symmetries}
 
-In quantum field theory, the form of the Lagrangian density is not arbitrary: it is shaped by a small set of physical and mathematical principles. These principles act as ``rules'' that guide the construction of consistent theories, ensuring both their internal consistency and their predictive power. In particular, if we want a relativistic and renormalizable theory, the Lagrangian must satisfy several conditions that strongly restrict the kind of terms that can appear.
+If we split the Lagrangian into a free part and an interaction part in the form \begin{equation} \mathcal{L} = \mathcal{L}_0 + \mathcal{L}_{\text{int}}. \end{equation} The generating functional $Z[J]$ can then be expressed as an operator acting on the free functional $Z_0[J]$: 
+\begin{equation} 
+	Z[J] = \mathcal{N} \exp\left[i \int d^4x\, \mathcal{L}_{\text{int}}\left(-i \frac{\delta}{\delta J(x)}\right)\right] Z_0[J]. 
+\end{equation} 
+The exponential operator generates the perturbation series. The $n$-point correlation function is found by taking functional derivatives of $Z[J]$ with respect to the sources $J(x_i)$ and setting $J=0$. Each term in this series is represented by a \textbf{Feynman diagram} 
+\begin{itemize} 
+	\item \textbf{External Lines:} Represent incoming and outgoing physical particles. 
+	\item \textbf{Internal Lines:} Represent virtual particles propagating between interactions, corresponding to the free-field propagators derived from $\mathcal{L}_0$. 
+	\item \textbf{Vertices:} Represent interactions, derived from the terms in $\mathcal{L}_{\text{int}}$. Each vertex has an associated coupling constant and enforces momentum conservation. 
+\end{itemize}
+
+The form of the Lagrangian density is not arbitrary: it is shaped by a small set of physical and mathematical principles. These principles act as ``rules'' that guide the construction of consistent theories, ensuring both their internal consistency and their predictive power. In particular, if we want a relativistic and renormalizable theory, the Lagrangian must satisfy several conditions that strongly restrict the kind of terms that can appear.
 
 To begin with, relativistic invariance demands that the equations of motion look the same in all inertial frames. This requirement is implemented by asking the action to be invariant under Poincaré transformations~\parencite{pall}. Equivalently, the Lagrangian density must transform as a Lorentz scalar and may change under translations at most by a total derivative~\parencite{jose1998classical}. 
 
