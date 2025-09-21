@@ -61,78 +61,104 @@ In practice, Random Forests are often used as robust, low-maintenance alternativ
 \subsection{XGBoost: Optimized Gradient Boosting}
 \label{ssec:xgboost}
 
-\textit{XGBoost} (eXtreme Gradient Boosting) is a widely used implementation of gradient boosting that has become standard in high-energy physics due to its efficiency, predictive power, and robustness. To understand its role, it is useful to briefly recall the principle of gradient boosting.
+\textit{XGBoost} (eXtreme Gradient Boosting) is a widely used implementation of gradient boosting that has become standard in high-energy physics due to its efficiency, predictive power, and robustness. 
 
-A single decision tree is a weak classifier: it partitions the feature space through binary splits but is highly sensitive to fluctuations in the training data. Boosting addresses this by constructing an ensemble of trees sequentially. At each step, a new tree is trained to predict the residual errors of the current ensemble. In this way, the classifier improves iteratively, with later trees focusing on events that were previously misclassified.
+A single decision tree is a weak classifier: it partitions the feature space through binary splits but is highly sensitive to fluctuations in the training data. Boosting addresses this by constructing an ensemble of trees sequentially. At each step, a new tree is trained to predict the residual errors of the current ensemble. This iterative approach allows the classifier to improve gradually, with later trees focusing on events that were previously misclassified.
 
-The name "gradient boosting" refers to the fact that the algorithm uses gradient descent to minimize a loss function. Just as in numerical optimization where we follow the gradient of a function to find its minimum, gradient boosting uses the gradients (derivatives) of the loss function to determine how each new tree should correct the previous predictions.
-
-More formally, the algorithm minimizes a global objective function
+The algorithm minimizes a regularized objective function:
 \begin{equation}
 \mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{m=1}^{M} \Omega(f_m),
 \end{equation}
-where $l(y_i, \hat{y}_i)$ measures how far the prediction $\hat{y}_i$ is from the true label $y_i$ (e.g., cross-entropy loss for classification), and $\Omega(f_m)$ penalizes overly complex trees to prevent overfitting. Each new tree $f_t$ is chosen to most rapidly reduce $\mathcal{L}$ by fitting the negative gradient of the loss with respect to the current predictions.
-
-XGBoost extends standard gradient boosting with several optimizations: second-order (Newton) approximations to the loss for faster convergence, explicit regularization to control overfitting, and efficient algorithms for split finding. The regularization term is written as
+where $l(y_i, \hat{y}_i)$ measures the prediction error and $\Omega(f_m)$ penalizes complex trees to prevent overfitting. The regularization term is:
 \begin{equation}
 \Omega(f) = \gamma T + \tfrac{1}{2}\lambda \|\mathbf{w}\|^2 + \alpha \|\mathbf{w}\|_1,
 \end{equation}
-where $T$ is the number of leaves (terminal nodes) in the tree, $\mathbf{w}$ are the prediction values assigned to each leaf, and $\gamma$, $\lambda$, $\alpha$ are hyperparameters that control tree complexity. The L2 regularization ($\lambda$) discourages large leaf values, while L1 regularization ($\alpha$) can drive some leaf values to exactly zero, effectively pruning the tree.
+where $T$ is the number of leaves, $\mathbf{w}$ are the leaf weights, and $\gamma$, $\lambda$, $\alpha$ control tree complexity.
 
-The model is constructed additively through a series of small improvements:
+The model is built additively:
 \begin{equation}
 \hat{y}_i^{(t)} = \hat{y}_i^{(t-1)} + \eta f_t(\mathbf{x}_i),
 \end{equation}
-where $\eta$ is the learning rate that shrinks the contribution of each tree, preventing any single tree from dominating the ensemble. The new tree is selected by minimizing a second-order Taylor expansion of the loss:
+where $\eta$ is the learning rate. Each new tree is selected to minimize:
 \begin{equation}
 f_t = \arg\min_{f} \sum_{i=1}^{n} \left[g_i f(\mathbf{x}_i) + \tfrac{1}{2} h_i f^2(\mathbf{x}_i)\right] + \Omega(f),
 \end{equation}
-with $g_i$ and $h_i$ the first and second derivatives of the loss function. This second-order approach allows XGBoost to converge more rapidly than first-order methods while maintaining good generalization.
+with $g_i$ and $h_i$ the first and second derivatives of the loss function.
 
-The performance of XGBoost depends on several hyperparameters that require careful tuning:
+\paragraph{Overfitting, Underfitting, and Hyperparameter Tuning}
+
+The performance of XGBoost depends on finding the right balance between underfitting and overfitting:
 
 \begin{itemize}
-    \item \textbf{n\_estimators}: The number of boosting rounds (trees). Too few trees underfit the data, while too many increase computational cost and risk overfitting. Typical values range from 100 to 1000, with early stopping often employed to determine the optimal number automatically.
+    \item \textbf{Underfitting} occurs when the model is too simple to capture the underlying patterns in the data. This results in poor performance on both training and test data. Signs of underfitting include high bias and low variance.
     
-    \item \textbf{Learning rate ($\eta$)}: The step size shrinkage (typically 0.01–0.3). Smaller values lead to better generalization but require more trees to achieve the same performance. This is particularly important for physics applications where the model must perform well on real data beyond the training simulation.
+    \item \textbf{Overfitting} occurs when the model learns the training data too well, including its noise and fluctuations. This results in excellent training performance but poor generalization to new data. Signs of overfitting include low bias and high variance.
+\end{itemize}
+
+The key hyperparameters that control this balance are:
+
+\begin{itemize}
+    \item \textbf{n\_estimators}: The number of boosting rounds. Too few trees underfit, while too many overfit. We use early stopping to determine the optimal number automatically by monitoring performance on a validation set.
     
-    \item \textbf{max\_depth}: The maximum depth of each tree (typically 4–8). Shallower trees are more robust and interpretable, while deeper trees can capture more complex interactions but risk overfitting.
+    \item \textbf{Learning rate ($\eta$)}: Controls the step size shrinkage. Smaller values (0.01–0.1) require more trees but generalize better. Larger values (0.2–0.3) learn faster but may overfit.
+    
+    \item \textbf{max\_depth}: The maximum tree depth. Shallower trees (4–6) are more robust, deeper trees (7–10) can capture complex patterns but risk overfitting.
     
     \item \textbf{Regularization parameters}:
     \begin{itemize}
-        \item $\gamma$ (\texttt{min\_split\_loss}): Minimum loss reduction required to make a further partition. Higher values make the algorithm more conservative.
-        \item $\lambda$ (\texttt{reg\_lambda}): L2 regularization term on leaf weights. Helps prevent overfitting by penalizing large leaf values.
-        \item $\alpha$ (\texttt{reg\_alpha}): L1 regularization term on leaf weights. Promotes sparsity and can serve as automatic feature selection.
+        \item $\gamma$: Minimum loss reduction for a split. Higher values (1–5) prevent overfitting by making splits more conservative.
+        \item $\lambda$: L2 regularization on weights. Values of 1–10 help control large leaf values.
+        \item $\alpha$: L1 regularization on weights. Values of 0–1 promote sparsity.
     \end{itemize}
     
     \item \textbf{Subsampling parameters}:
     \begin{itemize}
-        \item \texttt{subsample}: Fraction of training instances randomly sampled for each tree (typically 0.6–1.0).
-        \item \texttt{colsample\_bytree}: Fraction of features randomly sampled for each tree (typically 0.6–1.0).
+        \item \texttt{subsample}: Fraction of events used per tree (0.6–0.9)
+        \item \texttt{colsample\_bytree}: Fraction of features used per tree (0.6–0.9)
     \end{itemize}
-    These stochastic elements improve robustness and generalization, similar to Random Forests.
+    These introduce randomness that improves generalization.
 \end{itemize}
 
+\paragraph{Hyperparameter Optimization Strategy}
 
-Several XGBoost features make it especially well-suited for high-energy physics applications:
+We use a systematic approach to find optimal hyperparameters:
+
+\begin{enumerate}
+    \item \textbf{Define search space}: Establish reasonable ranges for each parameter based on physics requirements and computational constraints.
+    
+    \item \textbf{Cross-validation}: Use k-fold cross-validation (typically k=5) to assess generalization performance for each parameter combination.
+    
+    \item \textbf{Grid search or Bayesian optimization}: Methodically explore the parameter space. Grid search tests all combinations in a predefined grid, while Bayesian optimization uses probabilistic models to guide the search more efficiently.
+    
+    \item \textbf{Early stopping}: Monitor validation performance during training and stop when no improvement is observed for a specified number of rounds.
+    
+    \item \textbf{Final evaluation}: Test the best configuration on an independent test set to verify generalization performance.
+\end{enumerate}
+
+The optimal configuration is typically found through iterative refinement, starting with broader searches and progressively narrowing the parameter ranges based on performance.
+
+\paragraph{Physics-Specific Considerations}
+
+Several XGBoost features are particularly valuable for HEP applications:
 
 \begin{itemize}
-    \item \textbf{Native support for instance weights}: Each training event can be weighted by its physics cross-section, luminosity, and efficiency ($w_i = \sigma \cdot \mathcal{L} \cdot \epsilon / N_{\text{gen}}$), ensuring the classifier optimizes for the actual expected distributions rather than balanced class proportions.
+    \item \textbf{Event weights}: Direct support for physics weights ($w_i = \sigma \cdot \mathcal{L} \cdot \epsilon / N_{\text{gen}}$) ensures the classifier optimizes for expected yields.
     
-    \item \textbf{Early stopping}: Training can automatically stop when performance on a validation set plateaus, preventing overfitting and saving computational resources.
+    \item \textbf{Early stopping}: Prevents overfitting and saves computational resources.
     
-    \item \textbf{Integrated cross-validation}: Built-in functionality for assessing generalization performance and selecting optimal hyperparameters.
+    \item \textbf{Missing value handling}: Learns optimal defaults for missing features, useful for detector coverage issues.
     
-    \item \textbf{Handling of missing values}: The algorithm can learn optimal default directions for missing features, which is valuable for dealing with imperfect detector coverage or reconstruction failures.
+    \item \textbf{Feature importance}: Provides quantitative measures of which variables contribute most to discrimination.
 \end{itemize}
 
+\paragraph{Connection to Statistical Significance}
 
-The ultimate value of XGBoost becomes evident when connected to the statistical significance framework from Section~\ref{sec:power_analysis}. The algorithm's output score $f(\mathbf{x})$ provides an optimal transformation of the high-dimensional feature space into a single discriminant variable. When this score is binned, the resulting histogram yields expected signal and background yields:
+The XGBoost output score $f(\mathbf{x})$ transforms high-dimensional data into a single optimal discriminant. When binned, the resulting histogram gives expected yields:
 \begin{align}
 s_i &= \int_{\text{bin } i} \sigma_s \cdot \mathcal{L} \cdot \epsilon_s \cdot p_s(f) \, df, \\
 b_i &= \int_{\text{bin } i} \sigma_b \cdot \mathcal{L} \cdot \epsilon_b \cdot p_b(f) \, df,
 \end{align}
-where $p_s(f)$ and $p_b(f)$ represent the probability density functions of the classifier output for signal and background, respectively. A well-tuned XGBoost model shapes these distributions to maximize their separation—$p_s(f)$ peaks near 1 while $p_b(f)$ peaks near 0—thereby maximizing the discovery significance $\kappa$ when the optimal Neyman-Pearson weights $w_i = \ln(1 + s_i/b_i)$ are applied. This automated optimization across dozens of observables achieves a level of sensitivity that is practically unattainable through manual cut-based analysis methods.
+where $p_s(f)$ and $p_b(f)$ are the output distributions. A well-tuned model maximizes the separation between these distributions, thereby maximizing the discovery significance $\kappa$ when Neyman-Pearson weights are applied. This automated optimization across multiple observables achieves sensitivity unattainable with manual methods.
 
 
 \subsection{Standard ML Analysis Workflow}
