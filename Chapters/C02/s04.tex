@@ -43,7 +43,7 @@ The discovery significance $\kappa$ quantifies the statistical separation of $t$
 The expected behavior differs under the signal-plus-background ($H_1$) and background-only ($H_0$) hypotheses:
 
 \begin{itemize}
-	\item \textbf{Under $H_1$} we expect that the $n_i$ data distribution follows $\sim \text{Pois}(s_i + b_i)$:
+	\item \textbf{Under $H_1$} we expect that the $n_i$ data distribution follows $\text{Pois}(s_i + b_i)$:
 	\begin{equation}
 	\langle -2\ln Q \rangle_{s+b} = \sum_i \left[2s_i - 2(s_i + b_i)w_i\right]
 	\implies \sigma^2_{s+b} = 4\sum_i (s_i + b_i) w_i^2.
@@ -72,3 +72,49 @@ In practice, we must take into account systematic effects by incorporating nuisa
 \label{eq:kappa_with_systematics}
 \end{equation}
 where $\delta_{\text{sys}}$ terms represent the systematic uncertainties on signal and background predictions.
+
+This framework not only provides a figure of merit for an analysis but also serves as a roadmap for experimental optimization. The expected signal and background in each bin, $s_i$ and $b_i$, are not fundamental inputs but are themselves products of the experimental setup and analysis choices. They can be expressed in terms of more fundamental experimental parameters (with acceptance absorbed into the selection efficiencies):
+\begin{align*}
+    s_i &= \sigma_{s,i} \cdot \mathcal{L} \cdot \epsilon_{s,i}, \\
+    b_i &= \sigma_{b,i} \cdot \mathcal{L} \cdot \epsilon_{b,i},
+\end{align*}
+where $\sigma_{s,i}$ and $\sigma_{b,i}$ are the fiducial cross-sections for signal and background processes in bin $i$, $\mathcal{L}$ is the integrated luminosity, and $\epsilon_{s,i}$ and $\epsilon_{b,i}$ are the effective efficiencies (selection efficiency combined with detector acceptance and reconstruction effects).
+
+Substituting these expressions into the significance $\kappa$ reveals the multidimensional parameter space available for optimization:
+\[
+\kappa = \frac{\sum_i \sigma_{s,i} \cdot \epsilon_{s,i} \cdot w_i}
+{\sqrt{\sum_i \left[ (\sigma_{s,i}\epsilon_{s,i} + \sigma_{b,i}\epsilon_{b,i}) + \delta^2_{\text{sys}} \right] \cdot w_i^2}} \cdot \sqrt{\mathcal{L}}.
+\]
+
+This decomposition shows that the discovery significance can be enhanced through several distinct strategies. The primary handles are:
+
+\begin{itemize}
+    \item \textbf{Increasing integrated luminosity} ($\mathcal{L}$): The $\sqrt{\mathcal{L}}$ scaling represents the fundamental statistical limit - doubling sensitivity requires quadrupling data collection time. This drives the construction of higher-luminosity colliders and longer data-taking campaigns.
+    
+    \item \textbf{Reducing systematic uncertainties}: The $\delta_{\text{sys}}$ terms encompass uncertainties from theoretical predictions, detector calibration, background estimation methods, and luminosity measurement. Their reduction requires dedicated calibration measurements, improved Monte Carlo simulations, and sophisticated data-driven background estimation techniques.
+
+		\item \textbf{Improving detector performance}: Effective efficiencies $\epsilon_{s,i}$ and $\epsilon_{b,i}$ can be improved through better detector design, increased coverage, and enhanced reconstruction and calibration algorithms that recover and correctly identify more signal events while controlling backgrounds.
+
+    \item \textbf{Choosing optimal observables}: The weights $w_i = \ln(1 + s_i/b_i)$ are maximized when the analysis uses variables that provide the best separation between signal and background. This motivates the development of advanced feature engineering and the use of multivariate methods that automatically learn the most discriminating variables.
+
+    \item \textbf{Optimizing selection criteria}: Signal efficiency $\epsilon_{s,i}$ can be maximized while background efficiency $\epsilon_{b,i}$ is minimized through sophisticated trigger algorithms, multivariate analysis techniques, and machine learning classifiers that exploit subtle differences between signal and background event features.
+
+\end{itemize}
+
+Therefore, the power of an analysis, quantified by $\kappa$, is the result of a concerted effort across accelerator operation, detector performance, and analysis strategy.
+
+The key limitation of the binned formulation in Eq.~\ref{eq:kappa_with_systematics} is its treatment of bins as independent experiments, which discards valuable information from inter-bin correlations. This approximation becomes particularly evident in regions of high sensitivity, where the shape information of distributions becomes crucial. In such cases, multivariate methods that exploit the full correlation structure—such as matrix element methods, deep learning classifiers, or template fits—typically outperform simple binned significance estimates.
+
+However, the formalism presented here provides theoretical insight and a useful approximation for quick sensitivity estimates. In the asymptotic limit and for counting experiments, this approach yields results consistent with statistical packages commonly used in high-energy physics, such as \texttt{RooStats} and \texttt{RooFit}. These frameworks implement more rigorous statistical procedures that fully account for the likelihood structure, parameter correlations, and systematic uncertainties through nuisance parameters.
+
+
+Despite this limitation, the $\kappa$ metric remains invaluable for establishing \textit{experimental sensitivity}—defined as the minimum signal strength required to achieve a certain significance level (e.g., 95\% CL exclusion or $5\sigma$ discovery potential). It provides a powerful tool for:
+\begin{itemize}
+    \item Quick optimization of analysis strategies and binning schemes
+    \item Estimating the integrated luminosity required to probe certain signal models
+    \item Comparing the relative sensitivity of different search channels or analysis variables
+    \item Designing trigger strategies and allocating computing resources
+\end{itemize}
+
+
+For experimental final results and interpretation, full statistical treatments using profile likelihood methods within frameworks like \texttt{RooStats} remain the gold standard, as they properly account for all correlations and systematic uncertainties. In this work, we are not interested in the final statistical interpretation of data, but rather in understanding and optimizing the experimental sensitivity to new physics signals. Therefore, the $\kappa$ metric serves as a practical and insightful tool for guiding analysis design and experimental strategy.
