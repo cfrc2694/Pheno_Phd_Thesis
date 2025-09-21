@@ -85,84 +85,53 @@ f_t = \arg\min_{f} \sum_{i=1}^{n} \left[g_i f(\mathbf{x}_i) + \tfrac{1}{2} h_i f
 \end{equation}
 with $g_i$ and $h_i$ the first and second derivatives of the loss function.
 
-\paragraph{Overfitting, Underfitting, and Hyperparameter Tuning}
+The performance of XGBoost depends on finding the right balance between underfitting and overfitting. Underfitting occurs when the model is too simple to capture the relevant patterns in the data, leading to poor performance on both training and test sets. In this case the model is characterized by high bias and low variance. Overfitting, on the other hand, arises when the model learns the training data too closely, including statistical fluctuations and noise. This yields very good performance on the training set but poor generalization to new data, with the model showing low bias and high variance.
 
-The performance of XGBoost depends on finding the right balance between underfitting and overfitting:
-
-\begin{itemize}
-    \item \textbf{Underfitting} occurs when the model is too simple to capture the underlying patterns in the data. This results in poor performance on both training and test data. Signs of underfitting include high bias and low variance.
-    
-    \item \textbf{Overfitting} occurs when the model learns the training data too well, including its noise and fluctuations. This results in excellent training performance but poor generalization to new data. Signs of overfitting include low bias and high variance.
-\end{itemize}
-
-The key hyperparameters that control this balance are:
+Several hyperparameters play a central role in controlling this balance:
 
 \begin{itemize}
-    \item \textbf{n\_estimators}: The number of boosting rounds. Too few trees underfit, while too many overfit. We use early stopping to determine the optimal number automatically by monitoring performance on a validation set.
+    \item \textbf{n\_estimators}: Number of boosting rounds. Too few trees lead to underfitting, while too many lead to overfitting. Early stopping is commonly used to determine the optimal number by monitoring validation performance.
     
-    \item \textbf{Learning rate ($\eta$)}: Controls the step size shrinkage. Smaller values (0.01–0.1) require more trees but generalize better. Larger values (0.2–0.3) learn faster but may overfit.
+    \item \textbf{Learning rate ($\eta$)}: Step size shrinkage applied at each boosting step. Small values (e.g.\ 0.01–0.1) improve generalization but require more trees; larger values speed up training but can overfit.
     
-    \item \textbf{max\_depth}: The maximum tree depth. Shallower trees (4–6) are more robust, deeper trees (7–10) can capture complex patterns but risk overfitting.
+    \item \textbf{max\_depth}: Maximum depth of individual trees. Shallower trees (4–6) tend to be more stable, while deeper ones (7–10) can capture complex correlations but risk overfitting.
     
     \item \textbf{Regularization parameters}:
     \begin{itemize}
-        \item $\gamma$: Minimum loss reduction for a split. Higher values (1–5) prevent overfitting by making splits more conservative.
-        \item $\lambda$: L2 regularization on weights. Values of 1–10 help control large leaf values.
-        \item $\alpha$: L1 regularization on weights. Values of 0–1 promote sparsity.
+        \item $\gamma$: Minimum loss reduction required for a split. Larger values make the algorithm more conservative.
+        \item $\lambda$: L2 regularization on leaf weights, which limits large values and stabilizes the model.
+        \item $\alpha$: L1 regularization on leaf weights, which promotes sparsity and can serve as implicit feature selection.
     \end{itemize}
     
     \item \textbf{Subsampling parameters}:
     \begin{itemize}
-        \item \texttt{subsample}: Fraction of events used per tree (0.6–0.9)
-        \item \texttt{colsample\_bytree}: Fraction of features used per tree (0.6–0.9)
+        \item \texttt{subsample}: Fraction of training events used per tree (typically 0.6–0.9).
+        \item \texttt{colsample\_bytree}: Fraction of features used per tree (typically 0.6–0.9).
     \end{itemize}
-    These introduce randomness that improves generalization.
+    Introducing randomness in this way improves robustness and reduces overfitting.
 \end{itemize}
 
-\paragraph{Hyperparameter Optimization Strategy}
+Optimal hyperparameters are typically found through systematic search methods. The most common approach is \textit{grid search with cross-validation} (GridSearchCV), which exhaustively tests all parameter combinations within predefined ranges. The core of this method is \textit{k-fold cross-validation}, a robust technique for assessing model generalization. 
 
-We use a systematic approach to find optimal hyperparameters:
+In k-fold cross-validation, the training data is randomly partitioned into k equal-sized subsets (folds). The model is trained k times, each time using k-1 folds for training and the remaining fold for validation. The performance metric (typically negative log-loss or accuracy) is averaged across all k validation folds, providing a reliable estimate of generalization error that is less sensitive to specific data splits.
 
-\begin{enumerate}
-    \item \textbf{Define search space}: Establish reasonable ranges for each parameter based on physics requirements and computational constraints.
-    
-    \item \textbf{Cross-validation}: Use k-fold cross-validation (typically k=5) to assess generalization performance for each parameter combination.
-    
-    \item \textbf{Grid search or Bayesian optimization}: Methodically explore the parameter space. Grid search tests all combinations in a predefined grid, while Bayesian optimization uses probabilistic models to guide the search more efficiently.
-    
-    \item \textbf{Early stopping}: Monitor validation performance during training and stop when no improvement is observed for a specified number of rounds.
-    
-    \item \textbf{Final evaluation}: Test the best configuration on an independent test set to verify generalization performance.
-\end{enumerate}
+For XGBoost in HEP applications, we typically use k=5 folds as it offers a good balance between computational cost and reliable error estimation. Each parameter combination is evaluated through this cross-validation process, ensuring that selected parameters generalize well beyond the training data and are not overly tuned to specific statistical fluctuations.
 
-The optimal configuration is typically found through iterative refinement, starting with broader searches and progressively narrowing the parameter ranges based on performance.
+The grid search tests all combinations in the parameter space defined by ranges such as: \texttt{learning\_rate} $\eta \in [0.01, 0.3]$, \texttt{max\_depth} $\in [3, 10]$, \texttt{n\_estimators} $\in [100, 1000]$, with regularization parameters $\gamma$, $\lambda$, and $\alpha$ typically explored in logarithmic scales.
 
-\paragraph{Physics-Specific Considerations}
+While grid search is thorough, it becomes computationally expensive for high-dimensional parameter spaces. In such cases, more efficient methods like \textit{randomized search} (which samples parameter combinations randomly) or \textit{Bayesian optimization} (which uses probabilistic models to guide the search toward promising regions) can be employed. 
 
-Several XGBoost features are particularly valuable for HEP applications:
+The optimization process is iterative: initial broad searches identify promising parameter regions, followed by finer-grained searches around the best-performing configurations. Early stopping during training—monitoring validation performance and halting when no improvement is observed for a specified number of rounds—prevents overfitting and significantly reduces computational cost, making the hyperparameter optimization feasible for large-scale HEP analyses.
 
-\begin{itemize}
-    \item \textbf{Event weights}: Direct support for physics weights ($w_i = \sigma \cdot \mathcal{L} \cdot \epsilon / N_{\text{gen}}$) ensures the classifier optimizes for expected yields.
-    
-    \item \textbf{Early stopping}: Prevents overfitting and saves computational resources.
-    
-    \item \textbf{Missing value handling}: Learns optimal defaults for missing features, useful for detector coverage issues.
-    
-    \item \textbf{Feature importance}: Provides quantitative measures of which variables contribute most to discrimination.
-\end{itemize}
-
-\paragraph{Connection to Statistical Significance}
+\subsection{Standard ML Analysis Workflow}
+\label{ssec:ml_workflow}
 
 The XGBoost output score $f(\mathbf{x})$ transforms high-dimensional data into a single optimal discriminant. When binned, the resulting histogram gives expected yields:
 \begin{align}
 s_i &= \int_{\text{bin } i} \sigma_s \cdot \mathcal{L} \cdot \epsilon_s \cdot p_s(f) \, df, \\
 b_i &= \int_{\text{bin } i} \sigma_b \cdot \mathcal{L} \cdot \epsilon_b \cdot p_b(f) \, df,
 \end{align}
-where $p_s(f)$ and $p_b(f)$ are the output distributions. A well-tuned model maximizes the separation between these distributions, thereby maximizing the discovery significance $\kappa$ when Neyman-Pearson weights are applied. This automated optimization across multiple observables achieves sensitivity unattainable with manual methods.
-
-
-\subsection{Standard ML Analysis Workflow}
-\label{ssec:ml_workflow}
+where $p_s(f)$ and $p_b(f)$ are the output distributions. 
 
 Integrating machine learning into high-energy physics analysis follows a standardized workflow designed to maximize sensitivity while ensuring robustness against overfitting and systematic biases:
 
