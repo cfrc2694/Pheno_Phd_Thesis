@@ -1,14 +1,14 @@
 \section{Machine Learning enhanced signal-background discrimination}
 \label{sec:machine_learning}
 
-As shown in Section~\ref{sec:power_analysis}, the sensitivity of a search depends on optimally separating signal and background processes. We suppose that, traditional cut-based analyses, which apply sequential selection criteria to individual observables, cannot fully exploit the discriminatory information contained in the high-dimensional feature space of collision events. In this approach, for an event described by feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, we apply sequential cuts in the form
+As shown in Section~\ref{sec:power_analysis}, the sensitivity of a search depends on optimally separating signal and background processes. Traditional cut-based analyses, which apply sequential selection criteria to individual observables, cannot fully exploit the discriminatory information contained in the high-dimensional feature space of collision events. In this approach, for an event described by a feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, cuts are applied in the form
 \begin{equation}
 \text{Selection:} \quad x_1 > c_1 \,\text{AND}\, x_2 > c_2 \,\text{AND}\, \ldots \,\text{AND}\, x_N > c_N.
 \end{equation}
 
-This method has several limitations which become apparent when considering correlations among kinematic variables. A typical LHC event contains a large list of observables and an optimal discriminator must consider all these variables and their relationships simultaneously, we employ machine learning to address this challenge. Hard cut boundaries discard events that are signal-like in multivariate space but fall just outside univariate cuts. And, furthermore, the challenge of dimensionality, as optimizing many cuts becomes unstable and prone to statistical fluctuations. Finally, it cannot capture non-linear relationships and complex decision boundaries that often provide the strongest discrimination.
+This method has several limitations that become apparent when considering correlations among kinematic variables. A typical LHC event contains a large number of observables, and an optimal discriminator must consider these variables and their relationships simultaneously. Hard cut boundaries discard events that are signal-like in multivariate space but fall just outside univariate cuts. The challenge of dimensionality also arises, as optimizing many cuts becomes unstable and prone to statistical fluctuations. Finally, sequential cuts cannot capture non-linear relationships and complex decision boundaries that often provide the strongest discrimination.
 
-Particularly, supervised learning addresses these limitations directly. It learns a function $f(\mathbf{x})$ that maps the high-dimensional input space to a continuous score approximating the posterior probability:
+Supervised learning addresses these limitations directly. It learns a function $f(\mathbf{x})$ that maps the high-dimensional input space to a continuous score approximating the posterior probability:
 \begin{equation}
 f: \mathbb{R}^N \rightarrow [0,1], \quad f(\mathbf{x}) \approx P(\text{signal} \mid \mathbf{x}).
 \end{equation}
@@ -22,46 +22,41 @@ y =
 0 & \text{if the event originates from the background}.
 \end{cases}
 \end{equation}
-Rather than producing a hard label, modern classifiers return a continuous score $f(\mathbf{x}) \in [0,1]$ that estimates the probability of an event being signal given its features. This formulation allows the classifier to exploit multidimensional correlations and complex decision boundaries that cut-based methods cannot capture.
+Rather than predicting a hard label, modern classifiers return a continuous score $f(\mathbf{x}) \in [0,1]$ that estimates the probability of an event being signal given its features. This formulation allows the classifier to exploit multidimensional correlations and complex decision boundaries that cut-based methods cannot capture. In high-energy physics, the objective is not conventional metrics such as accuracy or precision, but rather the improvement of search sensitivity. The classifier serves as an intermediate tool: it provides a discriminant that maximizes the separation of signal and background distributions, which is then used in hypothesis testing and limit setting.
 
-From a machine learning perspective, this is a standard supervised binary classification problem. In high-energy physics, however, its goal is not conventional metrics such as accuracy or precision, but the improvement of search sensitivity. The classifier is an intermediate tool: it provides a discriminant that maximizes the separation of signal and background distributions, which is then used in hypothesis testing and limit setting.
-
-Several algorithms are commonly employed in this context, and their selection depends on the complexity of the feature space, the size of the available training data, and the balance between interpretability and performance. 
-
-\textit{Logistic regression} is often used as a baseline due to its simplicity and transparency. It assumes a linear decision boundary in the feature space, with the discriminant given by
+Several algorithms are commonly employed in this context. Logistic regression is often used as a baseline due to its simplicity and transparency. It assumes a linear decision boundary in the feature space, with the discriminant
 \begin{equation}
 f(\mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b), \quad 
 \sigma(z) = \frac{1}{1 + e^{-z}},
 \end{equation}
 where $\mathbf{w}$ are model parameters and $b$ is a bias term. While it cannot capture complex non-linear relationships, logistic regression remains useful when signal and background are approximately linearly separable, and it provides a clear reference point against which more sophisticated methods can be compared.
 
-\textit{Support Vector Machines} (SVMs) seek to find the optimal hyperplane that maximizes the margin between signal and background classes. For non-linear separation, SVMs employ kernel functions $\phi(\mathbf{x})$ that map the input features to a higher-dimensional space where linear separation is possible. The decision function takes the form:
+Support Vector Machines (SVMs) instead seek to maximize the margin between signal and background classes. For non-linear problems, SVMs employ kernel functions $K(\mathbf{x}_i, \mathbf{x})$ that implicitly map the inputs to a higher-dimensional space where linear separation becomes possible. The decision function is
 \begin{equation}
 f(\mathbf{x}) = \text{sign}\left(\sum_{i=1}^{N} \alpha_i y_i K(\mathbf{x}_i, \mathbf{x}) + b\right),
 \end{equation}
-where $K(\mathbf{x}_i, \mathbf{x})$ is the kernel function and $\alpha_i$ are Lagrange multipliers. While SVMs provide strong theoretical guarantees and are effective in high-dimensional spaces, they scale poorly to large datasets and their performance is highly sensitive to kernel choice and hyperparameter tuning.
+where $\alpha_i$ are Lagrange multipliers. SVMs are effective in high-dimensional spaces and have strong theoretical guarantees, but they scale poorly to large datasets and are highly sensitive to kernel choice and hyperparameter tuning.
 
-\textit{Random Forests} constitute another ensemble approach that combines multiple decision trees. Unlike boosting, which builds trees sequentially, Random Forests construct trees in parallel using bootstrap sampling of the training data and random feature selection at each split:
+Tree-based ensembles are among the most widely used methods. Random Forests combine multiple decision trees trained on bootstrap samples of the data, with random feature selection at each split:
 \begin{equation}
 F(\mathbf{x}) = \frac{1}{B} \sum_{b=1}^{B} T_b(\mathbf{x}),
 \end{equation}
-where $B$ is the number of trees and $T_b(\mathbf{x})$ is the prediction of the $b$-th tree. This approach reduces variance and mitigates overfitting through averaging. Random Forests are robust, parallelizable, and provide natural feature importance measures, but they typically require more trees than boosted methods and may have slightly lower performance on well-tuned problems.
+where $B$ is the number of trees and $T_b$ is the prediction of the $b$-th tree. This approach reduces variance and mitigates overfitting through averaging. Random Forests are robust, parallelizable, and provide natural feature importance measures, though they typically require more trees than boosted methods and may yield slightly lower performance on well-tuned tasks.
 
-\textit{Boosted Decision Trees} (BDTs) have become a standard tool in particle physics because they offer a favorable balance between interpretability and performance. A single decision tree partitions the feature space through binary splits (e.g., ``Is $x_i < \text{threshold}$?'') and assigns class probabilities to terminal nodes. However, an individual tree is a high-variance learner, sensitive to fluctuations in the training data. Boosting addresses this by combining many weak learners (typically shallow trees) into a strong ensemble:
+Boosted Decision Trees (BDTs) have become a standard tool in particle physics because they balance interpretability and performance. A single decision tree partitions the feature space through binary splits (e.g., ``Is $x_i < \text{threshold}$?'') and assigns class probabilities to terminal nodes. On their own, trees are high-variance learners, but boosting combines many weak learners (typically shallow trees) into a strong ensemble:
 \begin{equation}
 F_M(\mathbf{x}) = \sum_{m=1}^{M} \gamma_m h_m(\mathbf{x}),
 \end{equation}
-where each new tree $h_m(\mathbf{x})$ corrects the errors made by the current ensemble $F_{m-1}(\mathbf{x})$, and $\gamma_m$ is its weight. This sequential correction process produces a powerful classifier. BDTs are robust to outliers and non-Gaussian distributions, naturally handle mixed variable types, and automatically perform feature selection, often revealing which observables carry the most discriminating power.
+where each new tree $h_m(\mathbf{x})$ corrects the errors of the current ensemble $F_{m-1}(\mathbf{x})$, and $\gamma_m$ is its weight. This sequential correction process produces a powerful classifier. BDTs are robust to outliers and non-Gaussian distributions, handle mixed variable types naturally, and perform implicit feature selection, often revealing which observables are most discriminating. These properties explain their widespread adoption in LHC analyses.
 
-\textit{Deep Neural Networks} (DNNs) represent the most expressive class of models, capable of learning highly complex, hierarchical representations of the input data. A deep network with multiple hidden layers can be represented as:
+Finally, Deep Neural Networks (DNNs) represent the most expressive class of models, capable of learning highly complex, hierarchical representations of the input data. A deep network with multiple hidden layers can be written as
 \begin{equation}
 f(\mathbf{x}) = \sigma^{(L)}\left(W^{(L)} \sigma^{(L-1)}\left( \cdots \sigma^{(1)}(W^{(1)} \mathbf{x} + b^{(1)}) \cdots \right) + b^{(L)}\right),
 \end{equation}
-where $L$ denotes the number of layers. DNNs excel at capturing intricate patterns and interactions in high-dimensional data, but they require substantial amounts of training data, careful regularization, and extensive hyperparameter optimization. Their black-box nature also presents challenges for interpretability and systematic uncertainty quantification.
+where $L$ is the number of layers. DNNs excel at capturing intricate patterns and correlations, but they require large training datasets, careful regularization, and extensive hyperparameter tuning. Their black-box nature also complicates interpretability and the assessment of systematic uncertainties.
 
-In general, Random Forests serve as a robust alternative that is less sensitive to hyperparameter tuning. While DNNs can achieve superior performance on complex problems with sufficient data, they require significantly more computational resources and expertise to implement effectively. SVMs, though theoretically elegant, have largely been superseded by tree-based methods and neural networks for most HEP applications due to their poor scalability.
+In practice, Random Forests are often used as robust, low-maintenance alternatives, while SVMs have largely been superseded by tree-based methods and neural networks due to scalability issues. DNNs can outperform other methods on very complex problems with sufficient data, but they demand significantly more computational resources. For most LHC searches, BDTs—particularly implementations such as XGBoost—provide the best balance between performance, interpretability, and computational efficiency. In Sec.~\ref{sec:ML}, and in Table~\ref{tab:ml_results}, we compare the performance of different methods and show that the gain in accuracy from DNNs is marginal compared to BDTs, while the training time is substantially larger.
 
-In practical HEP applications, BDTs (particularly XGBoost) often provide the best balance between performance and practicality, offering strong discriminatory power with moderate computational requirements and good interpretability. In Sec.~\ref{sec:ML}, in particular in Table~\ref{tab:ml_results}, we compare the performance of different methods, see that the gain in accuracy using DNNs is marginal compared to BDTs, while the training time is significantly larger.
 
 \subsection{XGBoost: Optimized Gradient Boosting}
 \label{ssec:xgboost}
