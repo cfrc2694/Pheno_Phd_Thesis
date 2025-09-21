@@ -108,13 +108,6 @@ The key limitation of the binned formulation in Eq.~\ref{eq:kappa_with_systemati
 However, the formalism presented here provides theoretical insight and a useful approximation for quick sensitivity estimates. In the asymptotic limit and for counting experiments, this approach yields results consistent with statistical packages commonly used in high-energy physics, such as \texttt{RooStats} and \texttt{RooFit}. These frameworks implement more rigorous statistical procedures that fully account for the likelihood structure, parameter correlations, and systematic uncertainties through nuisance parameters.
 
 
-Despite this limitation, the $\kappa$ metric remains invaluable for establishing \textit{experimental sensitivity}—defined as the minimum signal strength required to achieve a certain significance level (e.g., 95\% CL exclusion or $5\sigma$ discovery potential). It provides a powerful tool for:
-\begin{itemize}
-    \item Quick optimization of analysis strategies and binning schemes
-    \item Estimating the integrated luminosity required to probe certain signal models
-    \item Comparing the relative sensitivity of different search channels or analysis variables
-    \item Designing trigger strategies and allocating computing resources
-\end{itemize}
-
+Despite this limitation, the $\kappa$ metric remains invaluable for establishing \textit{experimental sensitivity}—defined as the minimum signal strength required to achieve a certain significance level (e.g., 95\% CL exclusion or $5\sigma$ discovery potential). It provides a practical tool for guiding analysis design, optimizing selection criteria, and prioritizing experimental efforts. 
 
 For experimental final results and interpretation, full statistical treatments using profile likelihood methods within frameworks like \texttt{RooStats} remain the gold standard, as they properly account for all correlations and systematic uncertainties. In this work, we are not interested in the final statistical interpretation of data, but rather in understanding and optimizing the experimental sensitivity to new physics signals. Therefore, the $\kappa$ metric serves as a practical and insightful tool for guiding analysis design and experimental strategy.
