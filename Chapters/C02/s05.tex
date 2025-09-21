@@ -1,0 +1,96 @@
+\section{Machine Learning in High-Energy Physics: Motivation and Methods}
+\label{sec:machine_learning}
+
+As shown in Section~\ref{sec:power_analysis}, the sensitivity of a search depends on optimally separating signal and background processes. We suppose that, traditional cut-based analyses, which apply sequential selection criteria to individual observables, cannot fully exploit the discriminatory information contained in the high-dimensional feature space of collision events. In this approach, for an event described by feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, we apply sequential cuts in the form
+\begin{equation}
+\text{Selection:} \quad x_1 > c_1 \,\text{AND}\, x_2 > c_2 \,\text{AND}\, \ldots \,\text{AND}\, x_N > c_N.
+\end{equation}
+
+This method has several limitations which become apparent when considering correlations among kinematic variables. A typical LHC event contains a large list of observables and an optimal discriminator must consider all these variables and their relationships simultaneously, we employ machine learning to address this challenge. Hard cut boundaries discard events that are signal-like in multivariate space but fall just outside univariate cuts. And, furthermore, the challenge of dimensionality, as optimizing many cuts becomes unstable and prone to statistical fluctuations. Finally, it cannot capture non-linear relationships and complex decision boundaries that often provide the strongest discrimination.
+
+
+Particularly, supervised learning addresses these limitations directly. It learns a function $f(\mathbf{x})$ that maps the high-dimensional input space to a continuous score approximating the posterior probability:
+\begin{equation}
+f: \mathbb{R}^N \rightarrow [0,1], \quad f(\mathbf{x}) \approx P(\text{signal} \mid \mathbf{x}).
+\end{equation}
+This score incorporates correlations and non-linearities present in the training data, providing a powerful, continuous discriminant.
+
+Formally, the classification problem can be stated as follows. Each collision event is represented by a feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, where the components correspond to reconstructed kinematic variables or high-level observables. The task is to assign a label
+\begin{equation}
+y =
+\begin{cases}
+1 & \text{if the event originates from the signal process}, \\
+0 & \text{if the event originates from the background}.
+\end{cases}
+\end{equation}
+Rather than producing a hard label, modern classifiers return a continuous score $f(\mathbf{x}) \in [0,1]$ that estimates the probability of an event being signal given its features. This formulation allows the classifier to exploit multidimensional correlations and complex decision boundaries that cut-based methods cannot capture.
+
+From a machine learning perspective, this is a standard supervised binary classification problem. In high-energy physics, however, its goal is not conventional metrics such as accuracy or precision, but the improvement of search sensitivity. The classifier is an intermediate tool: it provides a discriminant that maximizes the separation of signal and background distributions, which is then used in hypothesis testing and limit setting.
+
+Several algorithms are commonly employed in this context, and their selection depends on the complexity of the feature space, the size of the available training data, and the balance between interpretability and performance. \textit{Logistic regression} is often used as a baseline due to its simplicity and transparency. It assumes a linear decision boundary in the feature space, with the discriminant given by
+\begin{equation}
+f(\mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b), \quad 
+\sigma(z) = \frac{1}{1 + e^{-z}},
+\end{equation}
+where $\mathbf{w}$ are model parameters and $b$ is a bias term. While it cannot capture complex non-linear relationships, logistic regression remains useful when signal and background are approximately linearly separable, and it provides a clear reference point against which more sophisticated methods can be compared.
+
+\textit{Neural networks} extend classification capability to non-linear decision boundaries by composing layers of affine transformations with non-linear activation functions. A feed-forward neural network with $L$ layers can be written schematically as
+\begin{equation}
+f(\mathbf{x}) = \sigma^{(L)}\!\left(W^{(L)} \, \sigma^{(L-1)} \!\left( \cdots \sigma^{(1)}(W^{(1)} \mathbf{x} + b^{(1)}) \cdots \right) + b^{(L)} \right).
+\end{equation}
+This architecture allows the network to approximate highly complex functions of the input variables, making it suitable for capturing correlations that are difficult to model otherwise. In practice, shallow networks have long been employed in collider physics, while larger datasets now permit the exploration of deeper architectures. Their main drawbacks are reduced interpretability and sensitivity to hyperparameter choices.
+
+\textit{Boosted decision trees} (BDTs) have become a standard tool in particle physics because they offer a favorable balance between interpretability and performance. A single decision tree partitions the feature space through binary splits (e.g., ``Is $x_i < \text{threshold}$?'') and assigns class probabilities to terminal nodes. However, an individual tree is a high-variance learner, sensitive to fluctuations in the training data. Boosting addresses this by combining many weak learners (typically shallow trees) into a strong ensemble:
+\begin{equation}
+F_M(\mathbf{x}) = \sum_{m=1}^{M} \gamma_m h_m(\mathbf{x}),
+\end{equation}
+where each new tree $h_m(\mathbf{x})$ corrects the errors made by the current ensemble $F_{m-1}(\mathbf{x})$, and $\gamma_m$ is its weight. This sequential correction process produces a powerful classifier. BDTs are robust to outliers and non-Gaussian distributions, naturally handle mixed variable types, and automatically perform feature selection, often revealing which observables carry the most discriminating power. For these reasons, they are widely adopted in LHC analyses as the default multivariate method.
+
+
+\subsection{XGBoost: Optimized Gradient Boosting}
+\label{ssec:xgboost}
+
+The \textit{XGBoost} (eXtreme Gradient Boosting) library is a state-of-the-art implementation of gradient boosting, known for its computational efficiency and performance, making it widely used in high-energy physics. The algorithm optimizes a regularized objective function:
+\begin{equation}
+\mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{m=1}^{M} \Omega(f_m),
+\end{equation}
+where $l(y_i, \hat{y}_i)$ is a differentiable loss function and $\Omega(f_m)$ is a regularization term that penalizes tree complexity, reducing overfitting. The model is built additively:
+\begin{equation}
+\hat{y}_i^{(t)} = \hat{y}_i^{(t-1)} + f_t(\mathbf{x}_i),
+\end{equation}
+with each $f_t$ chosen to minimize the objective function. XGBoost's advantages include efficient algorithms for finding optimal splits, sophisticated handling of missing data, and integrated cross-validation support. The L1 and L2 regularization in $\Omega(f_m)$ is particularly important for physics applications, ensuring models generalize well from simulation to real data.
+
+The value of machine-learned discriminators becomes clear when connected to the statistical significance framework from Section~\ref{sec:power_analysis} (Eq.~\ref{eq:kappa_with_systematics}). A multivariate classifier optimizes the binning and weighting of events in high-dimensional space. The BDT output score $f(\mathbf{x})$ becomes a powerful new observable. By binning this score, we create a histogram where expected signal and background yields in bin $i$ are:
+\begin{align}
+s_i &= \int_{\text{bin } i} \sigma_s \cdot \mathcal{L} \cdot \epsilon_s \cdot p_s(f) \, df, \\
+b_i &= \int_{\text{bin } i} \sigma_b \cdot \mathcal{L} \cdot \epsilon_b \cdot p_b(f) \, df,
+\end{align}
+with $p_s(f)$ and $p_b(f)$ being the probability density functions for signal and background outputs. A well-trained algorithm shapes these distributions so $p_s(f)$ peaks near 1 and $p_b(f)$ peaks near 0, maximizing separation and discovery significance $\kappa$ when optimal weights $w_i = \ln(1 + s_i/b_i)$ are applied. This automated optimization in high dimensions achieves what manual cut-based analysis cannot.
+
+\subsection{Standard ML Analysis Workflow}
+\label{ssec:ml_workflow}
+
+Integrating machine learning into high-energy physics analysis follows a standardized workflow designed to maximize sensitivity while ensuring robustness against overfitting and systematic biases:
+
+\begin{enumerate}
+    \item \textbf{Dataset Preparation and Balancing}: Monte Carlo simulations generate signal and background samples. To prevent classifier bias toward the typically dominant background, datasets are balanced through undersampling (selecting subset of majority class) or event weighting ($w_i = \sigma \cdot \mathcal{L} \cdot \epsilon / N_{\text{gen}}$). Equal signal and background events are often used for training to ensure the algorithm learns both classes.
+    
+    \item \textbf{Feature Preprocessing}: Input variables are standardized using techniques like StandardScaler (zero mean, unit variance) or MinMaxScaler (fixed range). While tree-based methods like XGBoost are scale-insensitive, preprocessing aids convergence and interpretability. Dimensionality reduction techniques like PCA may be used for visualization or to address multicollinearity, though trees handle correlated features naturally.
+    
+    \item \textbf{Model Training and Hyperparameter Optimization}: The classifier is trained on preprocessed data. Key hyperparameters—learning rate, maximum tree depth, L1/L2 regularization terms, and minimum child weight—are optimized via grid search, random search, or Bayesian optimization. Performance is evaluated using k-fold cross-validation to ensure generalizability and avoid overfitting.
+    
+    \item \textbf{Output Score Generation}: Instead of hard class assignments, the trained model's continuous output is obtained using \texttt{predict\_proba()}, providing a per-event probability score $f(\mathbf{x}) \in [0, 1]$ for signal classification. This score serves as a powerful discriminant variable.
+    
+    \item \textbf{Histogram Construction and Weighting}: Events are binned by classifier score to form a histogram. Each bin's content uses physics-level weights:
+    \[
+    N_i^{\text{bin}} = \sum_{\text{events in bin } i} w_j = \sum_{\text{events in bin } i} \left( \sigma \cdot \mathcal{L} \cdot \epsilon / N_{\text{gen}} \right)_j,
+    \]
+    giving expected signal ($s_i$) and background ($b_i$) yields per bin.
+    
+    \item \textbf{Sensitivity Measurement}: The final histogram, with systematic uncertainties as nuisance parameters, feeds into the statistical model from Section~\ref{sec:power_analysis}. The discovery significance $\kappa$ (Eq.~\ref{eq:kappa_with_systematics}) is computed, quantifying analysis sensitivity and enabling strategy comparisons.
+\end{enumerate}
+
+This workflow integrates machine learning into particle physics' statistical framework, transforming high-dimensional data into an optimized discriminant for sensitivity extraction.
+
+
+Tree-based methods allow for physics interpretation through feature importance analysis. Metrics like Gain (average purity improvement from splits), Cover (number of affected samples), and Frequency (usage count) rank the most discriminative observables. Advanced techniques like SHAP (SHapley Additive exPlanations) values show each feature's contribution to individual predictions. This helps validate that models use physically meaningful variables and guides future analysis strategies, detector calibration priorities, and experiment design.
