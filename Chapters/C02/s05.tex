@@ -1,20 +1,20 @@
 \section{ML enhanced signal-background discrimination}
 \label{sec:machine_learning}
 
-As shown in Section~\ref{sec:power_analysis}, the sensitivity of a search depends on optimally separating signal and background processes. Traditional cut-based analyses, which apply sequential selection criteria to individual observables, cannot fully exploit the discriminatory information contained in the high-dimensional feature space of collision events. In this approach, for an event described by a feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, cuts are applied in the form
+As shown in Section~\ref{sec:power_analysis}, the sensitivity of a search depends on optimally separating signal and background processes~\cite{Cowan:2011,Guest2018}. Traditional cut-based analyses, which apply sequential selection criteria to individual observables, cannot fully exploit the discriminatory information contained in the high-dimensional feature space of collision events~\cite{Hastie2009,Guest2018}. In this approach, for an event described by a feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, cuts are applied in the form~\cite{Hoecker2007}
 \begin{equation}
 \text{Selection:} \quad x_1 > c_1 \,\text{AND}\, x_2 > c_2 \,\text{AND}\, \ldots \,\text{AND}\, x_N > c_N.
 \end{equation}
 
-This method has several limitations that become apparent when considering correlations among kinematic variables. A typical LHC event contains a large number of observables, and an optimal discriminator must consider these variables and their relationships simultaneously. Hard cut boundaries discard events that are signal-like in multivariate space but fall just outside univariate cuts. The challenge of dimensionality also arises, as optimizing many cuts becomes unstable and prone to statistical fluctuations. Finally, sequential cuts cannot capture non-linear relationships and complex decision boundaries that often provide the strongest discrimination.
+This method has several limitations that become apparent when considering correlations among kinematic variables~\cite{Hastie2009,Guest2018}. A typical LHC event contains a large number of observables, and an optimal discriminator must consider these variables and their relationships simultaneously~\cite{Hoecker2007,pedregosa_scikit-learn_2011}. Hard cut boundaries discard events that are signal-like in multivariate space but fall just outside univariate cuts~\cite{Hastie2009,Guest2018}. The challenge of dimensionality also arises, as optimizing many cuts becomes unstable and prone to statistical fluctuations~\cite{Hastie2009,friedman_greedy_2001}. Finally, sequential cuts cannot capture non-linear relationships and complex decision boundaries that often provide the strongest discrimination~\cite{Hastie2009,Guest2018}.
 
-Supervised learning addresses these limitations directly. It learns a function $f(\mathbf{x})$ that maps the high-dimensional input space to a continuous score approximating the posterior probability:
+Supervised learning addresses these limitations directly~\cite{Hastie2009,Guest2018}. It learns a function $f(\mathbf{x})$ that maps the high-dimensional input space to a continuous score approximating the posterior probability~\cite{Cranmer2015,Platt1999}:
 \begin{equation}
 f: \mathbb{R}^N \rightarrow [0,1], \quad f(\mathbf{x}) \approx P(\text{signal} \mid \mathbf{x}).
 \end{equation}
-This score incorporates correlations and non-linearities present in the training data, providing a powerful, continuous discriminant.
+This score incorporates correlations and non-linearities present in the training data, providing a powerful, continuous discriminant~\cite{Hastie2009,Guest2018}.
 
-Formally, the classification problem can be stated as follows. Each collision event is represented by a feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, where the components correspond to reconstructed kinematic variables or high-level observables. The task is to assign a label
+Formally, the classification problem can be stated as follows~\cite{Hastie2009}. Each collision event is represented by a feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_N)$, where the components correspond to reconstructed kinematic variables or high-level observables~\cite{CMS:PF2017,pedregosa_scikit-learn_2011}. The task is to assign a label
 \begin{equation}
 y =
 \begin{cases}
@@ -22,7 +22,9 @@ y =
 0 & \text{if the event originates from the background}.
 \end{cases}
 \end{equation}
-Rather than predicting a hard label, modern classifiers return a continuous score $f(\mathbf{x}) \in [0,1]$ that estimates the probability of an event being signal given its features. This formulation allows the classifier to exploit multidimensional correlations and complex decision boundaries that cut-based methods cannot capture. In high-energy physics, the objective is not conventional metrics such as accuracy or precision, but rather the improvement of search sensitivity. The classifier serves as an intermediate tool: it provides a discriminant that maximizes the separation of signal and background distributions, which is then used in hypothesis testing and limit setting.
+Rather than predicting a hard label, modern classifiers return a continuous score $f(\mathbf{x}) \in [0,1]$ that estimates the probability of an event being signal given its features. This formulation allows the classifier to exploit multidimensional correlations and complex decision boundaries that cut-based methods cannot capture~\cite{Cranmer2015,Guest2018}.
+
+Logistic regression, SVMs~\cite{Cortes1995}, Random Forests~\cite{Breiman2001} and boosted trees~\cite{friedman_greedy_2001,chen_xgboost_2016} are common choices; see \cite{Hastie2009,Hoecker2007} for comparisons and practical guidance.
 
 Several algorithms are commonly employed in this context. Logistic regression is often used as a baseline due to its simplicity and transparency. It assumes a linear decision boundary in the feature space, with the discriminant
 \begin{equation}
