@@ -1,7 +1,7 @@
 \section{Measurement of the Power of an Analysis}
 \label{sec:power_analysis}
 
-In high-energy physics experiments, data is often discretized into bins (e.g., histograms of collision events versus energy or momentum) to test competing hypotheses. The fundamental framework compares two scenarios: the \textit{null hypothesis} ($H_0$), representing background-only processes ($b_i$ in each bin $i$), and the \textit{alternative hypothesis} ($H_1$), including both signal and background ($s_i + b_i$). Given the Poissonian nature of event counts $n_i$, the likelihood for observing the data under each hypothesis is:
+In high-energy physics experiments, data is often discretized into bins (e.g., histograms of collision events versus energy or momentum) to test competing hypotheses~\cite{BakerCousins:1984}. The fundamental framework compares two scenarios: the \textit{null hypothesis} ($H_0$), representing background-only processes ($b_i$ in each bin $i$), and the \textit{alternative hypothesis} ($H_1$), including both signal and background ($s_i + b_i$)~\cite{NeymanPearson:1933}. Given the Poissonian nature of event counts $n_i$, the likelihood for observing the data under each hypothesis is the product of Poisson probabilities per bin and is therefore written as a binned Poisson likelihood~\cite{BakerCousins:1984,Cowan:2011}:
 \begin{equation}
     \mathcal{L}(n_i \mid \lambda_i) = \frac{e^{-\lambda_i} \lambda_i^{n_i}}{n_i!}, \quad \text{where } \lambda_i = 
     \begin{cases}
@@ -9,23 +9,23 @@ In high-energy physics experiments, data is often discretized into bins (e.g., h
         s_i + b_i & \text{for } H_1.
     \end{cases}
 \end{equation}
-The Neyman-Pearson lemma~\parencite{NeymanPearson1933} provides a rigorous framework for hypothesis testing by establishing that the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$ is the most powerful test statistic for distinguishing between two simple hypotheses, $H_0$ and $H_1$. This forms the basis for quantifying the evidence for new physics signals against known backgrounds. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as,
+The Neyman-Pearson lemma~\parencite{NeymanPearson:1933} provides a rigorous framework for hypothesis testing by establishing that the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$ is the most powerful test statistic for distinguishing between two simple hypotheses, $H_0$ and $H_1$~\cite{NeymanPearson:1933,Cowan:2011}. This forms the basis for quantifying the evidence for new physics signals against known backgrounds~\cite{Cowan:2011,Read:2002}. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as~\cite{BakerCousins:1984,Cowan:2011},
 \begin{equation}
 Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = e^{-s_i} \left( 1+\frac{s_i}{b_i} \right)^{n_i},
 \end{equation}
-where $n_i$ is the observed event count, $s_i$ the expected signal, and $b_i$ the expected background in bin $i$. 
+where $n_i$ is the observed event count, $s_i$ the expected signal, and $b_i$ the expected background in bin $i$~\cite{BakerCousins:1984,Cowan:2011}. 
 
-The test for the full analysis is constructed as the product of individual bin likelihood ratios:
+The test for the full analysis is constructed as the product of individual bin likelihood ratios~\cite{BakerCousins:1984,Cowan:2011}:
 \begin{equation}
 Q = \prod_{i=1}^{N} Q_i,
 \end{equation}
-where $N$ is the total number of bins. Under this formulation, each bin is treated as an independent experiment, allowing us to analyze the data in a modular way. This is particularly useful when combining results from multiple search channels or energy ranges. 
+where $N$ is the total number of bins~\cite{BakerCousins:1984}. Under this formulation, each bin is treated as an independent experiment, allowing us to analyze the data in a modular way; this is convenient when combining results from multiple search channels or energy ranges~\cite{Read:2002,Cowan:2011}. 
 
-For convenience and in order to connect with asymptotic distributions, we take the logarithm of the likelihood ratio, turning the product into a sum:
+For convenience and to connect with asymptotic results, one commonly works with the log-likelihood ratio:
 \begin{equation}
 -2\ln Q = 2\sum_{i=1}^{N}\left[s_i - n_i \ln\left(1 + \frac{s_i}{b_i}\right)\right],
 \end{equation}
-where $n_i$ is the observed number of events, $b_i$ the expected background, and $s_i$ the expected signal in bin $i$. By Wilks' theorem~\parencite{Wilks1938}, the asymptotic distribution of this test statistic under the background-only hypothesis ($H_0$) follows a $\chi^2$ distribution, facilitating $p$-value calculations and hypothesis testing.
+and, by Wilks' theorem, its asymptotic distribution under the null hypothesis is chi-square distributed in regular cases~\cite{Wilks:1938,Cowan:2011}.
 
 In practice, the Neyman-Pearson lemma motivates the use of a test statistic $t$ that quantifies the evidence for a signal against the background-only hypothesis, which can be written as
 \begin{equation}
@@ -108,6 +108,6 @@ The key limitation of the binned formulation in Eq.~\ref{eq:kappa_with_systemati
 However, the formalism presented here provides theoretical insight and a useful approximation for quick sensitivity estimates. In the asymptotic limit and for counting experiments, this approach yields results consistent with statistical packages commonly used in high-energy physics, such as \texttt{RooStats} and \texttt{RooFit}. These frameworks implement more rigorous statistical procedures that fully account for the likelihood structure, parameter correlations, and systematic uncertainties through nuisance parameters.
 
 
-Despite this limitation, the $\kappa$ metric remains invaluable for establishing \textit{experimental sensitivity}—defined as the minimum signal strength required to achieve a certain significance level (e.g., 95\% CL exclusion or $5\sigma$ discovery potential). It provides a practical tool for guiding analysis design, optimizing selection criteria, and prioritizing experimental efforts. 
+Despite this limitation, the $\kappa$ metric remains invaluable for establishing \textit{experimental sensitivity}, which defined as the minimum signal strength required to achieve a certain significance level (e.g., 95\% CL exclusion or $5\sigma$ discovery potential). It provides a practical tool for guiding analysis design, optimizing selection criteria, and prioritizing experimental efforts. 
 
 For experimental final results and interpretation, full statistical treatments using profile likelihood methods within frameworks like \texttt{RooStats} remain the gold standard, as they properly account for all correlations and systematic uncertainties. In this work, we are not interested in the final statistical interpretation of data, but rather in understanding and optimizing the experimental sensitivity to new physics signals. Therefore, the $\kappa$ metric serves as a practical and insightful tool for guiding analysis design and experimental strategy.
