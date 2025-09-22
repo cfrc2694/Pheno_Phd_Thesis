@@ -9,7 +9,7 @@ In high-energy physics experiments, data is often discretized into bins (e.g., h
         s_i + b_i & \text{for } H_1.
     \end{cases}
 \end{equation}
-The Neyman-Pearson lemma~\parencite{NeymanPearson:1933} provides a rigorous framework for hypothesis testing by establishing that the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$ is the most powerful test statistic for distinguishing between two simple hypotheses, $H_0$ and $H_1$~\cite{NeymanPearson:1933,Cowan:2011}. This forms the basis for quantifying the evidence for new physics signals against known backgrounds~\cite{Cowan:2011,Read:2002}. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as~\cite{BakerCousins:1984,Cowan:2011},
+The Neyman-Pearson lemma~\parencite{NeymanPearson:1933,Segura:2024srj} provides a rigorous framework for hypothesis testing by establishing that the \textit{likelihood ratio} $Q = \mathcal{L}(\text{data} \mid H_1)/\mathcal{L}(\text{data} \mid H_0)$ is the most powerful test statistic for distinguishing between two simple hypotheses, $H_0$ and $H_1$~\cite{NeymanPearson:1933,Cowan:2011}. This forms the basis for quantifying the evidence for new physics signals against known backgrounds~\cite{Cowan:2011,Read:2002}. For binned analyses in particle physics, we define the likelihood ratio $Q_i$ for each bin $i$ as~\cite{BakerCousins:1984,Cowan:2011},
 \begin{equation}
 Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = e^{-s_i} \left( 1+\frac{s_i}{b_i} \right)^{n_i},
 \end{equation}
