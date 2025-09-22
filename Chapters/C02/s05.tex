@@ -146,15 +146,4 @@ Integrating machine learning into high-energy physics analysis follows a standar
     \item \textbf{Sensitivity Measurement}: The final histogram, incorporating all relevant systematic uncertainties as nuisance parameters, serves as input to the statistical model described in Section~\ref{sec:power_analysis}. The discovery significance $\kappa$ (from Eq.~\ref{eq:kappa_with_systematics}) is computed, quantifying the analysis sensitivity and enabling comparison between different analysis strategies or machine learning approaches.
 \end{enumerate}
 
-This end-to-end workflow seamlessly integrates machine learning into the established statistical framework of particle physics, transforming high-dimensional data into an optimized discriminant for ultimate sensitivity extraction.
-
-\paragraph{Physics Interpretation and Validation}
-Tree-based methods provide valuable physics interpretation through feature importance analysis. Standard metrics include:
-\begin{itemize}
-    \item \textbf{Gain}: The average purity improvement from splits using a particular variable, indicating its overall discriminatory power.
-    \item \textbf{Cover}: The number of samples affected by splits using a variable, reflecting its frequency of use.
-    \item \textbf{Frequency}: How often a variable is used in splits across all trees.
-\end{itemize}
-More advanced techniques like SHAP (SHapley Additive exPlanations) values provide a unified approach to explain individual predictions by quantifying each feature's contribution to the final score. This interpretability is crucial for validating that the model relies on physically meaningful variables, guiding future analysis strategies, prioritizing detector calibration efforts, and even informing the design of future experiments.
-
-The validation process includes correlation studies to ensure high-importance variables align with physical intuition, data-simulation comparisons to verify key observables are well-modeled, and cross-checks using alternative ML algorithms to confirm the stability of results. This comprehensive approach ensures the machine learning model not only performs well statistically but also makes physically sensible decisions.
+This end-to-end workflow seamlessly integrates machine learning into the established statistical framework of particle physics, transforming high-dimensional data into an optimized discriminant for sensitivity extraction.
