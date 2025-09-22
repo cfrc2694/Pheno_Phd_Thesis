@@ -103,10 +103,10 @@ Several hyperparameters play a central role in controlling this balance:
         \item $\alpha$: L1 regularization on leaf weights, which promotes sparsity and can serve as implicit feature selection.
     \end{itemize}
 \end{itemize}
-
 Optimal hyperparameters are typically found through systematic search methods. The most common approach is \textit{grid search with cross-validation} (GridSearchCV), which exhaustively tests all parameter combinations within predefined ranges. The core of this method is \textit{k-fold cross-validation}, a robust technique for assessing model generalization. 
 
-In k-fold cross-validation, the training data is randomly partitioned into k equal-sized subsets (folds). The model is trained k times, each time using k-1 folds for training and the remaining fold for validation. The performance metric (typically negative log-loss or accuracy) is averaged across all k validation folds, providing a reliable estimate of generalization error that is less sensitive to specific data splits.
+The k-fold cross-validation procedure consists of the following steps: First, the available training data is randomly shuffled and partitioned into k equal-sized subsets called folds. This partitioning is typically stratified to preserve the class distribution in each fold. Then, the model is trained and evaluated k times in a round-robin fashion. For each iteration i (where i = 1 to k), the i-th fold is held out as validation data, while the remaining k-1 folds are used for training. The model's performance metric (typically negative log-loss, accuracy, or area under the ROC curve) is computed on the validation fold. After all k iterations are completed, the performance scores from each validation fold are averaged to produce a single estimation of the model's generalization error. This approach ensures that every data point is used exactly once for validation while being used k-1 times for training, providing an unbiased estimate of model performance that is robust to the specific partitioning of the data.
+
 
 For XGBoost in HEP applications, we typically use k$=5$ folds as it offers a good balance between computational cost and reliable error estimation. Each parameter combination is evaluated through this cross-validation process, ensuring that selected parameters generalize well beyond the training data and are not overly tuned to specific statistical fluctuations.
 
