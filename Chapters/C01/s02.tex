@@ -2,14 +2,21 @@
 
 {$ $ \scriptsize \hfill Fragment extracted and adapted from~\parencite{robinson2011symmetry}}
 
-In 1965, Tomonaga, Feynman, and Schwinger have just won the Nobel prize for their independent contributions on the development of the Quantum Electrodynamics theory~\parencite{1972physics}. They calculated the magnetic moment of the electron and other observables using quantum field theory and renormalization to separate out the infinities of the theory from a finite contribution~\parencite{PhysRev.75.486} showing that renormalized gauge theories agree with experiment up to very high precision (to more than 13 significant digits)\parencite{1674-1137-40-10-100001}.
+In 1965, Tomonaga, Feynman, and Schwinger were awarded the Nobel Prize for their independent formulation of Quantum Electrodynamics (QED)~\parencite{1972physics}. Their work established renormalization as a consistent method to separate infinities from finite, physically meaningful results in quantum field theory. QED provided predictions, such as the anomalous magnetic moment of the electron, that later experiments confirmed with remarkable precision~\parencite{1674-1137-40-10-100001, PhysRev.75.486}. It became the prototypical example of a successful quantum field theory.
 
-Unfortunately, in 1965, the models explaining radioactive decay and the strong interaction were not renormalizable. The leading theory was called \textit{the chiral $V-A$ universal model of weak decays} featuring four-fermion interactions in the combination of vector minus axial currents. The $V-A$ model could not be mathematically broken down into a finite and an infinite component. Although gauge theory and renormalization explained the interaction of electrons with photons, gauge theory was not able to address the strong and weak forces. These forces were known to be short-range forces. To make a force have a short range in QFT, the mediating boson needed a mass. The Yukawa theory of scalar fields included such a term as an early model for the strong force with short range. The force law then fell off as $\exp (-r m) / r^{2}$ with both the classic inverse square law multiplied by an exponential dampening with distance parameterized by the mass $m$. To give a gauge boson $A_{\mu}$ a short range, the Lagrangian would need a mass term such as $m_{A}^{2} A_{\mu} A^{\mu}$. This term violates gauge symmetry because when $A\mapsto A_{\mu}+\epsilon_\mu$ we see that $A_{\mu} A^{\mu} \neq A_{\mu}^{\prime} A^{\prime \mu}$. Naively, one would think that gauge symmetry blocks all gauge bosons from having mass; and therefore, all gauge theories (Abelian and the non-Abelian ones) would obey force laws that scale as $1 / r^{2}$. This would mean that all gauge theories would represent long-range forces similar to gravity and electromagnetism (each of which is mediated by a massless boson)\footnote{In 1954 when Yang was first giving a presentation on non-Abelian gauge theories, Pauli interrupted the talk. Pauli wanted to know what the mass of the non-Abelian gauge boson was. Pauli was so insistent that Yang eventually sat down. Pauli realized that a mass term violated gauge symmetry; the mass terms were needed for short-range forces; non-Abelian gauge theories seemed like they should have long-range forces; and therefore, they probably do not explain strong or weak forces. In short, people no less then Pauli felt gauge symmetry's properties made them unlikely candidates for the a short-range force needed to explain the strong and weak forces~\parencite{robinson2011symmetry}}. There are two known solutions to this quandary: 
+This success, however, did not extend to other fundamental interactions. The weak interaction was described by the chiral $V-A$ model, in which processes like beta decay were represented by four-fermion contact terms. This framework was not renormalizable: divergences could not be absorbed into a finite set of parameters, restricting its validity to low energies. A fundamental description within the quantum field theory framework was still missing.
+
+The issue was linked to the short-range character of the weak and strong forces. In quantum field theory, the range of an interaction depends on the mass of its mediating boson. A massless boson, such as the photon, generates a long-range force with an inverse-square dependence. A massive boson, in contrast, produces a Yukawa potential of the form $\exp(-mr)/r$, which falls off rapidly with distance. A consistent theory of the weak interaction therefore required massive gauge bosons.
+
+Here lay the apparent obstacle. A mass term for a gauge boson, such as $m_{A}^{2} A_{\mu} A^{\mu}$ in the Lagrangian, explicitly breaks gauge invariance, since it is not preserved under the transformation $A_{\mu} \mapsto A_{\mu} + \partial_{\mu}\epsilon$. This seemed to rule out gauge theories as candidates for describing short-range forces. The problem was recognized early on. For instance, in a 1954 seminar where Chen Ning Yang introduced non-Abelian gauge theories, Wolfgang Pauli objected that assigning masses to the gauge bosons would violate gauge invariance, and without such masses the theory could not describe nuclear forces. This skepticism reflected a widely shared view: gauge symmetry appeared incompatible with short-range interactions.
+
+The resolution of this problem came from two developments that allowed gauge bosons to behave as if they had mass, without explicitly breaking gauge symmetry:
 \begin{enumerate}
-	\item \label{list_sol_Mass_1}The Higgs mechanism which gives renormalizable gauge bosons mass without violating gauge symmetry.
-	\item \label{list_sol_Mass_2}A spontaneously created mass gap phenomena associated with non-Abelian gauge theories, which is not fully understood yet, and seems to be related to the confinement of individual quarks.
+    \item \label{list:sol_mass_1} The Higgs mechanism. In this framework, a scalar field permeates the vacuum. While the underlying Lagrangian remains gauge invariant, the vacuum state does not respect this symmetry. Gauge bosons interacting with this vacuum acquire mass in a renormalizable way. This mechanism explains the masses of the $W$ and $Z$ bosons.
+    \item \label{list:sol_mass_2} Dynamical mass generation in non-Abelian gauge theories. In Quantum Chromodynamics (QCD), gluons and nearly massless quarks are confined into hadrons with substantial masses. The appearance of a mass gap is a nonperturbative consequence of confinement. Understanding this mechanism in a rigorous way is at the core of the Yang–Mills existence and mass gap Millennium Prize problem.
 \end{enumerate}
-The SM chooses \eqref{list_sol_Mass_1} the Higgs mechanism for the weak force, and \eqref{list_sol_Mass_2} for QCD.
+
+The Standard Model (SM) incorporates both solutions. Electroweak theory relies on the Higgs mechanism (\ref{list:sol_mass_1}), which provides a renormalizable description of the weak interaction. For the strong interaction, QCD employs dynamical mass generation (\ref{list:sol_mass_2}), where most of the mass of hadrons arises from confinement rather than from the small quark masses introduced by the Higgs field.
 
 \subsection{Particle Content and Gauge Group}
 
@@ -65,7 +72,7 @@ Electroweak symmetry is spontaneously broken into electromagnetic symmetry $U(1)
 \begin{equation}
 	Q_{\mathrm{EM}}=\frac12Y+T_{3}, \label{eq:Gell-Mann-Nishijima}
 \end{equation}
-where $T_{3}\dot=\operatorname{diag}\left(\frac{1}{2},-\frac{1}{2}\right)$ is an $S U(2)_{L}$ generator.  Thus, they reproduce electric charge quantization, e.g. the equality in magnitude of the proton and electron charges. Although these hypercharge assignments look rather ad hoc, their values are dictated by the quantum consistency of the theory~\footnote{It is indeed easy to check that these are (module an irrelevant overall normalization) the only (family independent) assignments canceling all potential triangle gauge anomalies.}. 
+where $T_{3}\dot=\operatorname{diag}\left(\frac{1}{2},-\frac{1}{2}\right)$ is an $S U(2)_{L}$ generator.  Thus, they reproduce electric charge quantization, e.g. the equality in magnitude of the proton and electron charges. Although these hypercharge assignments look rather ad hoc, their values are dictated by the quantum consistency of the theory.\marginpar{It is indeed easy to check that these are (module an irrelevant overall normalization) the only (family independent) assignments canceling all potential triangle gauge anomalies.}
 
 \subsection{Gauge Bosons}
 
@@ -162,55 +169,59 @@ and gauge fields $G^a$, $W^i$, and $B$ acting on each kind of fermion via
 \end{equation}
 which couples the fermions to the gauge bosons. 
 % TO DO -> Feynman Diagrams
-\subsection{Eletroweak Symmetry Breaking}
+\subsection{Electroweak Symmetry Breaking}
 
-In the SM, the electroweak symmetry $S U(2)_{L} \times U(1)_{Y}$ is spontaneously broken down to the electromagnetic $U(1)_{\text {EM }}$ symmetry by a complex scalar Higgs field transforming as a $S U(2)_{L}$ doublet $H=\left(H^{+}, H^{0}\right)$ and with hypercharge $+1$. Its dynamics are parametrized in terms of a potential, devised to trigger a non-vanishing Higgs vacuum expectation value (vev)~$v$:
+In the SM, the electroweak symmetry $SU(2)_{L} \times U(1)_{Y}$ is spontaneously broken down to the electromagnetic $U(1)_{\text{EM}}$ symmetry by a complex scalar Higgs field $H=\left(H^{+}, H^{0}\right)$ transforming as an $SU(2)_{L}$ doublet with hypercharge $+1$. Its dynamics are governed by the Mexican-hat potential:
 \begin{equation}
-	V=-\mu^{2}|H|^{2}+\lambda|H|^{4} \Rightarrow v^{2} \equiv\langle|H|\rangle^{2}=\mu^{2} / 2 \lambda.
+    V(H)=-\mu^{2}|H|^{2}+\lambda|H|^{4} \quad \Rightarrow \quad v^{2} \equiv \langle H^{\dagger} H \rangle = \mu^{2} / 2\lambda.
 \end{equation}
-The vev defines the electrically neutral direction and is set to $\left\langle H^{0}\right\rangle \simeq 170 \mathrm{GeV}$ in order to generate the vector boson masses. Simultaneously, it produces masses for quarks and leptons through the Yukawa couplings:
+The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$.
+
+Fermion masses arise through Yukawa couplings, which represent the most general renormalizable interactions between the Higgs field and the fermion fields:
 \begin{equation}
-	\mathcal{L}_{\text {Yuk }}=y_{u}^{i j} \bar{q}_{L}^{i} u_{R}^{j} \tilde H+y_{d}^{i j} \bar{q}_{L}^{i} d_{R}^{j} H+y_{\ell}^{i j} \bar{\ell}_L^{i} e_{R}^{j} H+\text { h.c. }
+    \mathcal{L}_{\text{Yuk}} = y_{u}^{ij} \bar{q}_{L}^{i} u_{R}^{j} \tilde{H} + y_{d}^{ij} \bar{q}_{L}^{i} d_{R}^{j} H + y_{\ell}^{ij} \bar{\ell}_L^{i} e_{R}^{j} H + \text{h.c.},
 \end{equation}
-where $y_{u, d,l}$ are $3 \times 3$ complex coupling matrices.
-These interactions are actually the most general consistent with gauge invariance and renormalizability, and accidentally are invariant under the global symmetries related to the baryon number $B$ and the three family lepton numbers $L_{i}$\footnote{Regarding the Standard Model as an effective theory, non-renormalizable operators violating these symmetries may, however, be present.}. When $H$ acquires a vacuum expectation value, $\braket{H}=(0, v / \sqrt{2})$, $\mathcal{L}_{\text {Yuk }}$ yields mass terms for the quarks and leptons. For quarks, the physical states are obtained by diagonalizing $y_{u, d}$ by four unitary matrices, $V_{L, R}^{u, d}$, as $M_{\text {diag }}^{f}=V_{L}^{f} Y^{f} V_{R}^{f \dagger}(v / \sqrt{2})$, $f=u, d$. As a result, the charged-current $W^{\pm}$ interactions couple to the physical $u_{L j}$ and $d_{L k}$ quarks with couplings given by
+where $\tilde{H} = i\sigma_2 H^*$, and $y_{u}, y_{d}, y_{\ell}$ are arbitrary $3 \times 3$ complex matrices in flavor space. When the Higgs acquires its vev, $\langle H \rangle = (0, v/\sqrt{2})$, these couplings generate Dirac mass terms for the fermions.
 
-%TO DO -> Adjust to the margin
+The quark mass matrices are proportional to the Yukawa matrices: $M_u = y_u v/\sqrt{2}$, $M_d = y_d v/\sqrt{2}$. Since $y_u$ and $y_d$ are general complex matrices, they cannot be simultaneously diagonalized. The physical quark masses and states are found by performing separate unitary transformations on the left- and right-handed fields:
 \begin{equation}
-	\begin{aligned}
-		\mathcal{L}_{\mathrm{Fer}} &\supset
-		\frac{-g}{\sqrt{2}}
-		\left(\overline{u_{L}}, \overline{c_{L}}, \overline{t_{L}}\right) 
-		\gamma^{\mu} W_{\mu}^{+} V_{\mathrm{CKM}}\left(
-			\begin{array}{l}
-				d_{L} \\
-				s_{L} \\
-				b_{L}
-			\end{array}
-		\right)+\text { h.c., } 
-		\\V_{\mathrm{CKM}} &\equiv V_{L}^{u} V_{L}^{d \dagger}
-		=\left(\begin{array}{ccc}
-			V_{u d} & V_{u s} & V_{u b} \\
-			V_{c d} & V_{c s} & V_{c b} \\
-			V_{t d} & V_{t s} & V_{t b}
-		\end{array}\right) .
-	\end{aligned}
+    u_L \to V_L^u u_L, \quad u_R \to V_R^u u_R, \quad d_L \to V_L^d d_L, \quad d_R \to V_R^d d_R,
 \end{equation}
+such that $V_L^u M_u V_R^{u\dagger} = M_u^{\text{diag}}$ and $V_L^d M_d V_R^{d\dagger} = M_d^{\text{diag}}$ are diagonal with real, positive entries.
 
-
-In both flavour-changing charged and neutral currents, the electroweak couplings of gauge bosons to the three lepton families are identical up to well-understood kinematic effects and small radiative corrections. This property, known as \textit{Lepton Flavour Universality} (LFU), follows directly from the fact that all lepton doublets transform identically under the $SU(2)_L\times U(1)_Y$ gauge group and therefore couple with the same gauge couplings $g$ and $g'$. 
-
-This universality stands in contrast to the quark sector, where flavour-changing interactions are modified by the Cabibbo-Kobayashi-Maskawa (CKM) matrix. Specifically, the $W$ boson couples to each leptonic charged current $\bar{\nu}_{L}\gamma^\mu \ell_{L}$ with universal coefficient $-g/\sqrt{2}$, while the $Z$ boson couplings to $\ell_{L}$ and $\ell_{R}$ are flavour-independent due to identical hypercharge assignments across families. 
-
-Consequently, decay rates or cross sections that differ only by the flavour of the charged lepton are predicted to be equal after accounting for phase-space differences, helicity suppression, and the lepton-mass dependence of radiative corrections. The assumption of LFU is fundamental when determining CKM parameters, particularly when combining results from semileptonic and leptonic decays involving electrons, muons, and tau leptons.
-
-Precision tests of LFU compare suitably normalized ratios—such as leptonic decay widths or branching-ratio ratios—where most theoretical and experimental uncertainties cancel. Agreement with these tests provides direct verification of the SM gauge structure, while deviations could signal new physics beyond the Standard Model.
-
-The Lagrangian of the scalar sector is simply
+This diagonalization procedure has a direct consequence for the charged-current interactions mediated by the $W^{\pm}$ bosons. In the flavor basis the interaction reads
 \begin{equation}
-	\mathcal{L}_{H}= \mathcal D_{\mu} H^{\dagger} \mathcal D^{\mu} H-V\left(H^{\dagger}, H\right)
+    \mathcal{L}_{W} \supset -\frac{g}{\sqrt{2}} (\bar{u}_L, \bar{c}_L, \bar{t}_L) \gamma^\mu W_\mu^+ (d_L, s_L, b_L)^T + \text{h.c.}
 \end{equation}
-where $\mathcal D_{\mu} H=\left(\partial_{\mu}+i g T_a W_{\mu}^{a}+i g^{\prime} \frac Y2 B_{\mu}\right) H$, then
+After moving to the mass basis, the left-handed up- and down-type quarks rotate differently ($u_L \to V_L^u u_L$, $d_L \to V_L^d d_L$), and the interaction becomes
+\begin{equation}
+    \mathcal{L}_{W} \supset -\frac{g}{\sqrt{2}} (\bar{u}_L, \bar{c}_L, \bar{t}_L) \gamma^\mu W_\mu^+ V_{\mathrm{CKM}} (d_L, s_L, b_L)^T + \text{h.c.},
+\end{equation}
+where the Cabibbo–Kobayashi–Maskawa (CKM) matrix appears as the mismatch between the two rotations:
+\begin{equation}
+    V_{\mathrm{CKM}} \equiv V_{L}^{u} V_{L}^{d \dagger} = \begin{pmatrix}
+        V_{ud} & V_{us} & V_{ub} \\
+        V_{cd} & V_{cs} & V_{cb} \\
+        V_{td} & V_{ts} & V_{tb}
+    \end{pmatrix}.
+\end{equation}
+This unitary matrix encodes flavor mixing in charged-current weak interactions, and its non-diagonal structure is the origin of all quark flavor-changing processes in the Standard Model.
+
+The situation is different for leptons in the minimal Standard Model without right-handed neutrinos. The charged-lepton mass matrix $M_\ell = y_\ell v/\sqrt{2}$ can be diagonalized by field redefinitions, but since neutrinos are massless in this framework, there is no additional rotation in the neutrino sector. As a result, the charged-current interaction
+\begin{equation}
+    \mathcal{L}_{W} \supset -\frac{g}{\sqrt{2}} \bar{\nu}_L \gamma^\mu W_\mu^+ \ell_L + \text{h.c.}
+\end{equation}
+remains diagonal in the mass basis. This implies \textit{Lepton Flavor Universality} (LFU): the electroweak gauge bosons couple to all three lepton families with identical strength. In particular, the $W$ boson couples to each $\bar{\nu}_L \gamma^\mu \ell_L$ current with coefficient $-g/\sqrt{2}$, and the $Z$ boson couplings to $\ell_L$ and $\ell_R$ are flavor-independent because the hypercharge assignments are the same for all families.
+
+LFU means that processes differing only by the lepton flavor, such as leptonic decays or semileptonic transitions, are predicted to occur with the same rates up to well-understood effects: differences in phase space, helicity suppression, lepton-mass dependence, and small radiative corrections. The assumption of LFU is central in the extraction of CKM parameters, since experimental determinations from decays involving electrons, muons, and tau leptons can be consistently combined.
+
+Precision tests of LFU focus on ratios of decay widths or branching fractions where theoretical and experimental uncertainties cancel to a large extent. Agreement with these tests confirms the gauge structure of the Standard Model, while deviations would point to new physics.
+
+The Lagrangian of the scalar sector is
+\begin{equation}
+	\mathcal{L}_{H}= \mathcal D_{\mu} H^{\dagger} \mathcal D^{\mu} H - V\!\left(H^{\dagger}, H\right),
+\end{equation}
+with the covariant derivative defined as $\mathcal D_{\mu} H=\left(\partial_{\mu}+i g T_a W_{\mu}^{a}+i g^{\prime} \tfrac{Y}{2} B_{\mu}\right) H$. Substituting the Higgs vacuum expectation value, one obtains
 \begin{equation}
 	\begin{aligned}
 		\mathcal{L}_{\langle H\rangle}
@@ -223,18 +234,17 @@ where $\mathcal D_{\mu} H=\left(\partial_{\mu}+i g T_a W_{\mu}^{a}+i g^{\prime} 
 			0 \\
 			v
 		\end{array}\right)
-		\\&
 		\\&=
 		-\frac{1}{8} v^{2} V_{\mu}^{T}\left(\begin{array}{cccc}
 			g^{2} & 0 & 0 & 0 \\
 			0 & g^{2} & 0 & 0 \\
 			0 & 0 & g^{2} & -g' g \\
 			0 & 0 & -g' g & g'^{2}
-		\end{array}\right) V^{\mu}
+		\end{array}\right) V^{\mu},
 	\end{aligned}
 \end{equation} 
-where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$. Diagonalizing this mass matrix, we have that the mass eigenvalues are $0,-\frac{1}{8} v^{2} g^{2},-\frac{1}{8} v^{2} g^{2}$, and $-\frac{1}{8} v^{2}\left(g^{2}+g'^{2}\right)$. The massless boson is the photon, the most massive is the Z boson, and the two intermediate vectors correspond to the bosons $W^+$ and $W^-$, that transform under a representation of the unbroken generator $Q_{EM}$. 
+where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$. Diagonalizing this mass matrix yields eigenvalues $0$, $-\tfrac{1}{8} v^{2} g^{2}$, $-\tfrac{1}{8} v^{2} g^{2}$, and $-\tfrac{1}{8} v^{2}\left(g^{2}+g'^{2}\right)$. The massless state corresponds to the photon, the heaviest to the $Z$ boson, and the two degenerate intermediate states to the charged bosons $W^\pm$, which transform under the representation of the unbroken generator $Q_{EM}$. 
 
-Having said that, so far, it is enough to understand how the standard model of particle physics as a relativistic field theory describes the interactions of fundamental matter articles via the fundamental forces, mediated by the force carrying particles, the vector bosons. The Higgs boson, also a fundamental Standard Model particle, plays a central role  in the mechanism that determines the masses of the photon and weak bosons, as well as the rest of the standard model particles.
+This suffices to illustrate how the Standard Model, formulated as a relativistic quantum field theory, describes the interactions of matter fields through the fundamental forces, mediated by vector bosons. The Higgs boson, also part of the Standard Model spectrum, plays the central role in generating masses for the weak bosons, the fermions, and indirectly in distinguishing the photon as the only massless gauge boson of the electroweak sector.
 
-Since then, the standard model has faced several experimental tests and has had unprecedented success in explaining the measurements made so far; it has also been a powerful predictive theory. The Standard model has proven  successfully at describing many features of nature that we measure in our experiments. The most famous example is the agreement of the Standard Model prediction and the experimental measurement of the electron magnetic dipole moment to within twelve  significant figures of accuracy~\parencite{PhysRevLett.97.030801}.  The 2012 discovery of the Higgs boson was the culmination of almost fifty years of searching for the particle first predicted to exist in 1965 and first incorporated into the Standard Model in 1967 with Glashow, Weinberg, and Salam's unification of the electromagnetic and weak forces~\parencite{PhysRevLett.19.1264, gl1961579}. With the 2012 Higgs discovery, the full predicted particle spectrum of the Standard Model was finally observed.
+Since its formulation, the Standard Model has been tested extensively and has shown remarkable success, both in explaining existing data and in making accurate predictions. A well-known example is the agreement between the Standard Model prediction and the experimental measurement of the electron magnetic dipole moment, consistent to twelve significant figures~\parencite{PhysRevLett.97.030801}. The discovery of the Higgs boson in 2012 was the culmination of almost fifty years of experimental effort, confirming the mechanism incorporated into the Standard Model in the late 1960s through the unification of the electromagnetic and weak interactions by Glashow, Weinberg, and Salam~\parencite{PhysRevLett.19.1264, gl1961579}. With this discovery, the full particle spectrum predicted by the Standard Model was finally observed.
