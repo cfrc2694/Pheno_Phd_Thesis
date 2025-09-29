@@ -123,6 +123,101 @@ while these kinetic terms induce vertices between gauge bosons and in turn do no
 \end{equation}
 where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electromagnetic potential.
 
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph21} 
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{gluon,tension=2.0}{i1,v1}
+                \fmf{gluon}{v1,o1}
+                \fmf{gluon}{v1,o2}
+
+                \fmflabel{$g^a$}{i1}
+                \fmflabel{$g^b$}{o1}
+                \fmflabel{$g^c$}{o2}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Triple gluon vertex.}
+        \label{fig-triple-gluon}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph22}
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1,i2}
+                \fmfright{o1,o2}
+                
+                \fmf{gluon}{i1,v1}
+                \fmf{gluon}{i2,v1}
+                \fmf{gluon}{v1,o1}
+                \fmf{gluon}{v1,o2}
+
+                \fmflabel{$g^a$}{i1}
+                \fmflabel{$g^b$}{i2}
+                \fmflabel{$g^c$}{o1}
+                \fmflabel{$g^d$}{o2}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Quartic gluon vertex.}
+        \label{fig-quartic-gluon}
+    \end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph23}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1}
+                \fmfright{o1,o2}
+
+				\fmf{boson,tension=2.0}{i1,v1}
+                \fmf{boson}{v1,o1}
+				\fmf{boson}{v1,o2}
+
+				\fmflabel{$Z/\gamma$}{i1}
+				\fmflabel{$W^+$}{o1}
+				\fmflabel{$W^-$}{o2}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Triple $WWX$ boson vertex.}
+		\label{fig-triple-w}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph24}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1,i2}
+                \fmfright{o1,o2}
+
+				\fmf{boson}{i1,v1}
+                \fmf{boson}{i2,v1}
+				\fmf{boson}{v1,o1}
+                \fmf{boson}{v1,o2}
+
+				\fmflabel{$W^+$}{i1}
+				\fmflabel{$W^-$}{i2}
+				\fmflabel{$W^+$}{o1}
+				\fmflabel{$W^-$}{o2}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Quartic $W$ boson vertex.}
+		\label{fig-quartic-w}
+	\end{subfigure}
+    \caption{Feynman diagrams for gauge boson self-interactions.}
+    \label{fig-gauge-vertices}
+\end{figure}
+
 \subsection{Matter Fields}
 We refer to the fermionic fields of the SM as the matter fields. We distinguish fermions in these two categories: leptons, fermions that do not have strong interaction, and quarks that interact both strongly and electroweakly. In table \ref{tab-generations}, we can see that there are six leptons, three charged and three neutral: each charged lepton has an associated neutrino forming between them doublets of $SU(2)_L$ and similarly for quarks. 
 
