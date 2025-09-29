@@ -412,13 +412,68 @@ In the SM, the electroweak symmetry $SU(2)_{L} \times U(1)_{Y}$ is spontaneously
 \end{equation}
 The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$.
 
+\begin{equation}
+	H = \begin{pmatrix} G^{+} \\ \frac{1}{\sqrt{2}}(v + h + i G^{0}) \end{pmatrix},
+\end{equation}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph16}
+            \vspace{1.0cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+
+                \fmf{dashes,tension=2.0}{i1,v1}
+                \fmf{dashes}{v1,o1}
+                \fmf{dashes}{v1,o2}
+
+                \fmflabel{$h$}{i1}
+                \fmflabel{$h$}{o1}
+                \fmflabel{$h$}{o2}
+            \end{fmfgraph*}
+            \vspace{0.5cm}
+        \end{fmffile}
+        \caption{Higgs triple self-coupling.}
+        \label{fig-higgs-triple}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph17}
+            \vspace{1.0cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1,i2}
+                \fmfright{o1,o2}
+
+                \fmf{dashes}{i1,v1}
+                \fmf{dashes}{i2,v1}
+                \fmf{dashes}{v1,o1}
+                \fmf{dashes}{v1,o2}
+
+                \fmflabel{$h$}{i1}
+                \fmflabel{$h$}{i2}
+                \fmflabel{$h$}{o1}
+                \fmflabel{$h$}{o2}
+            \end{fmfgraph*}
+            \vspace{0.5cm}
+        \end{fmffile}
+        \caption{Higgs quartic self-coupling.}
+        \label{fig-higgs-quartic}
+    \end{subfigure}
+    \caption{Feynman diagrams for Higgs self-interactions arising from the potential $V(H^\dagger, H) = -\mu^2|H|^2 + \lambda|H|^4$ in the Higgs Lagrangian.}
+    \label{fig-higgs-self-interactions}
+\end{figure}
+
 Fermion masses arise through Yukawa couplings, which represent the most general renormalizable interactions between the Higgs field and the fermion fields:
 \begin{equation}
     \mathcal{L}_{\text{Yuk}} = y_{u}^{ij} \bar{q}_{L}^{i} u_{R}^{j} \tilde{H} + y_{d}^{ij} \bar{q}_{L}^{i} d_{R}^{j} H + y_{\ell}^{ij} \bar{\ell}_L^{i} e_{R}^{j} H + \text{h.c.},
 \end{equation}
 where $\tilde{H} = i\sigma_2 H^*$, and $y_{u}, y_{d}, y_{\ell}$ are arbitrary $3 \times 3$ complex matrices in flavor space. When the Higgs acquires its vev, 
 \begin{equation}
-		H = \begin{pmatrix} G^{+} \\ \frac{1}{\sqrt{2}}(v + h + i G^{0}) \end{pmatrix},\qquad \Longrightarrow \quad \langle H \rangle = \begin{pmatrix} 0 \\ \frac{v}{\sqrt{2}} \end{pmatrix},
+		\langle H \rangle = \begin{pmatrix} 0 \\ \frac{v}{\sqrt{2}} \end{pmatrix},
 \end{equation}
 these couplings generate Dirac mass terms for the fermions.
 
@@ -490,39 +545,6 @@ these couplings generate Dirac mass terms for the fermions.
 	\end{subfigure}
 	\begin{subfigure}[b]{0.48\textwidth}
         \centering
-		\begin{fmffile}{feyngraph12}
-			\vspace{1.0cm}
-			\begin{fmfgraph*}(80,60)
-				\fmfleft{i1}
-				\fmfright{o1,o2,o3}
-
-				\fmf{gluon}{i1,v1}
-				\fmf{gluon,tension=0.8}{v1,o1}
-				\fmf{gluon,tension=0.8}{v1,o2}
-				\fmf{gluon,tension=0.8}{v1,o3}
-
-				\fmflabel{$g^a$}{i1}
-				\fmflabel{$g^b$}{o1}
-				\fmflabel{$g^c$}{o2}
-				\fmflabel{$g^d$}{o3}
-			\end{fmfgraph*}
-			\vspace{0.5cm}
-		\end{fmffile}
-		\caption{Gluon self-interaction.}
-		\label{fig-gluon-self}
-	\end{subfigure}
-    \caption{Feynman diagrams for Yukawa couplings and gluon self-interactions in the Standard Model.}
-\end{figure}
-
-
-The quark mass matrices are proportional to the Yukawa matrices: $M_u = y_u v/\sqrt{2}$, $M_d = y_d v/\sqrt{2}$. Since $y_u$ and $y_d$ are general complex matrices, they cannot be simultaneously diagonalized. The physical quark masses and states are found by performing separate unitary transformations on the left- and right-handed fields:
-\begin{equation}
-    u_L \to V_L^u u_L, \quad u_R \to V_R^u u_R, \quad d_L \to V_L^d d_L, \quad d_R \to V_R^d d_R,
-\end{equation}
-such that $V_L^u M_u V_R^{u\dagger} = M_u^{\text{diag}}$ and $V_L^d M_d V_R^{d\dagger} = M_d^{\text{diag}}$ are diagonal with real, positive entries.
-
-\begin{figure}[h!]
-		\centering
 		\begin{fmffile}{feyngraph13} 
 		\vspace{0.5cm}
 				\begin{fmfgraph*}(80,60)
@@ -537,10 +559,19 @@ such that $V_L^u M_u V_R^{u\dagger} = M_u^{\text{diag}}$ and $V_L^d M_d V_R^{d\d
 						\fmflabel{$f_R$}{o1}
 				\end{fmfgraph*}
 		\vspace{0.5cm}
+		\caption{Fermion mass term from vev.}
+		\label{fig-yukawa-mass}
 		\end{fmffile}
-		\caption{Feynman diagram for quark mass generation via Yukawa coupling and Higgs vev.}
-		\label{fig-quark-mass}
+	\end{subfigure}
+    \caption{Feynman diagrams for Yukawa couplings.}
 \end{figure}
+
+
+The quark mass matrices are proportional to the Yukawa matrices: $M_u = y_u v/\sqrt{2}$, $M_d = y_d v/\sqrt{2}$. Since $y_u$ and $y_d$ are general complex matrices, they cannot be simultaneously diagonalized. The physical quark masses and states are found by performing separate unitary transformations on the left- and right-handed fields:
+\begin{equation}
+    u_L \to V_L^u u_L, \quad u_R \to V_R^u u_R, \quad d_L \to V_L^d d_L, \quad d_R \to V_R^d d_R,
+\end{equation}
+such that $V_L^u M_u V_R^{u\dagger} = M_u^{\text{diag}}$ and $V_L^d M_d V_R^{d\dagger} = M_d^{\text{diag}}$ are diagonal with real, positive entries.
 
 This diagonalization procedure has a direct consequence for the charged-current interactions mediated by the $W^{\pm}$ bosons. In the flavor basis the interaction reads
 \begin{equation}
@@ -603,7 +634,7 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \begin{fmffile}{feyngraph14} 
-			\vspace{0.5cm}
+            \vspace{0.5cm}
             \begin{fmfgraph*}(80,60)
                 \fmfleft{i1,i2}
                 \fmfright{o1,o2}
@@ -617,17 +648,19 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
                 \fmflabel{$h$}{i2}
                 \fmflabel{$W^+$}{o1}
                 \fmflabel{$W^-$}{o2}
+
+                \fmfv{lab=$igv$, lab.dist=0.3cm, lab.angle=-90}{v1}
             \end{fmfgraph*}
-			\vspace{0.5cm}
+            \vspace{0.5cm}
         \end{fmffile}
-        \caption{Higgs-$W$ boson coupling.}
+        \caption{$hhWW$ coupling.}
         \label{fig-higgs-w}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \begin{fmffile}{feyngraph15}
-			\vspace{0.5cm}
+            \vspace{0.5cm}
             \begin{fmfgraph*}(80,60)
                 \fmfleft{i1,i2}
                 \fmfright{o1}
@@ -640,59 +673,62 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
                 \fmflabel{$h$}{i2}
                 \fmflabel{$Z$}{o1}
 
-				\fmfv{lab=$\frac{ig^2 v}{\cos\theta_w}$, lab.dist=0.3cm, lab.angle=-65}{v1}
+                \fmfv{lab=$\frac{igv}{\cos\theta_w}$, lab.dist=0.3cm, lab.angle=-65}{v1}
             \end{fmfgraph*}
-			\vspace{0.5cm}
+            \vspace{0.5cm}
         \end{fmffile}
-        \caption{Higgs-$Z$ boson coupling.}
+        \caption{$hhZ$ coupling.}
         \label{fig-higgs-z}
     \end{subfigure}
-	\begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.48\textwidth}
         \centering
-		\begin{fmffile}{feyngraph16}
-			\vspace{1.0cm}
-			\begin{fmfgraph*}(80,60)
-				\fmfleft{i1}
+        \begin{fmffile}{feyngraph18}
+            \vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
                 \fmfright{o1,o2}
+                
+                \fmf{dashes,tension=2.0}{i1,v1}
+                \fmf{boson}{v1,o1}
+                \fmf{boson}{v1,o2}
 
-				\fmf{dashes,tension=2.0}{i1,v1}
-                \fmf{dashes}{v1,o1}
-				\fmf{dashes}{v1,o2}
+                \fmflabel{$h$}{i1}
+                \fmflabel{$W^+$}{o1}
+                \fmflabel{$W^-$}{o2}
 
-				\fmflabel{$h$}{i1}
-				\fmflabel{$h$}{o1}
-				\fmflabel{$h$}{o2}
-			\end{fmfgraph*}
-			\vspace{0.5cm}
-		\end{fmffile}
-		\caption{Higgs triple self-coupling.}
-		\label{fig-higgs-triple}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.48\textwidth}
+                \fmfv{lab=$igm_W$, lab.dist=0.3cm, lab.angle=-90}{v1}
+            \end{fmfgraph*}
+            \vspace{0.5cm}
+        \end{fmffile}
+        \caption{$hWW$ coupling.}
+        \label{fig-higgs-w-triple}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.48\textwidth}
         \centering
-		\begin{fmffile}{feyngraph17}
-			\vspace{1.0cm}
-			\begin{fmfgraph*}(80,60)
-				\fmfleft{i1,i2}
-                \fmfright{o1,o2}
+        \begin{fmffile}{feyngraph19}
+            \vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1}
+                
+                \fmf{dashes,tension=2.0}{i1,v1}
+                \fmf{boson,tension=2.0}{v1,o1}
 
-				\fmf{dashes}{i1,v1}
-                \fmf{dashes}{i2,v1}
-				\fmf{dashes}{v1,o1}
-                \fmf{dashes}{v1,o2}
+                \fmflabel{$h$}{i1}
+                \fmflabel{$Z$}{o1}
 
-				\fmflabel{$h$}{i1}
-				\fmflabel{$h$}{i2}
-				\fmflabel{$h$}{o1}
-				\fmflabel{$h$}{o2}
-			\end{fmfgraph*}
-			\vspace{0.5cm}
-		\end{fmffile}
-		\caption{Higgs quartic self-coupling.}
-		\label{fig-higgs-quartic}
-	\end{subfigure}
-    \caption{Feynman diagrams for the Higgs sector interactions in the Standard Model.}
+                \fmfv{lab=$igm_Z/\cos\theta_w$, lab.dist=0.3cm, lab.angle=-65}{v1}
+            \end{fmfgraph*}
+            \vspace{0.5cm}
+        \end{fmffile}
+        \caption{$hZ$ coupling.}
+        \label{fig-higgs-z-triple}
+    \end{subfigure}
+    \caption{Feynman diagrams for Higgs-gauge boson interactions arising from the covariant derivative term $\mathcal{D}_\mu H^\dagger \mathcal{D}^\mu H$ in the Higgs Lagrangian.}
+    \label{fig-higgs-gauge-interactions}
 \end{figure}
+
+
 
 This suffices to illustrate how the Standard Model, formulated as a relativistic quantum field theory, describes the interactions of matter fields through the fundamental forces, mediated by vector bosons. The Higgs boson, also part of the Standard Model spectrum, plays the central role in generating masses for the weak bosons, the fermions, and indirectly in distinguishing the photon as the only massless gauge boson of the electroweak sector.
 
