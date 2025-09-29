@@ -8,7 +8,6 @@ The masses of the SM fermions are generated not through direct Yukawa couplings 
 \end{align}
 where $i, j = 1,2,3$ are flavor indices. An entirely analogous set of terms exists for the lepton sector. The Yukawa matrices $Y_{uL}, Y_{dL}, Y_{uR}, Y_{dR}$ and the vector-like mass matrices $m_{\chi u}, m_{\chi d}$ are general complex $3 \times 3$ matrices, making the flavor structure highly non-trivial.
 
-\section{Diagonalization and Field Redefinitions}
 To make physical predictions, we must diagonalize these matrices. We express them in terms of their singular value decompositions (i.e., their diagonal forms) and the associated unitary mixing matrices:
 \begin{align*}
 Y_{u L} &= U_{L L}^{\dagger} Y_{u L}^{d} U_{L R}, & Y_{u R} &= U_{R L}^{\dagger} Y_{u R}^{d} U_{R R}, \\
@@ -36,7 +35,6 @@ The matrix $\tilde{V}_{\text{CKM}} \equiv U_{LL}V_{LL}^\dagger$ is identified as
 \end{align*}
 All matrices $Y^{d}$ and $m^{d}$ are now diagonal. The only remaining off-diagonal flavor structure is in $\tilde{V}_{\text{CKM}}$.
 
-\section{Symmetry Breaking and the Mass Matrix}
 After the electroweak symmetry breaking ($\langle H \rangle = v_h / \sqrt{2}$) and the $U(1)_{T_R^3}$ breaking ($\langle \phi \rangle = v_\phi / \sqrt{2}$), the mass terms for the up-type quarks (and analogously for down-type and leptons) are generated. For a single generation, the mass terms in the basis $(\bar{u}_L, \bar{\chi}_{u L})$, $(u_R, \chi_{u R})^T$ form a $2 \times 2$ matrix:
 \begin{equation}
 \mathcal{L}_{\text{mass}} = - \begin{pmatrix} \bar{u}_L & \bar{\chi}_{u L} \end{pmatrix}
@@ -60,7 +58,6 @@ m_R & m_{\chi}
 \end{equation}
 where each entry is now a $3 \times 3$ matrix: $m_L = \frac{v_h}{\sqrt{2}} Y_{fL}^{d}$, $m_R = \frac{v_\phi}{\sqrt{2}} Y_{fR}^{d}$, and $m_{\chi} = m_{\chi f}^{d}$.
 
-\section{Bi-Unitary Transformation and Mass Eigenvalues}
 The general mass matrix $M_f$ is diagonalized by a bi-unitary transformation:
 \begin{equation}
 U_{R}^{\dagger} M_f U_{L} = M_f^d = \text{diag}(m_{f_1}, m_{f_2}, m_{f_3}, m_{F_1}, m_{F_2}, m_{F_3}), \label{eq:bi_unitary_detail}
@@ -96,7 +93,6 @@ m_F^2 &= \frac{1}{2} \left( m_{\chi}^2 + m_L^2 + m_R^2 + \sqrt{ (m_{\chi}^2 + m_
 \end{align}
 where we have now assumed all parameters are real for clarity. $m_f$ is the light SM-like fermion mass, and $m_F$ is the heavy vector-like partner mass.
 
-\section{Yukawa Coupling Enhancement and Perturbativity}
 Equation \eqref{eq:m_f_detail} is fundamental. It shows that the light mass $m_f$ is not simply proportional to $m_L$ (the SM Higgs VEV). We can solve Eq. \eqref{eq:m_f_detail} for $m_L^2$:
 \begin{align*}
 m_f^2 (m_{\chi}^2 + m_L^2 + m_R^2 - m_f^2) &= m_L^2 m_R^2 \quad \text{(from the exact seesaw relation)} \\
@@ -109,13 +105,9 @@ Y_{fL}^2 = (Y_f^{\text{SM}})^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \righ
 \end{equation}
 This relation reveals the core of the universal seesaw mechanism: the Yukawa coupling $Y_{fL}$ that couples the SM fermions to the Higgs is \textit{enhanced} compared to the standard model value $Y_f^{\text{SM}}$. The enhancement factor is $\sqrt{1 + m_{\chi}^2/(m_R^2 - m_f^2)}$.
 
-This has profound implications:
-\begin{itemize}
-    \item \textbf{Light Fermions (e.g., electron, u-quark):} Here, $Y_f^{\text{SM}} \ll 1$. A large hierarchy $m_{\chi}^2 \gg m_R^2 \gg m_f^2$ can generate this tiny mass from a more ``natural'' $Y_{fL} \sim \mathcal{O}(0.1-1)$.
-    \item \textbf{Top Quark:} Here, $Y_t^{\text{SM}} \approx 1$ is already large. An enhancement could easily push $Y_{tL}$ into the non-perturbative regime ($Y_{tL}^2 / 4\pi > 1$). To avoid this, we must require the enhancement factor to be $\mathcal{O}(1)$, which implies $m_{\chi}^2 \lesssim m_R^2 - m_t^2$. Since $m_R = \frac{v_\phi}{\sqrt{2}} Y_{fR}$, this suggests $v_\phi > m_{\chi}$ is a natural condition.
-\end{itemize}
+This has profound implications: On one hand, for light fermions $Y_f^{\text{SM}} \ll 1$. A large hierarchy $m_{\chi}^2 \gg m_R^2 \gg m_f^2$ can generate this tiny mass from a more ``natural'' $Y_{fL} \sim \mathcal{O}(0.1-1)$. On the other hand, for the top quark, $Y_t^{\text{SM}} \approx 1$ is already large. An enhancement could easily push $Y_{tL}$ into the non-perturbative regime ($Y_{tL}^2 / 4\pi > 1$). To avoid this, we must require the enhancement factor to be $\mathcal{O}(1)$, which implies $m_{\chi}^2 \lesssim m_R^2 - m_t^2$. Since $m_R = \frac{v_\phi}{\sqrt{2}} Y_{fR}$, this suggests $v_\phi > m_{\chi}$ is a natural condition.
 
-\section{Exact Diagonalization and Mixing Angles}
+
 The bi-unitary transformation \eqref{eq:bi_unitary_detail} is performed by matrices that can be parameterized by a mixing angle. For one generation, the left-handed mixing matrix is:
 \begin{equation}
 U_L = \begin{pmatrix}
