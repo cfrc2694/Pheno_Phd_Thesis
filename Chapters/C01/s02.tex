@@ -123,98 +123,6 @@ while these kinetic terms induce vertices between gauge bosons and in turn do no
 \end{equation}
 where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electromagnetic potential.
 
-\begin{figure}[h!]
-    \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \begin{fmffile}{feyngraph5} 
-			\vspace{0.5cm}
-            \begin{fmfgraph*}(80,60)
-                \fmfleft{i1}
-                \fmfright{o1,o2}
-                
-                \fmf{photon,tension=2.0}{i1,v1}
-                \fmf{fermion}{o1,v1}
-                \fmf{fermion}{v1,o2}
-
-                \fmflabel{$\gamma$}{i1}
-                \fmflabel{$\bar f$}{o1}
-                \fmflabel{$f$}{o2}
-            \end{fmfgraph*}
-			\vspace{0.5cm}
-        \end{fmffile}
-        \caption{Electromagnetic interaction.}
-        \label{fig-em-interaction}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \begin{fmffile}{feyngraph6}
-			\vspace{0.5cm}
-            \begin{fmfgraph*}(80,60)
-                \fmfleft{i1}
-                \fmfright{o1,o2}
-                
-                \fmf{boson,tension=2.0}{i1,v1}
-                \fmf{fermion}{o1,v1}
-                \fmf{fermion}{v1,o2}
-
-                \fmflabel{$W^{\pm}$}{i1}
-                \fmflabel{$\bar \ell/\bar u$}{o1}
-                \fmflabel{$\nu/d$}{o2}
-            \end{fmfgraph*}
-			\vspace{0.5cm}
-        \end{fmffile}
-        \caption{Charged weak interaction.}
-        \label{fig-charged-weak}
-    \end{subfigure}
-	\begin{subfigure}[b]{0.48\textwidth}
-        \centering
-		\begin{fmffile}{feyngraph7}
-			\vspace{1.0cm}
-			\begin{fmfgraph*}(80,60)
-				\fmfleft{i1}
-				\fmfright{o1,o2}
-
-				\fmf{boson,tension=2.0}{i1,v1}
-                \fmf{fermion}{o1,v1}
-                \fmf{fermion}{v1,o2}
-
-				\fmflabel{$Z$}{i1}
-				\fmflabel{$\bar f$}{o1}
-				\fmflabel{$f$}{o2}
-			\end{fmfgraph*}
-			\vspace{0.5cm}
-		\end{fmffile}
-		\caption{Neutral weak interaction.}
-		\label{fig-neutral-weak}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.48\textwidth}
-        \centering
-		\begin{fmffile}{feyngraph8}
-			\vspace{1.0cm}
-			\begin{fmfgraph*}(80,60)
-				\fmfleft{i1}
-				\fmfright{o1,o2}
-
-				\fmf{gluon,tension=2.0}{i1,v1}
-                \fmf{fermion}{o1,v1}
-                \fmf{fermion}{v1,o2}
-
-				\fmflabel{$g$}{i1}
-				\fmflabel{$\bar q$}{o1}
-				\fmflabel{$q$}{o2}
-
-				% \fmfv{lab=$ig_s\gamma^\mu t^a$, lab.dist=0.3cm, lab.angle=115}{v1}
-			\end{fmfgraph*}
-			\vspace{0.5cm}
-		\end{fmffile}
-		\caption{Strong interaction.}
-		\label{fig-strong-interaction}
-	\end{subfigure}
-    \caption{Feynman diagrams for gauge boson interactions in the Standard Model.}
-\end{figure}
-
 \subsection{Matter Fields}
 We refer to the fermionic fields of the SM as the matter fields. We distinguish fermions in these two categories: leptons, fermions that do not have strong interaction, and quarks that interact both strongly and electroweakly. In table \ref{tab-generations}, we can see that there are six leptons, three charged and three neutral: each charged lepton has an associated neutrino forming between them doublets of $SU(2)_L$ and similarly for quarks. 
 
@@ -261,7 +169,117 @@ and gauge fields $G^a$, $W^i$, and $B$ acting on each kind of fermion via
 	\mathcal D_{ \mu} d_R^i &=\fac{\partial_{\mu} -i g_{s} t_{a} G_{\mu}^{a} + i \frac{g^{\prime}}3  B_{\mu}}d_R^i \\
 \end{aligned}
 \end{equation}
-which couples the fermions to the gauge bosons.
+which couples the fermions to the gauge bosons. As we will show below, after electroweak symmetry breaking, these interactions give rise to the familiar electromagnetic, weak, and strong forces, where the physical $\gamma$, $Z$, and $W$ bosons are a superposition of the original $B$ and $W$ fields. Feynman diagrams for these interactions are shown in Fig.~\ref{fig-gauge-interactions}.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph5} 
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{photon}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
+
+                \fmflabel{$\gamma$}{i1}
+                \fmflabel{$\bar f$}{o1}
+                \fmflabel{$f$}{o2}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Electromagnetic interaction.}
+        \label{fig-em-interaction}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraph6}
+			\vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{boson}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
+
+                \fmflabel{$W^{\pm}$}{i1}
+                \fmflabel{$\bar \ell/\bar u$}{o1}
+                \fmflabel{$\nu/d$}{o2}
+            \end{fmfgraph*}
+			\vspace{0.5cm}
+        \end{fmffile}
+        \caption{Charged weak interaction.}
+        \label{fig-charged-weak}
+    \end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph7}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1}
+				\fmfright{o1,o2}
+
+				\fmf{boson}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
+
+				\fmflabel{$Z$}{i1}
+				\fmflabel{$\bar f$}{o1}
+				\fmflabel{$f$}{o2}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Neutral weak interaction.}
+		\label{fig-neutral-weak}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph8}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1}
+				\fmfright{o1,o2}
+
+				\fmf{gluon}{i1,v1}
+                \fmf{fermion}{o1,v1}
+                \fmf{fermion}{v1,o2}
+
+				\fmflabel{$g$}{i1}
+				\fmflabel{$\bar q$}{o1}
+				\fmflabel{$q$}{o2}
+
+				% \fmfv{lab=$ig_s\gamma^\mu t^a$, lab.dist=0.3cm, lab.angle=115}{v1}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Strong interaction.}
+		\label{fig-strong-interaction}
+	\end{subfigure}
+    \caption{Feynman diagrams for gauge boson interactions in the Standard Model.}\label{fig-gauge-interactions}
+\end{figure}
+
+\subsection{Electroweak Symmetry Breaking}
+
+In the SM, the electroweak symmetry $SU(2)_{L} \times U(1)_{Y}$ is spontaneously broken down to the electromagnetic $U(1)_{\text{EM}}$ symmetry by a complex scalar Higgs field $H=\left(H^{+}, H^{0}\right)$ transforming as an $SU(2)_{L}$ doublet with hypercharge $+1$. Its dynamics are governed by the Mexican-hat potential:
+\begin{equation}
+    V(H)=-\mu^{2}|H|^{2}+\lambda|H|^{4} \quad \Rightarrow \quad v^{2} \equiv \langle H^{\dagger} H \rangle = \mu^{2} / 2\lambda.
+\end{equation}
+The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$.
+
+Fermion masses arise through Yukawa couplings, which represent the most general renormalizable interactions between the Higgs field and the fermion fields:
+\begin{equation}
+    \mathcal{L}_{\text{Yuk}} = y_{u}^{ij} \bar{q}_{L}^{i} u_{R}^{j} \tilde{H} + y_{d}^{ij} \bar{q}_{L}^{i} d_{R}^{j} H + y_{\ell}^{ij} \bar{\ell}_L^{i} e_{R}^{j} H + \text{h.c.},
+\end{equation}
+where $\tilde{H} = i\sigma_2 H^*$, and $y_{u}, y_{d}, y_{\ell}$ are arbitrary $3 \times 3$ complex matrices in flavor space. When the Higgs acquires its vev, 
+\begin{equation}
+		H = \begin{pmatrix} G^{+} \\ \frac{1}{\sqrt{2}}(v + h + i G^{0}) \end{pmatrix},\qquad \Longrightarrow \quad \langle H \rangle = \begin{pmatrix} 0 \\ \frac{v}{\sqrt{2}} \end{pmatrix},
+\end{equation}
+these couplings generate Dirac mass terms for the fermions.
 
 \begin{figure}[h!]
     \centering
@@ -279,7 +297,7 @@ which couples the fermions to the gauge bosons.
 
                 \fmflabel{$\bar q_L$}{i1}
                 \fmflabel{$u_R$}{i2}
-                \fmflabel{$H$}{o1}
+                \fmflabel{$h$}{o1}
             \end{fmfgraph*}
 			\vspace{0.5cm}
         \end{fmffile}
@@ -290,20 +308,20 @@ which couples the fermions to the gauge bosons.
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \begin{fmffile}{feyngraph10}
-			\vspace{0.5cm}
-            \begin{fmfgraph*}(80,60)
-                \fmfleft{i1,i2}
-                \fmfright{o1}
-                
-                \fmf{fermion}{i1,v1}
-                \fmf{fermion}{v1,i2}
-                \fmf{dashes,tension=2.0}{v1,o1}
+				\vspace{0.5cm}
+							\begin{fmfgraph*}(80,60)
+									\fmfleft{i1,i2}
+									\fmfright{o1}
+									
+									\fmf{fermion}{i1,v1}
+									\fmf{fermion}{v1,i2}
+									\fmf{dashes,tension=2.0}{v1,o1}
 
-                \fmflabel{$\bar q_L$}{i1}
-                \fmflabel{$d_R$}{i2}
-                \fmflabel{$H$}{o1}
-            \end{fmfgraph*}
-			\vspace{0.5cm}
+									\fmflabel{$\bar q_L$}{i1}
+									\fmflabel{$d_R$}{i2}
+									\fmflabel{$h$}{o1}
+							\end{fmfgraph*}
+				\vspace{0.5cm}
         \end{fmffile}
         \caption{Down-type Yukawa coupling.}
         \label{fig-yukawa-down}
@@ -314,15 +332,15 @@ which couples the fermions to the gauge bosons.
 			\vspace{1.0cm}
 			\begin{fmfgraph*}(80,60)
 				\fmfleft{i1,i2}
-                \fmfright{o1}
+				\fmfright{o1}
 
 				\fmf{fermion}{i1,v1}
-                \fmf{fermion}{v1,i2}
-                \fmf{dashes,tension=2.0}{v1,o1}
+				\fmf{fermion}{v1,i2}
+				\fmf{dashes,tension=2.0}{v1,o1}
 
 				\fmflabel{$\bar \ell_L$}{i1}
 				\fmflabel{$e_R$}{i2}
-				\fmflabel{$H$}{o1}
+				\fmflabel{$h$}{o1}
 			\end{fmfgraph*}
 			\vspace{0.5cm}
 		\end{fmffile}
@@ -335,12 +353,12 @@ which couples the fermions to the gauge bosons.
 			\vspace{1.0cm}
 			\begin{fmfgraph*}(80,60)
 				\fmfleft{i1}
-                \fmfright{o1,o2,o3}
+				\fmfright{o1,o2,o3}
 
 				\fmf{gluon}{i1,v1}
-                \fmf{gluon,tension=0.8}{v1,o1}
+				\fmf{gluon,tension=0.8}{v1,o1}
 				\fmf{gluon,tension=0.8}{v1,o2}
-                \fmf{gluon,tension=0.8}{v1,o3}
+				\fmf{gluon,tension=0.8}{v1,o3}
 
 				\fmflabel{$g^a$}{i1}
 				\fmflabel{$g^b$}{o1}
@@ -355,26 +373,33 @@ which couples the fermions to the gauge bosons.
     \caption{Feynman diagrams for Yukawa couplings and gluon self-interactions in the Standard Model.}
 \end{figure}
 
-\subsection{Electroweak Symmetry Breaking}
-
-In the SM, the electroweak symmetry $SU(2)_{L} \times U(1)_{Y}$ is spontaneously broken down to the electromagnetic $U(1)_{\text{EM}}$ symmetry by a complex scalar Higgs field $H=\left(H^{+}, H^{0}\right)$ transforming as an $SU(2)_{L}$ doublet with hypercharge $+1$. Its dynamics are governed by the Mexican-hat potential:
-\begin{equation}
-    V(H)=-\mu^{2}|H|^{2}+\lambda|H|^{4} \quad \Rightarrow \quad v^{2} \equiv \langle H^{\dagger} H \rangle = \mu^{2} / 2\lambda.
-\end{equation}
-The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$.
-
-Fermion masses arise through Yukawa couplings, which represent the most general renormalizable interactions between the Higgs field and the fermion fields:
-\begin{equation}
-    \mathcal{L}_{\text{Yuk}} = y_{u}^{ij} \bar{q}_{L}^{i} u_{R}^{j} \tilde{H} + y_{d}^{ij} \bar{q}_{L}^{i} d_{R}^{j} H + y_{\ell}^{ij} \bar{\ell}_L^{i} e_{R}^{j} H + \text{h.c.},
-\end{equation}
-where $\tilde{H} = i\sigma_2 H^*$, and $y_{u}, y_{d}, y_{\ell}$ are arbitrary $3 \times 3$ complex matrices in flavor space. When the Higgs acquires its vev, $\langle H \rangle = (0, v/\sqrt{2})$, these couplings generate Dirac mass terms for the fermions.
-
 
 The quark mass matrices are proportional to the Yukawa matrices: $M_u = y_u v/\sqrt{2}$, $M_d = y_d v/\sqrt{2}$. Since $y_u$ and $y_d$ are general complex matrices, they cannot be simultaneously diagonalized. The physical quark masses and states are found by performing separate unitary transformations on the left- and right-handed fields:
 \begin{equation}
     u_L \to V_L^u u_L, \quad u_R \to V_R^u u_R, \quad d_L \to V_L^d d_L, \quad d_R \to V_R^d d_R,
 \end{equation}
 such that $V_L^u M_u V_R^{u\dagger} = M_u^{\text{diag}}$ and $V_L^d M_d V_R^{d\dagger} = M_d^{\text{diag}}$ are diagonal with real, positive entries.
+
+\begin{figure}[h!]
+		\centering
+		\begin{fmffile}{feyngraph13} 
+		\vspace{0.5cm}
+				\begin{fmfgraph*}(80,60)
+						\fmfleft{i1,i2}
+						\fmfright{o1}
+						
+						\fmf{fermion}{i1,v1,o1}
+						\fmf{dashes}{v1,i2}
+
+						\fmflabel{$\bar f_L$}{i1}
+						\fmflabel{$\langle H \rangle$}{i2}
+						\fmflabel{$f_R$}{o1}
+				\end{fmfgraph*}
+		\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Feynman diagram for quark mass generation via Yukawa coupling and Higgs vev.}
+		\label{fig-quark-mass}
+\end{figure}
 
 This diagonalization procedure has a direct consequence for the charged-current interactions mediated by the $W^{\pm}$ bosons. In the flavor basis the interaction reads
 \begin{equation}
@@ -436,7 +461,7 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \begin{fmffile}{feyngraph13} 
+        \begin{fmffile}{feyngraph14} 
 			\vspace{0.5cm}
             \begin{fmfgraph*}(80,60)
                 \fmfleft{i1,i2}
@@ -447,12 +472,10 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
                 \fmf{boson}{v1,o1}
                 \fmf{boson}{v1,o2}
 
-                \fmflabel{$H$}{i1}
-                \fmflabel{$H$}{i2}
+                \fmflabel{$h$}{i1}
+                \fmflabel{$h$}{i2}
                 \fmflabel{$W^+$}{o1}
                 \fmflabel{$W^-$}{o2}
-
-				\fmfv{lab=$ig^2 v$, lab.dist=0.25cm, lab.angle=90}{v1}
             \end{fmfgraph*}
 			\vspace{0.5cm}
         \end{fmffile}
@@ -462,7 +485,7 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \begin{fmffile}{feyngraph14}
+        \begin{fmffile}{feyngraph15}
 			\vspace{0.5cm}
             \begin{fmfgraph*}(80,60)
                 \fmfleft{i1,i2}
@@ -485,7 +508,7 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
     \end{subfigure}
 	\begin{subfigure}[b]{0.48\textwidth}
         \centering
-		\begin{fmffile}{feyngraph15}
+		\begin{fmffile}{feyngraph16}
 			\vspace{1.0cm}
 			\begin{fmfgraph*}(80,60)
 				\fmfleft{i1}
@@ -508,7 +531,7 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
 	\end{subfigure}
 	\begin{subfigure}[b]{0.48\textwidth}
         \centering
-		\begin{fmffile}{feyngraph16}
+		\begin{fmffile}{feyngraph17}
 			\vspace{1.0cm}
 			\begin{fmfgraph*}(80,60)
 				\fmfleft{i1,i2}
