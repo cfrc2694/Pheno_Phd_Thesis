@@ -93,7 +93,7 @@ where $f^{a b c}$ and $\epsilon^{i j k}$ are the structure constants of $SU(3)$ 
 	\end{aligned}
 \end{equation}
 Then, the curvature strength tensors are
-\begin{equation}
+\begin{equation}\label{eq:field-strength-tensors}
 \begin{aligned}
 	G_{\mu \nu}^{a} &=\partial_{\mu} G_{\nu}^{a}-\partial_{\nu} G_{\mu}^{a}+g_{s} f^{a b c} G_{\mu}^{b} G_{\nu}^{c} \\
 	W_{\mu \nu}^{i} &=\partial_{\mu} W_{\nu}^{i}-\partial_{\nu} W_{\mu}^{i}+g \epsilon^{i j k} W_{\mu}^{j} W_{\nu}^{k} \\
@@ -101,10 +101,11 @@ Then, the curvature strength tensors are
 \end{aligned}
 \end{equation}
 and the ``kinetic'' term for gauge fields in the Lagrangian is  
-\begin{equation}
+\begin{equation}\label{eq:gauge-lagrangian}
 \mathcal{L}_{\text{Gauge}}=-\frac{1}{4} G_{\mu \nu}^{a} G_{a}^{\mu \nu}-\frac{1}{4} W_{\mu \nu}^{i} W_{i}^{\mu \nu}-\frac{1}{4} B_{\mu \nu} B^{\mu \nu}.
 \end{equation}
-while these kinetic terms induce vertices between gauge bosons and in turn do not take into account the masses for such vector bosons, the Higgs mechanism produces the masses for them and gives us the linear combination to the physical bosons $W^\pm$, $Z$, $\gamma$:
+\marginpar{Before symmetry breaking we work in a general renormalizable $R_\xi$ gauge; for the discussion of observable tree-level vertices below we will adopt the \textit{unitary gauge}, in which the unphysical Goldstone bosons are removed from the spectrum and only the physical transverse and longitudinal polarizations of $W^\pm$ and $Z$ remain. (Ghost and Goldstone interactions present in a covariant gauge are therefore omitted from the figures.)}%
+while these kinetic terms induce vertices between gauge bosons and in turn do not take into account the masses for such vector bosons, the Higgs mechanism produces the masses for them and gives us the linear combination to the physical bosons $W^\pm$, $Z$, $\gamma$. The field redefinitions leading to mass eigenstates are
 \begin{equation}
 \begin{cases}
 	\begin{aligned}
@@ -123,6 +124,7 @@ while these kinetic terms induce vertices between gauge bosons and in turn do no
 \end{equation}
 where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electromagnetic potential.
 
+Due to the non-abelian nature of the $SU(3)_C$ and $SU(2)_L$ gauge groups, the corresponding gauge bosons also interact among themselves. From the strength tensors in Eq.~\eqref{eq:field-strength-tensors} in the kinetic term of the gauge Lagrangian in Eq.~\eqref{eq:gauge-lagrangian}, we obtain three- and four-point self-interaction vertices for vector bosons from the $SU(3)_C$ and $SU(2)_L$ sectors (see Fig.~\ref{fig-gauge-vertices}), whose structure follows directly from the commutation relations of the Lie algebra.
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
@@ -252,15 +254,15 @@ where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electroma
 
 				\fmflabel{$W^+$}{i1}
 				\fmflabel{$W^-$}{i2}
-				\fmflabel{$Z$}{o1}
-				\fmflabel{$Z$}{o2}
+				\fmflabel{$Z/\gamma$}{o1}
+			\fmflabel{$Z/\gamma$}{o2}
 			\end{fmfgraph*}
 			\vspace{0.5cm}
 		\end{fmffile}
-		\caption{Quartic $WWZZ$ vertex.}
-		\label{fig-quartic-wwzz}
+				\caption{Quartic $WWXX$ vertex ($X=Z,\gamma$).}
+				\label{fig-quartic-wwxx}
 	\end{subfigure}
-    \caption{Feynman diagrams for gauge boson self-interactions. The non-Abelian structure of $SU(3)_C$ and $SU(2)_L$ gives rise to triple and quartic gauge boson vertices. While $WWZ\gamma$ and $WWZZ$ quartic vertices exist, $WW\gamma\gamma$ does not appear as a fundamental vertex in the Standard Model due to the Abelian nature of the photon field.}
+			\caption{Feynman diagrams for gauge boson self-interactions (unitary gauge). We denote by $X=Z,\gamma$ a neutral electroweak gauge boson. }
     \label{fig-gauge-vertices}
 \end{figure}
 
@@ -310,7 +312,7 @@ and gauge fields $G^a$, $W^i$, and $B$ acting on each kind of fermion via
 	\mathcal D_{ \mu} d_R^i &=\fac{\partial_{\mu} -i g_{s} t_{a} G_{\mu}^{a} + i \frac{g^{\prime}}3  B_{\mu}}d_R^i \\
 \end{aligned}
 \end{equation}
-which couples the fermions to the gauge bosons. As we will show below, after electroweak symmetry breaking, these interactions give rise to the familiar electromagnetic, weak, and strong forces, where the physical $\gamma$, $Z$, and $W$ bosons are a superposition of the original $B$ and $W$ fields. Feynman diagrams for these interactions are shown in Fig.~\ref{fig-gauge-interactions}.
+which couples the fermions to the gauge bosons. As we will show below, after electroweak symmetry breaking, these interactions give rise to the familiar electromagnetic, weak, and strong forces, where the physical $\gamma$, $Z$, and $W$ bosons are a superposition of the original $B$ and $W$ fields. Representative tree-level gauge–fermion interactions are displayed in Fig.~\ref{fig-gauge-interactions}.
 
 \begin{figure}[h!]
     \centering
@@ -406,15 +408,18 @@ which couples the fermions to the gauge bosons. As we will show below, after ele
 
 \subsection{Electroweak Symmetry Breaking}
 
-In the SM, the electroweak symmetry $SU(2)_{L} \times U(1)_{Y}$ is spontaneously broken down to the electromagnetic $U(1)_{\text{EM}}$ symmetry by a complex scalar Higgs field $H=\left(H^{+}, H^{0}\right)$ transforming as an $SU(2)_{L}$ doublet with hypercharge $+1$. Its dynamics are governed by the Mexican-hat potential:
+In the SM, the electroweak symmetry $SU(2)_{L} \times U(1)_{Y}$ is spontaneously broken down to the electromagnetic $U(1)_{\text{EM}}$ symmetry by a complex scalar Higgs field $H=\left(H^{+}, H^{0}\right)$ transforming as an $SU(2)_{L}$ doublet with hypercharge $+1$. Its dynamics are governed by the Mexican-hat potential (the resulting scalar self-interactions are shown in Fig.~\ref{fig-higgs-self-interactions}):
 \begin{equation}
     V(H)=-\mu^{2}|H|^{2}+\lambda|H|^{4} \quad \Rightarrow \quad v^{2} \equiv \langle H^{\dagger} H \rangle = \mu^{2} / 2\lambda.
 \end{equation}
 The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$.
 
+We adopt the Kibble (polar) parametrization of the Higgs doublet in terms of one physical scalar $h$ and three would-be Goldstone bosons $G^{\pm},G^0$:
 \begin{equation}
-	H = \begin{pmatrix} G^{+} \\ \frac{1}{\sqrt{2}}(v + h + i G^{0}) \end{pmatrix},
+\label{eq:KibbleParam}
+H = \begin{pmatrix} G^{+} \\ \frac{1}{\sqrt{2}}(v + h + i G^{0}) \end{pmatrix},
 \end{equation}
+which in unitary gauge reduces to $H = \tfrac{1}{\sqrt{2}}(0, v+h)^T$ after gauging away $G^{\pm},G^0$.
 
 \begin{figure}[h!]
     \centering
@@ -467,7 +472,7 @@ The vacuum expectation value (vev) aligns with the electrically neutral componen
     \label{fig-higgs-self-interactions}
 \end{figure}
 
-Fermion masses arise through Yukawa couplings, which represent the most general renormalizable interactions between the Higgs field and the fermion fields:
+Fermion masses arise through Yukawa couplings, which represent the most general renormalizable interactions between the Higgs field and the fermion fields (see the diagrammatic decomposition in Fig.~\ref{fig-yukawa-up}–\ref{fig-yukawa-mass}):
 \begin{equation}
     \mathcal{L}_{\text{Yuk}} = y_{u}^{ij} \bar{q}_{L}^{i} u_{R}^{j} \tilde{H} + y_{d}^{ij} \bar{q}_{L}^{i} d_{R}^{j} H + y_{\ell}^{ij} \bar{\ell}_L^{i} e_{R}^{j} H + \text{h.c.},
 \end{equation}
@@ -627,7 +632,7 @@ with the covariant derivative defined as $\mathcal D_{\mu} H=\left(\partial_{\mu
 		\end{array}\right) V^{\mu},
 	\end{aligned}
 \end{equation} 
-where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$. Diagonalizing this mass matrix yields eigenvalues $0$, $-\tfrac{1}{8} v^{2} g^{2}$, $-\tfrac{1}{8} v^{2} g^{2}$, and $-\tfrac{1}{8} v^{2}\left(g^{2}+g'^{2}\right)$. The massless state corresponds to the photon, the heaviest to the $Z$ boson, and the two degenerate intermediate states to the charged bosons $W^\pm$, which transform under the representation of the unbroken generator $Q_{EM}$. 
+where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$. Diagonalizing this mass matrix yields eigenvalues $0$, $-\tfrac{1}{8} v^{2} g^{2}$, $-\tfrac{1}{8} v^{2} g^{2}$, and $-\tfrac{1}{8} v^{2}\left(g^{2}+g'^{2}\right)$. The massless state corresponds to the photon, the heaviest to the $Z$ boson, and the two degenerate intermediate states to the charged bosons $W^\pm$, which transform under the representation of the unbroken generator $Q_{EM}$. The resulting Higgs--vector boson interaction structures are summarized in Fig.~\ref{fig-higgs-gauge-interactions}.
 
 \begin{figure}[h!]
     \centering
@@ -646,39 +651,37 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
 
                 \fmflabel{$h$}{i1}
                 \fmflabel{$h$}{i2}
-                \fmflabel{$W^+$}{o1}
-                \fmflabel{$W^-$}{o2}
-
-                \fmfv{lab=$igv$, lab.dist=0.3cm, lab.angle=-90}{v1}
+                \fmflabel{$Z/W^+$}{o1}
+                \fmflabel{$Z/W^-$}{o2}
             \end{fmfgraph*}
             \vspace{0.5cm}
         \end{fmffile}
-        \caption{$hhWW$ coupling.}
+        \caption{Quartinc $hhVV$ coupling.}
         \label{fig-higgs-w}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \begin{fmffile}{feyngraph15}
+        \begin{fmffile}{feyngraph15} 
             \vspace{0.5cm}
             \begin{fmfgraph*}(80,60)
                 \fmfleft{i1,i2}
-                \fmfright{o1}
+                \fmfright{o1,o2}
                 
                 \fmf{dashes}{i1,v1}
-                \fmf{dashes}{i2,v1}
-                \fmf{boson,tension=2.0}{v1,o1}
+                \fmf{boson}{i2,v1}
+                \fmf{boson}{v1,o1}
+                \fmf{boson}{v1,o2}
 
                 \fmflabel{$h$}{i1}
-                \fmflabel{$h$}{i2}
-                \fmflabel{$Z$}{o1}
-
-                \fmfv{lab=$\frac{igv}{\cos\theta_w}$, lab.dist=0.3cm, lab.angle=-65}{v1}
+                \fmflabel{$Z/\gamma$}{i2}
+                \fmflabel{$W^+$}{o1}
+                \fmflabel{$W^-$}{o2}
             \end{fmfgraph*}
             \vspace{0.5cm}
         \end{fmffile}
-        \caption{$hhZ$ coupling.}
-        \label{fig-higgs-z}
+	\caption{Quartic $hXWW$ coupling ($X=Z,\gamma$).}
+	\label{fig-hxww}
     \end{subfigure}
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
@@ -693,38 +696,35 @@ where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$.
                 \fmf{boson}{v1,o2}
 
                 \fmflabel{$h$}{i1}
-                \fmflabel{$W^+$}{o1}
-                \fmflabel{$W^-$}{o2}
-
-                \fmfv{lab=$igm_W$, lab.dist=0.3cm, lab.angle=-90}{v1}
+                \fmflabel{$Z/W^+$}{o1}
+                \fmflabel{$Z/W^-$}{o2}
             \end{fmfgraph*}
             \vspace{0.5cm}
         \end{fmffile}
-        \caption{$hWW$ coupling.}
-        \label{fig-higgs-w-triple}
+	\caption{Triple $hVV$ coupling ($V=W^\pm,Z$).}
+	\label{fig-hvv}
     \end{subfigure}
-    \begin{subfigure}[b]{0.48\textwidth}
+	\begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \begin{fmffile}{feyngraph19}
-            \vspace{0.5cm}
-            \begin{fmfgraph*}(80,60)
-                \fmfleft{i1}
-                \fmfright{o1}
-                
-                \fmf{dashes,tension=2.0}{i1,v1}
-                \fmf{boson,tension=2.0}{v1,o1}
+		\begin{fmffile}{feyngraph19} 
+		\vspace{0.5cm}
+				\begin{fmfgraph*}(80,60)
+						\fmfleft{i1,i2}
+						\fmfright{o1}
+						
+						\fmf{boson}{i1,v1,o1}
+						\fmf{dashes}{v1,i2}
 
-                \fmflabel{$h$}{i1}
-                \fmflabel{$Z$}{o1}
-
-                \fmfv{lab=$igm_Z/\cos\theta_w$, lab.dist=0.3cm, lab.angle=-65}{v1}
-            \end{fmfgraph*}
-            \vspace{0.5cm}
-        \end{fmffile}
-        \caption{$hZ$ coupling.}
-        \label{fig-higgs-z-triple}
-    \end{subfigure}
-    \caption{Feynman diagrams for Higgs-gauge boson interactions arising from the covariant derivative term $\mathcal{D}_\mu H^\dagger \mathcal{D}^\mu H$ in the Higgs Lagrangian.}
+						\fmflabel{$V$}{i1}
+						\fmflabel{$\langle H \rangle$}{i2}
+						\fmflabel{$V$}{o1}
+				\end{fmfgraph*}
+		\vspace{0.5cm}
+		\caption{Vector boson mass insertion from the vev ($V=W^\pm,Z$).}
+		\label{fig-vector-mass}
+		\end{fmffile}
+	\end{subfigure}
+	\caption{Feynman diagrams for Higgs--gauge boson interactions (unitary gauge) arising from $\mathcal{D}_\mu H^\dagger \mathcal{D}^\mu H$ and a vev insertion. Here $V=W^\pm,Z$ and $X=Z,\gamma$.}
     \label{fig-higgs-gauge-interactions}
 \end{figure}
 
