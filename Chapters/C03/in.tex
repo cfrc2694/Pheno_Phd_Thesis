@@ -1,21 +1,19 @@
 \chapter{$U(1)_{T^3_R}$ Gauge Extension of the Standard Model}\label{ch:U1T3R}
 \hfill{Based on~\parencite{Qureshi:2024naw}}
 
-Extensions of the Standard Model (SM) that introduce new $U(1)$ gauge symmetries are among the most widely studied scenarios for physics beyond the SM. In particular, the $U(1)_{T^3_R}$ symmetry is of interest. In this scenario, right-handed SM fermions and possible new states, such as right-handed neutrinos, are charged under $U(1)_{T^3_R}$. This symmetry has been explored in the context of left-right symmetric models~\parencite{Assad:2017iib, MohapatraPati1975, SenjanovicMohapatra1975}.
-
-In these frameworks, $U(1)_{T^3_R}$ is identified as the diagonal, electrically neutral generator of $SU(2)_R$. It is often related to $U(1)_{B-L}$ through the breaking pattern 
+Extensions of the Standard Model that introduce new $U(1)$ gauge symmetries are among the most widely studied scenarios to address these phenomenological hints while maintaining theoretical consistency. In particular, the $U(1)_{T^3_R}$ has been explored in the context of left-right symmetric models~\parencite{Assad:2017iib, MohapatraPati1975, SenjanovicMohapatra1975}, where $U(1)_{T^3_R}$ is identified as the diagonal, electrically neutral generator of $SU(2)_R$. It is often related to $U(1)_{B-L}$ through the breaking pattern
 \[
 U(1)_{B-L} \times U(1)_{T^3_R} \rightarrow U(1)_Y.
 \]
-This motivates the existence of a new, massive, electrically neutral gauge boson associated with the extra $U(1)$ symmetry~\parencite{DiLuzio2018, Baker2019, Michaels:2020fzj, Dev:2021otb, Florez2023}. 
+This motivates the existence of a new, massive, electrically neutral gauge boson associated with the extra $U(1)$ symmetry~\parencite{DiLuzio2018, Baker2019, Michaels:2020fzj, Dev:2021otb}. 
 
-However, the Higgs doublet being a singlet under $U(1)_{B-L}$, acquires its hypercharge from $U(1)_{T^3_R}$. Its vacuum expectation value (VEV) links the symmetry-breaking scales of $U(1)_Y$ and $U(1)_{T^3_R}$. Alternatively, these scales can be decoupled by introducing an additional $U(1)_G$ group, under which SM fermions are singlets but the Higgs is charged. In this case~\parencite{Dutta:2022qvn}:
+In the minimal case, since the Higgs doublet is a singlet under $U(1)_{B-L}$, acquires its hypercharge from $U(1)_{T^3_R}$. Its vacuum expectation value (VEV) links the symmetry-breaking scales of $U(1)_Y$ and $U(1)_{T^3_R}$. Alternatively, these scales can be decoupled by introducing an additional $U(1)_G$ group, under which SM fermions are singlets but the Higgs is charged. In this case, the hypercharge is given by the linear combination
 \begin{equation}
 Y=Q_{T^3_R}+\frac{1}{2}Q_{B-L} + Q_G.
 \end{equation}
 More generally, scenarios can be constructed where the hypercharge is not directly related to $U(1)_{T^3_R}$.
 
-Recent theoretical and phenomenological work has focused on models where the low-energy gauge symmetry of the SM is extended by an Abelian $U(1)_{T^3_R}$ group. In these models, the spontaneous breaking of $U(1)_{T^3_R}$ is not tied to electroweak symmetry breaking~\parencite{Dutta2019, Dutta2020, Dutta2020b, Dutta2022, PhysRevD.107.095019, Dutta2023}.
+$U(1)_{T^3_R}$ symmetry has recently attracted attention for its potential to resolve some tensions of LFUV in the SM (see Sec.~\ref{sec:LFU}) by explaining $(g-2)_\mu$, $B$ anomalies~\parencite{Dutta2022}, and DM~\cite{Dutta2019, Dutta2020b, Dutta:2022qvn}. In this framework, right-handed SM fermions are charged under $U(1)_{T^3_R}$, and recent theoretical and phenomenological work has focused on models where the low-energy gauge symmetry of the SM is extended by this Abelian group where the spontaneous breaking of $U(1)_{T^3_R}$ is not tied to electroweak symmetry breaking~\parencite{Dutta2019, Dutta2020, Dutta2020b, Dutta2022, Dutta:2022qvn, PhysRevD.107.095019, Dutta2023}.
 
 The corresponding gauge boson of the extra $U(1)$ is a neutral vector particle whose physical interpretation depends on its couplings and mass range.  If the new boson couples directly to SM fermions with electroweak-strength interactions, it is often referred to as a $\textrm{Z}'$.  If instead the new boson interacts only very weakly with the SM, typically through kinetic mixing with the hypercharge gauge boson, it is commonly called a dark photon $A'$.  In either case, the gauge boson acquires mass through a Higgs-like mechanism. A complex scalar field $\phi$, singlet under the SM gauge group, can provide the longitudinal degree of freedom. Its CP-odd component gives mass to the neutral vector boson, while its CP-even component can manifest as a dark Higgs, $\phi'$.
 
@@ -27,10 +25,10 @@ In this chapter, we perform a phenomenological study of search strategies at the
 
 We consider the case where $\phi'$ has family non-universal couplings to fermions, as proposed in~\parencite{Dutta2020}. Such couplings can address several open questions in the SM. Our analysis focuses on $\phi'\to\mu^+\mu^-$ decays, as muons are efficiently reconstructed and identified. This allows for low $p_{\mathrm{T}}(\mu)$ triggers and provides a characteristically clean signature to suppress QCD multijet backgrounds.
 
-To further maximize the sensitivity to this complex signal, a central component of our analysis is the use of ML. We employ an analysis based on Boosted Decision Trees (BDT)~\parencite{friedman_greedy_2001}. The BDT output is used in a profile-binned likelihood test to determine the signal significance for each model. The effectiveness of BDTs and other ML algorithms has been demonstrated in numerous experimental and phenomenological studies~\parencite{Ai:2022qvs, ATLAS:2017fak, Biswas:2018snp, Chung:2020ysf, Feng:2021eke, ttZprime, Chigusa:2022svv, Florez2023, Arganda2024, Ajmal_2024, Dutta_2015}. Our results show that the BDT approach significantly improves sensitivity.
+To further maximize the sensitivity to this complex signal, a central component of our analysis is the use of ML. We employ an analysis based on Boosted Decision Trees (BDT)~\parencite{friedman_greedy_2001}. The BDT output is used in a profile-binned likelihood test to determine the signal significance for each model. The effectiveness of BDTs and other ML algorithms has been demonstrated in numerous experimental and phenomenological studies~\parencite{Ai:2022qvs, ATLAS:2017fak, Biswas:2018snp, Chung:2020ysf, Feng:2021eke, ttZprime, Chigusa:2022svv, Arganda2024, Ajmal_2024, Dutta_2015}. Our results show that the BDT approach significantly improves sensitivity.
 
 
-The remainder of this chapter is organized as follows. Sec.~\ref{sec:model} describes the minimal $U(1)_{T^3_R}$ model. Sec.~\ref{sec:exp} reviews current relevant LHC results. Sec.~\ref{sec:sims} details the Monte Carlo (MC) simulation samples used in this study. Sec.~\ref{sec:ML} discusses the motivation and implementation of the machine learning workflow, and Sec.~\ref{sec:results} presents the main results.
+The remainder of this chapter is organized as follows. Sec.~\ref{sec:model} describes the minimal $U(1)_{T^3_R}$ model. Sec.~\ref{sec:exp} reviews current relevant LHC results. Sec.~\ref{sec:sims} details the MC simulation samples used in this study. Sec.~\ref{sec:ML} discusses the motivation and implementation of the machine learning workflow, and Sec.~\ref{sec:results} presents the main results.
 
 \input{Chapters/C03/s01.tex}
 \input{Chapters/C03/s02.tex}
