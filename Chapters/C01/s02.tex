@@ -140,8 +140,6 @@ where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electroma
                 \fmflabel{$\gamma$}{i1}
                 \fmflabel{$\bar f$}{o1}
                 \fmflabel{$f$}{o2}
-
-				\fmfv{lab=$ie\gamma^\mu$, lab.dist=0.25cm, lab.angle=115}{v1}
             \end{fmfgraph*}
 			\vspace{0.5cm}
         \end{fmffile}
@@ -164,8 +162,6 @@ where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electroma
                 \fmflabel{$W^{\pm}$}{i1}
                 \fmflabel{$\bar \ell/\bar u$}{o1}
                 \fmflabel{$\nu/d$}{o2}
-
-				\fmfv{lab=$\frac{ig}{\sqrt{2}}\gamma^\mu P_L$, lab.dist=0.3cm, lab.angle=115}{v1}
             \end{fmfgraph*}
 			\vspace{0.5cm}
         \end{fmffile}
@@ -187,8 +183,6 @@ where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electroma
 				\fmflabel{$Z$}{i1}
 				\fmflabel{$\bar f$}{o1}
 				\fmflabel{$f$}{o2}
-
-				\fmfv{lab=$\frac{ig}{\cos\theta_w}\gamma^\mu(g_V - g_A\gamma_5)$, lab.dist=0.4cm, lab.angle=115}{v1}
 			\end{fmfgraph*}
 			\vspace{0.5cm}
 		\end{fmffile}
@@ -211,7 +205,7 @@ where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electroma
 				\fmflabel{$\bar q$}{o1}
 				\fmflabel{$q$}{o2}
 
-				\fmfv{lab=$ig_s\gamma^\mu t^a$, lab.dist=0.3cm, lab.angle=115}{v1}
+				% \fmfv{lab=$ig_s\gamma^\mu t^a$, lab.dist=0.3cm, lab.angle=115}{v1}
 			\end{fmfgraph*}
 			\vspace{0.5cm}
 		\end{fmffile}
@@ -227,7 +221,9 @@ We refer to the fermionic fields of the SM as the matter fields. We distinguish 
 According to the SM, there are three generations of fermions. Each generation contains a doublet of leptons and a doublet of quarks. Among generations, particles differ by their flavour quantum number and mass, but their strong and electrical interactions are identical. Moreover, the flavour quantum number is a quantity conserved by all interactions except for the weak interaction.  Each generation is more massive than the previous one. The second and third generations are unstable and they disintegrate into the first generation. This is why ordinary matter is composed of the first generation. All three generations are produced in nuclear reactors, colliders, and cosmic rays. 
 
 %TO DO -> Adjust to the margin
-\begin{center}
+
+\begin{table}[h!]
+\centering
 	{\small
 	\begin{tabular}{|c||c||l|l|l|}
 		\hline \multicolumn{2}{|c||}{ \textbf{Fermion categories} } & \multicolumn{3}{c|}{\textbf{ Elementary particle generation} } \bigstrut\\
@@ -239,8 +235,8 @@ According to the SM, there are three generations of fermions. Each generation co
 		\hline
 	\end{tabular}
 	}
-	\captionof{table}{Three generations of fermions according to the Standard Model of particle physics. Each generation containing two types of leptons and two types of quarks.}\label{tab-generations}
-\end{center}
+	\caption{Three generations of fermions according to the Standard Model of particle physics. Each generation containing two types of leptons and two types of quarks.}\label{tab-generations}
+\end{table}
 
 Under all the constraints on local gauge invariance and renormalizability of the theory, the fermionic Lagrangian for SM is given by
 \begin{equation}
@@ -284,8 +280,6 @@ which couples the fermions to the gauge bosons.
                 \fmflabel{$\bar q_L$}{i1}
                 \fmflabel{$u_R$}{i2}
                 \fmflabel{$H$}{o1}
-
-				\fmfv{lab=$iy_u$, lab.dist=0.25cm, lab.angle=-65}{v1}
             \end{fmfgraph*}
 			\vspace{0.5cm}
         \end{fmffile}
@@ -308,8 +302,6 @@ which couples the fermions to the gauge bosons.
                 \fmflabel{$\bar q_L$}{i1}
                 \fmflabel{$d_R$}{i2}
                 \fmflabel{$H$}{o1}
-
-				\fmfv{lab=$iy_d$, lab.dist=0.25cm, lab.angle=-65}{v1}
             \end{fmfgraph*}
 			\vspace{0.5cm}
         \end{fmffile}
@@ -331,8 +323,6 @@ which couples the fermions to the gauge bosons.
 				\fmflabel{$\bar \ell_L$}{i1}
 				\fmflabel{$e_R$}{i2}
 				\fmflabel{$H$}{o1}
-
-				\fmfv{lab=$iy_\ell$, lab.dist=0.25cm, lab.angle=-65}{v1}
 			\end{fmfgraph*}
 			\vspace{0.5cm}
 		\end{fmffile}
@@ -355,9 +345,7 @@ which couples the fermions to the gauge bosons.
 				\fmflabel{$g^a$}{i1}
 				\fmflabel{$g^b$}{o1}
 				\fmflabel{$g^c$}{o2}
-                \fmflabel{$g^d$}{o3}
-
-				\fmfv{lab=$g_s f^{abc}$, lab.dist=0.3cm, lab.angle=0}{v1}
+				\fmflabel{$g^d$}{o3}
 			\end{fmfgraph*}
 			\vspace{0.5cm}
 		\end{fmffile}
