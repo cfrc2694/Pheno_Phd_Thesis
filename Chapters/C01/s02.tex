@@ -214,7 +214,53 @@ where to avoid confusion with Dirac matrices, we denote as $A_\mu$ the electroma
 		\caption{Quartic $W$ boson vertex.}
 		\label{fig-quartic-w}
 	\end{subfigure}
-    \caption{Feynman diagrams for gauge boson self-interactions.}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph25}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1,i2}
+                \fmfright{o1,o2}
+
+				\fmf{boson}{i1,v1}
+                \fmf{boson}{i2,v1}
+				\fmf{boson}{v1,o1}
+                \fmf{photon}{v1,o2}
+
+				\fmflabel{$W^+$}{i1}
+				\fmflabel{$W^-$}{i2}
+				\fmflabel{$Z$}{o1}
+				\fmflabel{$\gamma$}{o2}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Quartic $WWZ\gamma$ vertex.}
+		\label{fig-quartic-wwzgamma}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \centering
+		\begin{fmffile}{feyngraph26}
+			\vspace{1.0cm}
+			\begin{fmfgraph*}(80,60)
+				\fmfleft{i1,i2}
+                \fmfright{o1,o2}
+
+				\fmf{boson}{i1,v1}
+                \fmf{boson}{i2,v1}
+				\fmf{boson}{v1,o1}
+                \fmf{boson}{v1,o2}
+
+				\fmflabel{$W^+$}{i1}
+				\fmflabel{$W^-$}{i2}
+				\fmflabel{$Z/\gamma$}{o1}
+				\fmflabel{$Z/\gamma$}{o2}
+			\end{fmfgraph*}
+			\vspace{0.5cm}
+		\end{fmffile}
+		\caption{Quartic $WWZZ/WW\gamma\gamma$ vertex.}
+		\label{fig-quartic-wwzz}
+	\end{subfigure}
+    \caption{Feynman diagrams for gauge boson self-interactions. The non-Abelian structure of $SU(3)_C$ and $SU(2)_L$ gives rise to triple and quartic gauge boson vertices.}
     \label{fig-gauge-vertices}
 \end{figure}
 
