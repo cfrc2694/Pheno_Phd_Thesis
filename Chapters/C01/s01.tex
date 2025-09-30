@@ -1,19 +1,19 @@
 \section{Fields}
-Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions of the spacetime that transform under a representation of the Lorentz group within an invariant subspace}~\parencite{Tong1995,CRodriguezUPTC}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table~\ref{tab-repLorentz2}). 
+Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions on spacetime that transform under a representation of the Lorentz group on an invariant subspace}~\parencite{Tong1995,CRodriguezUPTC}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table~\ref{tab-repLorentz2}). 
 
-In classical field theory, a variational principle is established which generates the equations that govern the dynamics of the different fields in a theory, \textit{the equations of motion}. Hamilton's principle, or principle of minimal action, indicates that all possible physical configurations for a set of fields $\varphi^I$, with $I=1,2,3,\cdots,n$, are those where the integral of the action $S$ is a minimal~\parencite{Goldstein,jose1998classical}:
+In classical field theory, a variational principle is established which generates the equations that govern the dynamics of the different fields in a theory, \textit{the equations of motion}. Hamilton's principle, or principle of minimal action, indicates that all possible physical configurations for a set of fields $\varphi^I$, with $I=1,2,3,\cdots,n$, are those for which the action $S$ is  minimal~\parencite{Goldstein,jose1998classical}:
 \begin{equation}\label{eq-action}
-	S=\int \mathcal{L}(\varphi^I,\partial_\mu\varphi^I) d^4x,
+	S=\int \mathcal{L}(\varphi^I,\partial_\mu\varphi^I) d^4x.
 \end{equation}
-here, $d^4x=dx^0dx^1 dx^2dx^3$ and $x\equiv(ct,x^1,x^2,x^3)\equiv(x^0,x^1,x^2,x^3)\in\mathcal{M}^4$ are the space-time coordinates in the Minkowskian spacetime $\mathcal M^4$, and the function $\lag(\varphi^I,\partial_\mu\varphi^I)$ is called \textit{the Lagrangian density} of a theory~\parencite{greiner2000relativistic,Goldstein}. The problem in classical field dynamics is to find the functions $\varphi^I(x)$ in a space-time $\mathcal{M}^4$, fixing their boundary conditions. The solution to this classical problem is given by the Euler-Lagrange equations:
+Here, $d^4x=dx^0dx^1 dx^2dx^3$ and $x\equiv(ct,x^1,x^2,x^3)\equiv(x^0,x^1,x^2,x^3)\in\mathcal{M}^4$, are the space-time coordinates in the Minkowskian spacetime ($\mathcal M^4$), and the function $\lag(\varphi^I,\partial_\mu\varphi^I)$ is called \textit{the Lagrangian density} of a theory~\parencite{greiner2000relativistic,Goldstein}. The problem in classical field dynamics is to find the functions $\varphi^I(x)$ in a space-time $\mathcal{M}^4$, fixing their boundary conditions. The solution to this classical problem is given by the Euler-Lagrange equations:
 \begin{equation}\label{eq_EulerLag}
 	\dpr{\mathcal{L}}{\varphi^I}-\dpr{}{x^\mu}\dpr{\lag}{\fac{\partial_\mu \varphi^I}}=0,
 \end{equation}
 and they are used to obtain the equations of motion of the set of fields $\varphi^I$~\parencite{jose1998classical}. 
 
-While in classical field theory the Euler–Lagrange equations directly determine the dynamics, in quantum field theory the picture changes: if we adopt the path-integral formulation~\parencite{martinez2002,Weinberg}, the idea of an equation of motion vanishes and we move on to searching for correlations between free particle states. However, the notion of action remains the cornerstone in the description of these observables.
+While in classical field theory the Euler–Lagrange equations directly determines the dynamics of the system, in QFT the approach changes: if we adopt the path-integral formulation~\parencite{martinez2002,Weinberg}, the idea of an equation of motion vanishes and we move on to searching for correlations between free particle states. However, the notion of action remains the cornerstone in the description of these observables.
 
-Explicitly, the correlation functions are calculated through the Lehmann-Symanzik-Zimmermann (LSZ) reduction formula, which connects these correlators with physical scattering amplitudes. These are computed from the path integral~\parencite{greiner1996qft,peskin}
+Explicitly, the correlation functions are calculated through the Lehmann-Symanzik-Zimmermann (LSZ) reduction formula, which connects these correlators with physical scattering amplitudes. These are computed from the path integral~\parencite{greiner1996qft,peskin}:
 \begin{equation}
 	\begin{aligned}
 		Z[J]&=\braket{\text { out, } 0| 0, \text { in }}
@@ -44,17 +44,17 @@ In this paradigm, our task is to propose a Lagrangian density for a set of field
 \subsection{Interactions and Symmetries} 
 The form of the Lagrangian density is not arbitrary: it is shaped by a small set of physical and mathematical principles. These principles act as ``rules'' that guide the construction of consistent theories, ensuring both their internal consistency and their predictive power. In particular, if we want a relativistic and renormalizable theory, the Lagrangian must satisfy several conditions that strongly restrict the kind of terms that can appear.
 
-The need for these restrictions is evident from the path integral formulation itself. If we split the Lagrangian into a free part and an interaction part in the form
+\textcolor{red}{The need for these restrictions is evident from the path integral formulation itself. If we split the Lagrangian into a free part and an interaction part in the form
 \begin{equation}
     \mathcal{L} = \mathcal{L}_0 + \mathcal{L}_{\text{int}}.
 \end{equation}
+......AF: Encuentro esta parte desconectda y la idea no se entiende.}
 The generating functional $Z[J]$ can then be expressed as an operator acting on the free functional $Z_0[J]$:
 \begin{equation}
     Z[J] = \mathcal{N} \exp\left[i \int d^4x\, \mathcal{L}_{\text{int}}\left(-i \frac{\delta}{\delta J(x)}\right)\right] Z_0[J].
 \end{equation}
-The exponential operator generates an infinite perturbation series. The $n$-point correlation function is found by taking functional derivatives of $Z[J]$ with respect to the sources $J(x_i)$ and setting $J=0$.
+The exponential operator generates an infinite perturbation series. \textcolor{red}{The $n$-point correlation function is found by taking functional derivatives of $Z[J]$ with respect to the sources $J(x_i)$ and setting $J=0$. Each term in this series is represented by a \textbf{Feynman diagram}:.....AF: Hay que incluir un diagrama de Feynman que ilustre lo que se dice en los bullets abajo y resaltar cada componente}
 
-Each term in this series is represented by a \textbf{Feynman diagram}:
 \begin{itemize}
     \item \textbf{External Lines:} Represent incoming and outgoing physical particles.
     \item \textbf{Internal Lines:} Represent virtual particles propagating between interactions, corresponding to the free-field propagators derived from $\mathcal{L}_0$.
