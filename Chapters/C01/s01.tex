@@ -63,13 +63,13 @@ The exponential operator generates an infinite perturbation series. \textcolor{r
 
 For this series to be a predictive and well-defined computational tool, the individual terms must yield finite results. This requirement of \textit{renormalizability} is a powerful constraint on $\mathcal{L}_{\text{int}}$. Furthermore, the structure of both $\mathcal{L}_0$ and $\mathcal{L}_{\text{int}}$ is profoundly constrained by the requirement that the theory possesses certain \textit{symmetries}.
 
-To begin with, relativistic invariance demands that the equations of motion look the same in all inertial frames. This requirement is implemented by asking the action to be invariant under Poincaré transformations~\parencite{pall}. Equivalently, the Lagrangian density must transform as a Lorentz scalar and may change under translations at most by a total derivative~\parencite{jose1998classical}. 
+To begin with, relativistic invariance demands that the equations of motion remain the same in all inertial frames. This requirement is implemented by asking the action to be invariant under Poincaré transformations~\parencite{pall}. Equivalently, the Lagrangian density must transform as a Lorentz scalar and may change under translations at most by a total derivative~\parencite{jose1998classical}. 
 
-Another basic condition is Hermiticity: the Lagrangian density must be Hermitian so that observables are real and the time evolution of the theory is unitary~\parencite{pall,peskin}. In addition, dimensional analysis places further restrictions. In natural units, $\mathcal{L}$ carries dimensions of [mass]$^4$ (an energy density). This means that the interaction terms that we can add must be such that the overall operator has the correct dimension, which already rules out many possibilities. 
+Another basic condition is Hermiticity: the Lagrangian density must be Hermitian such that observables are real and the time evolution of the theory is unitary~\parencite{pall,peskin}. In addition, dimensional analysis places further restrictions. In natural units, $\mathcal{L}$ carries dimensions of mass to the fourth power ($[\mathcal{L}] = [mass]^4$), which corresponds with an  energy density. This means that the interaction terms that we can add must be such that the overall operator has the correct dimension, which already rules out many possibilities. 
 
 In quantum field theory, loop corrections to scattering amplitudes typically produce divergences. A theory is called renormalizable if all these divergences can be absorbed into a redefinition of a \emph{finite set} of physical parameters (such as masses and couplings). In practice, this requirement translates into a restriction on the operators that may appear in the Lagrangian: only terms of mass dimension $\leq 4$ lead to renormalizable interactions. Higher-dimensional operators are still allowed, but they correspond to \emph{effective} interactions that are suppressed at low energies and signal the presence of new physics at higher scales~\parencite{peskin,Weinberg}. 
 
-A classical symmetry of the Lagrangian may not always survive the process of quantization. If it fails to do so, it is said to be anomalous. Chiral anomalies, specifically, arise from the regularization of fermion loops in triangle diagrams and can break the gauge symmetry at the quantum level. Since the gauge symmetry is the very principle that dictates the form of interactions and removes unphysical states, its violation would destroy the renormalizability and unitarity of the theory. Therefore, the particle content must be carefully chosen so that these potential anomalies cancel amongst the fermions, a non-trivial condition famously satisfied by the quarks and leptons of the Standard Model.
+A classical symmetry of the Lagrangian may not always survive the process of quantization. If it fails to do so, it is said to be anomalous. Chiral anomalies, specifically, arise from the regularization of fermion loops in triangle diagrams and can break the gauge symmetry at the quantum level. Since the gauge symmetry is the very principle that dictates the form of interactions and removes unphysical states, its violation would destroy the renormalizability and unitarity of the theory. Therefore, the particle content must be carefully chosen so that these potential anomalies cancel among fermions, a non-trivial condition famously satisfied by the quarks and leptons of the SM.
 
 Furthermore, the stability of the vacuum is a prerequisite for a physically meaningful theory. This is ensured by demanding that the scalar potential, which governs the self-interactions of the Higgs field, is bounded from below. If the potential were unbounded, it would imply that the system could lower its energy indefinitely by rolling down the potential to field values of ever-greater magnitude, meaning no stable ground state could exist. For a renormalizable potential, this stability condition typically translates into the requirement that the quartic coupling constant $\lambda > 0$. However, this condition must hold not just at tree-level but also at the quantum level, as running couplings can change sign at different energy scales, potentially leading to metastability or instability of the vacuum.
 
@@ -77,7 +77,7 @@ Summarizing, the main constraints that a relativistic and renormalizable Lagrang
 \begin{itemize}
 	\item \textbf{Poincaré (global) invariance:} the action must be invariant under Lorentz transformations and translations; the Lagrangian density is a Lorentz scalar and may change by at most a total derivative~\parencite{pall,jose1998classical}. \marginpar{\footnotesize In QFT, Poincaré invariance is assumed to be global. Promoting it to a local symmetry leads to gravity, with spin-2 fields (the graviton) as mediators. Perturbatively, such a theory is not renormalizable, so it lacks predictivity at high energies, although it can still be understood as an effective field theory.}
 	\item \textbf{Hermiticity:} $\mathcal{L}$ must be Hermitian to ensure real observables and unitary evolution~\parencite{pall,peskin}.
-	\item \textbf{Renormalizability and Operator Dimension:} The theory must be perturbatively renormalizable, meaning all ultraviolet divergences can be absorbed into a finite number of parameters. This requirement, determined via power-counting arguments, restricts interaction operators to have a \textbf{mass dimension $\leq 4$}. In natural units, where $\mathcal{L}$ has dimension [mass]$^4$, this allows only Yukawa couplings (dim 4), scalar $\phi^4$ interactions (dim 4), and gauge interactions (dim 4), while forbidding non-renormalizable operators like $\phi^6$ (dim 6)~\parencite{peskin,Weinberg}.
+	\item \textbf{Renormalizability and Operator Dimension:} the theory must be perturbatively renormalizable, meaning all ultraviolet divergences can be absorbed into a finite number of parameters. This requirement, determined via power-counting arguments, restricts interaction operators to have a \textbf{mass dimension $\leq 4$}. In natural units, where $\mathcal{L}$ has dimension [mass]$^4$, this allows only Yukawa couplings (dim 4), scalar $\phi^4$ interactions (dim 4), and gauge interactions (dim 4), while forbidding non-renormalizable operators like $\phi^6$ (dim 6)~\parencite{peskin,Weinberg}.
 	\item \textbf{Absence of chiral anomalies:} gauge symmetries must be free of chiral (gauge) anomalies to ensure the consistency and unitarity of the quantum theory~\parencite{peskin,Weinberg,bertlmann1996anomalies}. In the Standard Model, the particle content is such that all gauge anomalies cancel exactly.
 	\item \textbf{Stability of the potential:} the scalar potential must be bounded from below to guarantee the existence of a stable vacuum state. This typically requires that the quartic couplings in the potential are positive at the relevant energy scales.
 \end{itemize}
@@ -86,10 +86,10 @@ These constraints drastically reduce the number of possible terms in the Lagrang
 
 Despite these powerful constraints, a vast number of possible interaction terms between the allowed fields remain. To further restrict the form of the Lagrangian and to describe fundamental forces, the concept of \textit{symmetry}—specifically \textit{gauge symmetry}—has proven to be our most powerful guiding principle.
 
-The procedure is systematic: first, the spin 0 and spin 1/2 fields are organized into representations of a unitary (gauge) group $G$ such that the Lagrangian density is a global scalar (invariant) under $G$. This global symmetry is then ``promoted'' to a \textit{local symmetry} (where the group parameters can vary in spacetime) by replacing the ordinary derivatives $\partial_\mu$ with \textit{covariant derivatives} $\Dcov_\mu$ that incorporate new \textit{gauge fields} $B_\mu^A$~\parencite{pokorski2000gauge,freedman2012supergravity, Gallego2016,VanProeyen1999,Martin2012}.
+The procedure is systematic: first, the spin$-0$ and spin$-1/2$ fields are organized into representations of a unitary (gauge) group $G$, such that the Lagrangian density is globally invariant under $G$. This global symmetry is then ``promoted'' to a \textit{local symmetry} (where the group parameters can vary in spacetime) by replacing the ordinary derivatives $\partial_\mu$ with \textit{covariant derivatives} $\Dcov_\mu$ that incorporate new \textit{gauge fields} $B_\mu^A$~\parencite{pokorski2000gauge,freedman2012supergravity, Gallego2016,VanProeyen1999,Martin2012}.
 This ``promotion'' is described in more detail below.
 
-Given a Lagrangian density $\lag(\varphi_i,\partial_\mu \varphi_i)$, a given field $\varphi$ is said to be \textit{globally symmetric} under unitary transformations if the action is invariant under the variations of the fields $\varphi^{I}$ which are given, at the infinitesimal level, by:
+Given a Lagrangian density $\lag(\varphi^I, \partial_\mu \varphi^I)$, where $I$ is an index enumerating the different fields $\varphi^{I}$ in the model, it is said to be \textit{globally symmetric} under unitary transformations if the action remains invariant under field variations. At infinitesimal level, these variations are given by:
 \begin{equation}
 	\delta_G \varphi^I = i\theta^A (T_A)^I_J \varphi^J,
 \end{equation}
@@ -97,7 +97,7 @@ where $\theta^{A}$ are constant parameters of the transformation and the $T_{A}$
 \begin{equation}
 	\mathcal{U}_G \equiv U(\theta)=\exp(i\theta^A T_A).
 \end{equation}
-The generators $T_A$ satisfy the Lie algebra of $G$:
+Note that the $T_A$  generators  satisfy the same Lie algebra of the group $G$:
 \begin{equation}
 	[T_A, T_B] = i f_{AB}^{\;\;C}T_C,
 \end{equation}
@@ -112,7 +112,7 @@ where $g$ is the gauge coupling constant. The transformation law for the gauge f
 	\delta B_\mu^A = \partial_\mu \theta^A + g f_{BC}{}^A \theta^B B_\mu^C.\label{eq:gauge-transformation}
 \end{equation}
 
-The introduction of the gauge fields $B_\mu^A$ necessitates the addition of a kinetic term for them to the Lagrangian. This is constructed from the \textit{field strength tensor} $F_{\mu\nu}^A$, defined as the curvature of the covariant derivative:
+The introduction of the gauge fields $B_\mu^A$ requires the addition of a kinetic term for them to the Lagrangian. This is constructed from the \textit{field strength tensor} $F_{\mu\nu}^A$, defined as the curvature of the covariant derivative:
 \begin{equation}
 	F_{\mu\nu}^A T_A = -\frac{i}{g} [\Dcov_\mu, \Dcov_\nu] = \partial_\mu B^A_\nu - \partial_\nu B^A_\mu + g f_{BC}{}^A B^B_\mu B^C_\nu.
 \end{equation}
@@ -122,16 +122,17 @@ The gauge-invariant kinetic Lagrangian is then:
 \end{equation}
 Often, the rescaling $B_\mu^A \to g B_\mu^A$ is performed, which moves the coupling constant $g$ from the kinetic term to the covariant derivative, resulting in the more conventional form $\Dcov_\mu = \partial_\mu - i g B_\mu^A T_A$ and $\lag_{\text{gauge}} = -\frac{1}{4g^2} \delta_{AB} F^A_{\mu\nu} F^{\mu\nu B}$.
 
-\marginpar{Note the absence of explicit mass terms for the gauge fields ($\sim M^2 B_\mu B^\mu$) and fermions ($\sim m \bar{\psi}\psi$). These are forbidden by gauge invariance for non-abelian fields and for chiral fermions. Mass terms can be generated via spontaneous symmetry breaking, as discussed below.}
 
-A general, archetypal Lagrangian embodying these structures can be written as:
+A general, archetypal Lagrangian, embodying these structures, can be written as:
 \begin{equation}\label{eq:generic-renorm-lag}
-	\mathcal{L} = -\frac{1}{4} F_{\mu \nu}^A F^{A \mu \nu} + i \bar{\psi}^i \gamma^\mu D_\mu \psi^i + \left(\bar{\psi}_L^j \, \Gamma^j_k \, \Phi \, \psi_R^k + \text{h.c.}\right) + |D_\mu \Phi|^2 - V(\Phi)
+	\mathcal{L} = -\frac{1}{4} F_{\mu \nu}^A F^{A \mu \nu} + i \bar{\psi}^i \gamma^\mu \mathcal{D}_\mu \psi^i + \left(\bar{\psi}_L^j \, \Gamma^j_k \, \Phi \, \psi_R^k + \text{h.c.}\right) + |\mathcal{D}_\mu \Phi|^2 - V(\Phi)
 \end{equation}
-The terms correspond to: the kinetic term for gauge fields ($F_{\mu \nu}^A$); the kinetic term for fermions $\psi^i$ ($D_\mu$ is the gauge covariant derivative); Yukawa interactions between left- and right-handed fermions and scalars ($\Gamma^j_k$ is a Yukawa coupling matrix and $\Phi$ is a scalar field); the kinetic term for scalars; and the scalar potential $V(\Phi)$, which for a renormalizable, stable theory is $V(\Phi) = \mu^2 |\Phi|^2 + \lambda |\Phi|^4$ with $\lambda > 0$.
+The terms correspond to: the kinetic term for gauge fields ($F_{\mu \nu}^A$), the kinetic term for fermions $\psi^i$, the Yukawa interactions between left- and right-handed fermions and scalars ($\Gamma^j_k$ is a Yukawa coupling matrix and $\Phi$ is a scalar field), the kinetic term for scalars, and the scalar potential $V(\Phi)$. For a renormalizable and  stable theory $V(\Phi) = \mu^2 |\Phi|^2 + \lambda |\Phi|^4$ with $\lambda > 0$.
+
+Note the absence of explicit mass terms for the gauge fields ($\sim M^2 B_\mu B^\mu$) and fermions ($\sim m \bar{\psi}\psi$). These are forbidden by gauge invariance and for chiral fermions. Mass terms can be generated via spontaneous symmetry breaking, as discussed below.
 
 \subsubsection{Example}
-As a way of illustration let us consider a renormalizable theory with a real scalar $\phi$ and a Dirac spinor $\psi$, and suppose that this theory is globally invariant under $U(1)$ phase transformations, i.e. the fields $\varphi\in\{\phi,\psi\}$ transform as $\varphi\mapsto e^{i\theta \hat Q}\varphi $ such that $\hat Q \psi = q \psi$ and $\hat Q \phi=0$. The free Lagrangian density is
+To illustrate these concepts, let us consider a renormalizable theory with a real scalar $\phi$ and a Dirac spinor $\psi$, and suppose that this theory is globally invariant under $U(1)$ phase transformations, i.e. the fields $\varphi\in\{\phi,\psi\}$ transform as $\varphi\mapsto e^{i\theta \hat Q}\varphi $ such that $\hat Q \psi = q \psi$ and $\hat Q \phi=0$. The free Lagrangian density is
 \begin{equation}
 	\mathcal L_{\text{free}}=\frac{1}{2} \partial^{\mu} \phi \partial_{\mu} \phi-\frac{1}{2}\mu^2\phi^2+\bar{\psi}(i \gamma_\mu  \partial^\mu-m) \psi.
 \end{equation}
@@ -164,7 +165,7 @@ The field strength tensor for the abelian $U(1)$ field is defined as $F_{\mu\nu}
 \end{multline}
 
 
-With these ingredients and principles, we are now equipped to understand the structure of the Standard Model Lagrangian, which will be discussed in the next section.
+With these ingredients and principles, we are now equipped to understand the structure of the SM Lagrangian, which will be discussed in the next section.
 
 \begin{figure}[h!]
     \centering
