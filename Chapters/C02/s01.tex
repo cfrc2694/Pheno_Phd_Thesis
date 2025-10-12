@@ -1,8 +1,9 @@
 \section{Detectors and Subsystems}\label{sec:detectors}
 
-When two particle bunches from colliding beams cross each other, they generate individual interactions known as events~\cite{CMS:2008xjf,ATLAS:2008xda}. At the LHC, the beam intensity is so high that multiple interactions can take place in a single event; this phenomenon is referred to as pile-up~\cite{Apollinari2017_HLLHC,Bertolini:2014}. In other words, the probability that several proton-proton interactions occur within the same bunch crossing is non-negligible, leading to multiple overlapping events in a single detector readout~\cite{Cacciari:2011ma,Cacciari:2008gp}. These collisions occur at four main interaction points, each hosting a large particle detector designed to record and analyze the outcomes~\cite{CMS:2008xjf,ATLAS:2008xda}. 
+When two particle bunches from colliding beams cross each other, they generate individual interactions known as events~\cite{CMS:2008xjf,ATLAS:2008xda}. At the LHC, the beam intensity is so high that multiple interactions can take place in a single event; this phenomenon is referred to as in-time pile-up~\cite{Apollinari2017_HLLHC,Bertolini:2014}. In other words, the probability that several proton-proton interactions occur within the same bunch crossing is non-negligible, leading to multiple overlapping events in a single detector readout~\cite{Cacciari:2011ma,Cacciari:2008gp}. In addition, particles from other bunch crossings with respect to the primary collision of interest can be detected. This latter experimental feature is known as out-of-time pile-up. The sum of these two effects, in-time and out-of-time pile-up, is commonly referred to as PU. 
 
-Among them, the Compact Muon Solenoid (CMS) and ATLAS are the largest and most comprehensive experiments~\cite{CMS:2008xjf,ATLAS:2008xda}. Both are multipurpose detectors with broad physics programs, capable of exploring a wide range of phenomena~\cite{CMS:2008xjf,ATLAS:2008xda}. They perform precision measurements within the electroweak sector of the Standard Model~\cite{1674-1137-40-10-100001}, probe the dynamics of quarks and gluons (including through heavy-ion collisions)~\cite{deFavereau:2013fsa}, and conduct extensive searches for physics beyond the Standard Model using $pp$ collision data~\cite{CMS:2012gu,ATLAS:2012yve}. While CMS and ATLAS differ in their detector designs and reconstruction strategies, their physics goals are largely overlapping, and their results are complementary~\cite{CMS:2008xjf,ATLAS:2008xda}.
+
+The particle collisions at the LHC, $pp$ and heavy-ions,  occur at four main interaction points, each hosting a large particle detector designed to record and analyze the outcomes~\cite{CMS:2008xjf,ATLAS:2008xda}. The two largest and most comprehensive experiments~\cite{CMS:2008xjf,ATLAS:2008xda} are  the Compact Muon Solenoid (CMS) and A Toroidal LHC ApparatuS (ATLAS). Both are multipurpose detectors with broad physics programs, capable of exploring a wide range of phenomena~\cite{CMS:2008xjf,ATLAS:2008xda}. They perform precision measurements within the electroweak sector of the SM~\cite{1674-1137-40-10-100001}, probe the dynamics of quarks and gluons (including through heavy-ion collisions)~\cite{deFavereau:2013fsa}, and conduct extensive searches for BSM physics using $pp$ collision data~\cite{CMS:2012gu,ATLAS:2012yve}. While CMS and ATLAS differ in their detector designs and reconstruction strategies, their physics goals are largely overlapping, and their results are complementary~\cite{CMS:2008xjf,ATLAS:2008xda}.
 
 
 \begin{center}
@@ -14,31 +15,33 @@ Throughout this work, phenomenological studies and comparisons are primarily dev
 
 \begin{center}
   \input{Images/kin_var.tex}
-  \captionof{figure}{Detailed reparametrization of the coordinate system employed by the CMS experiment (retrieved from~\parencite{cmsplots})}\label{fig_cms_coor}
+  \captionof{figure}{Detailed reparametrization of the coordinate system employed by the CMS experiment (retrieved from~\parencite{cmsplots}).}\label{fig_cms_coor}
 \end{center}
 
 \begin{description}
-    \item[Pseudo-rapidity] $(\eta)$ Instead of using the polar angle, CMS measurements involve the pseudo-rapidity~\cite{CMS:2008xjf,1674-1137-40-10-100001}, defined by
+    \item[Pseudo-rapidity $(\eta)$] The polar angle is not a Lorentz invariant quantity. In addition, since the vast majority of particles are detected in the forward region of the detector, known as the endcap region, the distribution of the particle multiplicity as a function of $\theta$ is not uniform. This non-uniformity  makes it difficult to study the agreement between the observed data and the background prediction in the central part of the detector. Therefore, the CMS experiment uses a variable known as pseudo-rapidity~\cite{CMS:2008xjf,1674-1137-40-10-100001}, $\eta$, defined in terms of the polar angle as: 
+
     $$
     \eta=-\ln \left(\tan \frac{\theta}{2}\right)
     $$
-    The main advantage of using the pseudo-rapidity is that distributions over it tend to be closer to a uniform distribution than those over the polar angle~\cite{CMS:PF2017}, see Fig.~\ref{fig_cms_coor}. Furthermore, the difference in pseudo-rapidity is invariant under Lorentz boosts along the beam direction~\cite{1674-1137-40-10-100001}.
     
-    \item[Transverse Momentum] ($p_T$) Refers to the component of momentum which is perpendicular to the beam line~\cite{CMS:PF2017}. It is usually preferred over full momentum because momentum along the beamline may just be left over from the beam particles, while the transverse momentum is always associated with whatever physics happened at the vertex~\cite{CMS:PF2017}, see Fig.~\ref{fig_cms_coor}.
+    Therefore, the main advantages of using $\eta$ instead of $\theta$ are that it provides more  uniform distributions than those over the polar angle~\cite{CMS:PF2017}, see Fig.~\ref{fig_cms_coor}. And, furthermore, the difference in $\eta$ is a Lorentz boosts invariant quantity, along the beam direction~\cite{1674-1137-40-10-100001}.
     
-    \item[Azimuthal Angle] ($\phi$) Measures the angle in the transverse plane relative to the $x$-axis, providing the directional component perpendicular to the beam line~\cite{CMS:2008xjf}.
+    \item[Transverse Momentum ($p_T$)] It refers to the component of momentum which is perpendicular to the beam line~\cite{CMS:PF2017}. It is usually preferred over full momentum because momentum along the beamline may just be left over from the beam particles, while the transverse momentum is always associated with whatever physics happened at the vertex~\cite{CMS:PF2017}, see Fig.~\ref{fig_cms_coor}.
+    
+    \item[Azimuthal Angle ($\phi$)] it measures the angle in the transverse plane relative to the $x$-axis, providing the directional component perpendicular to the beam line~\cite{CMS:2008xjf}.
 \end{description}
 
 Together, the triplet $(p_T, \phi, \eta)$ forms a natural coordinate system that fully describes a particle's three-momentum vector at a hadron collider~\cite{CMS:PF2017,1674-1137-40-10-100001}. The full four-momentum $(E, p_x, p_y, p_z)$ can be reconstructed from these quantities, typically supplemented by either the particle's mass hypothesis (for identified particles like electrons or muons) or the energy deposited in the calorimeters (for neutral objects like photons or jets)~\cite{CMS_EGM_17001,CMS_MUON_17001,Cacciari:2011ma}. This $(p_T, \phi, \eta)$ system serves as the fundamental framework for defining physical objects, calculating event variables, and performing analyses at the LHC, providing both experimental convenience and physical insight into the collision dynamics~\cite{CMS:PF2017,Cacciari:2011ma}.
 
-A key challenge is isolating the primary hard interaction from the additional concurrent pile-up interactions~\cite{Apollinari2017_HLLHC,Bertolini:2014}. This is accomplished by reconstructing distinct interaction vertices along the beam direction and associating charged particles to their point of origin using the CMS tracking and vertexing algorithms~\cite{CMS:TRK2014,CMS:PF2017}. The ultimate aim of the reconstruction chain is to identify all stable particles produced in the collision and measure their four-momenta, thereby enabling the identification of the underlying fundamental process~\cite{CMS:PF2017}.
+A key challenge is isolating the primary hard interaction from the additional concurrent PU interactions~\cite{Apollinari2017_HLLHC,Bertolini:2014}. This is accomplished by reconstructing distinct interaction vertices along the beam direction and associating charged particles to their point of origin using the CMS tracking and vertexing algorithms~\cite{CMS:TRK2014,CMS:PF2017}. The ultimate aim of the reconstruction chain is to identify all stable particles produced in the collision and measure their four-momenta, thereby enabling the identification of the underlying fundamental process~\cite{CMS:PF2017}.
 
 \begin{center}
     \includegraphics[width=\textwidth]{Images/Layers.pdf}
     \captionof{figure}{Illustration of high-energy particles being identified by consecutive types of subdetectors in a typical collider experiment. The curvature of the tracks in the magnetic field is not shown for simplicity. Representation of which particles and kinds of detectors are used in a multipurpose detector such as CMS or ATLAS. (retrieved from \cite{Rubbia:2022hry})}\label{fig_layers}
 \end{center}
 
-However, the reconstruction is complicated by several factors~\cite{CMS:2008xjf,CMS:PF2017}. The initial state of the colliding protons is not fully known, as they are composite particles made up of quarks and gluons (collectively referred to as partons)~\cite{Collins:1989,NNPDF:2014otw}. The fraction of the proton's momentum carried by each parton is described by parton distribution functions (PDFs), which are determined experimentally and recommended for LHC Run II/III use by PDF4LHC efforts~\cite{Butterworth:2015oua,NNPDF:2014otw}. Consequently, the total momentum along the beam axis ($z$) is not balanced on an event-by-event basis~\cite{Collins:1989}. Furthermore, not all particles are stable enough to reach the detector; some decay before being detected, and only their decay products are observed~\cite{1674-1137-40-10-100001}. The design of a collider experiment, illustrated in Fig.~\ref{fig_layers}, is optimized for the identification and energy measurement of the particles produced in high-energy collisions~\cite{CMS:2008xjf,deFavereau:2013fsa}.
+However, the reconstruction is complicated by several factors~\cite{CMS:2008xjf,CMS:PF2017}. The initial state of the colliding protons is not fully known, as they are composite particles made up of quarks and gluons (collectively referred to as partons)~\cite{Collins:1989,NNPDF:2014otw}. The fraction of the proton's momentum carried by each parton is described by parton distribution functions (PDFs), which are determined experimentally. Among the available groups of PDFs, LHC analyses using Run II/III data have mainly implemented the PDF4LHC~\cite{Butterworth:2015oua,NNPDF:2014otw} set. Consequently, the total momentum along the beam axis ($z$) is not balanced on an event-by-event basis~\cite{Collins:1989}. Furthermore, not all particles are stable enough to reach the detector; some decay before being detected, and only their decay products are observed~\cite{1674-1137-40-10-100001}. The design of a collider experiment, illustrated in Fig.~\ref{fig_layers}, is optimized for the identification and energy measurement of the particles produced in high-energy collisions~\cite{CMS:2008xjf,deFavereau:2013fsa}. Using the information from the different particle sub-detectors, it is possible to differentiate signatures from various particle types. This information is utilized by software algorithms, optimized for particle reconstruction and identification, to calculate the likelihood that a detector signature was  created by a specific type of particle. 
 
 Finally, some hypothetical particles, such as those comprising dark matter, along with known neutrinos, interact very weakly with matter and escape direct detection~\cite{Bertone2005_DM_review,1674-1137-40-10-100001}. Therefore, a hermetic detector design is crucial to infer their presence by accurately measuring the imbalance of energy and momentum in the transverse plane, referred to as missing transverse momentum~\cite{CMS:2019ctu,CMS:PF2017}.
 
@@ -50,60 +53,81 @@ Finally, some hypothetical particles, such as those comprising dark matter, alon
 
 In this way, a typical collider experiment comprises several main detector subsystems that are used jointly to detect and measure the properties of particles produced in the collision~\cite{CMS:2008xjf,ATLAS:2008xda,deFavereau:2013fsa,CMS:PF2017}. A \textit{schematic representation} of such a generic multipurpose detector is shown in Fig.~\ref{fig_detector}~\cite{CMS:2008xjf,deFavereau:2013fsa,Lee:2018pag}. The detector features an "onion-like" design of several concentric layers, each optimized to identify different types of particles and measure their properties~\cite{CMS:2008xjf,CMS:PF2017}.
 
-The innermost subsystem, the inner detector (ID) or tracker, is immersed in a strong axial magnetic field (typically 1--4 T)~\cite{CMS:2008xjf,CMS:TRK2014}. It is designed to reconstruct the trajectories of charged particles, which are bent by the magnetic field~\cite{CMS:TRK2014,CMS:PF2017}. The direction and curvature of these trajectories, called \textbf{tracks}, yield the particle's momentum vector and electric charge~\cite{CMS:TRK2014,1674-1137-40-10-100001}. The most common long-lived charged particles from the SM are leptons (electrons $e$ and muons $\mu$) and hadrons (pions $\pi$, kaons $K$, and protons $p$)~\cite{1674-1137-40-10-100001}. In some detectors, the ID is complemented by a Cherenkov light detector (RICH) to measure particle velocity and aid particle identification~\cite{1674-1137-40-10-100001,Leo_1994}. Combined with the momentum measurement, this velocity helps determine the particle mass, allowing for differentiation between pions, kaons, and protons~\cite{1674-1137-40-10-100001,Leo_1994}.
+The innermost subsystem, the inner detector (ID) or tracker, is immersed in a strong axial magnetic field (typically 1--4 T)~\cite{CMS:2008xjf,CMS:TRK2014}. It is designed to reconstruct the trajectories of charged particles, which are bent by the magnetic field~\cite{CMS:TRK2014,CMS:PF2017}. The direction and curvature of these trajectories, called \textbf{tracks}, allows to estimate the  particle's momentum vector and electric charge~\cite{CMS:TRK2014,1674-1137-40-10-100001}. The most common long-lived charged particles from the SM are the so called light leptons (electrons $e$ and muons $\mu$) and hadrons (pions $\pi$, kaons $K$, and protons $p$)~\cite{1674-1137-40-10-100001}. In some detectors, the ID is complemented by a Cherenkov light detector (RICH) to measure particle velocity and aid particle identification~\cite{1674-1137-40-10-100001,Leo_1994}. Combined with the momentum measurement, this velocity helps determine the particle mass, allowing for differentiation between pions, kaons, and protons~\cite{1674-1137-40-10-100001,Leo_1994}.
 
 After the tracker, particles enter the electromagnetic calorimeter (ECAL), which is designed to fully absorb photons, electrons, and positrons~\cite{CMS_EGM_17001,CMS:2008xjf}. These particles deposit all their energy in the ECAL by initiating an electromagnetic shower via bremsstrahlung and $e^{+}e^{-}$ pair production~\cite{CMS_EGM_17001}. Electrons are identified as charged tracks that point to a compact, high-energy deposit in the ECAL~\cite{CMS_EGM_17001}.
 
-The hadronic calorimeter (HCAL) surrounds the ECAL and is built to absorb hadrons and measure their energy through hadronic interactions~\cite{CMS:2008xjf,deFavereau:2013fsa}. High-energy quarks and gluons hadronize into collimated sprays of hadrons known as \textbf{jets}; a jet's energy is measured by combining calorimeter deposits with track momenta, an approach formalized in particle‑flow reconstruction~\cite{CMS:PF2017,Cacciari:2011ma,Cacciari:2008gp}.
+The hadronic calorimeter (HCAL) surrounds the ECAL and is built to absorb hadrons and measure their energy through hadronic interactions~\cite{CMS:2008xjf,deFavereau:2013fsa}. High-energy quarks and gluons hadronize into collimated sprays of hadrons known as \textbf{jets}. The energy of jets is measured by combining calorimeter deposits with track momenta. The reconstruction of particles using the information of the different detector subsystems is formalized in particle‑flow reconstruction~\cite{CMS:PF2017,Cacciari:2011ma,Cacciari:2008gp}.
 
-Muons are unique as they can penetrate the calorimeters; a dedicated muon system outside the calorimeters identifies and measures muons, and muon tracks in the ID are matched to tracks in the muon chambers~\cite{CMS_MUON_17001,CMS:2008xjf}. Since the detector is nearly hermetic, momentum conservation in the transverse plane is a powerful tool: any significant imbalance (missing transverse momentum, MET) signals undetected neutral particles such as neutrinos or potential dark‑matter candidates~\cite{CMS:2019ctu,CMS:PF2017}.
+Muons are unique as they can penetrate the calorimeters; a dedicated muon system outside the calorimeters identifies and measures muons, and muon tracks in the ID are matched to tracks in the muon chambers~\cite{CMS_MUON_17001,CMS:2008xjf}. \textcolor{red}{Since the detector is nearly hermetic, momentum conservation in the transverse plane is a powerful tool: any significant imbalance (missing transverse momentum, MET) signals undetected neutral particles such as neutrinos or potential dark‑matter candidates~\cite{CMS:2019ctu,CMS:PF2017}.....AF: Esto es una versión no muy bien escrita del párrafo de abajo. Sugiero quitar.}
 
 
-Since the detector is nearly hermetic (covering almost the full solid angle), momentum conservation in the plane transverse to the beam line ($x$-$y$ plane) is a powerful tool. The vector sum of the momenta in the transverse plane ($\vec{p}_T$) of all detected particles should be zero. Any significant imbalance indicates the presence of undetected, neutral particles that did not interact with the detector, such as neutrinos or hypothetical new particles. This imbalance is called missing transverse momentum (MET) and is formally defined as:
-$$
-\vec{p}_T^{\text{miss}} \equiv -\sum_i \vec{p}_{T,i}
-$$
+Since the detector is nearly hermetic (covering almost the full solid angle), momentum conservation in the plane transverse to the beam line ($x$-$y$ plane) is a powerful tool. The vector sum of the momenta in the transverse plane ($\vec{p}_T$) of all detected particles should be zero. Any significant imbalance indicates the presence of undetected  neutral particles that did not interact with the detector, such as neutrinos or new hypothetical dark matter particles. This imbalance is referred to as missing transverse momentum ($\vec{p}_T^{\text{miss}} $) and is formally defined as:
+\begin{equation}
+  \vec{p}_T^{\text{miss}} \equiv -\sum_i \vec{p}_{T,i},
+  \label{eq:ptmiss}
+\end{equation}
+
+
 where the sum runs over all reconstructed particles (e.g., leptons, photons, jets) or calorimeter deposits in the event.
 
-This detector design, optimized for identifying and measuring Standard Model particles, also makes it a powerful instrument for searching for new physics beyond the SM through unusual signatures or an excess of events with large MET.
+The detector design, optimized for identifying and measuring SM particles, also makes it a powerful instrument to search for BSM physics.
 
 \subsection{Collision Parameters}\label{sec:cross_sec_lumi}
 
-A aim of particle physics experiments is to quantify how frequently different processes occur and to characterize the properties of the particles involved. These quantities are expressed in terms of \textbf{cross-sections}, normalized to the \textbf{luminosity} delivered by the accelerator.
+One of the main objectives of particle physics experiments is to quantify how frequently different processes occur and to characterize the properties of the particles involved. The expected rate of a given process, either from the SM or from new physics, is quantified using production \textbf{cross-sections}, a theoretical estimate, and the \textbf{luminosity}, a parameter that accounts for the amount of data delivered by the accelerator.
 
 
-The cross-section ($\sigma$) quantifies the probability for a specific process to occur. Formally, it represents the effective area of a target particle presented to an incoming beam particle for an interaction to happen. It has units of area, typically barn (b), where $1\,\text{b} = 10^{-28}\,\text{m}^2$.
+In essence, the  cross-section ($\sigma$) quantifies the probability for a specific process to occur. Formally, it represents the effective area of a target particle presented to an incoming beam particle for an interaction to happen. It has units of area, typically barn (b), where $1\,\text{b} = 10^{-28}\,\text{m}^2$.
 
-In the context of proton-proton ($pp$) collisions at the LHC, the concept is generalized. Since both colliding particles are composite, the cross-section for a specific process is calculated by considering the interactions between their constituent partons (quarks and gluons). The total cross-section for a process $pp \to X$ is given by the convolution of the parton distribution functions (PDFs) and the partonic cross-section $\hat{\sigma}_{ij \to X}$:
+In the context of $pp$ collisions at the LHC, the concept is generalized. Since both colliding particles are composite, the cross-section for a specific process is calculated by considering the interactions between their constituent partons (quarks and gluons). The total cross-section for a process $pp \to X$ is given by the convolution of the PDFs and the partonic cross-section $\hat{\sigma}_{ij \to X}$:
 \begin{equation}
 \sigma(pp \to X) = \sum_{i,j} \int_0^1 dx_1 dx_2\, f_i(x_1, \mu_F^2) f_j(x_2, \mu_F^2)\, \hat{\sigma}_{ij \to X}(\hat{s}, \mu_F^2, \mu_R^2),
 \label{eq:cross_section}
 \end{equation}
 where:
 \begin{itemize}
-    \item The sum runs over all possible parton types $i, j$ (e.g., $u, d, g$) in the two protons.
+    \item the sum runs over all possible parton types $i, j$ (e.g., $u, d, g$) in the two protons.
     \item $f_i(x, \mu_F^2)$ is the PDF, representing the probability density to find a parton of type $i$ carrying a fraction $x$ of the proton's momentum at a factorization scale $\mu_F$.
 		\item $\hat{s} = x_1 x_2 s$ is the square of the center-of-mass energy for the colliding partons, with $s$ being the square of the $pp$ center-of-mass energy (e.g., 13.6 TeV).
     \item $\mu_R$ is the renormalization scale.
     \item $\hat{\sigma}_{ij \to X}$ is the partonic cross-section for the hard scattering process $ij \to X$.
 \end{itemize}
-Then, in one hand, the cross-section $\sigma$ is a theoretical quantity that encapsulates the fundamental physics of the interaction, independent of the accelerator's performance. On the other hand, the \textbf{luminosity} ($\mathcal{L}$) is a property of the particle accelerator and beams. It measures the density of particles in the colliding beams and thus the rate at which interactions can occur. The instantaneous luminosity is defined by:
+Then, on one side, the cross-section $\sigma$ is a theoretical quantity that encapsulates the fundamental physics of the interaction, independent of the accelerator's performance. On the other side, the \textbf{luminosity} ($\mathcal{L}$) is a property of the particle accelerator and beams. It measures the density of particles in the colliding beams and thus the rate at which interactions can occur. The instantaneous luminosity is defined by:
 \begin{equation}
-\mathcal{L} = \frac{f n_1 n_2}{4\pi \sigma_x \sigma_y},
+\mathcal{L} = \frac{\mathcal{F} n_1 n_2}{4\pi \sigma_x \sigma_y},
 \end{equation}
-where $f$ is the revolution frequency of the bunches, $n_1$ and $n_2$ are the numbers of particles in each bunch, and $\sigma_x$ and $\sigma_y$ are the transverse dimensions of the beams at the interaction point. The integrated luminosity is the integral of the instantaneous luminosity over time:
+where $\mathcal{F}$ is the revolution frequency of the bunches, $n_1$ and $n_2$ are the numbers of particles in each bunch, and $\sigma_x$ and $\sigma_y$ are the transverse dimensions of the beams at the interaction point. The integrated luminosity is the integral of the instantaneous luminosity over time:
 \begin{equation}
 L = \int \mathcal{L}\, dt.
 \end{equation}
 The primary unit of integrated luminosity is the inverse barn ($\text{b}^{-1}$), commonly $\text{fb}^{-1}$.
 
-The expected number of events ($N$) for a given process in a collider experiment connects the cross-section and integrated luminosity through the relation
+Theoretically, the expected number of events of a SM or BSM process is estimated as
+
 \begin{equation}
-N = \sigma \cdot L \cdot \epsilon.
-\label{eq:N_sigma_L}
+N_{\text{theory}} = \sigma \cdot L.
+\label{eq:N_sigma_theory}
 \end{equation}
 
-Here, $\epsilon$ is the product efficiency~$\times$~acceptance of the detector for the process in question~\cite{CMS:PF2017,deFavereau:2013fsa}. It estimates the fraction of produced events that are actually detected and reconstructed, accounting for detector geometry, resolution, and analysis selection criteria~\cite{CMS:PF2017}.
 
-On one side, if a process is known, we can measure the number of events $N$, know the integrated luminosity $L$ from accelerator measurements~\cite{lumiRef}, and calculate the efficiency $\epsilon$ from simulation (event generation, parton shower and detector simulation)~\cite{Alwall:2014hca,Sjostrand:2014zea,deFavereau:2013fsa}. Equation~\ref{eq:N_sigma_L} is then solved for $\sigma$ to provide a measurement of the production rate, with statistical interpretation based on likelihood methods~\cite{Cowan:2011}. On the other side, if we are searching for a new process not predicted by the Standard Model, we calculate the expected background $N_\text{bkg}$ from known SM processes using Monte Carlo and data-driven techniques~\cite{Alwall:2014hca,Cacciari:2011ma}. We then observe a number of events $N_\text{obs}$. Any significant excess, $N_\text{obs} - N_\text{bkg}$, can be interpreted as a potential signal, and Equation~\ref{eq:N_sigma_L} can be used to set an upper limit on the cross-section $\sigma_\text{BSM}$ of the hypothetical new process using standard limit-setting procedures (CLs, profile‑likelihood, treatments of nuisances)~\cite{Read:2002,Rolke:2005,FeldmanCousins:1998,Segura:2024srj}.
+Under the context of a collider experiment one has to include the detector acceptance and efficiency of the particle identification and selection criteria used to discriminate the signal of interest among other processes. The variable $\epsilon$ is defined as the product of the acceptance ($\mathcal{A}$) and the cumulative efficiency of all the selection criteria used to estimate the signal rate above the backgrounds: 
+
+\begin{equation}
+    \epsilon = \qty( \prod_i \epsilon_i ) \times \mathcal{A}. 
+\end{equation}
+
+Therefore, the expected number of events of a process of interest, for either a SM or BSM process, is estimated using the following equation~\cite{CMS:PF2017,deFavereau:2013fsa}:
+
+\begin{equation}
+N = \sigma \cdot L \cdot \epsilon.
+\label{eq:N_sigma_experiment}
+\end{equation}
+
+Equation \ref{eq:N_sigma_experiment} allows one to estimate the expected number of observed events, accounting for reconstruction, particle identification, detector resolution, and acceptance effects, among other experimental considerations~\cite{CMS:PF2017}.
+
+Note that the integrated luminosity $L$ is a parameter that can be measured from the accelerator's performance~\cite{lumiRef}, while $\epsilon$ can be estimated using information from the detector calibration and simulation (including event generation, parton shower, and detector simulation)~\cite{Alwall:2014hca,Sjostrand:2014zea,deFavereau:2013fsa}. For a known process, if we know the expected number of events, we can use  Equation~\ref{eq:N_sigma_experiment} and solve for $\sigma$ to extract a measurement of the production rate, through a statistical interpretation based on likelihood methods~\cite{Cowan:2011}. 
+
+In the case of searches for BSM physics, we calculate the expected background $N_\text{bkg}$ from known SM processes using Monte Carlo and data-driven techniques~\cite{Alwall:2014hca,Cacciari:2011ma}. Then, one studies the agreement in the event rates and shapes of various kinematic and topological distributions of interest, between the observed number of events in data ($N_\text{obs}$) and the expected backgrounds from SM processes. Any significant deviation in a specific region in one of the relevant observables, for example in a reconstructed mass, $N_\text{obs} - N_\text{bkg}$, can be interpreted as a potential signal. Then, the significance of such difference—both local and global—can be determined using a profile-binned likelihood test, to determine the probability that a signal process of interest explains, within the associated statistical and systematic uncertainties, the discrepancy between data and the background~\cite{Read:2002,Rolke:2005,FeldmanCousins:1998,Segura:2024srj}. 
+
 
