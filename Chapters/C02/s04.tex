@@ -1,7 +1,7 @@
 \section{Measurement of the Power of an Analysis}
 \label{sec:power_analysis}
 
-In high-energy physics experiments, data is often discretized into bins (e.g., histograms of collision events versus energy or momentum) to test competing hypotheses~\cite{BakerCousins:1984}. The fundamental framework compares two scenarios: the \textit{null hypothesis} ($H_0$), representing background-only processes ($b_i$ in each bin $i$), and the \textit{alternative hypothesis} ($H_1$), including both signal and background ($s_i + b_i$)~\cite{NeymanPearson:1933}. Given the Poissonian nature of event counts $n_i$, the likelihood for observing the data under each hypothesis is the product of Poisson probabilities per bin and is therefore written as a binned Poisson likelihood~\cite{BakerCousins:1984,Cowan:2011}:
+In high energy physics experiments, data is often discretized into bins (e.g., histograms of collision events versus energy or momentum) to test competing hypotheses~\cite{BakerCousins:1984}. The fundamental framework compares two scenarios: the \textit{null hypothesis} ($H_0$), representing background-only processes (only a $b_i$ number of events in each bin $i$), and the \textit{alternative hypothesis} ($H_1$), including both signal ($s_i$) and background events ($s_i + b_i$)~\cite{NeymanPearson:1933}. Event counts ($n_i$) in a collider experiment follow a Poissonian distribution. Therefore,  the likelihood for observing the data under each hypothesis is the product of Poisson probabilities per bin. And, because of this, it is  written as a binned-likelihood~\cite{BakerCousins:1984,Cowan:2011}:
 \begin{equation}
     \mathcal{L}(n_i \mid \lambda_i) = \frac{e^{-\lambda_i} \lambda_i^{n_i}}{n_i!}, \quad \text{where } \lambda_i = 
     \begin{cases}
@@ -13,13 +13,13 @@ The Neyman-Pearson lemma~\parencite{NeymanPearson:1933,Segura:2024srj} provides 
 \begin{equation}
 Q_i = \frac{\mathcal{L}(n_i \mid s_i + b_i)}{\mathcal{L}(n_i \mid b_i)} = e^{-s_i} \left( 1+\frac{s_i}{b_i} \right)^{n_i},
 \end{equation}
-where $n_i$ is the observed event count, $s_i$ the expected signal, and $b_i$ the expected background in bin $i$~\cite{BakerCousins:1984,Cowan:2011}. 
+where $n_i$ is the observed event count, $s_i$ the expected signal, and $b_i$ the expected background in bin $i$, as explained before~\cite{BakerCousins:1984,Cowan:2011}. 
 
 The test for the full analysis is constructed as the product of individual bin likelihood ratios~\cite{BakerCousins:1984,Cowan:2011}:
 \begin{equation}
 Q = \prod_{i=1}^{N} Q_i,
 \end{equation}
-where $N$ is the total number of bins~\cite{BakerCousins:1984}. Under this formulation, each bin is treated as an independent experiment, allowing us to analyze the data in a modular way; this is convenient when combining results from multiple search channels or energy ranges~\cite{Read:2002,Cowan:2011}. 
+where $N$ is the total number of bins~\cite{BakerCousins:1984}. Under this formulation, each bin is treated as an independent experiment, allowing us to analyze the data in a modular way. This is convenient when combining results from multiple search channels or energy ranges~\cite{Read:2002,Cowan:2011}. 
 
 For convenience and to connect with asymptotic results, one commonly works with the log-likelihood ratio:
 \begin{equation}
@@ -36,7 +36,7 @@ with the optimal weight of each bin given by $w_i = \ln\!\left(1 + \frac{s_i}{b_
 
 
 
-The discovery significance $\kappa$ quantifies the statistical separation of $t$ if $n$ is distributed according to the background-only hypothesis ($H_0$) versus the signal-plus-background hypothesis ($H_1$), normalized by the standard deviation of the $H_1$ distribution,
+The discovery significance $\kappa$ quantifies the statistical separation of $t$ if $n$ is distributed according to the background-only hypothesis ($H_0$) versus the signal-plus-background hypothesis ($H_1$), normalized by the standard deviation of the $H_1$ distribution ($\sigma_{H_1}$),
 \begin{equation}
 \kappa = \frac{\braket{t}_{H_0} - \braket{t}_{H_1}}{\sigma_{H_1}}.
 \end{equation}
@@ -59,7 +59,7 @@ Substituting in $\kappa$ gives a useful expression for the discovery significanc
 \begin{align}
 \kappa = \frac{\sum s_i w_i}{\sqrt{\sum (s_i + b_i) w_i^2}}
 \end{align}
-It quantifies the separation between the signal+background ($s+b$) and background-only hypotheses in units of standard deviations ($\sigma$), where $\kappa = 5$ corresponds to the traditional $5\sigma$ discovery threshold, $\kappa =3$ to a $3\sigma$ evidence to the traditional anomaly detection threshold, and $\kappa = 1.69$ to the $95\%$ confidence level (CL) exclusion limit.
+It quantifies the separation between the signal+background ($s+b$) and the background-only hypotheses in units of standard deviations ($\sigma$), where $\kappa = 5$ corresponds to the traditional $5\sigma$ discovery threshold, $\kappa =3$ to a $3\sigma$ evidence to the traditional anomaly detection threshold, and $\kappa = 1.69$ to the $95\%$ confidence level (CL) exclusion limit.
 
 
 This figure of merit automatically optimizes sensitivity through the logarithmic weights $w_i = \ln(1 + s_i/b_i)$, which naturally emphasize bins with either high signal-to-background ratios ($s_i/b_i$) or large absolute signal contributions ($s_i$). In asymptotic limits, $\kappa$ simplifies to intuitive forms: for dominant signals ($s_i \gg b_i$), it approaches $\sqrt{\sum s_i}$ (Poisson counting), while in background-dominated regimes ($s_i \ll b_i$), it reduces to an inverse-variance-weighted sum $\sum s_i / \sqrt{\sum b_i (s_i/b_i)^2}$. This dual behavior ensures optimal discrimination power across all signal regimes.
@@ -75,21 +75,21 @@ where $\delta_{\text{sys}}$ terms represent the systematic uncertainties on sign
 
 This framework not only provides a figure of merit for an analysis but also serves as a roadmap for experimental optimization. The expected signal and background in each bin, $s_i$ and $b_i$, are not fundamental inputs but are themselves products of the experimental setup and analysis choices. They can be expressed in terms of more fundamental experimental parameters (with acceptance absorbed into the selection efficiencies):
 \begin{align*}
-    s_i &= \sigma_{s,i} \cdot \mathcal{L} \cdot \epsilon_{s,i}, \\
-    b_i &= \sigma_{b,i} \cdot \mathcal{L} \cdot \epsilon_{b,i},
+    s_i &= \sigma_{s,i} \cdot L \cdot \epsilon_{s,i}, \\
+    b_i &= \sigma_{b,i} \cdot L \cdot \epsilon_{b,i},
 \end{align*}
-where $\sigma_{s,i}$ and $\sigma_{b,i}$ are the fiducial cross-sections for signal and background processes in bin $i$, $\mathcal{L}$ is the integrated luminosity, and $\epsilon_{s,i}$ and $\epsilon_{b,i}$ are the effective efficiencies (selection efficiency combined with detector acceptance and reconstruction effects).
+where, following Equation~\ref{eq:N_sigma_experiment}, $\sigma_{s,i}$ and $\sigma_{b,i}$ are the fiducial cross-sections for signal and background processes in bin $i$, $L$ is the integrated luminosity, and $\epsilon_{s,i}$ and $\epsilon_{b,i}$ are the cumulative or total efficiencies (selection efficiency combined with detector acceptance and reconstruction effects).
 
 Substituting these expressions into the significance $\kappa$ reveals the multidimensional parameter space available for optimization:
 \[
 \kappa = \frac{\sum_i \sigma_{s,i} \cdot \epsilon_{s,i} \cdot w_i}
-{\sqrt{\sum_i \left[ (\sigma_{s,i}\epsilon_{s,i} + \sigma_{b,i}\epsilon_{b,i}) + \delta^2_{\text{sys}} \right] \cdot w_i^2}} \cdot \sqrt{\mathcal{L}}.
+{\sqrt{\sum_i \left[ (\sigma_{s,i}\epsilon_{s,i} + \sigma_{b,i}\epsilon_{b,i}) + \delta^2_{\text{sys}} \right] \cdot w_i^2}} \cdot \sqrt{L}.
 \]
 
 This decomposition shows that the discovery significance can be enhanced through several distinct strategies. The primary handles are:
 
 \begin{itemize}
-    \item \textbf{Increasing integrated luminosity} ($\mathcal{L}$): The $\sqrt{\mathcal{L}}$ scaling represents the fundamental statistical limit - doubling sensitivity requires quadrupling data collection time. This drives the construction of higher-luminosity colliders and longer data-taking campaigns.
+    \item \textbf{Increasing integrated luminosity} ($L$): The $\sqrt{L}$ scaling represents the fundamental statistical limit - doubling sensitivity requires quadrupling data collection time. This drives the construction of higher-luminosity colliders and longer data-taking campaigns.
     
     \item \textbf{Reducing systematic uncertainties}: The $\delta_{\text{sys}}$ terms encompass uncertainties from theoretical predictions, detector calibration, background estimation methods, and luminosity measurement. Their reduction requires dedicated calibration measurements, improved Monte Carlo simulations, and sophisticated data-driven background estimation techniques.
 
@@ -105,9 +105,9 @@ Therefore, the power of an analysis, quantified by $\kappa$, is the result of a 
 
 The key limitation of the binned formulation in Eq.~\ref{eq:kappa_with_systematics} is its treatment of bins as independent experiments, which discards valuable information from inter-bin correlations. This approximation becomes particularly evident in regions of high sensitivity, where the shape information of distributions becomes crucial. In such cases, multivariate methods that exploit the full correlation structure (such as matrix element methods, deep learning classifiers, or template fits) typically outperform simple binned significance estimates.
 
-However, the formalism presented here provides theoretical insight and a useful approximation for quick sensitivity estimates. In the asymptotic limit and for counting experiments, this approach yields results consistent with statistical packages commonly used in high-energy physics, such as \texttt{RooStats} and \texttt{RooFit}. These frameworks implement more rigorous statistical procedures that fully account for the likelihood structure, parameter correlations, and systematic uncertainties through nuisance parameters.
+However, the formalism presented here provides theoretical insight and a useful approximation for quick sensitivity estimates. In the asymptotic limit and for counting experiments, this approach yields results consistent with statistical packages commonly used in high energy physics, such as \texttt{RooStats} and \texttt{RooFit}. These frameworks implement more rigorous statistical procedures that fully account for the likelihood structure, parameter correlations, and systematic uncertainties through nuisance parameters.
 
 
 Despite this limitation, the $\kappa$ metric remains invaluable for establishing \textit{experimental sensitivity}, which is defined as the minimum signal strength required to achieve a certain significance level (e.g., 95\% CL exclusion or $5\sigma$ discovery potential). It provides a practical tool for guiding analysis design, optimizing selection criteria, and prioritizing experimental efforts. 
 
-For experimental final results and interpretation, full statistical treatments using profile likelihood methods within frameworks like \texttt{RooStats} remain the gold standard, as they properly account for all correlations and systematic uncertainties. In this work, we are not interested in the final statistical interpretation of data, but rather in understanding and optimizing the experimental sensitivity to new physics signals. Therefore, the $\kappa$ metric serves as a practical and insightful tool for guiding analysis design and experimental strategy.
+For experimental final results and interpretation, full statistical treatments using profile likelihood methods within frameworks such as \texttt{RooStats} remain the gold standard, as they properly account for all correlations and systematic uncertainties. In this work, we are not interested in the final statistical interpretation of data, but rather in understanding and optimizing the experimental sensitivity to new physics signals. Therefore, the $\kappa$ metric serves as a practical and insightful tool for guiding analysis design and experimental strategy.
