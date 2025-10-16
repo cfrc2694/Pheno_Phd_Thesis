@@ -2,7 +2,7 @@
 
 % \subsection{Scalar Potential}
 
-The model extends the SM by an Abelian gauge symmetry $U(1)_{T^3_R}$, under which only the right-handed fermions are charged. The symmetry breaking is achieved via two independent Higgs mechanisms: one with the SM Higgs doublet $H$ for electroweak symmetry breaking, and another with a Higgs singlet $\phi$ for breaking $U(1)_{T^3_R}$. These scalars acquire independent vacuum expectation values (VEVs), $\langle H \rangle = v_h / \sqrt{2}$ and $\langle \phi \rangle = v_\phi / \sqrt{2}$. In the Kibble parametrization, the fields are written as:
+The model extends the SM by an Abelian gauge symmetry $U(1)_{T^3_R}$, under which only the right-handed fermions are charged. The symmetry breaking is achieved via two independent Higgs mechanisms: one with the SM Higgs doublet $H$ for electroweak symmetry breaking, and another with a Higgs singlet $\phi$ for $U(1)_{T^3_R}$ breaking. These scalars acquire independent vacuum expectation values (VEVs), $\langle H \rangle = v_h / \sqrt{2}$ and $\langle \phi \rangle = v_\phi / \sqrt{2}$. In the Kibble parametrization, the fields are written as:
 \begin{align}
     H & = \begin{pmatrix}
         G_{+} \\
@@ -10,7 +10,7 @@ The model extends the SM by an Abelian gauge symmetry $U(1)_{T^3_R}$, under whic
     \end{pmatrix}, \label{eq:higgskibblepara1} \\
     \phi & = \frac{1}{\sqrt{2}}\left(v_\phi + \rho_\phi + i G_{\phi}\right). \label{eq:higgskibblepara2}
 \end{align}
-In Eqs.~\eqref{eq:higgskibblepara1} and~\eqref{eq:higgskibblepara2}, $G_\pm$, $G_0$, and $G_\phi$ are the Goldstone bosons absorbed by the SM $W^\pm$ and $Z$ bosons and the dark photon $A'$ (associated with $U(1)_{T^3_R}$) to acquire mass. The fields $\rho_h$ and $\rho_\phi$ mix to form the physical mass eigenstates, the SM-like Higgs boson $h$ and a dark Higgs $\phi'$:
+In Eqs.~\eqref{eq:higgskibblepara1} and~\eqref{eq:higgskibblepara2}, $G_\pm$, $G_0$, and $G_\phi$ are the Goldstone bosons absorbed by the SM $W^\pm$ and $Z$ bosons and the dark photon $A'$ (associated with $U(1)_{T^3_R}$) to acquire mass. The fields $\rho_0$ and $\rho_\phi$ mix to form the physical mass eigenstates, the SM-like Higgs boson $h$ and a dark Higgs $\phi'$:
 \begin{equation}
     \begin{pmatrix}
         h \\
@@ -38,7 +38,7 @@ Minimizing the potential yields the tadpole equations:
     \frac{\partial V}{\partial H} &= \frac{v_h}{\sqrt{2}} \left( \mu_H^2 + \lambda_H v_h^2 + \frac{1}{2} \lambda v_\phi^2 \right) = 0, \\
     \frac{\partial V}{\partial \phi} &= \frac{v_\phi}{\sqrt{2}} \left( \mu_\phi^2 + \lambda_\phi v_\phi^2 + \frac{1}{2} \lambda v_h^2 \right) = 0.
 \end{align}
-The physical scalar masses are given by:
+\textcolor{red}{The physical scalar masses are given by:....Af: Sugiero expendir un poco más esta parte. Considero apropiado explicar al lector que se hace luego de encontrar los tadpole equations, mostrar explicitamente la forma de la matriz no diagonal de masas y luego explicar que al diagonalizar se encuentran los valores físicos de masas escalares de la 3.8. Tambien explicar un poco más de donde surge la tangente.}
 \begin{equation}
     m_{h,\phi'}^2 = \frac{1}{2} \left( \lambda_H v_h^2 + \lambda_\phi v_\phi^2 \right) \pm \sqrt{ \lambda^2 v_h^2 v_\phi^2 + \left( \lambda_H v_h^2 - \lambda_\phi v_\phi^2 \right)^2 },
 \end{equation}
@@ -127,7 +127,7 @@ To generate non-zero masses for all SM fermions and ensure gauge anomaly cancell
 \end{equation}
 Here, $i, j = 1,2,3$ are generation indices. The diagonalization of the mass matrices for each fermion type follows the structure outlined in Eqs.~\eqref{eq:prodmass} and~\eqref{eq:summass}, while the Yukawa matrices generalize the structure of Eqs.~\eqref{eq:YukawaL} and~\eqref{eq:YukawaR}, now encoding the CKM and PMNS mixing matrices. The neutrino sector has a more complex structure due to the possibility of a Majorana mass term for the vector-like neutrinos $\chi_\nu'$.
 
-\begin{table}[h!]
+\begin{table}[]
     \centering
     \begin{tabular}{ccccc}
         \hline
