@@ -89,6 +89,18 @@ acs-*.bib
 *.t[1-9][0-9]
 *.tfm
 
+# feynmp-auto generated files in root (legacy - should be moved to feyngraphs/)
+feyngraph*.mp
+feyngraph*.log
+feyngraph*.[1-9]
+feyngraph*.[1-9][0-9]
+feyngraph*.t[1-9]
+feyngraph*.t[1-9][0-9]
+
+# feyngraphs directory for organized feynmp outputs
+feyngraphs/*
+!feyngraphs/.gitkeep
+
 #(r)(e)ledmac/(r)(e)ledpar
 *.end
 *.?end
