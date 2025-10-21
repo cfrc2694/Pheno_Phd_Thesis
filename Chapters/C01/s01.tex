@@ -1,5 +1,5 @@
 \section{Fields}
-Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions on spacetime that transform under a representation of the Lorentz group on an invariant subspace}~\parencite{Tong1995,CRodriguezUPTC}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table~\ref{tab-repLorentz2}). 
+Relativistic quantum fields are degrees of freedom in QFT. Formally, they are \textit{operator-valued functions on spacetime that transform under a representation of the Lorentz group on an invariant subspace}~\parencite{Tong1995}. The different representations of the Lorentz group are mainly characterized by their spin, and their fields obey a different equation of motion (see table~\ref{tab-repLorentz2}). 
 
 In classical field theory, a variational principle is established which generates the equations that govern the dynamics of the different fields in a theory, \textit{the equations of motion}. Hamilton's principle, or principle of minimal action, indicates that all possible physical configurations for a set of fields $\varphi^I$, with $I=1,2,3,\cdots,n$, are those for which the action $S$ is  minimal~\parencite{Goldstein,jose1998classical}:
 \begin{equation}\label{eq-action}
@@ -27,7 +27,7 @@ taken over the space of fields $\varphi$ with an appropriate measure $\mathcal{D
 \begin{center}
     \begin{tabular}{|l|c|c|l|}\hline\bigstrut
         Name							& Field				& Spin & Free-Lagrangian	\\\hline\hline\bigstrut
-        Klein-Gordón				&	$\phi$					& $0$			&	$\lag=\fac{\partial^\mu\bar \phi\partial_\mu \phi-m^2 \bar \phi\phi}$						\\\hline\bigstrut
+        Klein-Gordon				&	$\phi$					& $0$			&	$\lag=\fac{\partial^\mu\bar \phi\partial_\mu \phi-m^2 \bar \phi\phi}$						\\\hline\bigstrut
         Dirac								& $\chi$			& $1/2$	&$\lag=\bar\chi\fac{i\pmb\gamma^\mu \partial_\mu -m\pmb 1}\chi$\\\hline\bigstrut
         Proca (Massive Vector)	        & $A^\mu$ 		& $1$		&$\lag=-\frac{1}{4} F^{\mu\nu} F_{\mu\nu} + \frac{1}{2}m^2 A^\mu A_\mu $\\\hline
     \end{tabular}
@@ -130,6 +130,8 @@ A general, archetypal Lagrangian, embodying these structures, can be written as:
 The terms correspond to: the kinetic term for gauge fields ($F_{\mu \nu}^A$), the kinetic term for fermions $\psi^i$, the Yukawa interactions between left- and right-handed fermions and scalars ($\Gamma^j_k$ is a Yukawa coupling matrix and $\Phi$ is a scalar field), the kinetic term for scalars, and the scalar potential $V(\Phi)$. For a renormalizable and  stable theory $V(\Phi) = \mu^2 |\Phi|^2 + \lambda |\Phi|^4$ with $\lambda > 0$.
 
 Note the absence of explicit mass terms for the gauge fields ($\sim M^2 B_\mu B^\mu$) and fermions ($\sim m \bar{\psi}\psi$). These are forbidden by gauge invariance and for chiral fermions. Mass terms can be generated via spontaneous symmetry breaking, as discussed below.
+
+It is important to emphasize that while the Yukawa interactions $\bar{\psi}_L^j \, \Gamma^j_k \, \Phi \, \psi_R^k$ do not involve gauge bosons directly, their structure is nonetheless \textit{completely determined by the gauge symmetry}. Specifically, gauge invariance dictates which fermion fields can couple to which scalar fields, and constrains the form of the coupling matrix $\Gamma^j_k$. For a Yukawa term to be gauge-invariant, the product $\bar{\psi}_L^j \, \Phi \, \psi_R^k$ must be a singlet under the gauge group. This requirement arises because the left-handed and right-handed fermions typically transform in different representations of the gauge group, and the scalar field $\Phi$ must carry the appropriate quantum numbers to make the overall combination invariant. In the Standard Model, for instance, the left-handed fermions are $SU(2)_L$ doublets while the right-handed fermions are singlets, and the Higgs doublet provides the necessary quantum numbers to form gauge-invariant Yukawa couplings. Thus, even though Yukawa interactions are scalar-mediated rather than gauge-mediated, the gauge principle is the fundamental organizing principle that determines their allowed structure.
 
 \subsubsection{Example}
 To illustrate these concepts, let us consider a renormalizable theory with a real scalar $\phi$ and a Dirac spinor $\psi$, and suppose that this theory is globally invariant under $U(1)$ phase transformations, i.e. the fields $\varphi\in\{\phi,\psi\}$ transform as $\varphi\mapsto e^{i\theta \hat Q}\varphi $ such that $\hat Q \psi = q \psi$ and $\hat Q \phi=0$. The free Lagrangian density is
