@@ -104,19 +104,15 @@ This is why we express $\mathcal{L}_{\text{int}}$ as a truncated polynomial: ren
 
 An additional crucial requirement is the \textit{stability of the vacuum}. For a theory to be physically meaningful, it must possess a stable ground state. This is ensured by demanding that the scalar potential, which governs the self-interactions of scalar fields, is bounded from below. If the potential were unbounded, the system could lower its energy indefinitely by evolving toward field configurations of ever-greater magnitude, meaning no stable vacuum would exist.
 
-For a renormalizable theory, the scalar potential can contain at most quartic terms. A general scalar potential for a set of scalar fields $\{\phi_i\}$ takes the form:
-\begin{equation}
-    V(\phi_i) = \sum_i \mu_i^2 |\phi_i|^2 + \sum_{i,j} \lambda_{ij} |\phi_i|^2 |\phi_j|^2 + \cdots
-\end{equation}
-where the ellipsis denotes possible cubic and mixed quartic terms allowed by the symmetries of the theory. The stability condition requires that the quartic couplings $\lambda_{ij}$ satisfy certain positivity constraints to ensure that $V \to +\infty$ as $|\phi_i| \to \infty$ in any direction in field space. This is why the scalar potential is a polynomial of at most order four: renormalizability forbids higher-order terms, and stability demands that the quartic terms dominate at large field values with the correct sign.
+For a renormalizable theory, the scalar potential can contain at most quartic terms.  The stability condition requires that the quartic couplings satisfy certain positivity constraints to ensure that the potential raises with the scalar fields in any direction in field space. This is why the scalar potential is a polynomial of at most order four: renormalizability forbids higher-order terms, and stability demands that the quartic terms dominate at large field values with the correct sign.
 
-It is important to note that this condition must hold not just at tree-level but also at the quantum level, as running couplings can change sign at different energy scales, potentially leading to metastability or instability of the vacuum.
+It is important to note that this condition must hold not just at tree level but also at the quantum level, as running couplings can change sign at different energy scales, potentially leading to metastability or instability of the vacuum.
 
 A fundamental requirement from quantum mechanics is \textit{Hermiticity}: the Lagrangian density must be Hermitian to ensure that observables are real and the time evolution of the theory is unitary~\parencite{pall,peskin}. This is the most basic constraint that quantum theory imposes on the Lagrangian. Without Hermiticity, the theory would predict complex-valued probabilities and violate the fundamental probabilistic interpretation of quantum mechanics.
 
 Beyond the quantum mechanical requirement of Hermiticity, special relativity imposes a fundamental constraint: \textit{Poincaré invariance}. This symmetry demands that the equations of motion remain the same in all inertial frames. Mathematically, this is implemented by requiring the action to be globally invariant under Poincaré transformations~\parencite{pall}. Equivalently, the Lagrangian density must transform as a Lorentz scalar and may change under translations at most by a total derivative~\parencite{jose1998classical}.\marginpar{\footnotesize In QFT, Poincaré invariance is assumed to be global. Promoting it to a local symmetry leads to gravity, with spin-2 fields (the graviton) as mediators. Perturbatively, such a theory is not renormalizable, so it lacks predictivity at high energies, although it can still be understood as an effective field theory.}
 
-This constraint is extremely powerful: it eliminates all possible interaction terms that would depend on the choice of reference frame. For instance, terms that explicitly depend on spacetime coordinates or preferred directions are forbidden. Furthermore, \textit{dimensional analysis} places additional restrictions. In natural units, $\mathcal{L}$ carries dimensions of mass to the fourth power ($[\mathcal{L}] = [\text{mass}]^4$), which corresponds with an energy density. Combined with Lorentz invariance, this means that the interaction terms must be constructed from Lorentz-covariant combinations of fields and their derivatives, with the correct overall mass dimension.
+This constraint is extremely powerful: it eliminates all possible interaction terms that would depend on the choice of reference frame. For instance, terms that explicitly depend on spacetime coordinates or preferred directions are forbidden. Furthermore, \textit{dimensional analysis} places additional restrictions. In natural units, $\mathcal{L}$ carries dimensions of mass to the fourth power ($[\mathcal{L}] = [\text{mass}]^4$), which corresponds to an energy density. Combined with Lorentz invariance, this means that the interaction terms must be constructed from Lorentz-covariant combinations of fields and their derivatives, with the correct overall mass dimension.
 
 The symmetries discussed so far—Poincaré invariance, Hermiticity, and dimensional analysis—are universal requirements that any relativistic quantum field theory must satisfy. However, they still leave a vast array of possible interaction terms. To further constrain the Lagrangian and to describe the fundamental forces of nature, we must consider \textit{internal symmetries}: transformations that act on the fields' internal degrees of freedom rather than on spacetime coordinates.
 
@@ -134,7 +130,9 @@ In summary, the construction of a consistent relativistic quantum field theory p
 	\item \textbf{Anomaly cancellation:} the particle content must be chosen such that chiral anomalies cancel, preserving gauge symmetry at the quantum level.
 \end{enumerate}
 
-These constraints drastically reduce the number of possible terms in the Lagrangian. The renormalizable interaction structures that survive are limited to: Yukawa couplings between fermions and scalars, quartic scalar self-interactions, and gauge interactions between matter fields and vector bosons. The precise form of these interactions is then determined by the internal (gauge) symmetries of the theory, which we now describe in detail.
+These constraints drastically reduce the number of possible terms in the Lagrangian. The renormalizable interaction structures that survive are limited to: Yukawa couplings between fermions and scalars, quartic scalar self-interactions, and gauge interactions between matter/scalar fields and vector bosons. The precise form of these interactions is then determined by the internal (gauge) symmetries of the theory, which we now describe in detail.
+
+\subsubsection{Gauge theories}
 
 The procedure is systematic: first, the spin$-0$ and spin$-1/2$ fields are organized into representations of a unitary (gauge) group $G$, such that the Lagrangian density is globally invariant under $G$. This global symmetry is then ``promoted'' to a \textit{local symmetry} (where the group parameters can vary in spacetime) by replacing the ordinary derivatives $\partial_\mu$ with \textit{covariant derivatives} $\Dcov_\mu$ that incorporate new \textit{gauge fields} $B_\mu^A$~\parencite{pokorski2000gauge,freedman2012supergravity, Gallego2016,VanProeyen1999,Martin2012}.
 This ``promotion'' is described in more detail below.
@@ -159,7 +157,7 @@ To promote the global symmetry to a local one ($\theta^A \to \theta^A(x)$), the 
 \end{equation}
 where $g$ is the gauge coupling constant. The transformation law for the gauge fields that ensures the covariant transformation of $\Dcov_\mu$ is:
 \begin{equation}
-	\delta B_\mu^A = \partial_\mu \theta^A + g f_{BC}{}^A \theta^B B_\mu^C.\label{eq:gauge-transformation}
+	\delta B_\mu^A = \frac{1}{g}\partial_\mu \theta^A + f_{BC}{}^A \theta^B B_\mu^C.\label{eq:gauge-transformation}
 \end{equation}
 
 The introduction of the gauge fields $B_\mu^A$ requires the addition of a kinetic term for them to the Lagrangian. This is constructed from the \textit{field strength tensor} $F_{\mu\nu}^A$, defined as the curvature of the covariant derivative:
@@ -170,7 +168,6 @@ The gauge-invariant kinetic Lagrangian is then:
 \begin{equation}
 	\lag_{\text{gauge}} = -\frac{1}{4} \delta_{AB} F^A_{\mu\nu} F^{\mu\nu B}.
 \end{equation}
-Often, the rescaling $B_\mu^A \to g B_\mu^A$ is performed, which moves the coupling constant $g$ from the kinetic term to the covariant derivative, resulting in the more conventional form $\Dcov_\mu = \partial_\mu - i g B_\mu^A T_A$ and $\lag_{\text{gauge}} = -\frac{1}{4g^2} \delta_{AB} F^A_{\mu\nu} F^{\mu\nu B}$.
 
 
 A general, archetypal Lagrangian, embodying these structures, can be written as:
