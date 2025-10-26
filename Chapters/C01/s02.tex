@@ -22,60 +22,100 @@ The SM incorporates both solutions. Electroweak theory relies on the Higgs mecha
 \subsection{Particle Content and Gauge Group}
 \label{sec:particlecontent}
 
-First, let us talk about the chiral nature of particles: massive half-spin particles are described at the fundamental level by a Dirac spinorial field, see table \ref{tab-repLorentz2}. However, Dirac spinors do not transform under an irreducible representation of the Lorentz group. Spinors can be decomposed into two components that do transform under irreducible representations of the Lorentz group: two \textit{Weyl spinors}. The left and right chiral projectors, $P_L$ and $P_R$, take a Dirac spinor and project it onto each of these invariant subspaces. For a massless Dirac spinor, the left and right components are dynamically decoupled, \textit{i.e.}  are independent fields obeying independent Lagrangian densities. For example, the left component of a massless spinor has the Lagrangian $\lag=-i\bar\psi\slashed{\partial}P_L\psi$ (for more details see Appendix A at~\parencite{CRodriguezUPTC}). 
+We begin by considering the chiral nature of elementary particles. While massive half-spin particles are fundamentally described by Dirac spinor fields (see Table \ref{tab-repLorentz2}), these do not transform under irreducible representations of the Lorentz group. Instead, Dirac spinors decompose into two Weyl spinors that do form irreducible representations. The left and right chiral projectors, $P_L$ and $P_R$, extract these components from a Dirac spinor. For massless fermions, these chiral components decouple dynamically, becoming independent fields described by separate Lagrangian densities—for instance, the left-handed component obeys $\lag=-i\bar\psi\slashed{\partial}P_L\psi$ (see Appendix A in~\parencite{CRodriguezUPTC}).
 
-The discovery of parity asymmetry in radioactive decays~\parencite{PhysRev.105.1413} indicates that the chiral description of weak interactions couples differently to the left and right chiral components of half-spin particles. Indeed, the chirality of the fermionic spectrum is possibly one of the deepest properties of the Standard Model. Describing particles in terms of Dirac spinors, it means that left- and right-chirality components actually have different EW quantum numbers. This is compatible with a gauge symmetry only if half-spin particles are considered to be massless, at least without a Dirac mass $m \overline{f_{R}} f_{L}+\text { h.c.}$ Nevertheless, half-integer spin fundamental particles, such as the electron, have a well-measured mass. Therefore, the reconciliation of chiral asymmetry and mass lies in the Higgs mechanism, where the masses of the particles result from an effective Yukawa coupling with a scalar, the Higgs boson.
+The observed parity violation in weak interactions, first discovered in radioactive decays~\parencite{PhysRev.105.1413}, reveals that these forces couple asymmetrically to the left and right chiral components of fermions. This fundamental asymmetry motivated the electroweak theory proposed by Glashow, Weinberg, and Salam~\parencite{gl1961579,PhysRevLett.19.1264,Salam:1968rm}, based on the gauge group $SU(2)_{L} \times U(1)_{Y}$. Within this framework, the $SU(2)_L$ factor acts exclusively on left-chiral fermion components, while $U(1)_Y$ (hypercharge) acts on both chiralities with component-specific charges.
 
-With this in mind, the SM has a content of matter fields from three generations (or families) of quarks $q$ and leptons $\ell$, described as Weyl 2-component spinors, with the structure
+The Standard Model further incorporates the strong interaction through the concept of color charge, fundamentally dividing fermions into two categories: color-charged particles (quarks), which transform as triplets under $SU(3)_C$, and color-neutral particles (leptons), which are singlets under $SU(3)_C$.
+
+The complete gauge symmetry of the Standard Model is therefore:
 \begin{equation}
-	q_{L}=\left(
-		\begin{array}{c}
-			u_{L}^{i} \\
-			d_{L}^{i}
-		\end{array}
-	\right), \,
-	u_{R}^{i}, \, d_{R}^{i}, 
-	\quad \ell_L=\left(
-		\begin{array}{c}
-			\nu_{L}^{i} \\
-			e_{L}^{i}
-		\end{array}
-	\right),\, e_{R}^{i} ; \quad i=1,2,3 .
+    G_{\mathrm{SM}} = SU(3)_C \times SU(2)_{L} \times U(1)_{Y},
 \end{equation}
-All these particles transform under a $U(1)$ group with different associated (hyper) charges.
-The doublets formed by the left components of the fields transform under the representation of two components of a $SU$(2) group. The right components do not transform under $SU(2)$, therefore they are singlets.
-In addition, each quark in $q_{L}$ transforms as color triplets under $SU(3)$, while $u_{R}, d_{R}$ transforms as conjugate triplets. In the case of leptons, they are considered colored singlets estates. The gauge quantum numbers of the SM fermions are summarized in table \ref{tab_qm}.
+where:
+\begin{itemize}
+    \item $SU(3)_C$ governs the strong interaction (Quantum Chromodynamics),
+    \item $SU(2)_L \times U(1)_Y$ describes the electroweak interaction.
+\end{itemize}
+
+This gauge structure organizes the fermionic content into doublets and singlets under $SU(2)_L$, while distinguishing between colored and colorless particles:
+
+\begin{itemize}
+    \item \textbf{Leptons}: As $SU(3)_C$ singlets, leptons do not participate in strong interactions. Each generation consists of a left-handed $SU(2)_L$ doublet containing a neutrino and a charged lepton, along with a right-handed singlet:
+        \begin{equation}
+            \ell_L = \begin{pmatrix} \nu_{eL} \\ e_L \end{pmatrix}, \quad
+            e_R.
+        \end{equation}
+    In the minimal model, the right-handed neutrino $\nu_R$ is a complete gauge singlet, making it sterile.
+
+    \item \textbf{Quarks}: As $SU(3)_C$ triplets, quarks carry color charge and participate in all interactions. Each generation forms a left-handed $SU(2)_L$ doublet together with right-handed singlets for both up-type and down-type quarks:
+        \begin{equation}
+            q_L = \begin{pmatrix} u_L \\ d_L \end{pmatrix}, \quad
+            u_R, \quad d_R.
+        \end{equation}
+\end{itemize}
+
+Remarkably, this entire pattern of gauge representations and hypercharge assignments is not unique to a single set of fermions. Instead, it repeats almost identically across \textbf{three generations}, each sharing the same gauge quantum numbers but differing in mass and flavor. This replication gives rise to the rich structure of flavor physics and underlies phenomena such as quark mixing and neutrino oscillations. The existence of three fermion families is one of the most intriguing empirical facts of the Standard Model, hinting at possible structures beyond it.
+
+The full fermionic content of the Standard Model, organized by generation, can therefore be written as:
+\begin{equation}
+    q_{L}^{i}=\left(
+        \begin{array}{c}
+            u_{L}^{i} \\
+            d_{L}^{i}
+        \end{array}
+    \right), \,
+    u_{R}^{i}, \, d_{R}^{i}, 
+    \quad \ell_L^{i}=\left(
+        \begin{array}{c}
+            \nu_{L}^{i} \\
+            e_{L}^{i}
+        \end{array}
+    \right),\, e_{R}^{i}; \quad i=1,2,3.
+\end{equation}
+
+All fermions transform under $U(1)_Y$ with generation-independent hypercharges. Left-handed components form $SU(2)_L$ doublets, while right-handed components are singlets. Quarks transform as color triplets under $SU(3)_C$, whereas leptons are color singlets. 
+
+The chirality of the fermionic spectrum stands as one of the deepest properties of the Standard Model. The fact that left- and right-chirality components transform differently under the electroweak gauge group poses a fundamental challenge: such chiral asymmetry is compatible with gauge symmetry only if fermions are massless, since a direct Dirac mass term $m \overline{f_{R}} f_{L} + \text{h.c.}$ would explicitly break the gauge invariance. Yet, fermions like the electron are unequivocally massive. This apparent contradiction finds its resolution in the Higgs mechanism, where masses emerge effectively from Yukawa couplings with the Higgs field.
+
+This chiral gauge structure not only explains the parity-violating nature of weak interactions but also enables electroweak symmetry breaking, which generates masses for fermions and weak gauge bosons. The electroweak symmetry $SU(2)_{L} \times U(1)_{Y}$ spontaneously breaks to the electromagnetic symmetry $U(1)_{\mathrm{EM}}$ via the Higgs mechanism, whose quantum excitation is the Higgs boson $h$. The hypercharge assignments in Table \ref{tab_qm} relate to electric charges through the Gell-Mann–Nishijima relation~\parencite{10.1143/PTP.10.581}:
+\begin{equation}
+    Q_{\mathrm{EM}} = \frac{1}{2}Y + T_{3}, \label{eq:Gell-Mann-Nishijima}
+\end{equation}
+where $T_{3} \equiv \operatorname{diag}\left(\frac{1}{2},-\frac{1}{2}\right)$ is an $SU(2)_{L}$ generator. This relation ensures charge quantization—for instance, the exact equality in magnitude of the proton and electron charges. Although these hypercharge assignments might appear arbitrary, they are uniquely determined by the requirement of quantum consistency.
 
 \begin{center}
-	$$
-	\begin{array}{|l||c|c|c||c|}
-		\hline \text {\textbf{Field} } & S U(3)_C & S U(2)_{L} & U(1)_{Y} & U(1)_{EM} \bigstrut\\
-		\hline q_{L}^{i}=\left(u^{i}, d^{i}\right)_{L} & \mathbf{3} & \mathbf{2} & +1 / 3 & (2/3,-1/3) \bigstrut\\
-		u_{R}^{i} & \overline{\mathbf{3}} & \mathbf{1} & +4 / 3 & +2/3 \bigstrut\\
-		d_{R}^{i} & \overline{\mathbf{3}} & \mathbf{1} & -2 / 3 & -1/3 \bigstrut\\
-		\ell^{i}_L=\left(\nu^{i}, e^{i}\right)_{L} & \mathbf{1} & \mathbf{2} & -1  & (0,-1)\bigstrut\\
-		e_{R}^{i} & \mathbf{1} & \mathbf{1} & -2 & -1 \bigstrut\\
-		H=\left(H^{+}, H^{0}\right) & \mathbf{1} & \mathbf{2} & +1 & (+1,0) \bigstrut\\
-		\hline \hline
-	\end{array}
-	$$
-	\captionof{table}{Gauge quantum numbers of Standard Model quarks, leptons
-		and the Higgs scalar.}\label{tab_qm}
+    \begin{tabular}{|l||c|c|c||c|}
+        \hline \textbf{Field} & $SU(3)_C$ & $SU(2)_{L}$ & $U(1)_{Y}$ & $U(1)_{EM}$ \\
+        \hline $q_{L}^{i}=\left(u^{i}, d^{i}\right)_{L}$ & $\mathbf{3}$ & $\mathbf{2}$ & $+1/3$ & $(2/3,-1/3)$ \\
+        $u_{R}^{i}$ & $\overline{\mathbf{3}}$ & $\mathbf{1}$ & $+4/3$ & $+2/3$ \\
+        $d_{R}^{i}$ & $\overline{\mathbf{3}}$ & $\mathbf{1}$ & $-2/3$ & $-1/3$ \\
+        $\ell^{i}_L=\left(\nu^{i}, e^{i}\right)_{L}$ & $\mathbf{1}$ & $\mathbf{2}$ & $-1$  & $(0,-1)$ \\
+        $e_{R}^{i}$ & $\mathbf{1}$ & $\mathbf{1}$ & $-2$ & $-1$ \\
+        $H=\left(H^{+}, H^{0}\right)$ & $\mathbf{1}$ & $\mathbf{2}$ & $+1$ & $(+1,0)$ \\
+        \hline \hline
+    \end{tabular}
+    \captionof{table}{Gauge quantum numbers of Standard Model quarks, leptons, and the Higgs scalar.}\label{tab_qm}
 \end{center}
 
-Then, with these symmetry groups in mind, we consider the SM as a quantum field theory based on a gauge group
-\begin{equation}
-	G_{\mathrm{SM}}=S U(3)_C \times S U(2)_{L} \times U(1)_{Y},
-\end{equation}
-with $S U(3)_C$ describing strong interactions via QCD, and $S U(2)_{L} \times U(1)_{Y}$ describing electroweak (EW) interactions. \textcolor{red}{Gauge vector bosons that result from taking this group locally are eight gluons ($G^a$) from each $t^a$ color-generator of $SU(3)_C$, and a linear combination of the three ($W^\pm, Z$) weak bosons and the ($\gamma$) electromagnetic photon from the three $T^i$ isospin-generators of $SU(2)_L$ and $Y$ hyper-charge-generator of $U(1)_Y$.....AF: Esto no está bien escrito. No se articulan bien la ideas. Resulta incluso confuso cuando se coloca en contexto con la línea anterior. Por favor corregir. Por otor lado, he notado un cambio en el manejo del inglés en esta parte, en referencia a la redacción usada hasta la página 13.}
-
-The electroweak symmetry, $S U(2)_{L} \times U(1)_{Y}$, is spontaneously broken, leaving the  unbroken electromagnetic symmetry $U(1)_{EM}$. This process occurs via the Higgs mechanism, whose associated quantum is the Higgs boson $H$. The hypercharges ($Y$) of the SM fermions in table \ref{tab_qm} are related to their usual electric charges by the Gell-Mann–Nishijima relation~\parencite{10.1143/PTP.10.581} 
-\begin{equation}
-	Q_{\mathrm{EM}}=\frac12Y+T_{3}, \label{eq:Gell-Mann-Nishijima}
-\end{equation}
-where $T_{3}\dot=\operatorname{diag}\left(\frac{1}{2},-\frac{1}{2}\right)$ is an $S U(2)_{L}$ generator.  Thus, they reproduce electric charge quantization, e.g. the equality in magnitude of the proton and electron charges. Although these hypercharge assignments look rather ad hoc, their values are dictated by the quantum consistency of the theory.\marginpar{It is indeed easy to check that these are (module an irrelevant overall normalization) the only (family independent) assignments canceling all potential triangle gauge anomalies.}
-
 \subsection{Gauge Bosons}
+
+In the previous section, we have seen that the fundamental interactions of SM raise the gauge group
+\begin{equation}
+    G_{\mathrm{SM}} = SU(3)_C \times SU(2)_L \times U(1)_Y.
+\end{equation}
+Each factor in this group corresponds to a fundamental interaction and requires the introduction of gauge fields that ensure the local symmetry of the theory. These vector fields mediate the forces among matter particles and transform in the adjoint representation of their respective gauge groups.
+
+The gauge bosons associated with each group are:
+\begin{itemize}
+    \item From $SU(3)_C$: Eight massless gluons ($G_\mu^a$) that mediate the strong force between color-charged particles.
+    \item From $SU(2)_L$: Three weak isospin bosons ($W_\mu^i$) responsible for weak interactions.
+    \item From $U(1)_Y$: A single hypercharge boson ($B_\mu$) associated with the abelian symmetry of hypercharge.
+\end{itemize}
+
+Before symmetry breaking, these are the gauge eigenstates of the theory. After electroweak symmetry breaking, the $SU(2)_L$ and $U(1)_Y$ fields mix to produce the physical gauge bosons: the massive $W^\pm$ and $Z$ bosons that mediate weak interactions, and the massless photon ($\gamma$) responsible for electromagnetism.
+
+
 
 The Lie algebra of the gauge group $S U(3)_C \times S U(2)_{L} \times U(1)_{Y}$ follows
 \begin{equation}
@@ -269,6 +309,10 @@ Due to the non-abelian nature of the $SU(3)_C$ and $SU(2)_L$ gauge groups, the c
 \end{figure}
 
 \subsection{Matter Fields}
+
+
+
+
 We refer to the fermionic fields of the SM as the matter fields. We distinguish fermions in these two categories: leptons, fermions that do not have strong interaction, and quarks that interact both strongly and electroweakly. In table \ref{tab-generations}, we can see that there are six leptons, three charged and three neutral: each charged lepton has an associated neutrino. Therefore, the electrically charged and the associated neutral leptons can be arranged as  $SU(2)_L$ doublets. In the case of quarks, we can divide these particles as up-and-down-type quarks, also arranged as $SU(2)_L$ doublets, one per generation. 
 
 \begin{table}[h!]
