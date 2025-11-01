@@ -105,12 +105,12 @@ In the previous section, we have seen that the fundamental interactions of SM ra
 \begin{equation}
     G_{\mathrm{SM}} = SU(3)_C \times SU(2)_L \times U(1)_Y.
 \end{equation}
-Each factor in this group corresponds to a fundamental interaction and requires the introduction of gauge fields that ensure the local symmetry of the theory. These vector fields mediate the forces among matter particles and transform in the adjoint representation of their respective gauge groups.
+Each factor in this group corresponds to a fundamental interaction and requires the introduction of gauge fields that ensure the local symmetry of the theory.
 
 The gauge bosons associated with each group are:
 \begin{itemize}
     \item From $SU(3)_C$: Eight massless gluons ($G_\mu^a$) that mediate the strong force between color-charged particles.
-    \item From $SU(2)_L$: Three weak isospin bosons ($W_\mu^i$) responsible for weak interactions.
+    \item From $SU(2)_L$: Three isospin bosons ($W_\mu^i$) responsible for weak interactions.
     \item From $U(1)_Y$: A single hypercharge boson ($B_\mu$) associated with the abelian symmetry of hypercharge.
 \end{itemize}
 
@@ -124,7 +124,9 @@ The Lie algebra of the gauge group $S U(3)_C \times S U(2)_{L} \times U(1)_{Y}$ 
 	{\left[T^{i}, \, Y\;\right] } &=\left[t^{a}, T^{j}\right]=\left[t^{a}, Y\right]=0,
 \end{aligned}
 \end{equation}
-where $f^{a b c}$ and $\epsilon^{i j k}$ are the structure constants of $SU(3)$ and $SU(2)$. Under gauge transformations, the gauge fields $G_\mu$, $W_\mu$, and $B_\mu$ transform as:
+where $f^{a b c}$ and $\epsilon^{i j k}$ are the structure constants of $SU(3)$ and $SU(2)$.
+
+Under gauge transformations, the gauge fields $G_\mu$, $W_\mu$, and $B_\mu$ transform as:
 \begin{equation}
 	\begin{aligned}
 		\delta B_{\mu} &=\partial_{\mu} \theta, \\
@@ -132,6 +134,8 @@ where $f^{a b c}$ and $\epsilon^{i j k}$ are the structure constants of $SU(3)$ 
 		\delta G_{\mu}^{a} &=\partial_{\mu} \theta^{a}-g_{s} f^{a b c} \theta^{b} G_{\mu}^{c}.
 	\end{aligned}
 \end{equation}
+with $g_s$, $g$, and $g'$ being the coupling constants associated with $SU(3)_C$, $SU(2)_L$, and $U(1)_Y$, respectively.
+
 The corresponding field strength tensors are then defined as:
 \begin{equation}\label{eq:field-strength-tensors}
 \begin{aligned}
@@ -144,7 +148,8 @@ and the ``kinetic'' term for gauge fields in the Lagrangian is
 \begin{equation}\label{eq:gauge-lagrangian}
 \mathcal{L}_{\text{Gauge}}=-\frac{1}{4} G_{\mu \nu}^{a} G_{a}^{\mu \nu}-\frac{1}{4} W_{\mu \nu}^{i} W_{i}^{\mu \nu}-\frac{1}{4} B_{\mu \nu} B^{\mu \nu}.
 \end{equation}
-These kinetic terms induce vertices between gauge bosons and in turn do not take into account the masses for such vector bosons. Their masses are generated via the Higgs mechanism, thorough linear combinations, giving rise to the physical $W^\pm$, $Z$, and $\gamma$  bosons. The field redefinitions leading to mass eigenstates are
+
+These kinetic terms do not contain mass terms for the vector bosons. The masses of the $W^\pm$ and $Z$ bosons are generated via the Higgs mechanism, which induces mixing between the $W^i$ and $B$ gauge eigenstates. The field redefinitions leading to the physical mass eigenstates are
 \begin{equation}
 \begin{cases}
 	\begin{aligned}
@@ -161,11 +166,9 @@ These kinetic terms induce vertices between gauge bosons and in turn do not take
 	c_{w}=\cos \theta_{w}=\dfrac{g^\prime}{\sqrt{g^{2}+g{\prime2}}}
 \end{cases}
 \end{equation}
-To avoid confusions with the Dirac matrices, we denote the electromagnetic potential as $A_\mu$.
+Note that we denote the electromagnetic potential as $A_\mu$ with $\gamma$ being its quantum excitation. 
 
-
-\marginpar{Before symmetry breaking we work in a general renormalizable $R_\xi$ gauge; for the discussion of observable tree-level vertices below we will adopt the \textit{unitary gauge}, in which the unphysical Goldstone bosons are removed from the spectrum and only the physical transverse and longitudinal polarizations of $W^\pm$ and $Z$ remain. (Ghost and Goldstone interactions present in a covariant gauge are therefore omitted from the figures.)}%
-Due to the non-abelian nature of the $SU(3)_C$ and $SU(2)_L$ gauge groups, the corresponding gauge bosons also interact among themselves. From the strength tensors in Eq.~\eqref{eq:field-strength-tensors} in the kinetic term of the gauge Lagrangian in Eq.~\eqref{eq:gauge-lagrangian}, we obtain three- and four-point self-interaction vertices for vector bosons from the $SU(3)_C$ and $SU(2)_L$ sectors (see Fig.~\ref{fig-gauge-vertices}), whose structure follows directly from the commutation relations of the Lie algebra.
+In addition, due to the non-abelian nature of the $SU(3)_C$ and $SU(2)_L$ gauge groups, the kinetic terms in Eq.~\eqref{eq:gauge-lagrangian} give rise to three- and four-point self-interaction vertices for the corresponding gauge bosons (see Fig.~\ref{fig-gauge-vertices}), whose structure follows directly from the commutation relations of the Lie algebra.
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
@@ -327,7 +330,7 @@ In table \ref{tab-generations}, we can see that there are six leptons, three cha
 	\caption{Three generations of fermions according to the SM of particle physics. Each generation containing two types of leptons and two types of quarks.}\label{tab-generations}
 \end{table}
 
-According to the SM, there are three generations (families) of fermions. Each generation contains a doublet of leptons and a doublet of quarks. Among generations, particles differ by their flavour quantum number and mass, but their strong and electrical interactions are identical. Moreover, the flavour quantum number is a quantity conserved by all interactions except for the weak interaction.  Each generation is more massive than the previous one. The second and third generations are unstable and they disintegrate into the first generation. This is why ordinary matter is composed of  first generation fermions. All three generations are produced in nuclear reactors, colliders, and cosmic rays. 
+According to the SM, there are three generations (families) of fermions. Each generation contains a doublet of leptons and a doublet of quarks. Among generations, particles differ by their flavour quantum number and mass, but their strong and electrical interactions are identical. Moreover, the flavour quantum number is a quantity conserved by all interactions except for the weak charged interaction.  Each generation is more massive than the previous one. The second and third generations are unstable and they disintegrate into the first generation. This is why ordinary matter is composed of  first generation fermions. All three generations are produced in colliders, nuclear reactors, and cosmic rays.
 
 Under all the constraints on local gauge invariance and renormalizability of the theory, the fermionic Lagrangian for SM is given by
 \begin{equation}
@@ -448,13 +451,17 @@ coupling the fermions to the gauge bosons. As we will show below, after electrow
 
 \subsection{Electroweak Symmetry Breaking}
 
-As it was mentioned in Section \ref{sec:particlecontent}, in the SM the EW symmetry, $SU(2)_{L} \times U(1)_{Y}$, is spontaneously broken down to the electromagnetic $U(1)_{\text{EM}}$ group by a complex scalar Higgs field. This field transforms as an $SU(2)_{L}$ doublet, $H=\left(H^{+}, H^{0}\right)$, with hypercharge $+1$. \textcolor{red}{Its dynamics is governed by the Mexican-hat potential ......AF: Si se va a nombrar el sombrero mexicano, sería deacuado incluir una figura del potencial} (the resulting scalar self-interactions are shown in Fig.~\ref{fig-higgs-self-interactions}):
+As it was mentioned in Section \ref{sec:particlecontent}, in the SM the EW symmetry, $SU(2)_{L} \times U(1)_{Y}$, is spontaneously broken down to the electromagnetic $U(1)_{\text{EM}}$ group by a complex scalar Higgs field. This field transforms as an $SU(2)_{L}$ doublet, $H=\left(H^{+}, H^{0}\right)$, with hypercharge $+1$. Its dynamics is governed by the potential
 \begin{equation}
-    V(H)=-\mu^{2}|H|^{2}+\lambda|H|^{4} \quad \Rightarrow \quad v^{2} \equiv \langle H^{\dagger} H \rangle = \mu^{2} / 2\lambda.
+    V(H)=-\mu^{2}|H|^{2}+\lambda|H|^{4}, \quad \text{with} \quad \mu^2, \lambda > 0.
 \end{equation}
-The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \,\mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$.
+The \textit{negative} sign in front of the $|H|^2$ term is crucial: it ensures that the potential minimum does not occur at $|H|=0$, but instead at a nonzero field value. This gives rise to the characteristic Mexican-hat shape shown in Fig.~\ref{fig-mexican-hat-potential}, where the minimum forms a circle of degenerate vacua at
+\begin{equation}
+    v^{2} \equiv \langle H^{\dagger} H \rangle = \frac{\mu^{2}}{2\lambda}.
+\end{equation}
+The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \,\mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$. The resulting scalar self-interactions are shown in Fig.~\ref{fig-higgs-self-interactions}.
 
-We adopt the Kibble (polar) parametrization of the Higgs doublet in terms of one physical scalar $h$ and three would-be Goldstone bosons $G^{\pm},G^0$:
+We adopt the Kibble parametrization of the Higgs doublet in terms of one physical scalar $h$ and three would-be Goldstone bosons $G^{\pm},G^0$:
 \begin{equation}
 \label{eq:KibbleParam}
 H = \begin{pmatrix} G^{+} \\ \frac{1}{\sqrt{2}}(v + h + i G^{0}) \end{pmatrix},
