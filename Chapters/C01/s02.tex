@@ -459,14 +459,19 @@ The \textit{negative} sign in front of the $|H|^2$ term is crucial: it ensures t
 \begin{equation}
     v^{2} \equiv \langle H^{\dagger} H \rangle = \frac{\mu^{2}}{2\lambda}.
 \end{equation}
-The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \,\mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$. The resulting scalar self-interactions are shown in Fig.~\ref{fig-higgs-self-interactions}.
+The vacuum expectation value (vev) aligns with the electrically neutral component, $\langle H^{0} \rangle = v/\sqrt{2} \simeq 174 \,\mathrm{GeV}$, generating masses for the weak gauge bosons while preserving $U(1)_{\text{EM}}$. 
 
-We adopt the Kibble parametrization of the Higgs doublet in terms of one physical scalar $h$ and three would-be Goldstone bosons $G^{\pm},G^0$:
+We adopt the Kibble parametrization of the Higgs doublet in terms of one physical scalar $h$ and three scalar fields $G^{\pm},G^0$:
 \begin{equation}
 \label{eq:KibbleParam}
 H = \begin{pmatrix} G^{+} \\ \frac{1}{\sqrt{2}}(v + h + i G^{0}) \end{pmatrix},
 \end{equation}
-which in a unitary gauge reduces to $H = \tfrac{1}{\sqrt{2}}(0, v+h)^T$ after gauging away $G^{\pm},G^0$.
+where $G^{\pm}$ and $G^0$ are the would-be Goldstone bosons associated with the broken generators of $SU(2)_L \times U(1)_Y$. In the unitary gauge, these unphysical degrees of freedom are ``gauged away,'' reducing the doublet to
+\begin{equation}
+H = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ v+h \end{pmatrix}.
+\end{equation}
+Substituting this form into the Higgs potential yields the physical Higgs boson mass $m_h = \sqrt{2\lambda}v \simeq 125\,\mathrm{GeV}$, and the scalar self-interactions shown in Fig.~\ref{fig-higgs-self-interactions}. 
+
 
 \begin{figure}[h!]
     \centering
@@ -519,7 +524,141 @@ which in a unitary gauge reduces to $H = \tfrac{1}{\sqrt{2}}(0, v+h)^T$ after ga
     \label{fig-higgs-self-interactions}
 \end{figure}
 
-Fermion masses arise through Yukawa couplings, which represent the most general renormalizable interactions between the Higgs field and the fermion fields (see the diagrammatic decomposition in Fig.~\ref{fig-yukawa-up}–\ref{fig-yukawa-mass}):
+The Full Lagrangian of the scalar sector is
+\begin{equation}
+	\mathcal{L}_{H}= \mathcal D_{\mu} H^{\dagger} \mathcal D^{\mu} H - V\!\left(H^{\dagger}, H\right),
+\end{equation}
+with the covariant derivative defined as $\mathcal D_{\mu} H=\left(\partial_{\mu}+i g T_a W_{\mu}^{a}+i g^{\prime} \tfrac{Y}{2} B_{\mu}\right) H$. Substituting the Higgs vacuum expectation value, one obtains
+\begin{equation}
+	\begin{aligned}
+		\mathcal{L}_{\langle H\rangle}
+		&=-\frac{1}{8}\left(\begin{array}{ll}
+			0 & v
+		\end{array}\right)\left(\begin{array}{ll}
+			g W_{\mu}^{3}-g' B_{\mu} & g\left(W_{\mu}^{1}-i W_{\mu}^{2}\right)\vph \\
+			g\left(W_{\mu}^{1}+i W_{\mu}^{2}\right)&-g W_{\mu}^{3}-g' B_{\mu}\vph
+		\end{array}\right)^{2}\left(\begin{array}{l}
+			0 \\
+			v
+		\end{array}\right)
+		\\&=
+		-\frac{1}{8} v^{2} V_{\mu}^{T}\left(\begin{array}{cccc}
+			g^{2} & 0 & 0 & 0 \\
+			0 & g^{2} & 0 & 0 \\
+			0 & 0 & g^{2} & -g' g \\
+			0 & 0 & -g' g & g'^{2}
+		\end{array}\right) V^{\mu},
+	\end{aligned}
+\end{equation} 
+where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$. Diagonalizing this mass matrix yields the following eigenvalues 
+\begin{equation*}
+    0,\, -\tfrac{1}{4} v^{2} g^{2},\, -\tfrac{1}{4} v^{2} g^{2},\, \text{and} \,-\tfrac{1}{4} v^{2}\left(g^{2}+g'^{2}\right).
+\end{equation*}
+The massless state corresponds to the photon, the heaviest to the $Z$ boson, and the two degenerate intermediate states to the charged bosons $W^\pm$, which transform under the representation of the unbroken generator $Q_{\text{EM}}$. These eigenvalues correspond to the physical masses
+\begin{equation}
+M_W = \tfrac{1}{2}gv \quad \text{(doubly degenerate)}, \qquad M_Z = \tfrac{1}{2}\sqrt{g^2+g'^2}\,v.
+\end{equation} 
+
+The origin of these masses can be understood in terms of the degrees of freedom of the Higgs field. Recall from Eq.~\eqref{eq:KibbleParam} that the four real degrees of freedom of the complex Higgs doublet are parametrized as one physical scalar $h$ (the Higgs boson) and three scalar fields $G^{\pm}, G^0$. If the electroweak symmetry were global rather than local, these three modes would become physical massless Goldstone bosons upon spontaneous breaking of $SU(2)_L \times U(1)_Y \to U(1)_{\text{EM}}$, as dictated by Goldstone's theorem. However, in a gauge theory, the situation is different. Through the Higgs mechanism, these would-be Goldstone modes are absorbed by the gauge bosons $W^{\pm}$ and $Z$, providing them with the longitudinal polarization states necessary for massive vector bosons. 
+
+To see this transfer of degrees of freedom explicitly, consider the kinetic term of the Higgs field in the Kibble parametrization:
+\begin{equation}
+\mathcal{D}_\mu H = \partial_\mu H - i g \frac{\va*{\sigma}}{2} \cdot \va*{W}_\mu H - i \frac{g'}{2} B_\mu H.
+\end{equation}
+Expanding around the vacuum with $H = \tfrac{1}{\sqrt{2}}(G^+, v + h + iG^0)^T$ and keeping only the terms quadratic in gauge fields, we obtain
+\begin{equation}
+|\mathcal{D}_\mu H|^2 \supset \frac{1}{8}(v+h)^2 \left[ g^2 (W_\mu^1)^2 + g^2 (W_\mu^2)^2 + (g W_\mu^3 - g' B_\mu)^2 \right] + \text{(der. terms)}.
+\end{equation}
+The derivative terms contain kinetic mixing between the gauge fields and the Goldstone modes:
+\begin{equation}
+|\mathcal{D}_\mu H|^2 \supset \frac{1}{2} \left[ (\partial_\mu G^+)(g W^{1\mu} + i g W^{2\mu}) + (\partial_\mu G^0)(g W^{3\mu} - g' B^\mu) \right] + \text{h.c.}
+\end{equation}
+These mixing terms are precisely what allow the Goldstone modes to be eliminated via a gauge transformation. Specifically, under an $SU(2)_L \times U(1)_Y$ gauge transformation parametrized by $\va*{\alpha}(x)$ and $\beta(x)$, the gauge fields transform as
+\begin{equation}
+\va*{W}_\mu \to \va*{W}_\mu + \frac{1}{g}\partial_\mu \va*{\alpha}, \qquad B_\mu \to B_\mu + \frac{1}{g'}\partial_\mu \beta.
+\end{equation}
+Choosing the gauge parameters appropriately, we can absorb the Goldstone fields into redefinitions of the gauge fields. For instance, setting $\alpha^{\pm} = \mp G^{\pm}/v$ and $\alpha^3 = -G^0/v$ eliminates $G^{\pm}, G^0$ from the Lagrangian. This is the unitary gauge. In this gauge, the mass terms become
+\begin{equation}
+\mathcal{L}_{\text{mass}} = \frac{1}{2} M_W^2 W_\mu^+ W^{-\mu} + \frac{1}{2} M_Z^2 Z_\mu Z^\mu,
+\end{equation}
+where $M_W = \tfrac{1}{2}gv$ and $M_Z = \tfrac{1}{2}\sqrt{g^2+g'^2}\,v$. The crucial point is that the three degrees of freedom originally residing in $G^{\pm}, G^0$ have now been transferred to provide the longitudinal polarization states of $W^{\pm}$ and $Z$. Before symmetry breaking, massless gauge bosons possess only two transverse polarization states; after symmetry breaking, the massive gauge bosons acquire a third (longitudinal) polarization state each, accounting for the three absorbed Goldstone modes. 
+
+\begin{figure}[h!]
+	\centering
+	\begin{fmffile}{feyngraphs/feyngraph19} 
+	\vspace{0.5cm}
+	\begin{fmfgraph*}(80,60)
+		\fmfleft{i1,i2}
+		\fmfright{o1}
+		
+		\fmf{boson}{i1,v1,o1}
+		\fmf{dashes}{v1,i2}
+
+		\fmflabel{$V$}{i1}
+		\fmflabel{$\langle H \rangle$}{i2}
+		\fmflabel{$V$}{o1}
+	\end{fmfgraph*}
+	\vspace{0.5cm}
+	\end{fmffile}
+	\caption{Vector boson mass insertion from the Higgs vacuum expectation value ($V=W^\pm,Z$). This diagrammatic representation illustrates how the masses of the weak gauge bosons arise from their interaction with the non-zero vev of the Higgs field. The Higgs vev insertion effectively represents the absorption of the would-be Goldstone bosons ($G^{\pm}, G^0$) into the gauge fields, providing the longitudinal degrees of freedom necessary for massive vector bosons.}
+	\label{fig-vector-mass}
+\end{figure}
+
+This process is illustrated diagrammatically in Fig.~\ref{fig-vector-mass}, where the interaction of the gauge fields with the Higgs vev effectively incorporates the Goldstone degrees of freedom into the vector bosons. Meanwhile, the photon remains massless with only two transverse polarizations, corresponding to the unbroken $U(1)_{\text{EM}}$ symmetry. The resulting Higgs--vector boson interaction structures are summarized in Fig.~\ref{fig-higgs-gauge-interactions}.
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraphs/feyngraph14} 
+            \vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1,i2}
+                \fmfright{o1,o2}
+                
+                \fmf{dashes}{i1,v1}
+                \fmf{dashes}{i2,v1}
+                \fmf{boson}{v1,o1}
+                \fmf{boson}{v1,o2}
+
+                \fmflabel{$h$}{i1}
+                \fmflabel{$h$}{i2}
+                \fmflabel{$Z/W^+$}{o1}
+                \fmflabel{$Z/W^-$}{o2}
+            \end{fmfgraph*}
+            \vspace{0.5cm}
+        \end{fmffile}
+        \caption{Quartic $hhVV$ coupling.}
+        \label{fig-higgs-w}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{fmffile}{feyngraphs/feyngraph18}
+            \vspace{0.5cm}
+            \begin{fmfgraph*}(80,60)
+                \fmfleft{i1}
+                \fmfright{o1,o2}
+                
+                \fmf{dashes,tension=2.0}{i1,v1}
+                \fmf{boson}{v1,o1}
+                \fmf{boson}{v1,o2}
+
+                \fmflabel{$h$}{i1}
+                \fmflabel{$Z/W^+$}{o1}
+                \fmflabel{$Z/W^-$}{o2}
+            \end{fmfgraph*}
+            \vspace{0.5cm}
+        \end{fmffile}
+	\caption{Triple $hVV$ coupling ($V=W^\pm,Z$).}
+	\label{fig-hvv}
+    \end{subfigure}
+	\caption{Feynman diagrams for Higgs--gauge boson interactions (unitary gauge) arising from $\mathcal{D}_\mu H^\dagger \mathcal{D}^\mu H$. Here $V=W^\pm,Z$.}
+    \label{fig-higgs-gauge-interactions}
+\end{figure}
+
+Having established how the Higgs mechanism generates masses for the weak gauge bosons through the absorption of Goldstone modes, we now turn to fermion masses, which arise through a different but equally important mechanism: Yukawa couplings. These represent the most general renormalizable interactions between the Higgs field and the fermion fields (see the diagrammatic decomposition in Fig.~\ref{fig-yukawa-up}–\ref{fig-yukawa-mass}):
 \begin{equation}
     \mathcal{L}_{\text{Yuk}} = y_{u}^{ij} \bar{q}_{L}^{i} u_{R}^{j} \tilde{H} + y_{d}^{ij} \bar{q}_{L}^{i} d_{R}^{j} H + y_{\ell}^{ij} \bar{\ell}_L^{i} e_{R}^{j} H + \text{h.c.},
 \end{equation}
@@ -654,135 +793,6 @@ remains diagonal in the mass basis. In contrast to the quark sector, the $W$ bos
 A crucial feature of the SM gauge structure is that the electroweak interactions are \textit{flavor-universal}: in the interaction basis, all fermion families couple to the gauge bosons with identical strength, determined solely by the gauge couplings $g$ and $g'$. This universality persists in the mass basis. For quarks, although the CKM matrix introduces flavor mixing, the coupling strength remains universal---each element $V_{ij}$ multiplies the same factor $g/\sqrt{2}$. For leptons with massless neutrinos, the absence of a leptonic mixing matrix means that the charged-current interactions are both diagonal and universal. The $W$ boson couples to each $\bar{\nu}_L \gamma^\mu \ell_L$ current with the same coefficient $-g/\sqrt{2}$, and the $Z$ boson couplings to $\ell_L$ and $\ell_R$ are flavor-independent because the hypercharge assignments are identical for all families.
 
 This property, often referred to as \textit{Lepton Universality} (LU), implies that processes differing only by the lepton flavor, such as leptonic decays or semileptonic transitions, are predicted to occur with the same rates up to well-understood effects: differences in phase space, helicity suppression, lepton-mass dependence, and small radiative corrections.\marginpar{\textit{Note:} In the experimental literature, this property is commonly called \textit{Lepton Flavour Universality} (LFU). We use the term \textit{Lepton Universality} to emphasize the universal coupling strength, distinct from lepton flavor conservation.} The assumption of LU is central in the extraction of CKM parameters, since experimental determinations from decays involving electrons, muons, and tau leptons can be consistently combined. Precision tests of LU focus on ratios of decay widths or branching fractions where theoretical and experimental uncertainties cancel to a large extent. Agreement with these tests confirms the gauge structure of the SM, while deviations would point to new physics. It is important to note that lepton universality does not forbid lepton flavor-violating processes such as $\mu \to e\gamma$ at the level of effective operators; rather, it states that the fundamental gauge couplings are flavor-blind.
-
-The Lagrangian of the scalar sector is
-\begin{equation}
-	\mathcal{L}_{H}= \mathcal D_{\mu} H^{\dagger} \mathcal D^{\mu} H - V\!\left(H^{\dagger}, H\right),
-\end{equation}
-with the covariant derivative defined as $\mathcal D_{\mu} H=\left(\partial_{\mu}+i g T_a W_{\mu}^{a}+i g^{\prime} \tfrac{Y}{2} B_{\mu}\right) H$. Substituting the Higgs vacuum expectation value, one obtains
-\begin{equation}
-	\begin{aligned}
-		\mathcal{L}_{\langle H\rangle}
-		&=-\frac{1}{8}\left(\begin{array}{ll}
-			0 & v
-		\end{array}\right)\left(\begin{array}{ll}
-			g W_{\mu}^{3}-g' B_{\mu} & g\left(W_{\mu}^{1}-i W_{\mu}^{2}\right)\vph \\
-			g\left(W_{\mu}^{1}+i W_{\mu}^{2}\right)&-g W_{\mu}^{3}-g' B_{\mu}\vph
-		\end{array}\right)^{2}\left(\begin{array}{l}
-			0 \\
-			v
-		\end{array}\right)
-		\\&=
-		-\frac{1}{8} v^{2} V_{\mu}^{T}\left(\begin{array}{cccc}
-			g^{2} & 0 & 0 & 0 \\
-			0 & g^{2} & 0 & 0 \\
-			0 & 0 & g^{2} & -g' g \\
-			0 & 0 & -g' g & g'^{2}
-		\end{array}\right) V^{\mu},
-	\end{aligned}
-\end{equation} 
-where $V_{\mu}^{T}=\left(W_{\mu}^{1}, W_{\mu}^{2}, W_{\mu}^{3}, B_{\mu}\right)$. Diagonalizing this mass matrix yields the following  eigenvalues 
-
-\begin{equation*}
-    0,\, -\tfrac{1}{4} v^{2} g^{2},\, -\tfrac{1}{4} v^{2} g^{2},\, \text{and} \,-\tfrac{1}{4} v^{2}\left(g^{2}+g'^{2}\right).
-\end{equation*}
- The massless state corresponds to the photon, the heaviest to the $Z$ boson, and the two degenerate intermediate states to the charged bosons $W^\pm$, which transform under the representation of the unbroken generator $Q_{EM}$. The resulting Higgs--vector boson interaction structures are summarized in Fig.~\ref{fig-higgs-gauge-interactions}.
-
-\begin{figure}[h!]
-    \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \begin{fmffile}{feyngraphs/feyngraph14} 
-            \vspace{0.5cm}
-            \begin{fmfgraph*}(80,60)
-                \fmfleft{i1,i2}
-                \fmfright{o1,o2}
-                
-                \fmf{dashes}{i1,v1}
-                \fmf{dashes}{i2,v1}
-                \fmf{boson}{v1,o1}
-                \fmf{boson}{v1,o2}
-
-                \fmflabel{$h$}{i1}
-                \fmflabel{$h$}{i2}
-                \fmflabel{$Z/W^+$}{o1}
-                \fmflabel{$Z/W^-$}{o2}
-            \end{fmfgraph*}
-            \vspace{0.5cm}
-        \end{fmffile}
-        \caption{Quartinc $hhVV$ coupling.}
-        \label{fig-higgs-w}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \begin{fmffile}{feyngraphs/feyngraph15} 
-            \vspace{0.5cm}
-            \begin{fmfgraph*}(80,60)
-                \fmfleft{i1,i2}
-                \fmfright{o1,o2}
-                
-                \fmf{dashes}{i1,v1}
-                \fmf{boson}{i2,v1}
-                \fmf{boson}{v1,o1}
-                \fmf{boson}{v1,o2}
-
-                \fmflabel{$h$}{i1}
-                \fmflabel{$Z/\gamma$}{i2}
-                \fmflabel{$W^+$}{o1}
-                \fmflabel{$W^-$}{o2}
-            \end{fmfgraph*}
-            \vspace{0.5cm}
-        \end{fmffile}
-	\caption{Quartic $hXWW$ coupling ($X=Z,\gamma$).}
-	\label{fig-hxww}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \begin{fmffile}{feyngraphs/feyngraph18}
-            \vspace{0.5cm}
-            \begin{fmfgraph*}(80,60)
-                \fmfleft{i1}
-                \fmfright{o1,o2}
-                
-                \fmf{dashes,tension=2.0}{i1,v1}
-                \fmf{boson}{v1,o1}
-                \fmf{boson}{v1,o2}
-
-                \fmflabel{$h$}{i1}
-                \fmflabel{$Z/W^+$}{o1}
-                \fmflabel{$Z/W^-$}{o2}
-            \end{fmfgraph*}
-            \vspace{0.5cm}
-        \end{fmffile}
-	\caption{Triple $hVV$ coupling ($V=W^\pm,Z$).}
-	\label{fig-hvv}
-    \end{subfigure}
-	\begin{subfigure}[b]{0.48\textwidth}
-        \centering
-		\begin{fmffile}{feyngraphs/feyngraph19} 
-		\vspace{0.5cm}
-				\begin{fmfgraph*}(80,60)
-						\fmfleft{i1,i2}
-						\fmfright{o1}
-						
-						\fmf{boson}{i1,v1,o1}
-						\fmf{dashes}{v1,i2}
-
-						\fmflabel{$V$}{i1}
-						\fmflabel{$\langle H \rangle$}{i2}
-						\fmflabel{$V$}{o1}
-				\end{fmfgraph*}
-		\vspace{0.5cm}
-		\caption{Vector boson mass insertion from the vev ($V=W^\pm,Z$).}
-		\label{fig-vector-mass}
-		\end{fmffile}
-	\end{subfigure}
-	\caption{Feynman diagrams for Higgs--gauge boson interactions (unitary gauge) arising from $\mathcal{D}_\mu H^\dagger \mathcal{D}^\mu H$ and a vev insertion. Here $V=W^\pm,Z$ and $X=Z,\gamma$.}
-    \label{fig-higgs-gauge-interactions}
-\end{figure}
-
-
 
 This suffices to illustrate how the SM, formulated as a relativistic quantum field theory, describes the interactions of matter fields through the fundamental forces, mediated by vector bosons. The Higgs boson, also part of the SM spectrum, plays the central role in generating masses for the weak bosons and the fermions, while  indirectly distinguishing the photon as the only massless gauge boson of the EW sector.
 
