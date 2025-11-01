@@ -331,19 +331,19 @@
 
 % Define abstract environment for book class
 \newenvironment{abstract}%
-{\cleardoublepage\null\vfill\begin{center}%
+{\cleardoublepage\null\vfill\begin{center}\phantomsection\addcontentsline{toc}{chapter}{Abstract}%
 \bfseries Abstract\end{center}\vspace{1em}}%
 {\vfill\null}
 
 % Define dedication environment for book class
 \newenvironment{dedication}%
-{\cleardoublepage\null\vfill\begin{center}%
+{\cleardoublepage\null\vfill\begin{center}\phantomsection\addcontentsline{toc}{chapter}{Dedication}%
 \bfseries Dedication\end{center}\vspace{1em}}%
 {\vfill\null}
 
 % Define acknowledgements environment for book class
 \newenvironment{acknowledgements}%
-{\cleardoublepage\null\vfill\begin{center}%
+{\cleardoublepage\null\vfill\begin{center}\phantomsection\addcontentsline{toc}{chapter}{Acknowledgements}%
 \bfseries Acknowledgements\end{center}\vspace{1em}}%
 {\vfill\null}
 
