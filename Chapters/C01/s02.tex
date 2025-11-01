@@ -543,7 +543,7 @@ these couplings generate Dirac mass terms for the fermions.
                 \fmf{fermion}{v1,i2}
                 \fmf{dashes,tension=2.0}{v1,o1}
 
-                \fmflabel{$\bar q_L$}{i1}
+                \fmflabel{$\bar u_L$}{i1}
                 \fmflabel{$u_R$}{i2}
                 \fmflabel{$h$}{o1}
             \end{fmfgraph*}
@@ -565,7 +565,7 @@ these couplings generate Dirac mass terms for the fermions.
 									\fmf{fermion}{v1,i2}
 									\fmf{dashes,tension=2.0}{v1,o1}
 
-									\fmflabel{$\bar q_L$}{i1}
+									\fmflabel{$\bar d_L$}{i1}
 									\fmflabel{$d_R$}{i2}
 									\fmflabel{$h$}{o1}
 							\end{fmfgraph*}
@@ -586,7 +586,7 @@ these couplings generate Dirac mass terms for the fermions.
 				\fmf{fermion}{v1,i2}
 				\fmf{dashes,tension=2.0}{v1,o1}
 
-				\fmflabel{$\bar \ell_L$}{i1}
+				\fmflabel{$\bar e_L$}{i1}
 				\fmflabel{$e_R$}{i2}
 				\fmflabel{$h$}{o1}
 			\end{fmfgraph*}
@@ -619,7 +619,9 @@ these couplings generate Dirac mass terms for the fermions.
 \end{figure}
 
 
-The quark mass matrices are proportional to the Yukawa matrices: $M_u = y_u v/\sqrt{2}$, $M_d = y_d v/\sqrt{2}$. Since $y_u$ and $y_d$ are general complex matrices, they cannot be simultaneously diagonalized. The physical quark masses and states are found by performing separate unitary transformations on the left- and right-handed fields:
+The quark mass matrices are proportional to the Yukawa matrices: $M_u = y_u v/\sqrt{2}$, $M_d = y_d v/\sqrt{2}$. 
+Since $y_u$ and $y_d$ are general complex matrices, the mass matrices $M_u$ and $M_d$ cannot be simultaneously diagonalized. The reason for this is that the same left-handed quark doublet $q_L$ appears in both the up-type and down-type Yukawa operators, so any unitary rotation of $q_L$ that diagonalizes one mass matrix will generically affect the other. 
+The physical quark masses and states are found by performing separate unitary transformations on the left- and right-handed fields:
 \begin{equation}
     u_L \to V_L^u u_L, \quad u_R \to V_R^u u_R, \quad d_L \to V_L^d d_L, \quad d_R \to V_R^d d_R,
 \end{equation}
