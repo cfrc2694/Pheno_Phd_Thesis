@@ -90,9 +90,7 @@ where:
     \item the sum runs over all possible parton types $i, j$ (e.g., $u, d, g$) in the two protons.
     \item $f_i(x, \mu_F^2)$ is the PDF, representing the probability density to find a parton of type $i$ carrying a fraction $x$ of the proton's momentum at a factorization scale $\mu_F$.
 		\item $\hat{s} = x_1 x_2 s$ is the square of the center-of-mass energy for the colliding partons, with $s$ being the square of the $pp$ center-of-mass energy (e.g., 13.6 TeV).
-    \item $\hat{\sigma}_{ij \to X}$ is the partonic cross-section for the hard scattering process $ij \to X$.
-    \item $\mu_F$ is the factorization scale, which separates the long-distance physics (PDFs) from the short-distance hard scattering ($\hat{\sigma}$).
-    \item $\mu_R$ is the renormalization scale, at which the QCD coupling constant $g_s(\mu_R)$ is evaluated in the perturbative calculation of $\hat{\sigma}$.
+    \item $\hat{\sigma}_{ij \to X}$ is the partonic cross-section for the hard scattering process $ij \to X$ at factorization scale $\mu_F$ and renormalization scale $\mu_R$.  
 \end{itemize}
 
 Then, on one side, the cross-section $\sigma$ is a theoretical quantity that encapsulates the fundamental physics of the interaction, independent of the accelerator's performance. On the other side, the \textbf{luminosity} ($\mathcal{L}$) is a property of the particle accelerator and beams. It measures the density of particles in the colliding beams and thus the rate at which interactions can occur. The instantaneous luminosity is defined by:
@@ -106,12 +104,10 @@ L = \int \mathcal{L}\, dt.
 The primary unit of integrated luminosity is the inverse barn ($\text{b}^{-1}$), commonly $\text{fb}^{-1}$.
 
 Theoretically, the expected number of events of a SM or BSM process is estimated as
-
 \begin{equation}
 N_{\text{theory}} = \sigma \cdot L.
 \label{eq:N_sigma_theory}
 \end{equation}
-
 
 Under the context of a collider experiment one has to include the detector acceptance and efficiency of the particle identification and selection criteria used to discriminate the signal of interest among other processes. The variable $\epsilon$ is defined as the product of the acceptance ($\mathcal{A}$) and the cumulative efficiency of all the selection criteria used to estimate the signal rate above the backgrounds: 
 
