@@ -2,7 +2,7 @@
 \label{sec:power_analysis}
 
 In high energy physics experiments, data is often discretized into bins (e.g., histograms of collision events versus energy or momentum) to test competing hypotheses~\cite{BakerCousins:1984}. The fundamental framework compares two scenarios: the \textit{null hypothesis} ($H_0$), representing background-only processes (only a $b_i$ number of events in each bin $i$), and the \textit{alternative hypothesis} ($H_1$), including both signal ($s_i$) and background events ($s_i + b_i$)~\cite{NeymanPearson:1933}. Event counts ($n_i$) in a collider experiment follow a Poissonian distribution. Therefore,  the likelihood for observing the data under each hypothesis is the product of Poisson probabilities per bin. And, because of this, it is  written as a binned-likelihood~\cite{BakerCousins:1984,Cowan:2011}:
-\begin{equation}
+\begin{equation}\label{eq:likelihood_poisson}
     \mathcal{L}(n_i \mid \lambda_i) = \frac{e^{-\lambda_i} \lambda_i^{n_i}}{n_i!}, \quad \text{where } \lambda_i = 
     \begin{cases}
         b_i & \text{for } H_0, \\
@@ -37,41 +37,48 @@ The discovery significance $\kappa$ quantifies the statistical separation of $t$
 \begin{equation}
 \kappa = \frac{\braket{t}_{H_0} - \braket{t}_{H_1}}{\sigma_{H_1}}.
 \end{equation}
-The expected behavior differs under the signal-plus-background ($H_1$) and background-only ($H_0$) hypotheses. But, the expressions for $\langle t \rangle$ and $\sigma^2(t)$ under both hypotheses follow from the properties of Poisson-distributed random variables $n_i$ and the linearity of expectation.
-
-For any hypothesis, the expectation value of $t$ is given by
+To evaluate $\kappa$, we need the expectation values and variances of $t$ under both hypotheses. These expressions follow from the properties of Poisson-distributed random variables $n_i$ and the linearity of expectation. For any hypothesis, the expectation value of $t$ is given by
 \begin{equation}
 \langle t \rangle = \sum_i \left[2s_i - 2w_i \langle n_i \rangle\right],
 \end{equation}
-since $\langle n_i \rangle$ depends on the hypothesis. The variance derivation uses the facts that:
+where $\langle n_i \rangle = \lambda_i$ depends on whether we assume the hypothesis in \eqref{eq:likelihood_poisson}. The variance calculation relies on three key properties:
 \begin{itemize}
-    \item Bins are independent: $\sigma^2(\sum_i X_i) = \sum_i \sigma^2(X_i)$
+    \item In General, for any set of random variables $X_i$, the variance is
+	\begin{equation}
+		\sigma^2\big(\sum_i X_i\big) = \sum_i \sigma^2(X_i) + 2\sum_{i<j} \sigma(X_i, X_j)
+	\end{equation}
+	with $\sigma(X_i, X_j)$ the covariance between $X_i$ and $X_j$. Assuming that each bin is an independent experiment, the covariance term vanishes, and we get
+	\begin{equation}
+		\sigma^2\big(\sum_i X_i\big) = \sum_i \sigma^2(X_i).
+	\end{equation}
     \item For constants $a,c$: $\sigma^2(aX + c) = a^2\sigma^2(X)$
     \item For Poisson $n_i$: $\sigma^2(n_i) = \langle n_i \rangle = \lambda_i$
 \end{itemize}
-The variance of each bin's contribution is:  
+Applying these properties, the variance of each bin's contribution is given by
 \begin{equation}
-\sigma^2(2s_i - 2w_i n_i) = 4w_i^2 \sigma^2(n_i) = 4w_i^2 \langle n_i \rangle,
+\sigma^2(2s_i - 2w_i n_i) = 4w_i^2 \sigma^2(n_i) = 4w_i^2 \lambda_i,
 \end{equation}
-where $\langle n_i \rangle = \lambda_i$ depends on the hypothesis.
+and summing over all bins yields the total variance under each hypothesis.
+
+Thus, the expected behavior differs under the signal-plus-background ($H_1$) and background-only ($H_0$) hypotheses, as shown in the following expressions:
 
 \begin{itemize}
-	\item \textbf{Under $H_1$} we expect that the $n_i$ data distribution follows $\text{Pois}(s_i + b_i)$:
+	\item \textbf{Under $H_1$} we expect that the $n_i$ distribution follows $\text{Pois}(s_i + b_i)$:
 	\begin{equation}
 	\langle t \rangle_{s+b} = \sum_i \left[2s_i - 2(s_i + b_i)w_i\right]
 	\implies \sigma^2_{s+b}(t) = 4\sum_i (s_i + b_i) w_i^2.
 	\end{equation}
 
-	\item \textbf{Under $H_0$} we expect that the $n_i$ data distribution follows $\text{Pois}(b_i)$
+	\item \textbf{Under $H_0$} we expect that the $n_i$ distribution follows $\text{Pois}(b_i)$:
 	\begin{equation}
 	\langle t  \rangle_{b} = \sum_i \left[2s_i - 2b_i w_i\right]
-	\implies \sigma^2_{b}(t) = 4\sum_i b_i w_i^2
+	\implies \sigma^2_{b}(t) = 4\sum_i b_i w_i^2.
 	\end{equation}
 \end{itemize}
 
-Substituting in $\kappa$ gives a useful expression for the discovery significance,
+Substituting these results into $\kappa$ gives a useful expression for the discovery significance,
 \begin{align}
-\kappa = \frac{\sum s_i w_i}{\sqrt{\sum (s_i + b_i) w_i^2}}
+\kappa = \frac{\sum_i s_i w_i}{\sqrt{\sum_i (s_i + b_i) w_i^2}}.
 \end{align}
 It quantifies the separation between the signal+background ($s+b$) and the background-only hypotheses in units of standard deviations ($\sigma$), where $\kappa = 5$ corresponds to the traditional $5\sigma$ discovery threshold, $\kappa =3$ to a $3\sigma$ evidence to the traditional anomaly detection threshold, and $\kappa = 1.69$ to the $95\%$ confidence level (CL) exclusion limit.
 
