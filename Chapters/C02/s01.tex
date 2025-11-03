@@ -79,20 +79,20 @@ One of the main objectives of particle physics experiments is to quantify how fr
 
 In essence, the  cross-section ($\sigma$) quantifies the probability for a specific process to occur. Formally, it represents the effective area of a target particle presented to an incoming beam particle for an interaction to happen. It has units of area, typically barn (b), where $1\,\text{b} = 10^{-28}\,\text{m}^2$.
 
-\marginpar{\footnotesize The scales $\mu_F$ and $\mu_R$ are unphysical parameters introduced in perturbativ calculations (typically QCD calculations). In an exact calculation to all orders, physical observables would be independent of these scales. However, at finite perturbative order (NLO, NNLO, etc.), a residual scale dependence remains, proportional to the next uncalculated order in $g_s$. This dependence is used to estimate theoretical uncertainties by varying $\mu_R, \mu_F \in [Q/2, 2Q]$ with $1/2 \leq \mu_R/\mu_F \leq 2$, where $Q$ is the characteristic hard scale of the process.}
 In the context of $pp$ collisions at the LHC, the concept is generalized. Since both colliding particles are composite, the cross-section for a specific process is calculated by considering the interactions between their constituent partons (quarks and gluons). The total cross-section for a process $pp \to X$ is given by the convolution of the PDFs and the partonic cross-section $\hat{\sigma}_{ij \to X}$ \parencite[Eq. 19.45]{Rubbia:2022hry}:
 \begin{equation}
 \sigma(pp \to X) = \sum_{i,j} \int_0^1\int_0^1 dx_1 dx_2\, f_i(x_1, \mu_F^2) f_j(x_2, \mu_F^2)\, \hat{\sigma}_{ij \to X}(\hat{s}, \mu_F^2, \mu_R^2),
 \label{eq:cross_section}
 \end{equation}
 where:
+\marginpar{\footnotesize The scales $\mu_F$ and $\mu_R$ are unphysical parameters introduced in perturbative calculations (typically QCD calculations). In an exact calculation to all orders, physical observables would be independent of these scales. However, at finite perturbative order (NLO, NNLO, etc.), a residual scale dependence remains, proportional to the next uncalculated order in $g_s$. This dependence is used to estimate theoretical uncertainties by varying $\mu_R, \mu_F \in [Q/2, 2Q]$ with $1/2 \leq \mu_R/\mu_F \leq 2$, where $Q$ is the characteristic hard scale of the process.}
 \begin{itemize}
     \item the sum runs over all possible parton types $i, j$ (e.g., $u, d, g$) in the two protons.
     \item $f_i(x, \mu_F^2)$ is the PDF, representing the probability density to find a parton of type $i$ carrying a fraction $x$ of the proton's momentum at a factorization scale $\mu_F$.
 		\item $\hat{s} = x_1 x_2 s$ is the square of the center-of-mass energy for the colliding partons, with $s$ being the square of the $pp$ center-of-mass energy (e.g., 13.6 TeV).
+    \item $\hat{\sigma}_{ij \to X}$ is the partonic cross-section for the hard scattering process $ij \to X$.
     \item $\mu_F$ is the factorization scale, which separates the long-distance physics (PDFs) from the short-distance hard scattering ($\hat{\sigma}$).
     \item $\mu_R$ is the renormalization scale, at which the QCD coupling constant $g_s(\mu_R)$ is evaluated in the perturbative calculation of $\hat{\sigma}$.
-    \item $\hat{\sigma}_{ij \to X}$ is the partonic cross-section for the hard scattering process $ij \to X$.
 \end{itemize}
 
 Then, on one side, the cross-section $\sigma$ is a theoretical quantity that encapsulates the fundamental physics of the interaction, independent of the accelerator's performance. On the other side, the \textbf{luminosity} ($\mathcal{L}$) is a property of the particle accelerator and beams. It measures the density of particles in the colliding beams and thus the rate at which interactions can occur. The instantaneous luminosity is defined by:
