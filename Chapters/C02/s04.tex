@@ -33,28 +33,42 @@ t=-2\ln Q = \sum_{i=1}^{N} \left[2s_i - 2n_i w_i\right],
 \end{equation}
 with the optimal weight of each bin given by $w_i = \ln\!\left(1 + \frac{s_i}{b_i}\right)$.
 
-
-
-
 The discovery significance $\kappa$ quantifies the statistical separation of $t$ if $n$ is distributed according to the background-only hypothesis ($H_0$) versus the signal-plus-background hypothesis ($H_1$), normalized by the standard deviation of the $H_1$ distribution ($\sigma_{H_1}$),
 \begin{equation}
 \kappa = \frac{\braket{t}_{H_0} - \braket{t}_{H_1}}{\sigma_{H_1}}.
 \end{equation}
-The expected behavior differs under the signal-plus-background ($H_1$) and background-only ($H_0$) hypotheses:
+The expected behavior differs under the signal-plus-background ($H_1$) and background-only ($H_0$) hypotheses. But, the expressions for $\langle t \rangle$ and $\sigma^2(t)$ under both hypotheses follow from the properties of Poisson-distributed random variables $n_i$ and the linearity of expectation.
+
+For any hypothesis, the expectation value of $t$ is given by
+\begin{equation}
+\langle t \rangle = \sum_i \left[2s_i - 2w_i \langle n_i \rangle\right],
+\end{equation}
+since $\langle n_i \rangle$ depends on the hypothesis. The variance derivation uses the facts that:
+\begin{itemize}
+    \item Bins are independent: $\sigma^2(\sum_i X_i) = \sum_i \sigma^2(X_i)$
+    \item For constants $a,c$: $\sigma^2(aX + c) = a^2\sigma^2(X)$
+    \item For Poisson $n_i$: $\sigma^2(n_i) = \langle n_i \rangle = \lambda_i$
+\end{itemize}
+The variance of each bin's contribution is:  
+\begin{equation}
+\sigma^2(2s_i - 2w_i n_i) = 4w_i^2 \sigma^2(n_i) = 4w_i^2 \langle n_i \rangle,
+\end{equation}
+where $\langle n_i \rangle = \lambda_i$ depends on the hypothesis.
 
 \begin{itemize}
 	\item \textbf{Under $H_1$} we expect that the $n_i$ data distribution follows $\text{Pois}(s_i + b_i)$:
 	\begin{equation}
-	\langle -2\ln Q \rangle_{s+b} = \sum_i \left[2s_i - 2(s_i + b_i)w_i\right]
-	\implies \sigma^2_{s+b} = 4\sum_i (s_i + b_i) w_i^2.
+	\langle t \rangle_{s+b} = \sum_i \left[2s_i - 2(s_i + b_i)w_i\right]
+	\implies \sigma^2_{s+b}(t) = 4\sum_i (s_i + b_i) w_i^2.
 	\end{equation}
 
 	\item \textbf{Under $H_0$} we expect that the $n_i$ data distribution follows $\text{Pois}(b_i)$
 	\begin{equation}
-	\langle -2\ln Q \rangle_{b} = \sum_i \left[2s_i - 2b_i w_i\right]
-	\implies \sigma^2_{b} = 4\sum_i b_i w_i^2
+	\langle t  \rangle_{b} = \sum_i \left[2s_i - 2b_i w_i\right]
+	\implies \sigma^2_{b}(t) = 4\sum_i b_i w_i^2
 	\end{equation}
 \end{itemize}
+
 Substituting in $\kappa$ gives a useful expression for the discovery significance,
 \begin{align}
 \kappa = \frac{\sum s_i w_i}{\sqrt{\sum (s_i + b_i) w_i^2}}
