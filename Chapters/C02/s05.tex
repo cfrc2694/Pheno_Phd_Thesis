@@ -26,18 +26,37 @@ Rather than predicting a hard label, modern classifiers return a continuous scor
 
 Logistic regression, SVMs~\cite{Cortes1995}, Random Forests~\cite{Breiman2001} and boosted trees~\cite{friedman_greedy_2001,chen_xgboost_2016} are common choices; see \cite{Hastie2009,Hoecker2007} for comparisons and practical guidance.
 
+
 Several algorithms are commonly employed in this context. Logistic regression is often used as a baseline due to its simplicity and transparency. It assumes a linear decision boundary in the feature space, with the discriminant
 \begin{equation}
 f(\mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b), \quad 
 \sigma(z) = \frac{1}{1 + e^{-z}},
 \end{equation}
-where $\mathbf{w}$ are model parameters and $b$ is a bias term. While it cannot capture complex non-linear relationships, logistic regression remains useful when signal and background are approximately linearly separable, and it provides a clear reference point against which more sophisticated methods can be compared.
+where $\mathbf{w}$ are model parameters and $b$ is a bias term. The model learns a linear combination $z = \mathbf{w} \cdot \mathbf{x} + b$ that best separates the two classes, then applies the sigmoid function to map this unbounded score to a probability-like output in $[0,1]$. As illustrated in Fig.~\ref{fig:logistic_explanation}, a direct linear fit to the binary labels (orange line) is unbounded and can produce values outside the physically meaningful range $[0,1]$. The sigmoid transformation (purple curve) constrains the output while preserving the ordering of events and providing faster convergence to the asymptotic values: as $z \to -\infty$, $\sigma(z) \to 0$ (background region), and as $z \to +\infty$, $\sigma(z) \to 1$ (signal region).
 
-Support Vector Machines (SVMs) instead seek to maximize the margin between signal and background classes. For non-linear problems, SVMs employ kernel functions $K(\mathbf{x}_i, \mathbf{x})$ that implicitly map the inputs to a higher-dimensional space where linear separation becomes possible. The decision function is
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Images/logistic_regression_explanation.pdf}
+    \caption{Illustration of logistic regression on a toy dataset with two classes drawn from Gaussian distributions. The orange line shows an ordinary linear regression fit $f_{\text{lin}}(\mathbf{x}) = \mathbf{w}_{\text{lin}} \cdot \mathbf{x} + b_{\text{lin}}$ to the binary labels, which is unbounded and can produce values outside $[0,1]$. The purple curve shows the logistic regression output $f(\mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$, where the sigmoid function constrains the output to $[0,1]$ while maintaining a smooth, monotonic response. The dashed Gaussian curves illustrate the underlying class distributions. A decision threshold (horizontal dashed line) at $f(\mathbf{x}) = 0.55$ would classify events above it as signal and below as background, though in practice the full continuous distribution is used for statistical inference.}
+    \label{fig:logistic_explanation}
+\end{figure} 
+
+While a hard decision threshold (e.g., classifying events with $f(\mathbf{x}) > 0.55$ as signal) can be applied, modern analyses exploit the full continuous output distribution rather than collapsing it to a binary decision. Figure~\ref{fig:logistic_distribution} shows the resulting distributions of $f(\mathbf{x})$ for signal and background events after applying the trained logistic regression model. Signal events concentrate near $f(\mathbf{x}) \approx 1$, while background events peak near $f(\mathbf{x}) \approx 0$, with some overlap in intermediate regions reflecting the inherent classification uncertainty. 
+
+This approach—using the complete output distribution rather than a single cut—is central to the analysis strategy employed throughout this work. As detailed in Sec.~\ref{ssec:ml_workflow}, the classifier output is binned into a histogram, and each bin contributes to the final sensitivity calculation through the likelihood framework of Sec.~\ref{sec:power_analysis}. This maximizes the statistical power by preserving all discriminating information: events with intermediate scores, which would be ambiguous under a hard threshold, still contribute meaningfully to the analysis through their likelihood contributions.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Images/logistic_regression_distribution.pdf}
+    \caption{Distribution of the logistic regression output $f(\mathbf{x}) = \sigma(\mathbf{w} \cdot \mathbf{x} + b)$ for signal (green) and background (blue) events in the toy dataset. Rather than applying a single decision threshold, the analysis uses the full shape of these distributions as input to the statistical inference procedure described in Sec.~\ref{sec:power_analysis}, maximizing the sensitivity by exploiting all available discriminating information across the entire output range.}
+    \label{fig:logistic_distribution}
+\end{figure}
+
+While logistic regression cannot capture complex non-linear relationships, it remains useful when signal and background are approximately linearly separable, and it provides a clear reference point against which more sophisticated methods can be compared. Support Vector Machines (SVMs) instead seek to maximize the margin between signal and background classes. For non-linear problems, SVMs employ kernel functions $K(\mathbf{x}_i, \mathbf{x})$ that implicitly map the inputs to a higher-dimensional space where linear separation becomes possible. The decision function is
 \begin{equation}
-f(\mathbf{x}) = \text{sign}\left(\sum_{i=1}^{N} \alpha_i y_i K(\mathbf{x}_i, \mathbf{x}) + b\right),
+f(\mathbf{x}) = \sum_{i=1}^{N} \alpha_i y_i K(\mathbf{x}_i, \mathbf{x}) + b,
 \end{equation}
-where $\alpha_i$ are Lagrange multipliers. SVMs are effective in high-dimensional spaces and have strong theoretical guarantees, but they scale poorly to large datasets and are highly sensitive to kernel choice and hyperparameter tuning.
+where $\alpha_i$ are Lagrange multipliers, $y_i \in \{-1, +1\}$ are the training labels (with $+1$ for signal and $-1$ for background), and $\mathbf{x}_i$ are the training examples. The raw output $f(\mathbf{x})$ can be converted to a probability estimate in $[0,1]$ using calibration methods such as Platt scaling. SVMs are effective in high-dimensional spaces and have strong theoretical guarantees, but they scale poorly to large datasets and are highly sensitive to kernel choice and hyperparameter tuning.
 
 Tree-based ensembles are among the most widely used methods. Random Forests combine multiple decision trees trained on bootstrap samples of the data, with random feature selection at each split:
 \begin{equation}
