@@ -95,21 +95,33 @@ The algorithm minimizes a regularized objective function:
 \begin{equation}
 \mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i) + \sum_{m=1}^{M} \Omega(f_m),
 \end{equation}
-where $l(y_i, \hat{y}_i)$ measures the prediction error and $\Omega(f_m)$ penalizes complex trees to prevent overfitting. The regularization term is:
+where $n$ is the number of training events, $y_i \in \{0,1\}$ is the true class label of event $i$ (with $y_i = 1$ for signal and $y_i = 0$ for background), and $\hat{y}_i$ is the model's current prediction for that event. The loss function $l(y_i, \hat{y}_i)$ measures the prediction error—quantifying how far the predicted value $\hat{y}_i$ deviates from the true label $y_i$—while $\Omega(f_m)$ penalizes complex trees to prevent overfitting. Common choices for the loss function include logistic loss (also called log-loss or cross-entropy) for classification, which for a single event takes the form $l(y, \hat{y}) = -[y \log(\hat{y}) + (1-y)\log(1-\hat{y})]$, penalizing confident but incorrect predictions more heavily than uncertain ones. The regularization term is:
 \begin{equation}
 \Omega(f) = \gamma T + \tfrac{1}{2}\lambda \|\mathbf{w}\|^2 + \alpha \|\mathbf{w}\|_1,
 \end{equation}
-where $T$ is the number of leaves, $\mathbf{w}$ are the leaf weights, and $\gamma$, $\lambda$, $\alpha$ control tree complexity.
+where $T$ is the number of leaves in the tree and $\mathbf{w} = (w_1, w_2, \ldots, w_T)$ is the vector of \textit{leaf weights}—the prediction values assigned to each terminal node within a single tree, conceptually analogous to the leaf probabilities described for Random Forests. However, in XGBoost these leaf weights are treated as learnable parameters that are explicitly optimized during training, rather than being fixed as simple class frequency ratios. The distinction in notation is important: $\mathbf{w}$ denotes weights \textit{within} individual trees (at the leaf level), while $\gamma_m$ in the ensemble expression $F_M(\mathbf{x}) = \sum_{m=1}^{M} \gamma_m h_m(\mathbf{x})$ denotes weights \textit{between} trees in the full ensemble. The regularization coefficients $\gamma$, $\lambda$, $\alpha$ control tree complexity: $\|\mathbf{w}\|^2$ is the $L^2$ norm (Euclidean norm) squared, defined as $\|\mathbf{w}\|^2 = \sum_{j=1}^{T} w_j^2$, which penalizes large leaf weights and encourages smoother predictions; $\|\mathbf{w}\|_1$ is the $L^1$ norm (Manhattan norm), defined as $\|\mathbf{w}\|_1 = \sum_{j=1}^{T} |w_j|$, which promotes sparsity by driving some leaf weights toward exactly zero. Together, these regularization terms prevent the model from assigning extreme values to individual leaves, which would indicate overfitting to training data noise.
 
-The model is built additively:
+The model is built additively through sequential updates:
 \begin{equation}
 \hat{y}_i^{(t)} = \hat{y}_i^{(t-1)} + \eta f_t(\mathbf{x}_i),
 \end{equation}
-where $\eta$ is the learning rate. Each new tree is selected to minimize:
+where $t = 1, 2, \ldots, M$ indexes the boosting iteration (tree number), $\hat{y}_i^{(t)}$ is the ensemble prediction for event $i$ after adding $t$ trees, and $\eta \in (0,1]$ is the \textit{learning rate} (or shrinkage parameter). The learning rate controls how much each new tree contributes to the ensemble: smaller values (e.g., $\eta = 0.01$–$0.1$) make the learning process more conservative, requiring more trees but typically improving generalization, while larger values (e.g., $\eta = 0.3$–$1.0$) lead to faster training but higher risk of overfitting. The dependence on $t$ is implicit: at iteration $t$, the new tree $f_t(\mathbf{x}_i)$ is trained to correct the residual errors of the current ensemble $\hat{y}_i^{(t-1)}$, so the contribution of each successive tree adapts to the evolving state of the model. Starting from $\hat{y}_i^{(0)} = 0$ (or a constant initial guess), each iteration adds a weighted correction: $\hat{y}_i^{(1)} = \eta f_1(\mathbf{x}_i)$, then $\hat{y}_i^{(2)} = \eta f_1(\mathbf{x}_i) + \eta f_2(\mathbf{x}_i)$, and so on, with later trees focusing on increasingly difficult cases.
+
+Each new tree is selected to minimize a second-order Taylor approximation of the loss:
 \begin{equation}
-f_t = \arg\min_{f} \sum_{i=1}^{n} \left[g_i f(\mathbf{x}_i) + \tfrac{1}{2} h_i f^2(\mathbf{x}_i)\right] + \Omega(f),
+f_t = \arg\min_{f} \sum_{i=1}^{n} \left[g_i f(\mathbf{x}_i) + \tfrac{1}{2} h_i f^{(2)}(\mathbf{x}_i)\right] + \Omega(f),
 \end{equation}
-with $g_i$ and $h_i$ the first and second derivatives of the loss function.
+where $g_i$ and $h_i$ are the first and second derivatives of the loss function $l(y_i, \hat{y}_i)$ with respect to the current prediction $\hat{y}_i^{(t-1)}$, evaluated at event $i$:
+\begin{align}
+g_i &= \frac{\partial l(y_i, \hat{y}_i)}{\partial \hat{y}_i}\bigg|_{\hat{y}_i = \hat{y}_i^{(t-1)}}, \\
+h_i &= \frac{\partial^2 l(y_i, \hat{y}_i)}{\partial \hat{y}_i^2}\bigg|_{\hat{y}_i = \hat{y}_i^{(t-1)}}.
+\end{align}
+These gradient statistics $g_i$ and $h_i$ depend on three quantities: the true label $y_i$ of event $i$, the current ensemble prediction $\hat{y}_i^{(t-1)}$ before adding tree $t$, and the specific form of the loss function. For the default logistic loss (binary cross-entropy) used in classification, $l(y, \hat{y}) = -[y \log(p) + (1-y)\log(1-p)]$ where $p = \sigma(\hat{y}) = 1/(1+e^{-\hat{y}})$ is the predicted probability obtained by applying the sigmoid function to the raw prediction $\hat{y}$. The derivatives are:
+\begin{align}
+g_i &= \frac{\partial l}{\partial \hat{y}_i} = p_i^{(t-1)} - y_i = \sigma(\hat{y}_i^{(t-1)}) - y_i, \\
+h_i &= \frac{\partial^2 l}{\partial \hat{y}_i^2} = p_i^{(t-1)}(1 - p_i^{(t-1)}),
+\end{align}
+where $p_i^{(t-1)} = \sigma(\hat{y}_i^{(t-1)})$ is the current probability estimate. The first derivative $g_i$ represents the residual error: for a correctly classified signal event ($y_i = 1$) with high confidence ($p_i \approx 1$), $g_i \approx 0$ and the event receives little attention; for a misclassified signal event with low confidence ($p_i \approx 0$), $g_i \approx -1$ and the next tree focuses heavily on correcting this mistake. The second derivative $h_i$ acts as an adaptive weight: it is largest ($h_i = 0.25$) when the model is most uncertain ($p_i = 0.5$) and smallest near the decision boundaries ($p_i \to 0$ or $p_i \to 1$), effectively allocating more optimization effort to ambiguous cases.
 
 The performance of XGBoost depends on finding the right balance between underfitting and overfitting. Underfitting occurs when the model is too simple to capture the relevant patterns in the data, leading to poor performance on both training and test sets. In this case the model is characterized by high bias and low variance. Overfitting, on the other hand, arises when the model learns the training data too closely, including statistical fluctuations and noise. This yields very good performance on the training set but poor generalization to new data, with the model showing low bias and high variance.
 
@@ -164,9 +176,9 @@ Integrating machine learning into high-energy physics analysis follows a standar
     \item \textbf{Output Score Generation}: Instead of binary class assignments, the trained model's continuous output is obtained using \texttt{predict\_proba()}, which provides a per-event probability score $f(\mathbf{x}) \in [0, 1]$ indicating the likelihood of belonging to the signal class. This score serves as a powerful discriminant variable that encapsulates the multidimensional separation power.
     
     \item \textbf{Histogram Construction and Weighting}: Events are binned based on their classifier score to form a one-dimensional histogram. Each bin's content is calculated using the appropriate physics-level weights:
-    \[
-    N_i^{\text{bin}} = \sum_{\text{events in bin } i} w_j = \sum_{\text{events in bin } i} \left( \sigma \cdot \mathcal{L} \cdot \epsilon / N_{\text{gen}} \right)_j,
-    \]
+    \begin{equation}
+    N_i^{\text{bin}} = \sum_{j \in \text{events in bin } i} w_j = \sum_{j \in \text{events in bin } i} \left( \sigma \cdot \mathcal{L} \cdot \epsilon / N_{\text{gen}} \right)_j,
+    \end{equation}
     yielding the expected signal ($s_i$) and background ($b_i$) yields per bin. The binning is typically optimized to maximize the expected sensitivity, often with finer binning in regions of better signal-to-background ratio.
     
     \item \textbf{Sensitivity Measurement}: The final histogram, incorporating all relevant systematic uncertainties as nuisance parameters, serves as input to the statistical model described in Sec.~\ref{sec:power_analysis}. The discovery significance $\kappa$ (from Eq.~\ref{eq:kappa_with_systematics}) is computed, quantifying the analysis sensitivity and enabling comparison between different analysis strategies or machine learning approaches.
