@@ -304,3 +304,114 @@ Converting back to Yukawa couplings:
 Y_{t_L}^2 \lesssim (Y_t^{\text{SM}})^2 \left( 2 - \frac{m_t^2}{m_F^2} \right). \label{eq:Y_final_detail}
 \end{equation}
 This shows that the maximum enhancement for the top Yukawa is less than a factor of $\sqrt{2}$, which is perfectly perturbative.
+
+\section{Extension to Quarks, Leptons, and Neutrinos}
+
+The single-generation analysis presented above captures the essential physics of the universal seesaw mechanism. However, the realistic case involves three generations of quarks and leptons, with additional complications arising from flavor mixing and the special role of neutrinos.
+
+\subsection{Quark Sector: Full Flavor Structure}
+
+The most general gauge-invariant and renormalizable Lagrangian for the quark sector in the $U(1)_{T_3^R}$ model is given by:
+\begin{align}
+\mathcal{L}_{\text{mass}}^{\text{quark}} \supset & \, \bar{Q}_{L}^{i} (Y_{u L})_{ij} \chi_{u R}^{j} \tilde{H} + \bar{Q}_{L}^{i} (Y_{d L})_{ij} \chi_{d R}^{j} H \nonumber \\
+& + \bar{\chi}_{u L}^{i} (Y_{u R})_{ij} u_{R}^{j} \phi^{*} + \bar{\chi}_{d L}^{i} (Y_{d R})_{ij} d_{R}^{j} \phi \nonumber \\
+& + \bar{\chi}_{u L}^{i} (m_{\chi u})_{ij} \chi_{u R}^{j} + \bar{\chi}_{d L}^{i} (m_{\chi d})_{ij} \chi_{d R}^{j} + \text{h.c.}, \label{eq:L_Yuk_general}
+\end{align}
+where $i, j = 1,2,3$ are flavor indices, $H$ is the SM Higgs doublet with $\tilde{H} = i\sigma_2 H^*$, and $\phi$ is the additional scalar field that acquires a vacuum expectation value $v_\phi$. An entirely analogous set of terms exists for the lepton sector. The Yukawa matrices $Y_{uL}, Y_{dL}, Y_{uR}, Y_{dR}$ and the vector-like mass matrices $m_{\chi u}, m_{\chi d}$ are general complex $3 \times 3$ matrices, making the flavor structure highly non-trivial.
+
+To make physical predictions, we must diagonalize these matrices. We express them in terms of their singular value decompositions (i.e., their diagonal forms) and the associated unitary mixing matrices:
+\begin{align}
+Y_{u L} &= U_{L L}^{\dagger} Y_{u L}^{d} U_{L R}, & Y_{u R} &= U_{R L}^{\dagger} Y_{u R}^{d} U_{R R}, \nonumber \\
+Y_{d L} &= V_{L L}^{\dagger} Y_{d L}^{d} V_{L R}, & Y_{d R} &= V_{R L}^{\dagger} Y_{d R}^{d} V_{R R}, \nonumber \\
+m_{\chi u} &= W_{u L}^{\dagger} m_{\chi u}^{d} W_{u R}, & m_{\chi d} &= W_{d L}^{\dagger} m_{\chi d}^{d} W_{d R}.
+\end{align}
+Here, the matrices $Y^{d}$ and $m^{d}$ are real, diagonal, and non-negative. The unitary matrices $U, V, W$ are not physical by themselves but encode the mixing between flavor states.
+
+We now perform a series of field redefinitions to absorb the maximal number of these unitary matrices into the definitions of the fermion fields. The goal is to make as many mass parameters diagonal as possible. The redefinitions are:
+\begin{align}
+Q_L &\to U_{LL} \;Q_L, & \chi_{uR} &\to W_{uR} \;\chi_{uR}, & \chi_{uL} &\to W_{uL} \;\chi_{uL}, & u_R &\to U_{RR} \;u_R, \nonumber \\
+\chi_{dR} &\to W_{dR}\; \chi_{dR}, & \chi_{dL} &\to W_{dL}\; \chi_{dL}, & d_R &\to V_{RR} \;d_R.
+\end{align}
+Applying these transformations to the Lagrangian \eqref{eq:L_Yuk_general} and using the definitions above, we obtain the simplified form:
+\begin{align}
+\mathcal{L}_{\text{Yuk}} = & \, \bar{Q}_{L} Y_{u L}^{d} (U_{L R} W_{u R}^{\dagger}) \chi_{u R} \tilde{H} + \bar{Q}_{L} (U_{LL}V_{LL}^\dagger) Y_{d L}^{d} (V_{L R} W_{d R}^{\dagger}) \chi_{d R} H \nonumber \\
+& + \bar{\chi}_{u L} (W_{u L} U_{R L}^{\dagger}) Y_{u R}^{d} u_{R} \phi^{*} + \bar{\chi}_{d L} (W_{d L} V_{R L}^{\dagger}) Y_{d R}^{d} d_{R} \phi \nonumber \\
+& + \bar{\chi}_{u L} m_{\chi u}^{d} \chi_{u R} + \bar{\chi}_{d L} m_{\chi d}^{d} \chi_{d R} + \text{h.c.}
+\end{align}
+The matrix $\tilde{V}_{\text{CKM}} \equiv U_{LL}V_{LL}^\dagger$ is identified as the unitary matrix that will yield the observed Cabibbo-Kobayashi-Maskawa (CKM) quark mixing. For simplicity, and to focus on the essential mass generation mechanism, we adopt a \textit{flavor-aligned} scenario. This assumes that all unitary matrices except those forming the CKM matrix are equal to the identity:
+\begin{equation}
+U_{LR} = W_{uR} = W_{uL} = U_{RL} = V_{LR} = W_{dR} = W_{dL} = V_{RL} = U_{RR} = V_{RR} = I.
+\end{equation}
+This is a strong assumption that minimizes new sources of flavor violation beyond the SM. Under this assumption, the Lagrangian simplifies dramatically to:
+\begin{align}
+\mathcal{L}_{\text{Yuk}} = & \, \bar{Q}_{L} Y_{u L}^{d} \chi_{u R} \tilde{H} + \bar{Q}_{L} \tilde{V}_{\text{CKM}} Y_{d L}^{d} \chi_{d R} H \nonumber \\
+& + \bar{\chi}_{u L} Y_{u R}^{d} u_{R} \phi^{*} + \bar{\chi}_{d L} Y_{d R}^{d} d_{R} \phi \nonumber \\
+& + \bar{\chi}_{u L} m_{\chi u}^{d} \chi_{u R} + \bar{\chi}_{d L} m_{\chi d}^{d} \chi_{d R} + \text{h.c.}
+\end{align}
+All matrices $Y^{d}$ and $m^{d}$ are now diagonal. The only remaining off-diagonal flavor structure is in $\tilde{V}_{\text{CKM}}$, which can be identified with the physical CKM matrix after diagonalizing the fermion mass matrices.
+
+\subsection{Three Generations and the CKM Matrix}
+
+The generalization to three generations involves the diagonalization of the full $6 \times 6$ mass matrices for both up-type and down-type quarks. For a single generation, we found the mass matrix in Eq.~\eqref{eq:mass_matrix}. For three generations, this extends to:
+\begin{equation}
+\mathcal{M}_u = \begin{pmatrix}
+0_{3\times 3} & m_L^u \\
+m_R^u & m_{\chi}^u
+\end{pmatrix}, \quad
+\mathcal{M}_d = \begin{pmatrix}
+0_{3\times 3} & m_L^d \\
+m_R^d & m_{\chi}^d
+\end{pmatrix},
+\end{equation}
+where each entry is now a $3 \times 3$ matrix. In the flavor-aligned scenario, $m_L^{u,d} = \frac{v_h}{\sqrt{2}} Y_{u,dL}^{d}$, $m_R^{u,d} = \frac{v_\phi}{\sqrt{2}} Y_{u,dR}^{d}$, and $m_{\chi}^{u,d} = m_{\chi u,d}^{d}$ are all diagonal matrices.
+
+The diagonalization proceeds via bi-unitary transformations for each sector:
+\begin{align}
+U_L^u \mathcal{M}_u (U_R^u)^\dagger &= \text{diag}(m_{u_1}, m_{c}, m_{t}, m_{U_1}, m_{U_2}, m_{U_3}), \\
+U_L^d \mathcal{M}_d (U_R^d)^\dagger &= \text{diag}(m_{d_1}, m_{s}, m_{b}, m_{D_1}, m_{D_2}, m_{D_3}),
+\end{align}
+where $U_L^{u,d}$ and $U_R^{u,d}$ are $6 \times 6$ unitary matrices. Each matrix can be partitioned into $3 \times 3$ blocks:
+\begin{equation}
+U_L^{u,d} = \begin{pmatrix}
+(U_L^{u,d})_{11} & (U_L^{u,d})_{12} \\
+(U_L^{u,d})_{21} & (U_L^{u,d})_{22}
+\end{pmatrix}.
+\end{equation}
+
+The physical CKM matrix emerges in the charged-current weak interactions. After diagonalization, the $W$ boson couples the mass eigenstates with a mixing matrix:
+\begin{equation}
+V_{\text{CKM}} = [(U_L^u)_{11}]^\dagger \tilde{V}_{\text{CKM}} (U_L^d)_{11}.
+\end{equation}
+In the limit where the mixing angles between SM quarks and their vector-like partners are small (i.e., $(U_L^{u,d})_{11} \approx I_{3\times 3}$), we recover $V_{\text{CKM}} \approx \tilde{V}_{\text{CKM}}$, and the observed CKM matrix is reproduced.
+
+The matrix $\tilde{V}_{\text{CKM}}$ introduced during field redefinition will manifest in the charged current weak interactions of the mass eigenstates. After diagonalization, the SM $W$ boson will couple not only to the three light quarks but also to the heavy vector-like quarks, with couplings suppressed by the mixing angles. The observed $3 \times 3$ CKM matrix emerges as the effective mixing matrix among the three light quarks when the heavy states are integrated out.
+
+\subsection{Lepton and Neutrino Sectors}
+
+The charged lepton sector follows an identical procedure to the quark sector. The Lagrangian contains terms:
+\begin{equation}
+\mathcal{L}_{\text{mass}}^{\text{lepton}} \supset \bar{L}_{L}^{i} (Y_{\ell L})_{ij} \chi_{\ell R}^{j} H + \bar{\chi}_{\ell L}^{i} (Y_{\ell R})_{ij} \ell_{R}^{j} \phi + \bar{\chi}_{\ell L}^{i} (m_{\chi \ell})_{ij} \chi_{\ell R}^{j} + \text{h.c.},
+\end{equation}
+where $L_L$ are the SM lepton doublets, $\ell_R$ are the SM charged lepton singlets, and $\chi_{\ell}$ are the vector-like charged leptons. The diagonalization proceeds analogously to the quark case, generating the charged lepton masses $m_{e}, m_{\mu}, m_{\tau}$ and three heavy vector-like partners.
+
+The neutrino sector, however, offers further richness. The right-handed neutrinos $\nu_R$ can possess both Dirac masses ($m_R$) from coupling to $\phi$ and Majorana mass terms $M_R \bar{\nu}_R^c \nu_R$, which are allowed by the gauge symmetry once $U(1)_{T_3^R}$ is broken. The vector-like neutrinos $\chi_\nu$ can also have Majorana masses. The most general neutrino mass Lagrangian is:
+\begin{align}
+\mathcal{L}_{\text{mass}}^{\nu} \supset & \, \bar{L}_{L} Y_{\nu L} \chi_{\nu R} \tilde{H} + \bar{\chi}_{\nu L} Y_{\nu R} \nu_{R} \phi^{*} + \bar{\chi}_{\nu L} m_{\chi \nu} \chi_{\nu R} \nonumber \\
+& + \frac{1}{2} \bar{\nu}_R^c M_R \nu_R + \frac{1}{2} \bar{\chi}_{\nu}^c M_{\chi} \chi_{\nu} + \text{h.c.},
+\end{align}
+where $M_R$ and $M_{\chi}$ are Majorana mass matrices. This combination of Dirac and Majorana masses for both $\nu_R$ and $\chi_\nu$ can generate a double or triple seesaw mechanism, providing a natural explanation for the tiny masses of the observed light neutrinos.
+
+In the basis $(\nu_L, \chi_{\nu L}, \nu_R^c, \chi_{\nu R}^c)$, the neutrino mass matrix becomes a $12 \times 12$ complex symmetric matrix:
+\begin{equation}
+\mathcal{M}_{\nu} = \begin{pmatrix}
+0 & m_L^\nu & 0 & 0 \\
+m_L^{\nu T} & 0 & m_R^\nu & m_{\chi\nu} \\
+0 & m_R^{\nu T} & M_R & 0 \\
+0 & m_{\chi\nu}^T & 0 & M_{\chi}
+\end{pmatrix},
+\end{equation}
+where $m_L^\nu = \frac{v_h}{\sqrt{2}} Y_{\nu L}$ and $m_R^\nu = \frac{v_\phi}{\sqrt{2}} Y_{\nu R}$. This matrix is diagonalized by a single unitary transformation (since it is symmetric). The eigenvalues yield six light neutrino masses (three of which correspond to the observed active neutrinos $\nu_e, \nu_\mu, \nu_\tau$ with masses $\lesssim 1$ eV) and six heavy states.
+
+The diagonalization of this extended neutrino mass matrix also generates the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) mixing matrix, analogous to the CKM matrix in the quark sector. The hierarchy of neutrino masses and the large mixing angles observed in neutrino oscillations can be naturally accommodated by appropriate choices of the parameters $M_R, M_{\chi}, m_L^\nu, m_R^\nu$, and $m_{\chi\nu}$.
+
+In summary, the universal seesaw mechanism extends naturally to the full three-generation SM fermion spectrum. The flavor structure is controlled by the Yukawa matrices and the vector-like fermion masses, with the flavor-aligned scenario providing a simple starting point that minimizes new sources of flavor violation. The observed CKM and PMNS mixing matrices emerge from the diagonalization of the extended quark and lepton mass matrices, respectively, with the heavy vector-like fermions playing a crucial role in generating the hierarchical mass spectrum observed in nature.
