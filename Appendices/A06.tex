@@ -117,7 +117,7 @@ H_L = \mathcal{M}_f \mathcal{M}_f^\dagger = \begin{pmatrix}
 m_{\chi} m_L^* & |m_R|^2 + |m_{\chi}|^2
 \end{pmatrix},
 \end{equation}
-and assuming real parameters for clarity, we compute the diagonalization:
+and assuming real parameters for clarity, we consider its diagonalization:
 
 \begin{align*}
 \tilde{H}_L &= \begin{pmatrix}
@@ -137,74 +137,153 @@ m_f^2 & 0 \\
 0 & m_F^2
 \end{pmatrix}.
 \end{align*}
-First, computing $U_L H_L$:
+
+A more direct approach to obtain the simplified system is to apply the inverse rotations. Starting from the diagonal form:
+
 \begin{align*}
-U_L H_L &= \begin{pmatrix}
+\begin{pmatrix}
+m_f^2 & 0 \\
+0 & m_F^2
+\end{pmatrix}
+&= 
+\begin{pmatrix}
 \cos\theta_L & -\sin\theta_L \\
 \sin\theta_L & \cos\theta_L
 \end{pmatrix}
 \begin{pmatrix}
 m_L^2 & m_L m_{\chi} \\
 m_{\chi} m_L & m_R^2 + m_{\chi}^2
-\end{pmatrix} \\
-&= \begin{pmatrix}
-m_L^2 \cos\theta_L - m_{\chi} m_L \sin\theta_L & m_L m_{\chi} \cos\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L \\
-m_L^2 \sin\theta_L + m_{\chi} m_L \cos\theta_L & m_L m_{\chi} \sin\theta_L + (m_R^2 + m_{\chi}^2) \cos\theta_L
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta_L & \sin\theta_L \\
+-\sin\theta_L & \cos\theta_L
+\end{pmatrix},
+\end{align*}
+
+we multiply both sides on the left by $U_L^\dagger$ and on the right by $U_L$:
+
+\begin{align*}
+\begin{pmatrix}
+\cos\theta_L & \sin\theta_L \\
+-\sin\theta_L & \cos\theta_L
+\end{pmatrix}
+\begin{pmatrix}
+m_f^2 & 0 \\
+0 & m_F^2
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta_L & -\sin\theta_L \\
+\sin\theta_L & \cos\theta_L
+\end{pmatrix}
+&= 
+\begin{pmatrix}
+m_L^2 & m_L m_{\chi} \\
+m_{\chi} m_L & m_R^2 + m_{\chi}^2
 \end{pmatrix}.
 \end{align*}
 
-Then multiply by $U_L^\dagger$, and with $\tilde{H}_L\equiv U_L H_L U_L^\dagger$ we have that the diagonal elements are:
-\begin{align*}
-(\tilde{H}_L)_{11} &= (m_L^2 \cos\theta_L - m_{\chi} m_L \sin\theta_L)\cos\theta_L \\
-&\quad + [m_L m_{\chi} \cos\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L](-\sin\theta_L) \\
-&= m_L^2 \cos^2\theta_L - m_L m_{\chi} \sin\theta_L \cos\theta_L \\
-&\quad - m_L m_{\chi} \cos\theta_L \sin\theta_L + (m_R^2 + m_{\chi}^2) \sin^2\theta_L \\
-&= m_L^2 \cos^2\theta_L + (m_R^2 + m_{\chi}^2) \sin^2\theta_L - 2m_L m_{\chi} \sin\theta_L \cos\theta_L,
-\end{align*}
+Proceeding with the explicit computation of the left-hand side, we first evaluate the middle product:
 
 \begin{align*}
-(\tilde{H}_L)_{22} &= (m_L^2 \sin\theta_L + m_{\chi} m_L \cos\theta_L)\sin\theta_L \\
-&\quad + [m_L m_{\chi} \sin\theta_L + (m_R^2 + m_{\chi}^2) \cos\theta_L]\cos\theta_L \\
-&= m_L^2 \sin^2\theta_L + m_L m_{\chi} \sin\theta_L \cos\theta_L \\
-&\quad + m_L m_{\chi} \sin\theta_L \cos\theta_L + (m_R^2 + m_{\chi}^2) \cos^2\theta_L \\
-&= m_L^2 \sin^2\theta_L + (m_R^2 + m_{\chi}^2) \cos^2\theta_L + 2m_L m_{\chi} \sin\theta_L \cos\theta_L.
+\begin{pmatrix}
+m_f^2 & 0 \\
+0 & m_F^2
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta_L & -\sin\theta_L \\
+\sin\theta_L & \cos\theta_L
+\end{pmatrix}
+&= 
+\begin{pmatrix}
+m_f^2 \cos\theta_L & -m_f^2 \sin\theta_L \\
+m_F^2 \sin\theta_L & m_F^2 \cos\theta_L
+\end{pmatrix}.
 \end{align*}
 
-While, the off-diagonal element is:
+The full left-hand side then becomes:
+
+\begin{align}
+\begin{pmatrix}
+m_L^2 & m_L m_{\chi} \\
+m_{\chi} m_L & m_R^2 + m_{\chi}^2
+\end{pmatrix}
+&= 
+\begin{pmatrix}
+m_f^2 \cos^2\theta_L + m_F^2 \sin^2\theta_L & (m_F^2 - m_f^2) \sin\theta_L \cos\theta_L \\
+(m_F^2 - m_f^2) \sin\theta_L \cos\theta_L & m_f^2 \sin^2\theta_L + m_F^2 \cos^2\theta_L
+\end{pmatrix}.
+\end{align}
+By reading off the matrix elements, we obtain the simplified system:
+\begin{align}
+m_L^2 &= m_f^2 \cos^2\theta_L + m_F^2 \sin^2\theta_L, \label{eq:original1} \\
+m_R^2 + m_\chi^2 &= m_f^2 \sin^2\theta_L + m_F^2 \cos^2\theta_L, \label{eq:original2} \\
+m_L m_\chi &= (m_F^2 - m_f^2) \sin\theta_L \cos\theta_L. \label{eq:original3}
+\end{align}
+To further simplify, we employ the double-angle trigonometric identities:
 \begin{align*}
-(\tilde{H}_L)_{12} &= (m_L^2 \cos\theta_L - m_{\chi} m_L \sin\theta_L)\sin\theta_L \\
-&\quad + [m_L m_{\chi} \cos\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L]\cos\theta_L \\
-&= m_L^2 \sin\theta_L \cos\theta_L - m_L m_{\chi} \sin^2\theta_L \\
-&\quad + m_L m_{\chi} \cos^2\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L \cos\theta_L \\
-&= m_L m_{\chi} (\cos^2\theta_L - \sin^2\theta_L) + [m_L^2 - (m_R^2 + m_{\chi}^2)] \sin\theta_L \cos\theta_L.
+\cos^2\theta_L &= \frac{1 + \cos 2\theta_L}{2}, \\
+\sin^2\theta_L &= \frac{1 - \cos 2\theta_L}{2}, \\
+\sin\theta_L \cos\theta_L &= \frac{\sin 2\theta_L}{2},
 \end{align*}
-
-Requiring this equals $\text{diag}(m_f^2, m_F^2)$ gives the system:
-\begin{align*}
-m_L^2 \cos^2\theta_L + (m_R^2 + m_{\chi}^2) \sin^2\theta_L - 2m_L m_{\chi} \sin\theta_L \cos\theta_L &= m_f^2, \\
-m_L^2 \sin^2\theta_L + (m_R^2 + m_{\chi}^2) \cos^2\theta_L + 2m_L m_{\chi} \sin\theta_L \cos\theta_L &= m_F^2, \\
-m_L m_{\chi} (\cos^2\theta_L - \sin^2\theta_L) + [m_L^2 - (m_R^2 + m_{\chi}^2)] \sin\theta_L \cos\theta_L &= 0.
-\end{align*}
-
-Adding and subtracting appropriate combinations of these equations yields the simplified system:
-\begin{align*}
-m_L^2 &= m_f^2 \cos^2\theta_L + m_F^2 \sin^2\theta_L, \\
-m_R^2 + m_\chi^2 &= m_f^2 \sin^2\theta_L + m_F^2 \cos^2\theta_L, \\
-m_L m_\chi &= (m_F^2 - m_f^2) \sin\theta_L \cos\theta_L.
-\end{align*}
-
-Solving this system gives:
+which transform the system into:
+\begin{align}
+m_L^2 &= \frac{1}{2} \left( m_f^2 + m_F^2 + (m_f^2 - m_F^2) \cos 2\theta_L \right), \label{eq:double1} \\
+m_R^2 + m_\chi^2 &= \frac{1}{2} \left( m_f^2 + m_F^2 - (m_f^2 - m_F^2) \cos 2\theta_L \right), \label{eq:double2} \\
+m_L m_\chi &= \frac{1}{2} (m_F^2 - m_f^2) \sin 2\theta_L. \label{eq:double3}
+\end{align}
+We now proceed to solve explicitly for $m_L^2$, $m_R^2$, and $m_\chi^2$. Equation \eqref{eq:double1} directly provides:
+\begin{equation}
+m_L^2 = \frac{1}{2} \left[ m_f^2 + m_F^2 + (m_f^2 - m_F^2) \cos 2\theta_L \right]. \label{eq:mL2}
+\end{equation}
+From equation \eqref{eq:double3}, we find:
+\begin{equation}
+m_\chi = \frac{m_F^2 - m_f^2}{2 m_L} \sin 2\theta_L, \label{eq:mchi}
+\end{equation}
+and consequently:
+\begin{equation}
+m_\chi^2 = \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{4 m_L^2}. \label{eq:mchi2}
+\end{equation}
+Turning to equation \eqref{eq:double2}, we express $m_R^2$ as:
+\begin{equation}
+m_R^2 = \frac{1}{2} \left[ m_f^2 + m_F^2 - (m_f^2 - m_F^2) \cos 2\theta_L \right] - m_\chi^2. \label{eq:mR2_temp}
+\end{equation}
+Substituting \eqref{eq:mchi2} yields:
+\begin{equation}
+m_R^2 = \frac{\Sigma + \Delta \cos 2\theta_L}{2} - \frac{\Delta^2 \sin^2 2\theta_L}{4 m_L^2}, \label{eq:mR2_inter}
+\end{equation}
+where $\Sigma = m_f^2 + m_F^2$ and $\Delta = m_f^2 - m_F^2$.
+Using the expression for $m_L^2$ from \eqref{eq:mL2}, namely $m_L^2 = (\Sigma - \Delta \cos 2\theta_L)/2$, we simplify:
+\begin{align}
+m_R^2 &= \frac{\Sigma + \Delta \cos 2\theta_L}{2} - \frac{\Delta^2 \sin^2 2\theta_L}{2(\Sigma - \Delta \cos 2\theta_L)} \nonumber \\
+&= \frac{(\Sigma + \Delta \cos 2\theta_L)(\Sigma - \Delta \cos 2\theta_L) - \Delta^2 \sin^2 2\theta_L}{2(\Sigma - \Delta \cos 2\theta_L)} \nonumber \\
+&= \frac{\Sigma^2 - \Delta^2 \cos^2 2\theta_L - \Delta^2 \sin^2 2\theta_L}{2(\Sigma - \Delta \cos 2\theta_L)}. \label{eq:mR2_num}
+\end{align}
+The numerator simplifies further:
+\begin{equation}
+\Sigma^2 - \Delta^2 (\cos^2 2\theta_L + \sin^2 2\theta_L) = \Sigma^2 - \Delta^2. \label{eq:numerator_simp}
+\end{equation}
+Noting that $\Sigma^2 - \Delta^2 = (m_f^2 + m_F^2)^2 - (m_f^2 - m_F^2)^2 = 4 m_f^2 m_F^2$, we obtain:
+\begin{align}
+m_R^2 &= \frac{4 m_f^2 m_F^2}{2(\Sigma - \Delta \cos 2\theta_L)} = \frac{2 m_f^2 m_F^2}{\Sigma - \Delta \cos 2\theta_L} \nonumber \\
+&= \frac{m_f^2 m_F^2}{m_L^2}. \label{eq:mR2_final}
+\end{align}
+Collecting our results, we have the complete solution:
+\begin{align}
+m_L^2 &= \frac{1}{2} \left[ m_f^2 + m_F^2 + (m_f^2 - m_F^2) \cos 2\theta_L \right], \label{eq:sol_mL2} \\
+m_R^2 &= \frac{m_f^2 m_F^2}{m_L^2}, \label{eq:sol_mR2} \\
+m_\chi^2 &= \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{4 m_L^2}. \label{eq:sol_mchi2}
+\end{align}
+And, replacing $\Delta$ and $\Sigma$ back, the final explicit expressions are:
 \begin{align}
 m_L^2 &= \frac{1}{2} \left( m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L \right), \label{eq:m_L_exact_detail} \\
 m_R^2 &= \frac{m_f^2 m_F^2}{m_L^2} = \frac{2 m_f^2 m_F^2}{m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L}, \label{eq:m_R_exact_detail} \\
-m_{\chi}^2 &= \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{4 m_L^2}. \label{eq:m_chi_exact_detail}
+m_{\chi}^2 &= \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{2 \left( m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L \right)}. \label{eq:m_chi_exact_detail}
 \end{align}
 
 The critical constraint to keep the top Yukawa perturbative is $m_{\chi}^2 < m_R^2$. Using Eqs. \eqref{eq:m_R_exact_detail} and \eqref{eq:m_chi_exact_detail}, the ratio is:
 \begin{equation}
 \frac{m_{\chi}^2}{m_R^2} = \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{4 m_f^2 m_F^2} < 1. \label{eq:constraint_detail}
 \end{equation}
-
 For the top quark with $m_f = m_t \approx 173$ GeV and assuming a heavy partner $m_F \gg m_t$, this simplifies to:
 \begin{equation}
 \frac{m_F^4 \sin^2 2\theta_L}{4 m_t^2 m_F^2} \approx \frac{m_F^2}{4 m_t^2} \sin^2 2\theta_L < 1 \quad \Rightarrow \quad \sin^2 2\theta_L < \frac{4 m_t^2}{m_F^2}. \label{eq:sin_constraint_detail}
@@ -216,7 +295,6 @@ m_L^2 &\approx \frac{1}{2} \left( m_t^2 + m_F^2 - (m_F^2 - m_t^2)(1 - 2\theta_L^
 &= \frac{1}{2} \left( m_t^2 + m_F^2 - m_F^2 + m_t^2 + 2(m_F^2 - m_t^2)\theta_L^2 \right) \\
 &= m_t^2 + (m_F^2 - m_t^2)\theta_L^2.
 \end{align*}
-
 From the constraint \eqref{eq:sin_constraint_detail}, $\theta_L^2 < m_t^2 / m_F^2$. Therefore:
 \begin{equation}
 m_L^2 < m_t^2 + (m_F^2 - m_t^2) \frac{m_t^2}{m_F^2} = 2m_t^2 - \frac{m_t^4}{m_F^2}.
@@ -226,5 +304,4 @@ Converting back to Yukawa couplings:
 \begin{equation}
 Y_{t_L}^2 \lesssim (Y_t^{\text{SM}})^2 \left( 2 - \frac{m_t^2}{m_F^2} \right). \label{eq:Y_final_detail}
 \end{equation}
-
 This shows that the maximum enhancement for the top Yukawa is less than a factor of $\sqrt{2}$, which is perfectly perturbative.
