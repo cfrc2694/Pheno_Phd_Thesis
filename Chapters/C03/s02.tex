@@ -47,20 +47,14 @@ To determine the physical scalar masses, we expand the potential around the mini
         \frac{\partial^2 V}{\partial \rho_\phi \partial \rho_0} & \frac{\partial^2 V}{\partial \rho_\phi^2}
     \end{pmatrix} \begin{pmatrix} \rho_0 \\ \rho_\phi \end{pmatrix}.
 \end{equation}
-Computing the second derivatives at the minimum, we find:
-\begin{align}
-    \left.\frac{\partial^2 V}{\partial \rho_0^2}\right|_{\text{min}} &= 2\lambda_H v_h^2, \\
-    \left.\frac{\partial^2 V}{\partial \rho_\phi^2}\right|_{\text{min}} &= 2\lambda_\phi v_\phi^2, \\
-    \left.\frac{\partial^2 V}{\partial \rho_0 \partial \rho_\phi}\right|_{\text{min}} &= 2\lambda v_h v_\phi.
-\end{align}
-Thus, the mass-squared matrix in the $(\rho_0, \rho_\phi)$ basis is:
+Computing the second derivatives at the minimum, we find the mass-squared matrix in the $(\rho_0, \rho_\phi)$ basis to be:
 \begin{equation}
     \mathcal{M}^2 = \begin{pmatrix}
-        \lambda_H v_h^2 & \lambda v_h v_\phi \\
-        \lambda v_h v_\phi & \lambda_\phi v_\phi^2
+        2\lambda_H v_h^2 & \lambda v_h v_\phi \\
+        \lambda v_h v_\phi & 2\lambda_\phi v_\phi^2
     \end{pmatrix},
 \end{equation}
-where the diagonal elements $\mathcal{M}^2_{11} = \lambda_H v_h^2$ and $\mathcal{M}^2_{22} = \lambda_\phi v_\phi^2$ represent the squared masses of $\rho_0$ and $\rho_\phi$ in the absence of mixing, while the off-diagonal element $\mathcal{M}^2_{12} = \mathcal{M}^2_{21} = \lambda v_h v_\phi$ quantifies the mixing between the two scalar fields induced by the portal coupling $\lambda$.
+where the diagonal elements $\mathcal{M}^2_{11} = 2\lambda_H v_h^2$ and $\mathcal{M}^2_{22} = 2\lambda_\phi v_\phi^2$ represent the squared masses of $\rho_0$ and $\rho_\phi$ in the absence of mixing, while the off-diagonal element $\mathcal{M}^2_{12} = \mathcal{M}^2_{21} = \lambda v_h v_\phi$ quantifies the mixing between the two scalar fields induced by the portal coupling $\lambda$.
 This matrix is symmetric but not diagonal, indicating that $\rho_0$ and $\rho_\phi$ are not mass eigenstates. The physical scalar masses are obtained by diagonalizing $\mathcal{M}^2$ via an orthogonal rotation parametrized by the mixing angle $\alpha$, as shown in Eq.~(3.5). Explicitly, we perform the similarity transformation:
 \begin{equation}
     \mathcal{M}^2_{\text{diag}} = R(\alpha)^T \, \mathcal{M}^2 \, R(\alpha),
@@ -76,16 +70,16 @@ Performing this matrix multiplication explicitly:
 \begin{equation}
     \begin{aligned}
         \mathcal{M}^2_{\text{diag}} &= \begin{pmatrix}
-            \cos\alpha & \sin\alpha \\
-            -\sin\alpha & \cos\alpha
-        \end{pmatrix}
-        \begin{pmatrix}
-            \lambda_H v_h^2 & \lambda v_h v_\phi \\
-            \lambda v_h v_\phi & \lambda_\phi v_\phi^2
-        \end{pmatrix}
-        \begin{pmatrix}
             \cos\alpha & -\sin\alpha \\
             \sin\alpha & \cos\alpha
+        \end{pmatrix}
+        \begin{pmatrix}
+            2\lambda_H v_h^2 & \lambda v_h v_\phi \\
+            \lambda v_h v_\phi & 2\lambda_\phi v_\phi^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos\alpha & \sin\alpha \\
+            -\sin\alpha & \cos\alpha
         \end{pmatrix} \\
         &= \begin{pmatrix}
             m_h^2 & 0 \\
@@ -112,10 +106,19 @@ The physical scalar masses are then the eigenvalues of $\mathcal{M}^2$, given by
 where the $+$ ($-$) sign corresponds to the heavier (lighter) mass eigenstate.
 The quartic couplings can be expressed in terms of the physical parameters:
 \begin{align}
-  \lambda_H &= \frac{m_{\phi'}^2 + m_h^2 + (m_{\phi'}^2 - m_h^2)\cos 2\alpha}{4 v_h^2}, \\
-  \lambda_\phi &= \frac{m_{\phi'}^2 + m_h^2 + (m_{\phi'}^2 - m_h^2)\cos 2\alpha}{4 v_\phi^2}, \\
-  \lambda &= \frac{m_{\phi'}^2 - m_h^2}{2 v_h v_\phi} \sin 2\alpha.
+  \lambda_H 
+  & = \frac{m_h^2 \cos^2\alpha + m_{\phi'}^2 \sin^2\alpha}{2 v_h^2}
+    = \frac{m_{\phi'}^2 + m_h^2 + (m_{\phi'}^2 - m_h^2)\cos 2\alpha}{4 v_h^2},
+  \\
+  \lambda_\phi 
+  & = \frac{m_h^2 \sin^2\alpha + m_{\phi'}^2 \cos^2\alpha}{2 v_\phi^2}
+    = \frac{m_{\phi'}^2 + m_h^2 - (m_{\phi'}^2 - m_h^2)\cos 2\alpha}{4 v_\phi^2},
+  \\
+  \lambda 
+  & = \frac{(m_{\phi'}^2 - m_h^2)\sin\alpha\cos\alpha}{v_h v_\phi}
+    = \frac{m_{\phi'}^2 - m_h^2}{2 v_h v_\phi} \sin 2\alpha.
 \end{align}
+
 Thus, the scalar sector has four free parameters: the masses $m_h$ and $m_{\phi'}$, the mixing angle $\alpha$, and the dark Higgs VEV $v_\phi$. Similar to how $v_h$ is fixed by the electroweak gauge boson masses, $v_\phi$ is related to the dark photon mass by $m_{A'}^2 = g_{T^3_R}^2 v_\phi^2$, where $g_{T^3_R}$ is the $U(1)_{T^3_R}$ gauge coupling. Depending on the value of $g_{T^3_R}$, this gauge boson can behave as a heavy $Z'$ or a light dark photon. In this chapter, we assume $g_{T^3_R}$ is sufficiently small such that $A'$ can be treated as a dark photon.
 
 \subsection{The Universal Seesaw Mechanism}
@@ -157,7 +160,7 @@ The Yukawa interactions of the physical fermions with the scalars $h$ and $\phi'
 \begin{equation}
     -\mathcal{L}_{\text{yuk}} = h \, \bar{\psi}_{f_L} \, \mathcal{Y}_{h} \, \psi_{f_R} + \phi' \, \bar{\psi}_{f_L} \, \mathcal{Y}_{\phi} \, \psi_{f_R},
 \end{equation}
-where $\psi_f = (f, \chi_f)^T$. The Yukawa matrices are:
+where $\psi_f = \binom{f}{\chi_f}$. The Yukawa matrices are:
 \begin{align}
     \mathcal{Y}_{h} &= \frac{1}{\sqrt{2}} \mathcal{R}(\theta_{f_L}) \left( Y_{f_L} \sigma_+ \cos\alpha - Y_{f_R} \sigma_- \sin\alpha \right) \mathcal{R}^{-1}(\theta_{f_R}), \label{eq:YukawaL} \\
     \mathcal{Y}_{\phi} &= \frac{1}{\sqrt{2}} \mathcal{R}(\theta_{f_L}) \left( Y_{f_L} \sigma_+ \sin\alpha + Y_{f_R} \sigma_- \cos\alpha \right) \mathcal{R}^{-1}(\theta_{f_R}), \label{eq:YukawaR}
