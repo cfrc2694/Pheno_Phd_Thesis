@@ -51,8 +51,6 @@ The work presented in this thesis opens several avenues for future research, bot
 
 \paragraph{Future Colliders.} Future colliders would provide complementary sensitivity to leptoquark phenomenology beyond the reach of the HL-LHC. A High-Energy LHC upgrade to $27$~TeV would extend the mass reach to $\sim 3$--$4$~TeV for pair production and potentially above $6$~TeV for single production. A Future Circular Collider at $100$~TeV would probe leptoquark masses up to $\sim 10$--$15$~TeV, entering the boosted regime where specialized reconstruction techniques become necessary. A high-energy muon collider would offer a particularly clean environment for leptoquarks coupling to muons, enabling precision measurements of their properties through both pair and single production channels. Phenomenological studies for these future facilities would be valuable in optimizing their design and understanding the complementarity between different collider options.
 
-\paragraph{Simplified Model Framework.} The leptoquark analysis in Chapter~\ref{ch:vector_lq} considered a specific gauge model with couplings motivated by the $B$-anomalies. A complementary approach would be to develop a simplified model framework that parameterizes leptoquark couplings in a model-independent way, similar to effective field theory approaches. Such a framework would include a minimal set of parameters describing the leptoquark mass, spin, and gauge quantum numbers, along with a general parameterization of couplings to different fermion generations. This would allow experimental collaborations to present results in a way that can be easily reinterpreted across different theoretical models, facilitating comparisons and enabling broader phenomenological studies beyond specific UV-complete theories.
-
 \subsection{Advanced Analysis Techniques}
 
 \paragraph{Tau Polarization Measurements.} In both studies, $\tau$ leptons play important roles in the final states. The polarization of $\tau$ leptons carries information about the chiral structure of the new physics couplings. In the leptoquark study, left-handed and right-handed couplings produce $\tau$ leptons with different polarization states, which in turn affect the kinematics of the visible decay products. Developing machine learning algorithms specifically designed to extract $\tau$ polarization information from the kinematics of hadronic $\tau$ decays could provide an additional discriminating variable to enhance signal sensitivity and to distinguish between different theoretical scenarios.
@@ -71,51 +69,6 @@ These architectures have shown impressive performance in jet tagging tasks, such
 
 These methods use neural networks to learn the full probability density of events in the multidimensional feature space, allowing for optimal statistical inference without binning losses. The network is trained to estimate the likelihood ratio directly, which is the optimal test statistic according to the Neyman-Pearson lemma. This approach could be particularly beneficial in the leptoquark analysis, where the BDT output is binned before performing the likelihood fit. An unbinned approach could extract additional information from the detailed shape of the BDT distribution, potentially improving sensitivity by $10$--$20\%$ in some regions of parameter space.
 
-
-
-
-
-\subsection{Broader Phenomenological Questions}
-
-\paragraph{Multi-Component New Physics.} Real BSM theories typically predict multiple new particles that can appear simultaneously in LHC events. Future work could explore scenarios where both leptoquarks and $Z'$ bosons, or vector-like quarks and dark Higgs bosons, are produced in the same event. For example:
-
-\begin{itemize}
-    \item In the $4321$ model, which contains both leptoquarks and a $Z'$ boson, the process $\mathrm{pp} \to Z' \to \mathrm{LQ} \bar{\mathrm{LQ}}$ could produce leptoquark pairs through $Z'$ mediation. The interference between this process and QCD pair production would depend on the $Z'$ mass and couplings, potentially providing a distinctive signature.
-    
-    \item In the $U(1)_{T^3_R}$ model, the process $\mathrm{pp} \to \chi_\mathrm{u} \bar{\chi}_\mathrm{u} \to \mathrm{t} \phi' \bar{\mathrm{t}} \phi'$ produces two dark Higgs bosons in the same event. If both decay to muon pairs, the final state would contain four muons, two $b$-jets, and missing energy---a very distinctive signature with low SM background.
-\end{itemize}
-
-The interference and correlation effects in such scenarios could provide powerful discrimination between different theoretical frameworks and would require dedicated phenomenological studies to optimize search strategies.
-
-\paragraph{Systematic Uncertainties and Detector Effects.} The phenomenological studies in this thesis included realistic detector effects through Delphes fast simulation but did not explore the full range of systematic uncertainties that would affect experimental analyses. A more detailed treatment would include:
-
-\begin{itemize}
-    \item \textbf{Parton distribution function (PDF) uncertainties:} The choice of PDF set and the uncertainties in the parton distributions affect both the signal and background cross sections. These uncertainties are typically evaluated by reweighting events using different PDF sets and can be $5$--$20\%$ depending on the process and kinematic regime.
-    
-    \item \textbf{Scale variations:} Varying the renormalization and factorization scales by factors of two up and down provides an estimate of missing higher-order corrections. These uncertainties are typically larger for signal processes involving new particles, where next-to-leading-order calculations may not be available.
-    
-    \item \textbf{Jet energy scale and resolution:} Uncertainties in the jet energy scale and resolution affect the reconstruction of invariant masses and missing transverse energy. These are among the largest experimental systematic uncertainties in many searches and can be $2$--$10\%$ depending on the jet $p_T$ and $\eta$.
-    
-    \item \textbf{$b$-tagging efficiencies:} Uncertainties in the $b$-tagging efficiency and mistag rates affect searches that rely on identifying $b$-jets. These uncertainties are typically $5$--$15\%$ and are correlated across jets.
-    
-    \item \textbf{Pileup modeling:} The modeling of additional proton-proton interactions in the same or nearby bunch crossings affects the reconstruction of all objects. This is particularly important for the HL-LHC, where the average number of pileup interactions is expected to reach $\sim 200$.
-\end{itemize}
-
-Understanding the impact of these uncertainties on the final sensitivity is important for translating phenomenological projections into experimental search programs. In many cases, systematic uncertainties can be comparable to or larger than statistical uncertainties, particularly at the HL-LHC where the large dataset reduces statistical uncertainties.
-
-\paragraph{Connection to Cosmology.} Many BSM models motivated by collider anomalies also have cosmological implications:
-
-\begin{itemize}
-    \item \textbf{Dark matter and structure formation:} The $U(1)_{T^3_R}$ model's right-handed neutrino dark matter candidate could contribute to structure formation. If the dark matter is warm rather than cold (i.e., if it was relativistic at the time of matter-radiation equality), it would suppress structure formation on small scales, potentially resolving tensions between observations and cold dark matter predictions. The warmness depends on the dark matter production mechanism and the reheating temperature after inflation.
-    
-    \item \textbf{Cosmic microwave background:} New light particles such as the $\phi'$ could contribute to the effective number of relativistic degrees of freedom $N_{\mathrm{eff}}$ at the time of recombination if they were in thermal equilibrium in the early universe. Current measurements from Planck constrain $N_{\mathrm{eff}} = 2.99 \pm 0.17$, consistent with the SM prediction of $3.046$. Future CMB experiments such as CMB-S4 will improve this measurement, potentially detecting contributions from new light particles.
-    
-    \item \textbf{Leptogenesis:} Leptoquark models with heavy right-handed neutrinos could play a role in leptogenesis, the mechanism for generating the matter-antimatter asymmetry through CP-violating decays of heavy neutrinos. The leptoquark couplings could affect the CP asymmetry and the washout processes, potentially connecting the $B$-anomalies to the baryon asymmetry of the universe.
-    
-    \item \textbf{Phase transitions:} The spontaneous breaking of $U(1)_{T^3_R}$ could proceed through a first-order phase transition in the early universe, potentially producing gravitational waves detectable by future experiments such as LISA. The phase transition dynamics depend on the scalar potential and the temperature-dependent effective potential.
-\end{itemize}
-
-Exploring these connections would strengthen the theoretical motivation for the collider searches and potentially provide additional constraints on the parameter space from cosmological observations.
 
 
 \section{Closing Remarks}
