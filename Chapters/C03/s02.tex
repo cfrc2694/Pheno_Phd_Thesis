@@ -38,14 +38,78 @@ Minimizing the potential yields the tadpole equations:
     \frac{\partial V}{\partial H} &= \frac{v_h}{\sqrt{2}} \left( \mu_H^2 + \lambda_H v_h^2 + \frac{1}{2} \lambda v_\phi^2 \right) = 0, \\
     \frac{\partial V}{\partial \phi} &= \frac{v_\phi}{\sqrt{2}} \left( \mu_\phi^2 + \lambda_\phi v_\phi^2 + \frac{1}{2} \lambda v_h^2 \right) = 0.
 \end{align}
-\textcolor{red}{The physical scalar masses are given by:....Af: Sugiero expendir un poco más esta parte. Considero apropiado explicar al lector que se hace luego de encontrar los tadpole equations, mostrar explicitamente la forma de la matriz no diagonal de masas y luego explicar que al diagonalizar se encuentran los valores físicos de masas escalares de la 3.8. Tambien explicar un poco más de donde surge la tangente.}
+These equations allow us to express the quadratic couplings $\mu_H^2$ and $\mu_\phi^2$ in terms of the VEVs and quartic couplings, ensuring that the VEVs $v_h$ and $v_\phi$ are true minima of the potential.
+
+To determine the physical scalar masses, we expand the potential around the minimum. Substituting the Kibble parametrizations Eqs.~\eqref{eq:higgskibblepara1} and~\eqref{eq:higgskibblepara2} into the scalar potential and keeping only terms quadratic in the fluctuations $\rho_0$ and $\rho_\phi$, we obtain:
 \begin{equation}
-    m_{h,\phi'}^2 = \frac{1}{2} \left( \lambda_H v_h^2 + \lambda_\phi v_\phi^2 \right) \pm \sqrt{ \lambda^2 v_h^2 v_\phi^2 + \left( \lambda_H v_h^2 - \lambda_\phi v_\phi^2 \right)^2 },
+    V \supset \frac{1}{2} \begin{pmatrix} \rho_0 & \rho_\phi \end{pmatrix} \begin{pmatrix}
+        \frac{\partial^2 V}{\partial \rho_0^2} & \frac{\partial^2 V}{\partial \rho_0 \partial \rho_\phi} \\
+        \frac{\partial^2 V}{\partial \rho_\phi \partial \rho_0} & \frac{\partial^2 V}{\partial \rho_\phi^2}
+    \end{pmatrix} \begin{pmatrix} \rho_0 \\ \rho_\phi \end{pmatrix}.
 \end{equation}
-and the mixing angle $\alpha$ satisfies:
+Computing the second derivatives at the minimum, we find:
+\begin{align}
+    \left.\frac{\partial^2 V}{\partial \rho_0^2}\right|_{\text{min}} &= 2\lambda_H v_h^2, \\
+    \left.\frac{\partial^2 V}{\partial \rho_\phi^2}\right|_{\text{min}} &= 2\lambda_\phi v_\phi^2, \\
+    \left.\frac{\partial^2 V}{\partial \rho_0 \partial \rho_\phi}\right|_{\text{min}} &= 2\lambda v_h v_\phi.
+\end{align}
+Thus, the mass-squared matrix in the $(\rho_0, \rho_\phi)$ basis is:
 \begin{equation}
-    \tan 2\alpha = \frac{-\lambda v_h v_\phi}{ \lambda_\phi v_\phi^2 - \lambda_H v_h^2}.
+    \mathcal{M}^2 = \begin{pmatrix}
+        \lambda_H v_h^2 & \lambda v_h v_\phi \\
+        \lambda v_h v_\phi & \lambda_\phi v_\phi^2
+    \end{pmatrix},
 \end{equation}
+where the diagonal elements $\mathcal{M}^2_{11} = \lambda_H v_h^2$ and $\mathcal{M}^2_{22} = \lambda_\phi v_\phi^2$ represent the squared masses of $\rho_0$ and $\rho_\phi$ in the absence of mixing, while the off-diagonal element $\mathcal{M}^2_{12} = \mathcal{M}^2_{21} = \lambda v_h v_\phi$ quantifies the mixing between the two scalar fields induced by the portal coupling $\lambda$.
+This matrix is symmetric but not diagonal, indicating that $\rho_0$ and $\rho_\phi$ are not mass eigenstates. The physical scalar masses are obtained by diagonalizing $\mathcal{M}^2$ via an orthogonal rotation parametrized by the mixing angle $\alpha$, as shown in Eq.~(3.5). Explicitly, we perform the similarity transformation:
+\begin{equation}
+    \mathcal{M}^2_{\text{diag}} = R(\alpha)^T \, \mathcal{M}^2 \, R(\alpha),
+\end{equation}
+where $R(\alpha)$ is the rotation matrix:
+\begin{equation}
+    R(\alpha) = \begin{pmatrix}
+        \cos\alpha & -\sin\alpha \\
+        \sin\alpha & \cos\alpha
+    \end{pmatrix}.
+\end{equation}
+Performing this matrix multiplication explicitly:
+\begin{equation}
+    \begin{aligned}
+        \mathcal{M}^2_{\text{diag}} &= \begin{pmatrix}
+            \cos\alpha & \sin\alpha \\
+            -\sin\alpha & \cos\alpha
+        \end{pmatrix}
+        \begin{pmatrix}
+            \lambda_H v_h^2 & \lambda v_h v_\phi \\
+            \lambda v_h v_\phi & \lambda_\phi v_\phi^2
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos\alpha & -\sin\alpha \\
+            \sin\alpha & \cos\alpha
+        \end{pmatrix} \\
+        &= \begin{pmatrix}
+            m_h^2 & 0 \\
+            0 & m_{\phi'}^2
+        \end{pmatrix},
+    \end{aligned}
+\end{equation}
+where the diagonal elements are the physical squared masses. The mixing angle $\alpha$ is determined by requiring that the off-diagonal element of the rotated matrix vanishes. Computing this element explicitly:
+\begin{equation}
+    (\mathcal{M}^2_{\text{diag}})_{12} = (\lambda_\phi v_\phi^2 - \lambda_H v_h^2) \sin\alpha \cos\alpha + \lambda v_h v_\phi (\cos^2\alpha - \sin^2\alpha).
+\end{equation}
+Setting this to zero and using the double-angle identities $\sin 2\alpha = 2\sin\alpha\cos\alpha$ and $\cos 2\alpha = \cos^2\alpha - \sin^2\alpha$, we obtain:
+\begin{equation}
+    \frac{1}{2}(\lambda_\phi v_\phi^2 - \lambda_H v_h^2) \sin 2\alpha + \lambda v_h v_\phi \cos 2\alpha = 0,
+\end{equation}
+from which we obtain:
+\begin{equation}
+    \tan 2\alpha = \frac{-2\lambda v_h v_\phi}{ \lambda_H v_h^2 - \lambda_\phi v_\phi^2}.
+\end{equation}
+The physical scalar masses are then the eigenvalues of $\mathcal{M}^2$, given by:
+\begin{equation}
+    m_{h,\phi'}^2 = \frac{1}{2} \left( \lambda_H v_h^2 + \lambda_\phi v_\phi^2 \right) \pm \frac{1}{2}\sqrt{ 4\lambda^2 v_h^2 v_\phi^2 + \left( \lambda_H v_h^2 - \lambda_\phi v_\phi^2 \right)^2 },
+\end{equation}
+where the $+$ ($-$) sign corresponds to the heavier (lighter) mass eigenstate.
 The quartic couplings can be expressed in terms of the physical parameters:
 \begin{align}
   \lambda_H &= \frac{m_{\phi'}^2 + m_h^2 + (m_{\phi'}^2 - m_h^2)\cos 2\alpha}{4 v_h^2}, \\
