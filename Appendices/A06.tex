@@ -4,6 +4,8 @@ In models with a universal seesaw mechanism, such as the $U(1)_{T_3^R}$ extensio
 
 \section{Single chiral fermion: The Core Mechanism}
 
+\subsection{Mass Matrix Setup and Diagonalization}
+
 To illustrate the universal seesaw mechanism, consider a simplified scenario with a single chiral fermion $f$ (representing a SM fermion) and its corresponding vector-like partner $\chi_f$. The relevant Lagrangian terms involving these fields and the scalar fields $H$ (the SM Higgs doublet) and $\phi$ (the new scalar field) can be written as:
 \begin{equation}
     -\mathcal{L} \supset Y_{f_L} \bar{f}_L \chi_{fR} H + Y_{f_R} \bar{\chi}_{fL} f_R \phi^* + m_{\chi_f} \bar{\chi}_{f L} \chi_{f R} + \text{h.c.}
@@ -85,21 +87,7 @@ m_F^2 &= \frac{1}{2} \left( m_{\chi}^2 + m_L^2 + m_R^2 + \sqrt{ (m_{\chi}^2 + m_
 \end{align}
 where $m_f$ is the light SM-like fermion mass, and $m_F$ is the heavy vector-like partner mass.
 
-Equation \eqref{eq:m_f_detail} is fundamental. It shows that the light mass $m_f$ is not simply proportional to $m_L$ (the SM Higgs VEV). We can solve Eq. \eqref{eq:m_f_detail} for $m_L^2$:
-\begin{align*}
-m_f^2 (m_{\chi}^2 + m_L^2 + m_R^2 - m_f^2) &= m_L^2 m_R^2 \quad \text{(from the exact seesaw relation)} \\
-m_L^2 (m_R^2 - m_f^2) &= m_f^2 (m_{\chi}^2 + m_R^2 - m_f^2) \\
-m_L^2 &= m_f^2 \left( \frac{m_{\chi}^2 + m_R^2 - m_f^2}{m_R^2 - m_f^2} \right) = m_f^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \right). \label{eq:m_L_solution_detail}
-\end{align*}
-
-Expressing this in terms of the original Yukawa couplings, where $m_L = \frac{v_h}{\sqrt{2}} Y_{f_L}$ and the SM Yukawa is defined by $m_f = \frac{v_h}{\sqrt{2}} Y_f^{\text{SM}}$, we find:
-\begin{equation}
-Y_{f_L}^2 = (Y_f^{\text{SM}})^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \right). \label{eq:Y_L_enhanced_detail}
-\end{equation}
-
-This relation reveals the core of the universal seesaw mechanism: the Yukawa coupling $Y_{f_L}$ that couples the SM fermions to the Higgs is \textit{enhanced} compared to the standard model value $Y_f^{\text{SM}}$. The enhancement factor is $\sqrt{1 + m_{\chi}^2/(m_R^2 - m_f^2)}$.
-
-This has profound implications: On one hand, for light fermions $Y_f^{\text{SM}} \ll 1$, a large hierarchy $m_{\chi}^2 \gg m_R^2 \gg m_f^2$ can generate this tiny mass from a more ``natural'' $Y_{f_L} \sim \mathcal{O}(0.1-1)$. On the other hand, for the top quark, $Y_t^{\text{SM}} \approx 1$ is already large. An enhancement could easily push $Y_{t_L}$ into the non-perturbative regime ($Y_{t_L}^2 / 4\pi > 1$). To avoid this, we must require the enhancement factor to be $\mathcal{O}(1)$, which implies $m_{\chi}^2 \lesssim m_R^2 - m_t^2$. Since $m_R = \frac{v_\phi}{\sqrt{2}} Y_{f_R}$, this suggests $v_\phi > m_{\chi}$ is a natural condition.
+\subsection{Mixing Angles and Explicit Parameter Relations}
 
 The bi-unitary transformation can be performed by matrices parameterized by mixing angles. For one generation, the left-handed mixing matrix is:
 \begin{equation}
@@ -279,6 +267,23 @@ m_L^2 &= \frac{1}{2} \left( m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L \righ
 m_R^2 &= \frac{m_f^2 m_F^2}{m_L^2} = \frac{2 m_f^2 m_F^2}{m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L}, \label{eq:m_R_exact_detail} \\
 m_{\chi}^2 &= \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{2 \left( m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L \right)}. \label{eq:m_chi_exact_detail}
 \end{align}
+\subsection{Perturbativity Constraints for the Top Quark}
+
+Equation \eqref{eq:m_f_detail} is fundamental. It shows that the light mass $m_f$ is not simply proportional to $m_L$ (the SM Higgs VEV). We can solve Eq. \eqref{eq:m_f_detail} for $m_L^2$:
+\begin{align*}
+m_f^2 (m_{\chi}^2 + m_L^2 + m_R^2 - m_f^2) &= m_L^2 m_R^2 \quad \text{(from the exact seesaw relation)} \\
+m_L^2 (m_R^2 - m_f^2) &= m_f^2 (m_{\chi}^2 + m_R^2 - m_f^2) \\
+m_L^2 &= m_f^2 \left( \frac{m_{\chi}^2 + m_R^2 - m_f^2}{m_R^2 - m_f^2} \right) = m_f^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \right). \label{eq:m_L_solution_detail}
+\end{align*}
+
+Expressing this in terms of the original Yukawa couplings, where $m_L = \frac{v_h}{\sqrt{2}} Y_{f_L}$ and the SM Yukawa is defined by $m_f = \frac{v_h}{\sqrt{2}} Y_f^{\text{SM}}$, we find:
+\begin{equation}
+Y_{f_L}^2 = (Y_f^{\text{SM}})^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \right). \label{eq:Y_L_enhanced_detail}
+\end{equation}
+
+This relation reveals the core of the universal seesaw mechanism: the Yukawa coupling $Y_{f_L}$ that couples the SM fermions to the Higgs is \textit{enhanced} compared to the standard model value $Y_f^{\text{SM}}$. The enhancement factor is $\sqrt{1 + m_{\chi}^2/(m_R^2 - m_f^2)}$.
+
+This has profound implications: On one hand, for light fermions $Y_f^{\text{SM}} \ll 1$, a large hierarchy $m_{\chi}^2 \gg m_R^2 \gg m_f^2$ can generate this tiny mass from a more ``natural'' $Y_{f_L} \sim \mathcal{O}(0.1-1)$. On the other hand, for the top quark, $Y_t^{\text{SM}} \approx 1$ is already large. An enhancement could easily push $Y_{t_L}$ into the non-perturbative regime ($Y_{t_L}^2 / 4\pi > 1$). To avoid this, we must require the enhancement factor to be $\mathcal{O}(1)$, which implies $m_{\chi}^2 \lesssim m_R^2 - m_t^2$. Since $m_R = \frac{v_\phi}{\sqrt{2}} Y_{f_R}$, this suggests $v_\phi > m_{\chi}$ is a natural condition.
 
 The critical constraint to keep the top Yukawa perturbative is $m_{\chi}^2 < m_R^2$. Using Eqs. \eqref{eq:m_R_exact_detail} and \eqref{eq:m_chi_exact_detail}, the ratio is:
 \begin{equation}
