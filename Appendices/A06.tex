@@ -1,97 +1,89 @@
 \chapter{On the Universal Seesaw Mechanism}\label{app:universal_seesaw}
 
-In models with a universal seesaw mechanism, such as the $U(1)_{T_3^R}$ extension studied here, the Standard Model fermion masses are not generated through direct Yukawa couplings to the Higgs doublet. Instead, they arise from mixing with new vector-like fermions $\chi_f$ via an extended scalar sector that includes an additional scalar field $\phi$ coupled to the right-handed SM fermions. The most general gauge-invariant and renormalizable Lagrangian for the quark sector in the $U(1)_{T_3^R}$ model  is given by:
+In models with a universal seesaw mechanism, such as the $U(1)_{T_3^R}$ extension studied here, the Standard Model fermion masses are not generated through direct Yukawa couplings to the Higgs doublet. Instead, they arise from mixing with new vector-like fermions $\chi_f$ via an extended scalar sector that includes an additional scalar field $\phi$ coupled to the right-handed SM fermions. 
+
+\section{Single chiral fermion: The Core Mechanism}
+
+To illustrate the universal seesaw mechanism, consider a simplified scenario with a single chiral fermion $f$ (representing a SM fermion) and its corresponding vector-like partner $\chi_f$. The relevant Lagrangian terms involving these fields and the scalar fields $H$ (the SM Higgs doublet) and $\phi$ (the new scalar field) can be written as:
+\begin{equation}
+    -\mathcal{L} \supset Y_{f_L} \bar{f}_L \chi_{fR} H + Y_{f_R} \bar{\chi}_{fL} f_R \phi^* + m_{\chi_f} \bar{\chi}_{f L} \chi_{f R} + \text{h.c.}
+\end{equation}
+
+After electroweak symmetry breaking ($\langle H \rangle = v_h / \sqrt{2}$) and $U(1)_{T_R^3}$ breaking ($\langle \phi \rangle = v_\phi / \sqrt{2}$), the Yukawa interactions generate mass terms for the fermions. Specifically,
+\begin{equation}
+    -\mathcal{L} \supset \begin{pmatrix}
+        \bar{f}_L & \bar{\chi}_{fL}
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & Y_{f_L} v_h / \sqrt{2} \\
+        Y_{f_R} v_\phi / \sqrt{2} & m_{\chi_f}
+    \end{pmatrix}
+    \begin{pmatrix}
+        f_R \\
+        \chi_{fR}
+    \end{pmatrix} + \text{h.c.}
+\end{equation}
+this leads to the mass matrix:
+\begin{equation}
+    \mathcal M_f = \begin{pmatrix}
+        0 & Y_{f_L} v_h / \sqrt{2} \\
+        Y_{f_R} v_\phi / \sqrt{2} & m_{\chi_f}
+    \end{pmatrix}.
+\end{equation}
+
+Defining the Dirac masses:
+\begin{equation}
+    m_L = \frac{Y_{f_L} v_h}{\sqrt{2}}, \quad m_R = \frac{Y_{f_R} v_\phi}{\sqrt{2}},
+\end{equation}
+the mass matrix becomes:
+\begin{equation}
+    \mathcal M_f = \begin{pmatrix}
+        0 & m_L \\
+        m_R & m_{\chi}
+    \end{pmatrix},
+    \label{eq:mass_matrix}
+\end{equation}
+where we denote $m_{\chi} \equiv m_{\chi_f}$ for simplicity.
+
+As this matrix is not symmetric, we perform a bi-unitary transformation to diagonalize it:
+\begin{equation}
+    \mathcal M_f^{\text{diag}} = U_L \, \mathcal M_f \, U_R^\dagger,
+    \label{eq:biunitary_correct}
+\end{equation}
+where $U_L$ and $U_R$ are unitary matrices that rotate the left- and right-handed fields, respectively. 
+
+The physical squared masses are found from the eigenvalues of the Hermitian matrices:
 \begin{align}
-\mathcal{L}_{\text{mass}}^{\text{quark}} \supset & \, \bar{Q}_{L}^{i} (Y_{u L})_{ij} \chi_{u R}^{j} \tilde{H} + \bar{Q}_{L}^{i} (Y_{d L})_{ij} \chi_{d R}^{j} H \nonumber \\
-& + \bar{\chi}_{u L}^{i} (Y_{u R})_{ij} u_{R}^{j} \phi^{*} + \bar{\chi}_{d L}^{i} (Y_{d R})_{ij} d_{R}^{j} \phi \nonumber \\
-& + \bar{\chi}_{u L}^{i} (m_{\chi u})_{ij} \chi_{u R}^{j} + \bar{\chi}_{d L}^{i} (m_{\chi d})_{ij} \chi_{d R}^{j} + \text{h.c.}, \label{eq:L_Yuk_general_detail}
+H_L &= \mathcal M_f \mathcal M_f^\dagger, \quad \text{diagonalized by } U_L, \\
+H_R &= \mathcal M_f^\dagger \mathcal M_f, \quad \text{diagonalized by } U_R.
 \end{align}
-where $i, j = 1,2,3$ are flavor indices, $H$ is the SM Higgs doublet with $\tilde{H} = i\sigma_2 H^*$, and $\phi$ is the additional scalar field that acquires a vacuum expectation value $v_\phi$. An entirely analogous set of terms exists for the lepton sector. The Yukawa matrices $Y_{uL}, Y_{dL}, Y_{uR}, Y_{dR}$ and the vector-like mass matrices $m_{\chi u}, m_{\chi d}$ are general complex $3 \times 3$ matrices, making the flavor structure highly non-trivial.
-
-To make physical predictions, we must diagonalize these matrices. We express them in terms of their singular value decompositions (i.e., their diagonal forms) and the associated unitary mixing matrices:
-\begin{align*}
-Y_{u L} &= U_{L L}^{\dagger} Y_{u L}^{d} U_{L R}, & Y_{u R} &= U_{R L}^{\dagger} Y_{u R}^{d} U_{R R}, \\
-Y_{d L} &= V_{L L}^{\dagger} Y_{d L}^{d} V_{L R}, & Y_{d R} &= V_{R L}^{\dagger} Y_{d R}^{d} V_{R R}, \\
-m_{\chi u} &= W_{u L}^{\dagger} m_{\chi u}^{d} W_{u R}, & m_{\chi d} &= W_{d L}^{\dagger} m_{\chi d}^{d} W_{d R}.
-\end{align*}
-Here, the matrices $Y^{d}$ and $m^{d}$ are real, diagonal, and non-negative. The unitary matrices $U, V, W$ are not physical by themselves but encode the mixing between flavor states.
-
-We now perform a series of field redefinitions to absorb the maximal number of these unitary matrices into the definitions of the fermion fields. The goal is to make as many mass parameters diagonal as possible. The redefinitions are:
-\begin{align*}
-Q_L &\to U_{LL} \;Q_L, & \chi_{uR} &\to W_{uR} \;\chi_{uR}, & \chi_{uL} &\to W_{uL} \;\chi_{uL}, & u_R &\to U_{RR} \;u_R, \\
-\chi_{dR} &\to W_{dR}\; \chi_{dR}, & \chi_{dL} &\to W_{dL}\; \chi_{dL}, & d_R &\to V_{RR} \;d_R.
-\end{align*}
-Applying these transformations to the Lagrangian \eqref{eq:L_Yuk_general_detail} and using the definitions above, we obtain the simplified form:
-\begin{align*}
-\mathcal{L}_{\text{Yuk}} = & \, \bar{Q}_{L} Y_{u L}^{d} (U_{L R} W_{u R}^{\dagger}) \chi_{u R} \tilde{H} + \bar{Q}_{L} (U_{LL}V_{LL}^\dagger) Y_{d L}^{d} (V_{L R} W_{d R}^{\dagger}) \chi_{d R} H \\
-& + \bar{\chi}_{u L} (W_{u L} U_{R L}^{\dagger}) Y_{u R}^{d} u_{R} \phi^{*} + \bar{\chi}_{d L} (W_{d L} V_{R L}^{\dagger}) Y_{d R}^{d} d_{R} \phi \\
-& + \bar{\chi}_{u L} m_{\chi u}^{d} \chi_{u R} + \bar{\chi}_{d L} m_{\chi d}^{d} \chi_{d R} + \text{h.c.}
-\end{align*}
-The matrix $\tilde{V}_{\text{CKM}} \equiv U_{LL}V_{LL}^\dagger$ is identified as the unitary matrix that will yield the observed Cabibbo-Kobayashi-Maskawa (CKM) quark mixing. For simplicity, and to focus on the essential mass generation mechanism, we adopt a \textit{flavor-aligned} scenario. This assumes that all other unitary matrices ($U_{LR}$, $W_{uR}$, $W_{uL}$, $U_{RL}$, etc.) are equal to the identity matrix. This is a strong assumption that minimizes new sources of flavor violation beyond the SM. Under this assumption, the Lagrangian simplifies dramatically to:
-\begin{align*}
-\mathcal{L}_{\text{Yuk}} = & \, \bar{Q}_{L} Y_{u L}^{d} \chi_{u R} \tilde{H} + \bar{Q}_{L} \tilde{V}_{\text{CKM}} Y_{d L}^{d} \chi_{d R} H \\
-& + \bar{\chi}_{u L} Y_{u R}^{d} u_{R} \phi^{*} + \bar{\chi}_{d L} Y_{d R}^{d} d_{R} \phi \\
-& + \bar{\chi}_{u L} m_{\chi u}^{d} \chi_{u R} + \bar{\chi}_{d L} m_{\chi d}^{d} \chi_{d R} + \text{h.c.}
-\end{align*}
-All matrices $Y^{d}$ and $m^{d}$ are now diagonal. The only remaining off-diagonal flavor structure is in $\tilde{V}_{\text{CKM}}$.
-
-After the electroweak symmetry breaking ($\langle H \rangle = v_h / \sqrt{2}$) and the $U(1)_{T_R^3}$ breaking ($\langle \phi \rangle = v_\phi / \sqrt{2}$), the mass terms for the up-type quarks (and analogously for down-type and leptons) are generated. For a single generation, the mass terms in the basis $(\bar{u}_L, \bar{\chi}_{u L})$, $(u_R, \chi_{u R})^T$ form a $2 \times 2$ matrix:
+This follows from:
 \begin{equation}
-\mathcal{L}_{\text{mass}} = - \begin{pmatrix} \bar{u}_L & \bar{\chi}_{u L} \end{pmatrix}
-\begin{pmatrix}
-0 & m_L \\
-m_R & m_{\chi}
-\end{pmatrix}
-\begin{pmatrix} u_R \\ \chi_{u R} \end{pmatrix} + \text{h.c.}, \label{eq:mass_matrix_detail}
+\mathcal M_f^{\text{diag}} \mathcal M_f^{\text{diag}\dagger} = U_L \mathcal M_f U_R^\dagger U_R \mathcal M_f^\dagger U_L^\dagger = U_L \mathcal M_f \mathcal M_f^\dagger U_L^\dagger = U_L H_L U_L^\dagger \equiv \tilde{H}_L,
 \end{equation}
-where the Dirac masses are:
-\begin{align*}
-m_L &= \frac{v_h}{\sqrt{2}} Y_{uL}, \\
-m_R &= \frac{v_\phi}{\sqrt{2}} Y_{uR}.
-\end{align*}
-The entry $m_{\chi}$ is the vector-like mass. For three generations, this generalizes to a $6 \times 6$ matrix:
+and similarly:
 \begin{equation}
-M_f = \begin{pmatrix}
-0 & m_L \\
-m_R & m_{\chi}
-\end{pmatrix},
+\mathcal M_f^{\text{diag}\dagger} \mathcal M_f^{\text{diag}} = U_R \mathcal M_f^\dagger U_L^\dagger U_L \mathcal M_f U_R^\dagger = U_R \mathcal M_f^\dagger \mathcal M_f U_R^\dagger = U_R H_R U_R^\dagger \equiv \tilde{H}_R.
 \end{equation}
-where each entry is now a $3 \times 3$ matrix: $m_L = \frac{v_h}{\sqrt{2}} Y_{fL}^{d}$, $m_R = \frac{v_\phi}{\sqrt{2}} Y_{fR}^{d}$, and $m_{\chi} = m_{\chi f}^{d}$.
 
-The general mass matrix $M_f$ is diagonalized by a bi-unitary transformation:
-\begin{equation}
-U_{R}^{\dagger} M_f U_{L} = M_f^d = \text{diag}(m_{f_1}, m_{f_2}, m_{f_3}, m_{F_1}, m_{F_2}, m_{F_3}), \label{eq:bi_unitary_detail}
-\end{equation}
-where $U_{L}$ and $U_{R}$ are $6 \times 6$ unitary matrices. The physical masses are found by solving the eigenvalues of the Hermitian matrices $H_L = M_f M_f^\dagger$ and $H_R = M_f^\dagger M_f$, as $U_L$ diagonalizes $H_L$ and $U_R$ diagonalizes $H_R$.
-
-For the one-generation case, these matrices are:
-\begin{align*}
-H_L &= M_f M_f^\dagger = \begin{pmatrix}
-m_L m_L^\dagger & m_L m_{\chi}^\dagger \\
-m_{\chi} m_L^\dagger & m_R m_R^\dagger + m_{\chi} m_{\chi}^\dagger
-\end{pmatrix} = \begin{pmatrix}
+Explicitly, we have:
+\begin{align}
+H_L &= \mathcal M_f \mathcal M_f^\dagger =  \begin{pmatrix}
 |m_L|^2 & m_L m_{\chi}^* \\
 m_{\chi} m_L^* & |m_R|^2 + |m_{\chi}|^2
-\end{pmatrix}, \\
-H_R &= M_f^\dagger M_f = \begin{pmatrix}
-m_R m_R^\dagger & m_R m_{\chi}^\dagger \\
-m_{\chi} m_R^\dagger & m_L m_L^\dagger + m_{\chi} m_{\chi}^\dagger
-\end{pmatrix} = \begin{pmatrix}
+\end{pmatrix}, \label{eq:H_L_corrected} \\
+H_R &= \mathcal M_f^\dagger \mathcal M_f = \begin{pmatrix}
 |m_R|^2 & m_R m_{\chi}^* \\
 m_{\chi} m_R^* & |m_L|^2 + |m_{\chi}|^2
-\end{pmatrix}.
-\end{align*}
-The eigenvalues $\lambda$ of $H_L$ (and $H_R$) are found from the characteristic equation $\det(H_L - \lambda \mathbb{I}) = 0$:
-\begin{align*}
-&\left||m_L|^2 - \lambda \right| \left| |m_R|^2 + |m_{\chi}|^2 - \lambda \right| - |m_L|^2 |m_{\chi}|^2 = 0 \\
-&\Rightarrow \lambda^2 - \lambda (|m_L|^2 + |m_R|^2 + |m_{\chi}|^2) + |m_L|^2 |m_R|^2 = 0.
-\end{align*}
-The solutions to this quadratic equation are the squared masses of the two mass eigenstates:
+\end{pmatrix}. \label{eq:H_R_corrected}
+\end{align}
+
+By construction $H_R$ and $H_L$ have the same eigenvalues. Assuming all parameters are real for clarity, the solutions are the squared masses of the two mass eigenstates:
 \begin{align}
 m_f^2 &= \frac{1}{2} \left( m_{\chi}^2 + m_L^2 + m_R^2 - \sqrt{ (m_{\chi}^2 + m_L^2 + m_R^2)^2 - 4 m_L^2 m_R^2 } \right), \label{eq:m_f_detail} \\
 m_F^2 &= \frac{1}{2} \left( m_{\chi}^2 + m_L^2 + m_R^2 + \sqrt{ (m_{\chi}^2 + m_L^2 + m_R^2)^2 - 4 m_L^2 m_R^2 } \right), \label{eq:m_F_detail}
 \end{align}
-where we have now assumed all parameters are real for clarity. $m_f$ is the light SM-like fermion mass, and $m_F$ is the heavy vector-like partner mass.
+where $m_f$ is the light SM-like fermion mass, and $m_F$ is the heavy vector-like partner mass.
 
 Equation \eqref{eq:m_f_detail} is fundamental. It shows that the light mass $m_f$ is not simply proportional to $m_L$ (the SM Higgs VEV). We can solve Eq. \eqref{eq:m_f_detail} for $m_L^2$:
 \begin{align*}
@@ -99,60 +91,140 @@ m_f^2 (m_{\chi}^2 + m_L^2 + m_R^2 - m_f^2) &= m_L^2 m_R^2 \quad \text{(from the 
 m_L^2 (m_R^2 - m_f^2) &= m_f^2 (m_{\chi}^2 + m_R^2 - m_f^2) \\
 m_L^2 &= m_f^2 \left( \frac{m_{\chi}^2 + m_R^2 - m_f^2}{m_R^2 - m_f^2} \right) = m_f^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \right). \label{eq:m_L_solution_detail}
 \end{align*}
-Expressing this in terms of the original Yukawa couplings, where $m_L = \frac{v_h}{\sqrt{2}} Y_{fL}$ and the SM Yukawa is defined by $m_f = \frac{v_h}{\sqrt{2}} Y_f^{\text{SM}}$, we find:
+
+Expressing this in terms of the original Yukawa couplings, where $m_L = \frac{v_h}{\sqrt{2}} Y_{f_L}$ and the SM Yukawa is defined by $m_f = \frac{v_h}{\sqrt{2}} Y_f^{\text{SM}}$, we find:
 \begin{equation}
-Y_{fL}^2 = (Y_f^{\text{SM}})^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \right). \label{eq:Y_L_enhanced_detail}
+Y_{f_L}^2 = (Y_f^{\text{SM}})^2 \left( 1 + \frac{m_{\chi}^2}{m_R^2 - m_f^2} \right). \label{eq:Y_L_enhanced_detail}
 \end{equation}
-This relation reveals the core of the universal seesaw mechanism: the Yukawa coupling $Y_{fL}$ that couples the SM fermions to the Higgs is \textit{enhanced} compared to the standard model value $Y_f^{\text{SM}}$. The enhancement factor is $\sqrt{1 + m_{\chi}^2/(m_R^2 - m_f^2)}$.
 
-This has profound implications: On one hand, for light fermions $Y_f^{\text{SM}} \ll 1$. A large hierarchy $m_{\chi}^2 \gg m_R^2 \gg m_f^2$ can generate this tiny mass from a more ``natural'' $Y_{fL} \sim \mathcal{O}(0.1-1)$. On the other hand, for the top quark, $Y_t^{\text{SM}} \approx 1$ is already large. An enhancement could easily push $Y_{tL}$ into the non-perturbative regime ($Y_{tL}^2 / 4\pi > 1$). To avoid this, we must require the enhancement factor to be $\mathcal{O}(1)$, which implies $m_{\chi}^2 \lesssim m_R^2 - m_t^2$. Since $m_R = \frac{v_\phi}{\sqrt{2}} Y_{fR}$, this suggests $v_\phi > m_{\chi}$ is a natural condition.
+This relation reveals the core of the universal seesaw mechanism: the Yukawa coupling $Y_{f_L}$ that couples the SM fermions to the Higgs is \textit{enhanced} compared to the standard model value $Y_f^{\text{SM}}$. The enhancement factor is $\sqrt{1 + m_{\chi}^2/(m_R^2 - m_f^2)}$.
 
+This has profound implications: On one hand, for light fermions $Y_f^{\text{SM}} \ll 1$, a large hierarchy $m_{\chi}^2 \gg m_R^2 \gg m_f^2$ can generate this tiny mass from a more ``natural'' $Y_{f_L} \sim \mathcal{O}(0.1-1)$. On the other hand, for the top quark, $Y_t^{\text{SM}} \approx 1$ is already large. An enhancement could easily push $Y_{t_L}$ into the non-perturbative regime ($Y_{t_L}^2 / 4\pi > 1$). To avoid this, we must require the enhancement factor to be $\mathcal{O}(1)$, which implies $m_{\chi}^2 \lesssim m_R^2 - m_t^2$. Since $m_R = \frac{v_\phi}{\sqrt{2}} Y_{f_R}$, this suggests $v_\phi > m_{\chi}$ is a natural condition.
 
-The bi-unitary transformation \eqref{eq:bi_unitary_detail} is performed by matrices that can be parameterized by a mixing angle. For one generation, the left-handed mixing matrix is:
+The bi-unitary transformation can be performed by matrices parameterized by mixing angles. For one generation, the left-handed mixing matrix is:
 \begin{equation}
 U_L = \begin{pmatrix}
-\cos\theta_L & \sin\theta_L \\
--\sin\theta_L & \cos\theta_L
+\cos\theta_L & -\sin\theta_L \\
+\sin\theta_L & \cos\theta_L
 \end{pmatrix}.
 \end{equation}
-The angle $\theta_L$ quantifies the mixing between the SM fermion and its vector-like partner. The exact expressions for the fundamental parameters $m_L, m_R, m_\chi$ in terms of the physical masses $m_f, m_F$ and the mixing angle $\theta_L$ can be found by equating $U_L^\dagger H_L U_L = \text{diag}(m_f^2, m_F^2)$. This yields the system of equations:
+The angle $\theta_L$ quantifies the mixing between the SM fermion and its vector-like partner. The exact expressions for the fundamental parameters $m_L, m_R, m_\chi$ in terms of the physical masses $m_f, m_F$ and the mixing angle $\theta_L$ can be found by equating $\tilde{H}_L = \text{diag}(m_f^2, m_F^2)$. 
+
+Starting from the Hermitian matrix:
+\begin{equation}
+H_L = \mathcal{M}_f \mathcal{M}_f^\dagger = \begin{pmatrix}
+|m_L|^2 & m_L m_{\chi}^* \\
+m_{\chi} m_L^* & |m_R|^2 + |m_{\chi}|^2
+\end{pmatrix},
+\end{equation}
+and assuming real parameters for clarity, we compute the diagonalization:
+
+\begin{align*}
+\tilde{H}_L &= \begin{pmatrix}
+\cos\theta_L & -\sin\theta_L \\
+\sin\theta_L & \cos\theta_L
+\end{pmatrix}
+\begin{pmatrix}
+m_L^2 & m_L m_{\chi} \\
+m_{\chi} m_L & m_R^2 + m_{\chi}^2
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta_L & \sin\theta_L \\
+-\sin\theta_L & \cos\theta_L
+\end{pmatrix} \\
+&= \begin{pmatrix}
+m_f^2 & 0 \\
+0 & m_F^2
+\end{pmatrix}.
+\end{align*}
+First, computing $U_L H_L$:
+\begin{align*}
+U_L H_L &= \begin{pmatrix}
+\cos\theta_L & -\sin\theta_L \\
+\sin\theta_L & \cos\theta_L
+\end{pmatrix}
+\begin{pmatrix}
+m_L^2 & m_L m_{\chi} \\
+m_{\chi} m_L & m_R^2 + m_{\chi}^2
+\end{pmatrix} \\
+&= \begin{pmatrix}
+m_L^2 \cos\theta_L - m_{\chi} m_L \sin\theta_L & m_L m_{\chi} \cos\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L \\
+m_L^2 \sin\theta_L + m_{\chi} m_L \cos\theta_L & m_L m_{\chi} \sin\theta_L + (m_R^2 + m_{\chi}^2) \cos\theta_L
+\end{pmatrix}.
+\end{align*}
+
+Then multiply by $U_L^\dagger$, and with $\tilde{H}_L\equiv U_L H_L U_L^\dagger$ we have that the diagonal elements are:
+\begin{align*}
+(\tilde{H}_L)_{11} &= (m_L^2 \cos\theta_L - m_{\chi} m_L \sin\theta_L)\cos\theta_L \\
+&\quad + [m_L m_{\chi} \cos\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L](-\sin\theta_L) \\
+&= m_L^2 \cos^2\theta_L - m_L m_{\chi} \sin\theta_L \cos\theta_L \\
+&\quad - m_L m_{\chi} \cos\theta_L \sin\theta_L + (m_R^2 + m_{\chi}^2) \sin^2\theta_L \\
+&= m_L^2 \cos^2\theta_L + (m_R^2 + m_{\chi}^2) \sin^2\theta_L - 2m_L m_{\chi} \sin\theta_L \cos\theta_L,
+\end{align*}
+
+\begin{align*}
+(\tilde{H}_L)_{22} &= (m_L^2 \sin\theta_L + m_{\chi} m_L \cos\theta_L)\sin\theta_L \\
+&\quad + [m_L m_{\chi} \sin\theta_L + (m_R^2 + m_{\chi}^2) \cos\theta_L]\cos\theta_L \\
+&= m_L^2 \sin^2\theta_L + m_L m_{\chi} \sin\theta_L \cos\theta_L \\
+&\quad + m_L m_{\chi} \sin\theta_L \cos\theta_L + (m_R^2 + m_{\chi}^2) \cos^2\theta_L \\
+&= m_L^2 \sin^2\theta_L + (m_R^2 + m_{\chi}^2) \cos^2\theta_L + 2m_L m_{\chi} \sin\theta_L \cos\theta_L.
+\end{align*}
+
+While, the off-diagonal element is:
+\begin{align*}
+(\tilde{H}_L)_{12} &= (m_L^2 \cos\theta_L - m_{\chi} m_L \sin\theta_L)\sin\theta_L \\
+&\quad + [m_L m_{\chi} \cos\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L]\cos\theta_L \\
+&= m_L^2 \sin\theta_L \cos\theta_L - m_L m_{\chi} \sin^2\theta_L \\
+&\quad + m_L m_{\chi} \cos^2\theta_L - (m_R^2 + m_{\chi}^2) \sin\theta_L \cos\theta_L \\
+&= m_L m_{\chi} (\cos^2\theta_L - \sin^2\theta_L) + [m_L^2 - (m_R^2 + m_{\chi}^2)] \sin\theta_L \cos\theta_L.
+\end{align*}
+
+Requiring this equals $\text{diag}(m_f^2, m_F^2)$ gives the system:
+\begin{align*}
+m_L^2 \cos^2\theta_L + (m_R^2 + m_{\chi}^2) \sin^2\theta_L - 2m_L m_{\chi} \sin\theta_L \cos\theta_L &= m_f^2, \\
+m_L^2 \sin^2\theta_L + (m_R^2 + m_{\chi}^2) \cos^2\theta_L + 2m_L m_{\chi} \sin\theta_L \cos\theta_L &= m_F^2, \\
+m_L m_{\chi} (\cos^2\theta_L - \sin^2\theta_L) + [m_L^2 - (m_R^2 + m_{\chi}^2)] \sin\theta_L \cos\theta_L &= 0.
+\end{align*}
+
+Adding and subtracting appropriate combinations of these equations yields the simplified system:
 \begin{align*}
 m_L^2 &= m_f^2 \cos^2\theta_L + m_F^2 \sin^2\theta_L, \\
 m_R^2 + m_\chi^2 &= m_f^2 \sin^2\theta_L + m_F^2 \cos^2\theta_L, \\
 m_L m_\chi &= (m_F^2 - m_f^2) \sin\theta_L \cos\theta_L.
 \end{align*}
-Solving this system (and a similar one from $H_R$ for $\theta_R$) gives:
+
+Solving this system gives:
 \begin{align}
 m_L^2 &= \frac{1}{2} \left( m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L \right), \label{eq:m_L_exact_detail} \\
 m_R^2 &= \frac{m_f^2 m_F^2}{m_L^2} = \frac{2 m_f^2 m_F^2}{m_f^2 + m_F^2 - (m_F^2 - m_f^2) \cos 2\theta_L}, \label{eq:m_R_exact_detail} \\
-m_{\chi}^2 &= m_R^2 + m_F^2 + m_f^2 - m_L^2 - \frac{m_f^2 m_F^2}{m_L^2} = \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{4 m_L^2}. \label{eq:m_chi_exact_detail}
+m_{\chi}^2 &= \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{4 m_L^2}. \label{eq:m_chi_exact_detail}
 \end{align}
-Substituting Eq. \eqref{eq:m_L_exact_detail} into the expression for $m_{\chi}^2$ yields the form shown in the original text.
 
 The critical constraint to keep the top Yukawa perturbative is $m_{\chi}^2 < m_R^2$. Using Eqs. \eqref{eq:m_R_exact_detail} and \eqref{eq:m_chi_exact_detail}, the ratio is:
 \begin{equation}
 \frac{m_{\chi}^2}{m_R^2} = \frac{(m_F^2 - m_f^2)^2 \sin^2 2\theta_L}{4 m_f^2 m_F^2} < 1. \label{eq:constraint_detail}
 \end{equation}
+
 For the top quark with $m_f = m_t \approx 173$ GeV and assuming a heavy partner $m_F \gg m_t$, this simplifies to:
 \begin{equation}
 \frac{m_F^4 \sin^2 2\theta_L}{4 m_t^2 m_F^2} \approx \frac{m_F^2}{4 m_t^2} \sin^2 2\theta_L < 1 \quad \Rightarrow \quad \sin^2 2\theta_L < \frac{4 m_t^2}{m_F^2}. \label{eq:sin_constraint_detail}
 \end{equation}
+
 This is a very strong constraint. For example, if $m_F = 1$ TeV, then $\sin^2 2\theta_L < 0.12$, meaning $\theta_L < 10^\circ$. In the small $\theta_L$ limit, $\cos 2\theta_L \approx 1 - 2\theta_L^2$ and $\sin^2 2\theta_L \approx 4\theta_L^2$. Substituting this into Eq. \eqref{eq:m_L_exact_detail}:
 \begin{align*}
 m_L^2 &\approx \frac{1}{2} \left( m_t^2 + m_F^2 - (m_F^2 - m_t^2)(1 - 2\theta_L^2) \right) \\
 &= \frac{1}{2} \left( m_t^2 + m_F^2 - m_F^2 + m_t^2 + 2(m_F^2 - m_t^2)\theta_L^2 \right) \\
-&= \frac{1}{2} \left( 2m_t^2 + 2(m_F^2 - m_t^2)\theta_L^2 \right) = m_t^2 + (m_F^2 - m_t^2)\theta_L^2.
+&= m_t^2 + (m_F^2 - m_t^2)\theta_L^2.
 \end{align*}
+
 From the constraint \eqref{eq:sin_constraint_detail}, $\theta_L^2 < m_t^2 / m_F^2$. Therefore:
 \begin{equation}
-m_L^2 < m_t^2 + (m_F^2 - m_t^2) \frac{m_t^2}{m_F^2} = m_t^2 + m_t^2 - \frac{m_t^4}{m_F^2} = 2m_t^2 - \frac{m_t^4}{m_F^2}.
+m_L^2 < m_t^2 + (m_F^2 - m_t^2) \frac{m_t^2}{m_F^2} = 2m_t^2 - \frac{m_t^4}{m_F^2}.
 \end{equation}
+
 Converting back to Yukawa couplings:
 \begin{equation}
-Y_{tL}^2 \lesssim (Y_t^{\text{SM}})^2 \left( 2 - \frac{m_t^2}{m_F^2} \right). \label{eq:Y_final_detail}
+Y_{t_L}^2 \lesssim (Y_t^{\text{SM}})^2 \left( 2 - \frac{m_t^2}{m_F^2} \right). \label{eq:Y_final_detail}
 \end{equation}
+
 This shows that the maximum enhancement for the top Yukawa is less than a factor of $\sqrt{2}$, which is perfectly perturbative.
-
-The generalization to three generations involves the diagonalization of the full $6 \times 6$ matrices. The matrix $\tilde{V}_{\text{CKM}}$ introduced during field redefinition will manifest in the charged current weak interactions of the mass eigenstates. After diagonalization, the SM $W$ boson will couple not only to the three light quarks but also to the heavy vector-like quarks, with couplings suppressed by the mixing angles $\theta_L^i$. The observed $3 \times 3$ CKM matrix emerges as the effective mixing matrix among the three light quarks when the heavy states are integrated out.
-
-The lepton sector follows an identical procedure for the charged leptons. The neutrino sector, however, offers further richness. The right-handed neutrinos $\nu_R$ can possess both Dirac masses ($m_R$) from coupling to $\phi$ and Majorana mass terms $M_R \bar{\nu}_R^c \nu_R$, which are allowed by the gauge symmetry. The vector-like neutrinos $\chi_\nu$ can also have Majorana masses. This combination of Dirac and Majorana masses for both $\nu_R$ and $\chi_\nu$ can generate a double or triple seesaw mechanism, providing a natural explanation for the tiny masses of the observed light neutrinos. The diagonalization of this extended neutrino mass matrix also generates the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) mixing matrix.
