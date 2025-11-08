@@ -113,13 +113,13 @@ This framework not only provides a figure of merit for an analysis but also serv
     s_i &= \sigma_{s,i} \cdot L \cdot \epsilon_{s,i}, \\
     b_i &= \sigma_{b,i} \cdot L \cdot \epsilon_{b,i},
 \end{align*}
-where, following Equation~\ref{eq:N_sigma_experiment}, $\sigma_{s,i}$ and $\sigma_{b,i}$ are the fiducial cross-sections for signal and background processes in bin $i$, $L$ is the integrated luminosity, and $\epsilon_{s,i}$ and $\epsilon_{b,i}$ are the cumulative or total efficiencies (selection efficiency combined with detector acceptance and reconstruction effects).
+where, following Eq.~\ref{eq:N_sigma_experiment}, $\sigma_{s,i}$ and $\sigma_{b,i}$ are the fiducial cross-sections for signal and background processes in bin $i$, $L$ is the integrated luminosity, and $\epsilon_{s,i}$ and $\epsilon_{b,i}$ are the cumulative or total efficiencies (selection efficiency combined with detector acceptance and reconstruction effects).
 
 Substituting these expressions into the significance $\kappa$ reveals the multidimensional parameter space available for optimization:
-\[
-\kappa = \frac{\sum_i \sigma_{s,i} \cdot \epsilon_{s,i} \cdot w_i}
+\begin{equation}
+	\kappa = \frac{\sum_i \sigma_{s,i} \cdot \epsilon_{s,i} \cdot w_i}
 {\sqrt{\sum_i \left[ (\sigma_{s,i}\epsilon_{s,i} + \sigma_{b,i}\epsilon_{b,i}) + \delta^2_{\text{sys}} \right] \cdot w_i^2}} \cdot \sqrt{L}.
-\]
+\end{equation}
 
 This decomposition shows that the discovery significance can be enhanced through several distinct strategies. The primary handles are:
 

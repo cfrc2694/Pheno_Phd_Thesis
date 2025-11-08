@@ -26,6 +26,10 @@
 {
     "files.defaultLanguage": "${activeEditorLanguage}",
     "cSpell.language": "en,es",
+    "editor.wordWrap": "on",
+    "[latex]": {
+        "editor.wordWrap": "on"
+    },
     "latex-workshop.latex.tools": [
         {
             "name": "process_feynman",
