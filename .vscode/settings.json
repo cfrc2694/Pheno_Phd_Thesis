@@ -31,14 +31,14 @@
         "editor.wordWrap": "on"
     },
     "latex-workshop.latex.tools": [
-        {
-            "name": "process_feynman",
-            "command": "bash",
-            "args": [
-                "-c",
-                "cd feyngraphs && for f in *.mp; do [ -f \"$f\" ] && mpost \"$f\" > /dev/null 2>&1; done"
-            ]
-        },
+        // {
+        //     "name": "process_feynman",
+        //     "command": "bash",
+        //     "args": [
+        //         "-c",
+        //         "cd feyngraphs && for f in *.mp; do [ -f \"$f\" ] && mpost \"$f\" > /dev/null 2>&1; done"
+        //     ]
+        // },
         {
             "name": "latexmk",
             "command": "latexmk",
