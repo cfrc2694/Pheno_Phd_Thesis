@@ -356,8 +356,71 @@
   \end{center}
 \end{frame}
 
+\section{Theoretical Constrains}
+\subsection{Unitarity}
+\begin{frame}{Unitarity Constraints (\arxiv 1805.07306)}
 
-\section{Phenomenological Constraints}
+From quantum mechanics, the S-matrix must be unitary:
+\begin{equation*}
+S = 1 + iT \quad \Rightarrow \quad T^\dagger T = -i(T - T^\dagger)
+\end{equation*}
+For scattering processes $s_1 s_2 \rightarrow s_3 s_4$, this implies bounds on amplitudes.\vfill 
+
+The matrix element for the process is defined as:
+\begin{equation*}
+\langle\{s_1, s_2 \}|iT|\{s_3, s_4\}\rangle \equiv i\mathcal{M}\delta^4(k_3+k_4-p_1-p_2)(2\pi)^4
+\end{equation*}
+
+From the scattering theory, the amplitude $\mathcal{M}$ can be expaded in partial waves:
+\begin{equation*}
+\mathcal{M} = \sum_{J=0}^{\infty}(2J+1)a_J P_J(\cos\theta)
+\implies
+a_J \equiv \frac{1}{32 \pi} \sqrt{\frac{4\left|\mathbf{p}^{\text{in}}\right|\left|\mathbf{p}^{\text{out}}\right|}{2^{\delta_{12}} 2^{\delta_{34}} s}} \int_{-1}^1 d(x) \mathcal{M} P_J(x)
+\end{equation*}
+where $P_J$ are Legendre polynomials and $a_J$ are the partial wave amplitudes.
+
+So, we have 
+\begin{equation}
+    -\frac{i}{2}\left(a_J-a_J^{\dagger}\right) \geq a_J a_J^{\dagger} 
+    \implies
+    \text{Re}(a_J) \leq \frac{1}{2}
+\end{equation}
+\end{frame}
+
+
+\begin{frame}{Unitarity Constraints (\arxiv 1805.07306)}
+    At large energies, the dominant contributions are the spherically symmetric, $J=0$, partial wave amplitudes and $s\approx \abs{\mathbf{p}}^2$. Thus, 
+    \begin{equation}
+        \Re{a_0} \sim \frac{1}{16 \pi} \sqrt{2 ^{-\delta_{12}-\delta_{34}}} Q_{1234} \leq \frac{1}{2}
+    \end{equation}
+    where $Q_{1234} $ is the quartic coupling of the process $s_1 s_2 \rightarrow s_3 s_4$.
+
+
+Considering all the possible processes, 
+\begin{equation*}
+|a_\pm|, |b_\pm|, |c_\pm|, |e_\pm|, |f_\pm|, |g_\pm| \leq 8\pi
+\end{equation*}
+where the eigenvalues are:
+  {\small
+  \begin{equation}
+    \begin{aligned}
+    a_{ \pm} & =\frac{3}{2}\left(\lambda_1+\lambda_2\right) \pm \sqrt{\frac{9}{4}\left(\lambda_1-\lambda_2\right)^2+\left(2 \lambda_3+\lambda_4\right)^2} &\mathrm{e}_{ \pm} & =\lambda_3+2 \lambda_4 \pm 3 \lambda_5 \\
+    b_{ \pm} & =\frac{1}{2}\left(\lambda_1+\lambda_2\right) \pm \sqrt{\frac{1}{4}\left(\lambda_1-\lambda_2\right)^2+\lambda_4^2} & \mathrm{f}_{ \pm} & =\lambda_3 \pm \lambda_4 \\
+    c_{ \pm} & =\frac{1}{2}\left(\lambda_1+\lambda_2\right) \pm \sqrt{\frac{1}{4}\left(\lambda_1-\lambda_2\right)^2+\lambda_5^2} & \mathrm{g}_{ \pm} & =\lambda_3 \pm \lambda_5
+    \end{aligned}
+  \end{equation}
+  }
+  \textbf{It is just a safety check, not the strict theory limitation.}
+\end{frame}
+
+\begin{frame}{Example: $\abs{f_+}=\abs{\lambda_3 + \lambda_4}\approx \left| m_h^2 + m_A^2 - m_{H}^2 \right|/v^2  < 8\pi$}
+  \begin{center}
+    \includegraphics[width=\textwidth]{unitarity_f_plus_THDM_param_scan_analysis}
+  \end{center}
+    
+\end{frame}
+
+
 \subsection{Theoretical Constraints}
 \begin{frame}{{Vacuum Stability Constraints} (\arxiv 2203.07244)}
     The potential must be bounded from below at large field values.  
@@ -439,22 +502,22 @@
     $$
 \end{frame}
 
-\begin{frame}{$\lambda_1 > 0, \quad \lambda_2 > 0$ constraints}
-  \begin{center}
-    \includegraphics[width=\textwidth]{stability_lam1_2_condition_THDM_param_scan_analysis}
-  \end{center}
-\end{frame}
+% \begin{frame}{$\lambda_1 > 0, \quad \lambda_2 > 0$ constraints}
+%   \begin{center}
+%     \includegraphics[width=\textwidth]{stability_lam1_2_condition_THDM_param_scan_analysis}
+%   \end{center}
+% \end{frame}
 
 
-\begin{frame}{$\sqrt{\lambda_1\lambda_2} + \lambda_3 + \lambda_4 > \text{máx}(\lambda_4, \abs{\lambda_5})$}
-  \begin{center}
-    \includegraphics[width=\textwidth]{stability_lam3_4_condition_THDM_param_scan_analysis}
-  \end{center}
-\end{frame}
+% \begin{frame}{$\sqrt{\lambda_1\lambda_2} + \lambda_3 + \lambda_4 > \text{máx}(\lambda_4, \abs{\lambda_5})$}
+%   \begin{center}
+%     \includegraphics[width=\textwidth]{stability_lam3_4_condition_THDM_param_scan_analysis}
+%   \end{center}
+% \end{frame}
 
-\begin{frame}{Bounded from Below Conditions}
-    \includegraphics[width=\textwidth]{stability_lam1_2_3_4_condition_THDM_param_scan_analysis}
-\end{frame}
+% \begin{frame}{Bounded from Below Conditions}
+%     \includegraphics[width=\textwidth]{stability_lam1_2_3_4_condition_THDM_param_scan_analysis}
+% \end{frame}
 
 \begin{frame}{Electroweak Vacuum Stability (\arxiv 1303.5098)}
 
@@ -473,80 +536,20 @@
 \end{itemize}
 
 \end{frame}
-\begin{frame}{Vacuum Stability Conditions}
-  \begin{center}
-    \includegraphics[width=\textwidth]{vacuum_stable_THDM_param_scan_analysis}
-  \end{center}
+% \begin{frame}{Vacuum Stability Conditions}
+%   \begin{center}
+%     \includegraphics[width=\textwidth]{vacuum_stable_THDM_param_scan_analysis}
+%   \end{center}
     
-\end{frame}
-
-\begin{frame}{Unitarity Constraints (\arxiv 1805.07306)}
-
-From quantum mechanics, the S-matrix must be unitary:
-\begin{equation*}
-S = 1 + iT \quad \Rightarrow \quad T^\dagger T = -i(T - T^\dagger)
-\end{equation*}
-For scattering processes $s_1 s_2 \rightarrow s_3 s_4$, this implies bounds on amplitudes.\vfill 
-
-The matrix element for the process is defined as:
-\begin{equation*}
-\langle\{s_1, s_2 \}|iT|\{s_3, s_4\}\rangle \equiv i\mathcal{M}\delta^4(k_3+k_4-p_1-p_2)(2\pi)^4
-\end{equation*}
-
-From the scattering theory, the amplitude $\mathcal{M}$ can be expaded in partial waves:
-\begin{equation*}
-\mathcal{M} = \sum_{J=0}^{\infty}(2J+1)a_J P_J(\cos\theta)
-\implies
-a_J \equiv \frac{1}{32 \pi} \sqrt{\frac{4\left|\mathbf{p}^{\text{in}}\right|\left|\mathbf{p}^{\text{out}}\right|}{2^{\delta_{12}} 2^{\delta_{34}} s}} \int_{-1}^1 d(x) \mathcal{M} P_J(x)
-\end{equation*}
-where $P_J$ are Legendre polynomials and $a_J$ are the partial wave amplitudes.
-
-So, we have 
-\begin{equation}
-    -\frac{i}{2}\left(a_J-a_J^{\dagger}\right) \geq a_J a_J^{\dagger} 
-    \implies
-    \text{Re}(a_J) \leq \frac{1}{2}
-\end{equation}
-\end{frame}
+% \end{frame}
 
 
-\begin{frame}{Unitarity Constraints (\arxiv 1805.07306)}
-    At large energies, the dominant contributions are the spherically symmetric, $J=0$, partial wave amplitudes and $s\approx \abs{\mathbf{p}}^2$. Thus, 
-    \begin{equation}
-        \Re{a_0} \sim \frac{1}{16 \pi} \sqrt{2 ^{-\delta_{12}-\delta_{34}}} Q_{1234} \leq \frac{1}{2}
-    \end{equation}
-    where $Q_{1234} $ is the quartic coupling of the process $s_1 s_2 \rightarrow s_3 s_4$.
 
-
-Considering all the possible processes, 
-\begin{equation*}
-|a_\pm|, |b_\pm|, |c_\pm|, |e_\pm|, |f_\pm|, |g_\pm| \leq 8\pi
-\end{equation*}
-where the eigenvalues are:
-  {\small
-  \begin{equation}
-    \begin{aligned}
-    a_{ \pm} & =\frac{3}{2}\left(\lambda_1+\lambda_2\right) \pm \sqrt{\frac{9}{4}\left(\lambda_1-\lambda_2\right)^2+\left(2 \lambda_3+\lambda_4\right)^2} &\mathrm{e}_{ \pm} & =\lambda_3+2 \lambda_4 \pm 3 \lambda_5 \\
-    b_{ \pm} & =\frac{1}{2}\left(\lambda_1+\lambda_2\right) \pm \sqrt{\frac{1}{4}\left(\lambda_1-\lambda_2\right)^2+\lambda_4^2} & \mathrm{f}_{ \pm} & =\lambda_3 \pm \lambda_4 \\
-    c_{ \pm} & =\frac{1}{2}\left(\lambda_1+\lambda_2\right) \pm \sqrt{\frac{1}{4}\left(\lambda_1-\lambda_2\right)^2+\lambda_5^2} & \mathrm{g}_{ \pm} & =\lambda_3 \pm \lambda_5
-    \end{aligned}
-  \end{equation}
-  }
-  \textbf{It is just a safety check, not the strict theory limitation.}
-\end{frame}
-
-\begin{frame}{Example: $\abs{f_+}=\abs{\lambda_3 + \lambda_4}\approx \left| m_h^2 + m_A^2 - m_{H}^2 \right|/v^2  < 8\pi$}
-  \begin{center}
-    \includegraphics[width=\textwidth]{unitarity_f_plus_THDM_param_scan_analysis}
-  \end{center}
-    
-\end{frame}
-
-\begin{frame}{All Unitarity Constraints}
-    \begin{center}
-        \includegraphics[width=\textwidth]{unitarity_satisfied_THDM_param_scan_analysis}
-    \end{center}
-\end{frame}
+% \begin{frame}{All Unitarity Constraints}
+%     \begin{center}
+%         \includegraphics[width=\textwidth]{unitarity_satisfied_THDM_param_scan_analysis}
+%     \end{center}
+% \end{frame}
 
 \begin{frame}{All the theoretical constraints}
     \begin{center}
@@ -554,8 +557,9 @@ where the eigenvalues are:
     \end{center}
 \end{frame}
 
-\subsection{Experimental Constraints}
-\begin{frame}{Oblique Parameters (DOI:  10.1093/ptep/ptaa104)}
+\section{Experimental Constraints}
+\section{STU Constraints}
+\begin{frame}{Oblique Parameters (PDG 2024, eq 10.98)}
 
   $W$-boson mass at one-loop level could have small corrections to the mass:
   $$
@@ -565,12 +569,13 @@ where the eigenvalues are:
   \vfill
   The accuracy of the $W$ boson mass requires :
     \begin{align}
-      S & = 0.02 \pm 0.10, \\
-      T & = 0.07 \pm 0.12, \\
-      U & = 0.00 \pm 0.09
+      S & = -0.04 \pm 0.10, \\
+      T & = +0.01 \pm 0.12, \\
+      U & = -0.01 \pm 0.09
     \end{align}
   These parameters are crucial for precision tests of the Standard Model and for constraining new physics scenarios.
 \end{frame}
+
 
 \begin{frame}{Oblique Parameters Constraints}
   \begin{center}
@@ -579,7 +584,6 @@ where the eigenvalues are:
 \end{frame}
 
 
-\section{Yukawa Sector}
 \subsection{FCNC-free Models}
 \begin{frame}{Yukawa Sector (\arxiv 1106.0034)}
     In order to suppress flavor-changing neutral currents (FCNCs), we impose a $\mathbb{Z}_2$ symmetry on the Yukawa sector resulting in four types of Yukawa interactions:
@@ -624,43 +628,68 @@ where the eigenvalues are:
         \includegraphics[width=0.92\textwidth]{Hpm_Constrains_by_Model.png}
     \end{center}
 \end{frame}
-\subsection{Phenomenology of the Type II THDM}
-\begin{frame}{Phenomenology of the Type II THDM (\arxiv 2203.07244)}
-    We are interested in channels $\tau \tau$. As the heavy Higgs and the pseudoscalar have the structure
-    $$
-    \kappa_u=\frac{1}{\tan\beta}, \qquad \kappa_d=\kappa_\ell=\tan\beta,
-    $$
-    in the Yukawa sector for the Type II THDM, we have a enhancement of the $b$ and $\tau$ Yukawa couplings for large $\tan\beta$ values.\vfill
+\subsection{Allowed Parameter Space for Type II THDM}
+\begin{frame}{ $m_{H^\pm} \gtrsim 750$ GeV + HB constraints (Work in progress)}
+    % We are interested in channels $\tau \tau$. As the heavy Higgs and the pseudoscalar have the structure
+    % $$
+    % \kappa_u=\frac{1}{\tan\beta}, \qquad \kappa_d=\kappa_\ell=\tan\beta,
+    % $$
+    % in the Yukawa sector for the Type II THDM, we have a enhancement of the $b$ and $\tau$ Yukawa couplings for large $\tan\beta$ values.\vfill
 
-    That is why the {$H^\pm$ Constraints} are more stringent for the Type II THDM, leaving a allowed region starting at $m_{H^\pm} \gtrsim 800$ GeV, and $\tan\beta \in [1, 15]$.\vfill
+    % That is why the {$H^\pm$ Constraints} are more stringent for the Type II THDM, leaving a allowed region starting at $m_{H^\pm} \gtrsim 700$ GeV, and $\tan\beta \in [1, 15]$.\vfill
 
-    The contribution of the top-loop diagram of the gluon-gluon fusion process $gg \rightarrow H / A$ will be suppressed, meanwhile the contribution of the $b$-loop diagram will be enhanced, and the $b\bar b$ fusion become relevant for the production of the heavy Higgs boson $H$. 
-    \vfill
+    \begin{center}
+        \includegraphics[width=1\linewidth]{Allowed_Parameter_Space.png}
+    \end{center}
 
-    In the same way, the branching fraction of the $H/A \rightarrow \tau \tau$ decay channel will be enhanced for large $\tan\beta$ values, while the decay to top quarks will be suppressed.
+    % The contribution of the top-loop diagram of the gluon-gluon fusion process $gg \rightarrow H / A$ will be suppressed, meanwhile the contribution of the $b$-loop diagram will be enhanced, and the $b\bar b$ fusion become relevant for the production of the heavy Higgs boson $H$. 
+    % \vfill
+
+    % In the same way, the branching fraction of the $H/A \rightarrow \tau \tau$ decay channel will be enhanced for large $\tan\beta$ values, while the decay to top quarks will be suppressed.
 \end{frame}
 
-\begin{frame}{$H$ Constraints For Type II THDM (\arxiv 2010.03730)}
-    Using the software Higgs-Bounds 5, we can check the constraints on the heavy Higgs boson $H$. 
+\begin{frame}{LHC production cross-section (hadronic channel) (work in progress)}
+    \begin{center}
+        \includegraphics[width=1\linewidth]{money_plot_with_significance_thresholds.png}
+    \end{center}
 
-    \begin{minipage}{0.48\textwidth}
-        \includegraphics[width=\textwidth]{HH_Constraints.png}
-    \end{minipage}\hfill
-\begin{minipage}{0.48\textwidth}
-    \begin{itemize}
-        \item Triangles (sky blue): excluded by $H/A \rightarrow \tau^{+} \tau^{-}$\vfill
-        \item Circles (royal blue): excluded by $H \rightarrow W W, Z Z, \gamma \gamma$\vfill
-        \item Squares (black): excluded by $H \rightarrow h h$\vfill
-        \item Inverted triangles (purple): excluded by $A \rightarrow H Z$\vfill
-        \item Pluses (red): excluded by $A \rightarrow h Z$\vfill
-        \item Bullets (green): allowed by various LHC searches
-        \end{itemize}
-    \end{minipage}
 \end{frame}
+
+\begin{frame}{$\tan\beta$ effects on the cross-section (work in progress)}
+    \begin{center}
+        \includegraphics[width=1\linewidth]{cross_sections_vs_tanbeta_combined.png}
+    \end{center}
+    
+\end{frame}
+
+\begin{frame}{High-Lumi Projections (work in progress)}
+    \begin{center}
+        \includegraphics[width=1\linewidth]{xs_heatmap_with_significance_contours.png}
+    \end{center}
+    
+\end{frame}
+
+% \begin{frame}{$H$ Constraints For Type II THDM (\arxiv 2010.03730)}
+%     Using the software Higgs-Bounds 5, we can check the constraints on the heavy Higgs boson $H$. 
+
+%     \begin{minipage}{0.48\textwidth}
+%         \includegraphics[width=\textwidth]{HH_Constraints.png}
+%     \end{minipage}\hfill
+% \begin{minipage}{0.48\textwidth}
+%     \begin{itemize}
+%         \item Triangles (sky blue): excluded by $H/A \rightarrow \tau^{+} \tau^{-}$\vfill
+%         \item Circles (royal blue): excluded by $H \rightarrow W W, Z Z, \gamma \gamma$\vfill
+%         \item Squares (black): excluded by $H \rightarrow h h$\vfill
+%         \item Inverted triangles (purple): excluded by $A \rightarrow H Z$\vfill
+%         \item Pluses (red): excluded by $A \rightarrow h Z$\vfill
+%         \item Bullets (green): allowed by various LHC searches
+%         \end{itemize}
+%     \end{minipage}
+% \end{frame}
 
 \section{Final Remarks and Next Steps}
 \begin{frame}{Summary}
-    \begin{block}{Key Results from THDM Analysis}
+    \begin{block}{Key Parts from THDM Analysis}
         \begin{itemize}
             \item \textbf{Theoretical Framework:} Extended SM with two Higgs doublets $\Phi_1, \Phi_2$ 
             \begin{itemize}
@@ -679,7 +708,7 @@ where the eigenvalues are:
             \begin{itemize}
                 \item[$\rightarrow$] Enhanced $\tau$, $b$ couplings: $\kappa_d = \kappa_\ell = \tan\beta$
                 \item[$\rightarrow$] Suppressed top couplings: $\kappa_u = 1/\tan\beta$
-                \item[$\rightarrow$] Strong $H^\pm$ constraints: $m_{H^\pm} \gtrsim 800$ GeV, $\tan\beta \in [1,15]$
+                \item[$\rightarrow$] Strong $H^\pm$ constraints: $m_{H^\pm} \gtrsim 750$ GeV, $\tan\beta \in [1,15]$
             \end{itemize}
             
             \item \textbf{Experimental Constraints On the Yukawa Sector:}
@@ -697,14 +726,14 @@ where the eigenvalues are:
     \end{exampleblock}
 \end{frame}
 
-\begin{frame}{Next Steps}
-    \begin{itemize}
-        \item \textbf{Parameter Scan:} Perform a scan over the parameter space of the THDM, focusing on the Type II model with $\tan\beta$ values between 1 and 15 and $m_{H^\pm}$ starting from 800 GeV.\vfill
-        \item \textbf{Performance improves:} Define a compressed mass region using a single mass parameter. \vfill
-        \item \textbf{Collider Phenomenology:} check with higgs bounds the allowed points and constraints on the heavy Higgs boson $H$ and the pseudoscalar $A$ on the entire points that pass the preliminar steps from the scan. \vfill
-        \item \textbf{Good Parameter Space:} Identify the good parameter space for the Type II THDM, to add further analysis.
-    \end{itemize}
-\end{frame}
+% \begin{frame}{Next Steps}
+%     \begin{itemize}
+%         \item \textbf{Parameter Scan:} Perform a scan over the parameter space of the THDM, focusing on the Type II model with $\tan\beta$ values between 1 and 15 and $m_{H^\pm}$ starting from 800 GeV.\vfill
+%         \item \textbf{Performance improves:} Define a compressed mass region using a single mass parameter. \vfill
+%         \item \textbf{Collider Phenomenology:} check with higgs bounds the allowed points and constraints on the heavy Higgs boson $H$ and the pseudoscalar $A$ on the entire points that pass the preliminar steps from the scan. \vfill
+%         \item \textbf{Good Parameter Space:} Identify the good parameter space for the Type II THDM, to add further analysis.
+%     \end{itemize}
+% \end{frame}
 \begin{frame}
     \begin{center}
         {\Huge Thank you for your attention!}
