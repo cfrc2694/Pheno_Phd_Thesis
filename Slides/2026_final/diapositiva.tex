@@ -1,0 +1,130 @@
+\documentclass{../bredelebeamer}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage{braket,bigstrut}
+\usepackage{palatino}
+\usepackage{multicol,bigstrut}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,amsfonts,cancel,physics,siunitx}
+\usetikzlibrary{positioning,shadows,backgrounds,calc}%
+\setbeamercolor{footnote mark}{fg=black}
+\setbeamercolor{footnote}{fg=black}
+
+
+\renewcommand{\baselinestretch}{0.9}
+
+\usepackage[backend=bibtex8,style=authortitle,autocite=footnote]{biblatex}
+\addbibresource{referencia.bib}
+
+\renewbibmacro*{cite:title}{%
+	\printtext[bibhyperref]{%
+		\printfield[citetitle]{labeltitle}%
+		\setunit{\space}%
+		\printtext[parens]{\printdate}%
+	}%
+}
+\renewcommand{\figurename}{{\bf Fig.}}
+\usefonttheme{serif} % default family is serif
+
+% Define arXiv command for stylized formatting
+\newcommand{\arxiv}{ar$\chi$iv:}
+
+\renewcommand{\baselinestretch}{0.9}
+
+\title[Final Dissertation]{Machine Learning-Enhanced Feasibility Studies on the Production of New Particles with Preferential Couplings to Third Generation Fermions at the LHC}
+\subtitle{}
+\author[C. Rodríguez]{%
+    \vspace{2em}\\
+    PhD(c). Cristian Fernando Rodríguez Cruz\inst{1}\\
+    \href{mailto:c.rodriguez45@uniandes.edu.co}{c.rodriguez45@uniandes.edu.co}\\
+    \vspace{1em}
+    Research advisors:\\
+    \vspace{0.5em}
+    Prof. Andrés Florez\inst{1} ( \href{mailto:ca.florez@uniandes.edu.co}{ca.florez@uniandes.edu.co} )\\
+    \vspace{0.5em}
+    Prof. J. Jones-Pérez\inst{2} ( \href{mailto:jones.j@pucp.edu.pe}{jones.j@pucp.edu.pe} )\\
+    \vspace{1em}
+}
+
+\institute[BSM3G]{\inst{1} Universidad de los Andes\and
+\inst{2} Pontificia Universidad Católica del Perú
+}
+\date{\today}
+\lstset{language=C++,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  commentstyle=\color{green}\ttfamily,
+  morecomment=[l][\color{magenta}]{\#}
+}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\subsection{Standar Model of Particle Physics}
+\begin{frame}
+    
+\end{frame}
+\subsection{Deficiencies of the SM}
+\begin{frame}
+
+\end{frame}
+
+\subsection{LHC and Beyond the SM Physics}
+\begin{frame}
+
+\end{frame}
+
+\section{Phenomenological Framework}
+\subsection{Madgraph-Pythia-Delphes}
+\begin{frame}
+
+\end{frame}
+
+\subsection{Hypothesis Testing and Significance}
+\begin{frame}
+
+\end{frame}
+
+\subsection{Machine Learning in High Energy Physics}
+\begin{frame}
+
+\end{frame}
+
+
+
+
+
+\section{$U(1)_{T^3_R}$ Model}
+\begin{frame}
+    
+\end{frame}
+
+
+
+
+
+\section{$U_1$ Leptoquark Model}
+\begin{frame}
+    
+\end{frame}
+\section{$Z'$ Interferences}
+\begin{frame}
+    
+\end{frame}
+
+\section{Summary and Conclusions}
+\begin{frame}
+
+\end{frame}
+\end{document}
