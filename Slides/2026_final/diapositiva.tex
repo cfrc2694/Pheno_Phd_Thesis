@@ -65,6 +65,10 @@
 
 \newcounter{finalframe}
 
+% Flag to control section divider frames
+\newif\ifsectiondividers
+\sectiondividersfalse  % Set to \sectiondividersfalse to hide divider frames
+
 \begin{document}
 \frame{\titlepage}
 
@@ -74,6 +78,16 @@
 \end{frame}
 
 \section{Introduction}
+
+\ifsectiondividers
+\begin{frame}
+\centering
+\vfill
+{\Huge \textbf{Introduction}}
+\vfill
+\end{frame}
+\fi
+
 \subsection{Standar Model of Particle Physics}
 \begin{frame}
     
@@ -89,6 +103,16 @@
 \end{frame}
 
 \section{Phenomenological Framework}
+
+\ifsectiondividers
+\begin{frame}
+\centering
+\vfill
+{\Huge \textbf{Phenomenological Framework}}
+\vfill
+\end{frame}
+\fi
+
 \subsection{Madgraph-Pythia-Delphes}
 \begin{frame}
 
@@ -105,16 +129,171 @@
 \end{frame}
 
 \section{$U(1)_{T^3_R}$ Model}
+
+\ifsectiondividers
+\begin{frame}
+\centering
+\vfill
+{\Huge \textbf{$U(1)_{T^3_R}$ Model}}
+\vfill
+\end{frame}
+\fi
+
 \begin{frame}
     
 \end{frame}
 
 
 \section{$U_1$ Leptoquark Model}
+
+\ifsectiondividers
 \begin{frame}
-    
+\centering
+\vfill
+{\Huge \textbf{$U_1$ Leptoquark Model}}
+\vfill
 \end{frame}
+\fi
+
+\begin{frame}{The vector leptoquark $U_1$ model}
+	\begin{multicols}{2}
+	A leptoquark is defined as a particle with a vertex that mix vectors and quarks.
+	\begin{center}
+	\includegraphics[width=.25\textwidth]{../Images/LQ_vertex.png}
+	\end{center}
+	If $U_1$ is a vector leptoquark that preserves the chirality on the vertex, we expect an interaction term like
+	$$
+	\sim \beta_L U_1^\mu\bar{q}_{L} \gamma_{\mu} \ell_{L},
+	$$
+	and these allows a similar interaction term for the right handed currents 
+	$$
+	\sim \beta_R U_1^\mu\bar{d}_{R} \gamma_{\mu} e_{R}.
+	$$
+
+	\end{multicols}
+    %$$ $$
+	\begin{minipage}{.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../Images/non_resonant.png}\\
+		Non-resonant
+	\end{minipage}\hfill
+	\begin{minipage}{.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../Images/single_LQ.png}\\
+		Single LQ
+	\end{minipage}\hfill
+	\begin{minipage}{.32\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{../Images/double_LQ.png}\\
+		Double LQ
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Leptoquark Production at pp Colliders}
+    \includegraphics[width=.48\textwidth]{../Images/BR.png}
+    \raisebox{-1.0em}{\includegraphics[width=.51\textwidth]{../Images/XS.png}}
+\end{frame}
+
+\subsection{Kinematic Feature Eng.}
+\begin{frame}{$S_T^{\text{meT}}=\text{met} + \sum_i\left|p_{T}^i\right|$}
+	\begin{center}
+		\includegraphics[width=.65\linewidth]{../Images/sTTeV_semileptonic_sLQ_wRHC.pdf}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}{$\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$}
+	\begin{center}
+		\includegraphics[width=.65\linewidth]{../Images/DeltaR_semileptonic_sLQ_wRHC.pdf}	
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}{The optimized observable}{XGB-output}
+
+	We can evaluate a score for the signal and background events using the discriminator algorithm. 
+
+	\begin{center}
+		\includegraphics[width=.75\linewidth]{../Images/ML_semileptonic_sLQ_wRHC.pdf}
+	\end{center}
+		
+\end{frame}
+
+\subsection{Single Channels Sensitivity Reach}
+
+\begin{frame}{Double Leptoquark Production}{The Sensitivity Reach / only left-handed currents}
+	\begin{minipage}{.30\linewidth}
+		\includegraphics[width=\linewidth]{../Images/double_LQ.png}
+	\end{minipage}
+	\begin{minipage}{.68\linewidth}
+		\includegraphics[width=\linewidth]{../Images/Significance_Heatmap_13TeV_L137_dLQ_combined_woRHC.pdf}
+	\end{minipage}
+	{\large
+	  Double leptoquark production is sensitive to the leptoquark mass, its production depends only on the QCD coupling constant and the available energy.
+	}
+\end{frame}
+
+\begin{frame}{Single leptoquark production}{The Sensitivity Reach / only left-handed currents}
+	\begin{minipage}{.30\linewidth}
+		\includegraphics[width=\linewidth]{../Images/single_LQ.png}
+	\end{minipage}
+	\begin{minipage}{.68\linewidth}
+		\includegraphics[width=\linewidth]{../Images/Significance_Heatmap_13TeV_L137_sLQ_combined_woRHC.pdf}
+	\end{minipage}
+	{\large
+		  Single leptoquark production is sensitive to both, mass and couplings. It contributes to the regions of high coupling constants at higher masses than double leptoquark production.
+	}
+\end{frame}
+
+\begin{frame}{Non-resonant Production}{The Sensitivity Reach / only left-handed currents}
+	\begin{minipage}{.30\linewidth}
+		\includegraphics[width=\linewidth]{../Images/non_resonant.png}
+	\end{minipage}
+	\begin{minipage}{.68\linewidth}
+		\includegraphics[width=\linewidth]{../Images/Significance_Heatmap_13TeV_L137_non-res_combined_woRHC.pdf}
+	\end{minipage}
+
+	{\large
+		  Non-resonant production is highly dependent on the couplings, so it dominates the regions of high coupling constants at all masses.
+	}
+\end{frame}
+
+\subsection{Combined Sensitivity Reach}
+\begin{frame}{Combined Sensitivity Reach}{The Sensitivity Reach / only left-handed currents}
+	\begin{center}
+		\includegraphics[width=.55\linewidth]{../Images/Significance_Heatmap_13TeV_L137_all_combined_woRHC.pdf}
+		\includegraphics[width=.41\linewidth]{../Images/Significance_Curves_13TeV_L137_summary_all_sigmas_woRHC.pdf}
+	\end{center}
+	{\large
+		  The sensitivity of
+		all signal production processes combined compares
+		our expected exclusion region with the latest one from
+		the ATLAS Collaboration [ArXiv:2305.15962], but we suggest better sensitivity for high coupling constants.
+	}
+	
+\end{frame}
+
+\begin{frame}{Combined Sensitivity Reach}{The Sensitivity Reach / only right-handed currents}
+	\begin{center}
+		\includegraphics[width=.68\linewidth]{../Images/Significance_CMS_Comparison_13TeV_L137_all_combined_woRHC.pdf}
+	\end{center}
+	{\large
+		  The case $BR(lq \rightarrow b \tau) = 1$ corresponds to the only right-handed currents coupling. The sensitivity compared with the latest one from the CMS [2308.07826] and ATLAS Collaborations [2303.01294], again we suggest better sensitivity for high coupling constants.
+	}
+\end{frame}
+
+
 \section{$Z'$ Interferences}
+
+\ifsectiondividers
+\begin{frame}
+\centering
+\vfill
+{\Huge \textbf{$Z'$ Interferences}}
+\vfill
+\end{frame}
+\fi
+
 \begin{frame}{The need of a $Z'$ boson in gauge $U_1$ models}
     If $U_1$ has a gauge origin,  we could rewrite the interaction term in the covariant derivative as
 	$$
@@ -145,6 +324,7 @@
 	So, the gauge group with this leptoquark must include a $U(1)_{B-L}$ symmetry (The right-handed currents also have a similar interaction term).
     
     \pause
+    $$ $$
     The interaction terms for the $Z'$ boson have the form
 	\begin{align*}
 		\mathcal{L}_{\text{int}} &\sim Z'_\mu\left(\bar{\psi}_{L}^{\mathrm{SM}}\gamma^\mu (3T_{B-L}) \psi_{L}^{\mathrm{SM}}\right)\\
@@ -187,6 +367,8 @@ so the interference has the form
 					(s-m_{Z'}^2)^2 + m_{Z'}^2\Gamma_{Z'}^2
 			\right]}.
 	\end{equation*}
+
+    Similary for Polarized final states.
 \end{frame}
 
 \begin{frame}{Interference with a $Z'$ vector boson}
@@ -210,11 +392,57 @@ so the interference has the form
 \end{frame}
 
 \section{Summary and Conclusions}
+
+\ifsectiondividers
+\begin{frame}
+\centering
+\vfill
+{\Huge \textbf{Summary and Conclusions}}
+\vfill
+\end{frame}
+\fi
+
 \begin{frame}
 
 \end{frame}
 
 \appendix
+
+\section{Formalism of the gauge $U_1$ leptoquark}
+\begin{frame}%{Formalism of the gauge $U_1$ leptoquark}
+    Where the SM charges for the leptoquark, in the $Y=2(Q-T_3)$ convention, are
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline & $\bar{q}_{L}$ & $\ell_{L}^{j}$ & $\bar{q}_{L}\gamma_{\mu} \ell_{L}$ & $U_{1}^{\mu}$ \\
+			\hline$U(1)$ & $-1 / 3$ & $-1 $ & $-4 / 3$ & $+4 / 3$ \\
+			\hline $\mathrm{SU}(2)$ & $\overline{\mathbf 2}$ & $\mathbf{2}$ & $\mathbf{1}$ & $\mathbf{1}$ \\
+			\hline $\mathrm{SU}(3)$ & $\overline{\mathbf 3}$ & $\mathbf{1}$ & $\overline{\mathbf3}$ & $\mathbf{3}$ \\
+			\hline
+		\end{tabular}	
+	\end{center}
+	Then, the leptoquark $U_1 \sim \left(\mathbf{3}_{C}, \mathbf{1}_{I}, 4 / 3_{Y}\right)$. 
+
+    \pause
+    $$ $$
+    The full Lagrangian for the vector leptoquark is
+	\begin{align*}
+		\mathcal{L}_{U}=&-\frac{1}{2} U_{\mu \nu}^{\dagger} U^{\mu \nu}+M_{U}^{2} U_{\mu}^{\dagger} U^{\mu}-i g_{s}U_{\mu}^{\dagger} T^{a} U_{\nu} G^{\mu \nu}_a -\frac{2 i}{3} g' U_{\mu}^{\dagger} U_{\nu} B^{\mu \nu}\\
+		&+\frac{g_{U}}{\sqrt{2}}\left[U_{1}^{\mu}\left(\beta_{L}^{i j} \bar{q}_{L}^{i} \gamma_{\mu} e_{L}^{j}+\beta_{R}^{i j} \bar{d}_{R}^{i} \gamma_{\mu} e_{R}^{j}
+		%+\beta_{N}^{i} \bar{u}_{R}^{i} \gamma_{\mu} N_{R}
+		\right)+\text { h.c. }\right]
+	\end{align*}
+	where $U_{\mu \nu}=\mathcal D_{\mu} U_{\nu}-\mathcal D_{\nu} U_{\mu}$, $\mathcal D_{\mu}=\partial_{\mu}-i g_{s} G_{\mu}^{a} T^{a}-i \frac{2}{3} g_{Y} B_{\mu}$, and the couplings $\beta_{L}$ and $\beta_{R}$ are complex $3 \times 3$ matrices in flavor space. 
+
+    \pause 
+    $$ $$
+    Constraints from $\Delta F=2$ and lepton flavor violation impose a hierarchy with dominant third generation couplings: 
+    
+    \begin{equation}
+     \left|\beta_L^{11}\right|, \left|\beta_L^{12}\right|, \left|\beta_L^{21}\right|, \left|\beta_L^{22}\right|, \left|\beta_L^{31}\right| \ll \left|\beta_L^{13}\right| \ll\left|\beta_L^{23}\right|,\left|\beta_L^{32}\right| \ll\left|\beta_R^{33}\right|,\left|\beta_L^{33}\right|=\mathcal{O}(1)   ,
+    \end{equation}
+    where $\beta_R$ is diagonal.
+\end{frame}
+
 \section*{Two body scattering}
 \begin{frame}{Two body scattering}{CM-Frame}
     Consider the process
