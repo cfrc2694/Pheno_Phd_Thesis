@@ -13,6 +13,7 @@
 \usetikzlibrary{positioning,shadows,backgrounds,calc}%
 \setbeamercolor{footnote mark}{fg=black}
 \setbeamercolor{footnote}{fg=black}
+\usepackage{appendixnumberbeamer}
 
 
 \renewcommand{\baselinestretch}{0.9}
@@ -50,7 +51,7 @@
     \vspace{1em}
 }
 
-\institute[BSM3G]{\inst{1} Universidad de los Andes\and
+\institute[ML-BSM3G@LHC]{\inst{1} Universidad de los Andes\and
 \inst{2} Pontificia Universidad Católica del Perú
 }
 \date{\today}
@@ -61,6 +62,8 @@
   commentstyle=\color{green}\ttfamily,
   morecomment=[l][\color{magenta}]{\#}
 }
+
+\newcounter{finalframe}
 
 \begin{document}
 \frame{\titlepage}
@@ -101,17 +104,10 @@
 
 \end{frame}
 
-
-
-
-
 \section{$U(1)_{T^3_R}$ Model}
 \begin{frame}
     
 \end{frame}
-
-
-
 
 
 \section{$U_1$ Leptoquark Model}
@@ -119,12 +115,193 @@
     
 \end{frame}
 \section{$Z'$ Interferences}
-\begin{frame}
+\begin{frame}{The need of a $Z'$ boson in gauge $U_1$ models}
+    If $U_1$ has a gauge origin,  we could rewrite the interaction term in the covariant derivative as
+	$$
+	\psi_{L}^{\mathrm{SM}}=\begin{pmatrix}
+		q_{Lr}\\ q_{Lg}\\ q_{Lb}\\ \ell_L
+	\end{pmatrix}
+	\Longrightarrow\;\;
+	\mathcal{L}_{\text{int}}
+	\sim U_{1\alpha}^\mu \bar{\psi}_{L}^{\mathrm{SM}}\, \gamma_{\mu} T_{+}^{\alpha } \psi_{L}^{\mathrm{SM}} + \text{h.c.},
+	\quad
+	T_{+}^{\alpha}=\begin{pmatrix}
+		0 & 0 & 0 & \delta_{r\alpha}\\
+		0 & 0 & 0 & \delta_{g\alpha}\\
+		0 & 0 & 0 & \delta_{b\alpha}\\
+		0 & 0 & 0 & 0
+	\end{pmatrix},
+	$$
+	we have six generators $T_{\pm}^{\alpha }$ with closure relation and projecting into a color singlet operator:
+	$$
+	\sum_{\alpha} \left[{T_{+}^{\alpha }},{T_{-}^{\alpha}}\right] =
+	3 T_{B-L}=\begin{pmatrix}
+		1 & 0 & 0 & 0\\
+		0 & 1 & 0 & 0\\
+		0 & 0 & 1 & 0\\
+		0 & 0 & 0 & -3
+	\end{pmatrix}.
+	$$
+	So, the gauge group with this leptoquark must include a $U(1)_{B-L}$ symmetry (The right-handed currents also have a similar interaction term).
     
+    \pause
+    The interaction terms for the $Z'$ boson have the form
+	\begin{align*}
+		\mathcal{L}_{\text{int}} &\sim Z'_\mu\left(\bar{\psi}_{L}^{\mathrm{SM}}\gamma^\mu (3T_{B-L}) \psi_{L}^{\mathrm{SM}}\right)\\
+		&\sim Z'_\mu \left(\bar q_{L} \gamma^\mu q_{L} - 3 \bar \ell_L \gamma^\mu \ell_L\right).
+	\end{align*}
+\end{frame}
+\begin{frame}{Interference with a $Z'$ vector boson}
+\begin{minipage}{.48\linewidth}
+	Non-Resonant Production (leptoquarks)
+	\begin{center}
+		\includegraphics[width=.9\linewidth,height=.5\linewidth]{../Images/non-res_vector.pdf}
+	\end{center}
+	\begin{equation}
+		\mathcal{M}_{U_1} \sim \frac{1}{t-m_{U_1}^2 + i m_{U_1} \Gamma_{U_1}},
+	\end{equation}
+\end{minipage}
+\hfill
+\begin{minipage}{.48\linewidth}
+	Resonant Production (neutral bosons)
+	\begin{center}
+		\includegraphics[width=.9\linewidth,height=.5\linewidth]{../Images/DY.pdf}
+	\end{center}
+	\begin{equation}
+		\mathcal{M}_{Z'} \sim \frac{1}{s-m_{Z'}^2 + i m_{Z'} \Gamma_{Z'}},
+	\end{equation}
+\end{minipage}
+so the interference has the form
+	\begin{equation*}
+		% \mathrm{RKI}
+		% 			=\frac{1}{\sigma_{ LQ+Z'}}
+					\dv{m}\left[
+							\sigma_{ LQ+Z'}-\left(\sigma_{ LQ} +\sigma_{Z'}
+							\vphantom{\frac{1}2}
+							\right)
+							\right]
+							\sim \frac{g_{z'}g_{U}}{s}\frac{ m_{LQ}m_{Z'}\Gamma_{LQ}\Gamma_{Z'} - (t-m_{LQ}^2)(s-m_{Z'}^2)}{\left[
+					(t-m_{LQ}^2)^2 + m_{LQ}^2\Gamma_{LQ}^2
+			\right]
+			\left[
+					(s-m_{Z'}^2)^2 + m_{Z'}^2\Gamma_{Z'}^2
+			\right]}.
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{Interference with a $Z'$ vector boson}
+
+
+	\begin{center}
+		\includegraphics[width=.45\linewidth]{../Images/Kinematic_Interference_gu_1.0_gzp_1.0_zp_upper_limit_woRHC.pdf}
+		\hfill
+		\includegraphics[width=.53\linewidth]{../Images/xs_interference.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Effects on the Sensitivity reach}
+	
+	\begin{center}
+		\includegraphics[width=.48\linewidth]{../Images/reach_wo_interference.png}
+		\hfill
+		\includegraphics[width=.48\linewidth]{../Images/reach_w_interference.png}
+	\end{center}
+	
 \end{frame}
 
 \section{Summary and Conclusions}
 \begin{frame}
 
 \end{frame}
+
+\appendix
+\section*{Two body scattering}
+\begin{frame}{Two body scattering}{CM-Frame}
+    Consider the process
+    \begin{equation}
+        A(\va*{p}_1) + B(\va*{p}_2) \longrightarrow C(\va*{p}_3) + D(\va*{p}_4),
+    \end{equation}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{../Images/scatter.png}
+    \end{center}
+
+    From the Golden Rule, the cross section is given by
+    \begin{equation}
+        \sigma = \frac{S (2\pi)^4}{4\sqrt{(\va*{p}_1\cdot\va*{p}_2)^2 - (m_1m_2)^2}}\int \abs{\mathcal{M}}^2\delta^{(4)}(p_1 + p_2 - p_3 - p_4)\frac{d^3\va*{p}_3}{(2\pi)^3 2E_3}\frac{d^3\va*{p}_4}{(2\pi)^3 2E_4}.
+    \end{equation}
+    But, in the CM frame, $\va*{p}_1 + \va*{p}_2 = 0$, where
+    \begin{gather}
+        \sqrt{(\va*{p}_1\cdot\va*{p}_2)^2 - (m_1m_2)^2} = E_1E_2 \abs{\va*{p}_1},
+        \\
+        \delta^{(4)}(p_1 + p_2 - p_3 - p_4) = \delta\left(
+        E_1 + E_2 - E_3 - E_4
+        \right)
+        \delta^{(3)}(\va*{p}_3 + \va*{p}_4).
+    \end{gather}
+    Thus
+    \begin{equation}
+        \sigma = \left(\frac{1}{8\pi}\right)^2 \frac{S}{(E_1E_2) \abs{\va*{p}_1}}\int \abs{\mathcal{M}}^2
+        \frac{\delta\left(
+            E_1 + E_2 - \sqrt{\va p_3^2 + m_3^2} - \sqrt{\va p_3^2 + m_4^2}
+            \right)}{\sqrt{\va p_3^2 + m_3^2}\sqrt{\va p_3^2 + m_4^2}} \dd \va p_3
+    \end{equation}
+\end{frame}
+
+\begin{frame}%{Two body scattering}{CM-Frame}
+    Integrating over the radial part $\abs{\va p_3}$, we get
+    \begin{equation}
+        \sigma = \left(\frac{1}{8\pi}\right)^2 \frac{S |\va*{p}_3|}{(E_1 +E_2)^2 \abs{\va*{p}_1}} \int \abs{\mathcal{M}}^2 \dd\Omega,
+    \end{equation}
+    with
+    \begin{equation}
+        |\va*{p}_3| = \frac{1}{2} \frac{\sqrt{((E_1+E_2)^2 - m_3^2 -m_4^2)^2- 4m^2_3m^2_4} }{E_1+E_2},
+    \end{equation}
+    the outgoing momentum in the CM frame.
+
+    $$ $$
+
+    We prefer work with differential cross section as
+    \begin{equation}
+        \frac{\dd \sigma}{\dd \Omega} = \frac{1}{64\pi^2} \frac{S }{(E_1 +E_2)^2 } \frac{|\va*{p}_3|}{\abs{\va*{p}_1}} \abs{\mathcal{M}}^2.
+    \end{equation}
+
+    Defining $\sqrt s = E_1 + E_2$, we have
+    \begin{equation}
+        |\va*{p}_3| = \frac{1}{2} \frac{\sqrt{(s - m_3^2 -m_4^2)^2- 4m^2_3m^2_4} }{\sqrt s}, \quad  |\va*{p}_1|=\frac{1}{2} \frac{\sqrt{(s - m_1^2 -m_2^2)^2- 4m^2_1m^2_2} }{\sqrt s}.
+    \end{equation}
+    so the differential cross section is
+    \begin{equation}
+        \frac{\dd \sigma}{\dd \Omega} = \frac{1}{64\pi^2} \frac{n! }{s }
+        \sqrt{\frac{(s - (m_3 + m_4)^2)(s - (m_3 - m_4)^2)}{(s - (m_1 + m_2)^2)(s - (m_1 - m_2)^2)}}
+        \abs{\mathcal{M}}^2.
+    \end{equation}
+
+    Note that at this point, we don't need to know the explicit form of the matrix element $\mathcal{M}$, so it is a generic result.
+\end{frame}
+
+\begin{frame}{Writting $t$ in terms of $s$ and $\theta$}
+    
+
+    In general, there are three Lorentz-invariant useful kinematical variables to describe the scattering process, known as Mandelstam variables:
+    \begin{align}
+        \hat s & = (p_1 + p_2)^2 = (p_3 + p_4)^2 = m_1^2 + m_2^2 + 2p_1^\mu p_{2\mu }= m_3^2 + m_4^2 + 2p_3^\mu p_{4\mu}, \\
+        \hat t & = (p_1 - p_3)^2 = (p_2 - p_4)^2= m_1^2 + m_3^2 - 2p_1^\mu p_{3\mu }= m_2^2 + m_4^2 - 2p_2^\mu p_{4\mu},  \\
+        \hat u & = (p_1 - p_4)^2 = (p_2 - p_3)^2= m_1^2 + m_4^2 - 2p_1^\mu p_{4\mu }= m_2^2 + m_3^2 - 2p_2^\mu p_{3\mu}.
+    \end{align}
+    $$ $$
+    In the CM-frame, $\hat s = s = (E_1+E_2)^2$. If, $m_3=m_4$ and $m_1=m_2$ with $E_1=E_2=E_3=E_4=E$, we have
+    \begin{equation}
+        t = -\left(\va p_1 - \va p_3\right)^2 = - \va p_1^2 - \va p_3^2 + 2\va p_1\va p_3 
+    \end{equation}
+    where $\va p_1^2 = E^2 - m_1^2 $  and $\va p_3^2 = E^2 - m_3^2 $.
+    $$ $$
+    So, in terms of $s$, $t$ could be written as
+    \begin{equation}
+        t= -2s + (m_1^2 + m_3^2) + 2\sqrt{(s/4 - m_1^2)(s/4 - m_3^2)} \cos\theta,
+    \end{equation}
+    with $\theta$ the scattering angle in the CM-frame.
+\end{frame}
+
+
+
 \end{document}
