@@ -91,8 +91,10 @@
 \fi
 
 \subsection{Standar Model of Particle Physics}
-\begin{frame}
-    
+\begin{frame}{Standard Model of Particle Physics}
+	\begin{center}
+		\includegraphics[width=.98\textwidth]{../Images/SM.png}
+	\end{center}
 \end{frame}
 \subsection{Deficiencies of the SM}
 \begin{frame}
@@ -100,15 +102,45 @@
 \end{frame}
 
 \subsection{LHC and Beyond the SM Physics}
-\begin{frame}
 
+\begin{frame}{LHC.}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{../Images/LHC.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}{The Quark-Gluon Sea}
 	\begin{center}
-		\includegraphics[width=0.95\textwidth]{../Images/pp_collision.png}
+		\includegraphics[width=1\textwidth]{../Images/pp_collision.pdf}
 	\end{center}
 \end{frame}
+
+\begin{frame}{Kinematic Variables}
+    From Spherical coordinates,
+    $$
+    \begin{cases}
+        \text{Pseudorapidity: } \eta = -\ln\tan(\theta/2) \\
+        \text{Transverse momentum: } p_T = p \sin(\theta) \\
+        \text{Azimuthal angle: } \phi\\
+        \text{Deposited energy: } E \\
+    \end{cases}
+    $$
+
+	\begin{center}
+		\includegraphics[width=.98\linewidth]{../Images/Kinematic_Variables.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Example of a Event in the CMS Detector}
+    There is not initial momentum in the transverse plane, so from the conservation of momentum, we define the missing transverse momentum as
+    $$
+        \va*{p}_T^{\text{ mis}} = - \sum_{i} \va*{p}_{T,i}^{\text{ vis}}
+    $$
+    \begin{center}
+        \includegraphics[width=1\linewidth]{../Images/real_event.png}
+    \end{center}
+\end{frame}
+
 
 \section{Phenomenological Framework}
 
@@ -124,6 +156,11 @@
 \subsection{Madgraph-Pythia-Delphes}
 \begin{frame}
 
+\end{frame}
+\begin{frame}{Feynrules}
+	\begin{center}
+		\includegraphics[width=.99\linewidth]{../Images/Feynrules.png}
+	\end{center}
 \end{frame}
 
 \subsection{Hypothesis Testing and Significance}
