@@ -38,7 +38,7 @@
 
 \title[Final Dissertation]{Machine Learning-Enhanced Feasibility Studies on the Production of New Particles with Preferential Couplings to Third Generation Fermions at the LHC}
 \subtitle{}
-\author[C. Rodríguez]{%
+\author[ML-BSM3G@LHC - C. Rodríguez]{%
     \vspace{2em}\\
     PhD(c). Cristian Fernando Rodríguez Cruz\inst{1}\\
     \href{mailto:c.rodriguez45@uniandes.edu.co}{c.rodriguez45@uniandes.edu.co}\\
@@ -51,7 +51,7 @@
     \vspace{1em}
 }
 
-\institute[ML-BSM3G@LHC]{\inst{1} Universidad de los Andes\and
+\institute[]{\inst{1} Universidad de los Andes\and
 \inst{2} Pontificia Universidad Católica del Perú
 }
 \date{\today}
@@ -67,7 +67,9 @@
 
 % Flag to control section divider frames
 \newif\ifsectiondividers
-\sectiondividersfalse  % Set to \sectiondividersfalse to hide divider frames
+\sectiondividersfalse  % Set to false to hide divider frames
+\sectiondividerstrue   
+
 
 \begin{document}
 \frame{\titlepage}
@@ -138,9 +140,99 @@
 \vfill
 \end{frame}
 \fi
+\subsection{}
+
+
+\subsection{Production Channel}
 
 \begin{frame}
-    
+	To do ADD production channel diagrams
+\end{frame}
+\begin{frame}{Feasible Experimental Signatures}{Cross Section}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.7\linewidth]{../Images/cross_section_by_masses.pdf}
+		\caption{Projected cross section (fb) plot for $pp\to t \chi_\mathrm{u} \phi'$ and subsequent decay as a function of $m(\chi_\mathrm{u})$ and $m(\phi')$.}
+		\label{fig:xs-plot}
+	\end{figure}
+\end{frame}
+
+\subsection{Search Channel}
+\begin{frame}{Feasible Experimental Signatures}{Search Channel}
+	Representative Feynman diagram for the production of a $\phi'$ boson in association with a $\chi_\mathrm{u}$ vector-like quark through the fusion of a top quark and $\chi_\mathrm{u}$ vector-like quark. 
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{../Images/main_channel.png}
+	\end{center}
+	The $\phi'$ decays to a pair of muons, the top quark decays fully hadronically, and the $\chi_\mathrm{u}$ decays semi-leptonically to muons, neutrinos and $b$-jets.
+\end{frame}
+\begin{frame}{Feasible Experimental Signatures}{Search Channel}
+	Representative Feynman diagram for the production of a $\phi'$ boson in association with a $\chi_\mathrm{u}$ vector-like quark through the fusion of a gluon pair from incoming protons.
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{../Images/signal_ggfusion.pdf}
+	\end{center}
+	The $\phi'$ decays to a pair of muons, the top quark that decays fully hadronically, and the $\chi_\mathrm{u}$ decay semi-leptonically to muons, neutrinos and jets.
+\end{frame}
+
+\begin{frame}{Feasible Experimental Signatures}{Background}
+	Representative Feynman diagram for a background event. A $Z$ boson is produced in association with a top quark through the fusion of a top, anti top pair from incoming protons. 
+	\begin{center}
+		\includegraphics[width=0.45\textwidth]{../Images/bg_Z_full.pdf}
+	\end{center}
+	The $Z$ boson subsequently decays to a pair of muons and the two spectator top quarks decay semi-leptonically and purely hadronically to muons, neutrinos and jets, resulting in the same final states as the signal event.
+\end{frame}
+
+\subsection{Kinematic Variables}
+
+\begin{frame}{Feasible Experimental Signatures}{Kinematic Variables}
+	\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{../Images/PT_b1.pdf}
+	\caption{Transverse momentum distribution of the leading \textrm{b}-quark jet candidate. The distributions are shown for the two main SM background processes and two signal benchmark points.\label{fig:pTb1}}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Feasible Experimental Signatures}{Kinematic Variables}
+	\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{../Images/PT_mu1_1.pdf}
+	\caption{Transverse momentum distribution of the leading muon candidate. The distributions are shown for the two main SM background processes and two signal benchmark points.\label{fig:pTmu1}}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Feasible Experimental Signatures}{Kinematic Variables}
+	\begin{figure}
+	\centering
+	\includegraphics[width=.6\linewidth]{../Images/M_mu_1_2.pdf}
+	\caption{Invariant mass distribution of the muon pair with the highest and second highest transverse momentum. The distributions are shown for the two main SM background processes and two signal benchmark points.\label{fig:_mu12}}
+	\end{figure}
+\end{frame}
+
+\subsection{Gradient Boosting}
+\begin{frame}{Feasible Experimental Signatures}{Gradient Boosting}
+	\begin{figure}
+		\centering
+		\includegraphics[width=.6\linewidth]{../Images/feature_importance.pdf}
+		\caption{Relative importance of features in training for a benchmark signal scenario with $m(\phi')=325\, \mathrm{GeV}$ and $m(\chi_\mathrm{u})=2000\, \mathrm{GeV}$.}
+		\label{fig:feature_importance}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Feasible Experimental Signatures}{Gradient Boosting}
+	\begin{figure}
+	\centering
+		\centering  \includegraphics[width=.6\linewidth]{../Images/XGB_output.pdf}
+		\caption{Output of the gradient boosting algorithm for a benchmark $m(\phi') = 100$~\textrm{GeV} and $m(\chi_\mathrm{u}) = 500\, \mathrm{GeV}$ signal, and dominant backgrounds. The distributions are normalized to unity.}
+		\label{fig:xgboostout}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Signal Significance}
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=.8\linewidth]{../Images/significance.pdf}
+		\caption{Signal significance for the high luminosity LHC era, considering with 3000  $\mathrm{fb}^{-1}$ of collected data.}
+		\label{fig:/significance_3000}
+	\end{figure}
 \end{frame}
 
 
@@ -262,6 +354,7 @@
 \begin{frame}{Combined Sensitivity Reach}{The Sensitivity Reach / only left-handed currents}
 	\begin{center}
 		\includegraphics[width=.55\linewidth]{../Images/Significance_Heatmap_13TeV_L137_all_combined_woRHC.pdf}
+        \pause
 		\includegraphics[width=.41\linewidth]{../Images/Significance_Curves_13TeV_L137_summary_all_sigmas_woRHC.pdf}
 	\end{center}
 	{\large
