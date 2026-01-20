@@ -6,11 +6,32 @@
 \usepackage{multicol,bigstrut}
 \usepackage{listings}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.17}
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb,amsfonts,cancel,physics,siunitx}
-\usetikzlibrary{positioning,shadows,backgrounds,calc}%
+\usepackage[outline]{contour} % glow around text
+\contourlength{0.9pt}
+\usetikzlibrary{positioning,shadows,backgrounds,calc,bending}%
+
+% Define custom TikZ styles for detector diagram (from template.sty)
+\colorlet{veccol}{green!50!black}
+\colorlet{myred}{red!70!black}
+\colorlet{myblue}{blue!70!black}
+\colorlet{mydarkred}{red!40!black}
+\colorlet{mydarkblue}{blue!30!black}
+\colorlet{CMScol}{red!80!black}
+\colorlet{ATLAScol}{blue!80!black}
+\definecolor{miverde}{RGB}{44,162,67}
+\definecolor{azulF}{rgb}{.0,.0,.3}
+\tikzset{>=latex}
+\tikzstyle{axis}=[->,thick,line cap=round]
+\def\ang{19} % angle for detector rotation
+\tikzstyle{detector}=[thick,draw=mydarkred,rotate around z=\ang]
+\tikzstyle{beam pipe}=[draw=blue!20!black!50,fill=blue!20!black!10,rotate around z=\ang]
+\tikzstyle{detector surface}=[red!60!black!60,opacity=0.06,rotate around z=\ang]
+
 \setbeamercolor{footnote mark}{fg=black}
 \setbeamercolor{footnote}{fg=black}
 \usepackage{appendixnumberbeamer}
@@ -92,7 +113,9 @@
 \centering
 \vfill
 {\Huge \textbf{Introduction}}
-\vfill
+\begin{center}
+		\includegraphics[width=1\linewidth]{../Images/intro.png}
+\end{center}
 \end{frame}
 \fi
 
@@ -124,7 +147,7 @@
         \textbf{Experimental hints of New Physics:}
     
         \vspace{0.5em}
-        \makebox[\linewidth][l]{\hspace*{-0.6cm}\includegraphics[width=1.2\linewidth]{../Images/rdrds_ckm2025_new.pdf}}
+        \makebox[\linewidth][l]{\hspace*{-0.8cm}\includegraphics[width=1.25\linewidth]{../Images/rdrds_ckm2025_new.pdf}}
 
 		\vspace{0.5em}
         Recent measurements of the $R(D)$ and $R(D^*)$ ratios show a $\sim 3\sigma$ deviation from SM predictions, suggesting possible lepton universality violation.
@@ -175,7 +198,7 @@
     $$
 
 	\begin{center}
-		\includegraphics[width=.98\linewidth]{../Images/Kinematic_Variables.png}
+		\scalebox{0.9}{\input{../../Images/kin_var.tex}}
 	\end{center}
 \end{frame}
 
@@ -254,9 +277,12 @@
 \centering
 \vfill
 {\Huge \textbf{Phenomenological Framework}}
-\vfill
+\begin{center}
+		\includegraphics[width=1\linewidth]{../Images/pheno_hep.png}
+\end{center}
 \end{frame}
 \fi
+
 
 \subsection{Madgraph-Pythia-Delphes}
 \begin{frame}
@@ -295,7 +321,7 @@
         \item $\epsilon_i$: selection efficiency
     \end{itemize}
 
-    \vspace{0.5em}
+    \vspace{1.0em}
     The significance becomes:
     \begin{equation}
         \kappa = \frac{\sum_i \textcolor{SignalOrange}{\sigma_{s_i}} \textcolor{EfficiencyRed}{\epsilon_{s_i}} \textcolor{WeightPurple}{w_i}}{\sqrt{\sum_i (\textcolor{SignalOrange}{\sigma_{s_i}}\textcolor{EfficiencyRed}{\epsilon_{s_i}} + \sigma_{b_i}\textcolor{EfficiencyRed}{\epsilon_{b_i}} + \textcolor{SysGreen}{\delta_{\text{sys}}^2}) \textcolor{WeightPurple}{w_i}^2}} \sqrt{\textcolor{LumiBlue}{\mathcal{L}}}
@@ -305,7 +331,7 @@
     \begin{itemize}
         \item \textcolor{LumiBlue}{Increase luminosity $\mathcal{L}$}
         \item \textcolor{EfficiencyRed}{Optimize cuts to enhance $\epsilon_s/\epsilon_b$}
-        \item \textcolor{SignalOrange}{Increase $\sigma_s$ via higher $\sqrt{s}$}
+        \item \textcolor{SignalOrange}{Increase $\sigma_s$ via higher $\sqrt{s}$ for heavier states}
         \item \textcolor{WeightPurple}{Use multivariate discriminants (BDT, DNN)}
         \item \textcolor{SysGreen}{Reduce systematic uncertainties $\delta_{\text{sys}}$}
         \item Exploit correlations between bins
