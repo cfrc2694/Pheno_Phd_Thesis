@@ -15,6 +15,12 @@
 \setbeamercolor{footnote}{fg=black}
 \usepackage{appendixnumberbeamer}
 
+% Define custom colors for better readability
+\definecolor{SignalOrange}{RGB}{255,140,0}
+\definecolor{EfficiencyRed}{RGB}{220,20,60}
+\definecolor{WeightPurple}{RGB}{148,0,211}
+\definecolor{SysGreen}{RGB}{34,139,34}
+\definecolor{LumiBlue}{RGB}{0,71,171}
 
 \renewcommand{\baselinestretch}{0.9}
 
@@ -93,26 +99,68 @@
 \subsection{Standar Model of Particle Physics}
 \begin{frame}{Standard Model of Particle Physics}
 	\begin{center}
-		\includegraphics[width=.98\textwidth]{../Images/SM.png}
+		\includegraphics[width=.95\textwidth]{../Images/SM.png}
 	\end{center}
 \end{frame}
-\subsection{Deficiencies of the SM}
-\begin{frame}
 
+\subsection{Deficiencies of the SM}
+\begin{frame}{Deficiencies of the SM}
+    \begin{minipage}[t]{0.43\linewidth}
+        \textbf{The SM cannot be complete:}
+        \begin{itemize}
+            \item Neutrino masses require extension
+            \item No explanation for DM
+            \item Matter-antimatter asymmetry unsolved
+            \item Gravity not included
+        \end{itemize}
+
+        \vspace{0.5em}
+
+            \includegraphics[width=.9\linewidth]{../Images/SM-2.png}
+    \end{minipage}
+    \hfill
+    \pause
+    \begin{minipage}[t]{0.53\linewidth}
+        \textbf{Experimental hints of New Physics:}
+    
+        \vspace{0.5em}
+        \makebox[\linewidth][l]{\hspace*{-0.6cm}\includegraphics[width=1.2\linewidth]{../Images/rdrds_ckm2025_new.pdf}}
+
+		\vspace{0.5em}
+        Recent measurements of the $R(D)$ and $R(D^*)$ ratios show a $\sim 3\sigma$ deviation from SM predictions, suggesting possible lepton universality violation.
+
+    \end{minipage}
 \end{frame}
 
 \subsection{LHC and Beyond the SM Physics}
 
-\begin{frame}{LHC.}
-	\begin{center}
-		\includegraphics[width=1\textwidth]{../Images/LHC.png}
-	\end{center}
+\begin{frame}{The Large Hadron Collider (LHC)}
+    \begin{minipage}{.6\linewidth}
+        \includegraphics[width=1\textwidth]{../Images/LHC.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.38\linewidth}
+        \textbf{World's largest particle collider:}
+        \begin{itemize}
+            \item 27 km circumference ring
+            \item Proton-proton collisions at $\sqrt{s} = 13.6$ TeV
+            \item Designed to probe the TeV scale
+            \item Main experiments: ATLAS, CMS, LHCb, ALICE
+            \item Already discovered the Higgs boson (2012)
+            \item Now searching for physics \textbf{beyond the Standard Model}
+        \end{itemize}
+    \end{minipage}
 \end{frame}
 
 \begin{frame}{The Quark-Gluon Sea}
-	\begin{center}
-		\includegraphics[width=1\textwidth]{../Images/pp_collision.pdf}
-	\end{center}
+    
+    \textbf{Partons} are the fundamental constituents inside protons: valence quarks (uud) and a \textbf{sea} of virtual quark-antiquark pairs and gluons.
+    
+    \begin{center}
+        \includegraphics[width=\textwidth]{../Images/pp_collision.pdf}
+    \end{center}
+
+	The interacting partons are typically \textbf{sea quarks or gluons}, which carry only a fraction of the proton's momentum but dominate the cross-section at high energies.
 \end{frame}
 
 \begin{frame}{Kinematic Variables}
@@ -131,16 +179,73 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Example of a Event in the CMS Detector}
-    There is not initial momentum in the transverse plane, so from the conservation of momentum, we define the missing transverse momentum as
-    $$
-        \va*{p}_T^{\text{ mis}} = - \sum_{i} \va*{p}_{T,i}^{\text{ vis}}
-    $$
+\begin{frame}{Jet Clustering \& Missing Transverse Momentum}
+    \vspace{0.8em}
+    
+    \textbf{Jet clustering} groups collimated particle showers into jets to reconstruct the original quarks/gluons from the hard scatter.
+    
+    \vspace{1em}
+    
+    \textbf{Missing $p_T$} appears as transverse momentum imbalance, signaling undetected particles like neutrinos:
+    \[
+    \va*{p}_T^{\text{miss}} = -\sum_{\text{visible prods}} \va*{p}_T
+    \]
+    
     \begin{center}
-        \includegraphics[width=1\linewidth]{../Images/real_event.png}
+        \includegraphics[width=0.85\linewidth]{../Images/real_event.png}
     \end{center}
 \end{frame}
 
+\begin{frame}{What Do We Look For at the LHC?}
+    \begin{block}{Three Complementary Approaches}
+        \begin{itemize}
+
+            \item \textbf{SM Parameter Determination}
+            \begin{itemize}
+                \item Precisely measure fundamental SM parameters
+                \item Test consistency of the SM framework
+                \item Reduce theoretical uncertainties
+            \end{itemize}
+
+			\item \textbf{Indirect Searches (Precision Tests)}
+            \begin{itemize}
+                \item Measure SM processes with high precision
+                \item Look for deviations in predicted distributions
+                \item Constrain new physics through virtual effects
+            \end{itemize}
+
+            \item \textbf{Direct Searches}
+            \begin{itemize}
+                \item Look for new particles in final states (resonances, excesses)
+                \item Examples: SUSY particles, $Z'$, leptoquarks, dark matter mediators
+            \end{itemize}
+
+        \end{itemize}
+    \end{block}
+    
+    \begin{block}{Key Types of Measurements}
+        \begin{minipage}{0.48\linewidth}
+            \textbf{Direct Signatures:}
+            \begin{itemize}
+                \item Resonant mass peaks
+                \item Excess events over SM background
+                \item Missing transverse energy (MET)
+                \item Unusual kinematic features
+            \end{itemize}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.48\linewidth}
+            \textbf{Precision Observables:}
+            \begin{itemize}
+                \item Differential cross sections
+                \item Angular correlations
+                \item Rare decay rates
+                \item Lepton flavor universality ratios
+                \item Charge-parity (CP) asymmetries
+            \end{itemize}
+        \end{minipage}
+    \end{block}
+\end{frame}
 
 \section{Phenomenological Framework}
 
@@ -163,10 +268,50 @@
 	\end{center}
 \end{frame}
 
-\subsection{Hypothesis Testing and Significance}
-\begin{frame}
+\begin{frame}{Statistical Significance}
+    The statistical significance for discovery is defined as:
+    \begin{equation}
+        \kappa = \frac{\Braket{t}_{B} - \Braket{t}_{S+B}}{\sigma_{S+B}}
+    \end{equation}
+    where $t = -2\ln[\mathcal{L}(n|S+B)/\mathcal{L}(n|B)]$ is the optimal test statistic, with $\mathcal{L}$ the likelihood for Poisson-distributed event counts $n$ in each bin.
 
+	\vspace{1.0em}
+
+    For binned data analysis, this simplifies to:
+    \begin{equation}
+        \kappa = \frac{\sum_i s_i w_i}{\sqrt{\sum_i (s_i + b_i + \delta_{\text{sys}}^2) w_i^2}}
+    \end{equation}
+    where $s_i$, $b_i$ are signal/background events in bin $i$, $w_i \sim \ln(1+s_i/b_i)$ are optimal weights, and $\delta_{\text{sys}}$ is the systematic uncertainty.
+
+    \vspace{1.0em}
+    \textbf{Exclusion criterion:} A hypothesis with $\kappa \leq 1.69\sigma$ can be excluded at 95\% CL.
 \end{frame}
+
+\begin{frame}{Optimizing Sensitivity}
+    The event yield in each bin is $N_i = \sigma_i \cdot \mathcal{L} \cdot \epsilon_i$, where:
+    \begin{itemize}
+        \item $\sigma_i$: cross section
+        \item $\mathcal{L}$: integrated luminosity  
+        \item $\epsilon_i$: selection efficiency
+    \end{itemize}
+
+    \vspace{0.5em}
+    The significance becomes:
+    \begin{equation}
+        \kappa = \frac{\sum_i \textcolor{SignalOrange}{\sigma_{s_i}} \textcolor{EfficiencyRed}{\epsilon_{s_i}} \textcolor{WeightPurple}{w_i}}{\sqrt{\sum_i (\textcolor{SignalOrange}{\sigma_{s_i}}\textcolor{EfficiencyRed}{\epsilon_{s_i}} + \sigma_{b_i}\textcolor{EfficiencyRed}{\epsilon_{b_i}} + \textcolor{SysGreen}{\delta_{\text{sys}}^2}) \textcolor{WeightPurple}{w_i}^2}} \sqrt{\textcolor{LumiBlue}{\mathcal{L}}}
+    \end{equation}
+
+    \textbf{Strategies to improve $\kappa$:}
+    \begin{itemize}
+        \item \textcolor{LumiBlue}{Increase luminosity $\mathcal{L}$}
+        \item \textcolor{EfficiencyRed}{Optimize cuts to enhance $\epsilon_s/\epsilon_b$}
+        \item \textcolor{SignalOrange}{Increase $\sigma_s$ via higher $\sqrt{s}$}
+        \item \textcolor{WeightPurple}{Use multivariate discriminants (BDT, DNN)}
+        \item \textcolor{SysGreen}{Reduce systematic uncertainties $\delta_{\text{sys}}$}
+        \item Exploit correlations between bins
+    \end{itemize}
+\end{frame} 
+
 
 \subsection{Machine Learning in High Energy Physics}
 \begin{frame}
