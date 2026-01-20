@@ -11,6 +11,8 @@
 \pgfplotsset{compat=1.17}
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb,amsfonts,cancel,physics,siunitx}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.03em, label={$\bullet$}}
 \usepackage[outline]{contour} % glow around text
 \contourlength{0.9pt}
 \usetikzlibrary{positioning,shadows,backgrounds,calc,bending}%
@@ -119,11 +121,67 @@
 \end{frame}
 \fi
 
-\subsection{Standar Model of Particle Physics}
-\begin{frame}{Standard Model of Particle Physics}
-	\begin{center}
-		\includegraphics[width=.95\textwidth]{../Images/SM.png}
-	\end{center}
+\subsection{Standard Model of Particle Physics}
+\begin{frame}{Standard Model of Particle Physics: A Successful Framework}
+    \begin{minipage}[t]{0.58\textwidth}
+        $ $ \vspace{0.4em}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/SM.png}
+        
+        \vspace{0.3em}
+        \begin{block}{Key Features}
+            \begin{itemize}\footnotesize
+                \item \textbf{Particle spectrum:} 12 fermions + 5 bosons
+                \item \textbf{Quantum field theory:} Renormalizable, gauge invariant
+                \item \textbf{Tested experimentally:} Exceptional agreement with data
+                \item \textbf{Predictive power:} Successfully tested at LHC
+            \end{itemize}
+        \end{block}
+    \end{minipage}
+	\hfill
+    \begin{minipage}[t]{0.39\textwidth}
+        \begin{block}{Core Theoretical Structure}
+            \begin{itemize}[leftmargin=1.03em, label={$\bullet$}]
+                \item \textbf{Fermion Sector:} 
+                \begin{itemize}[leftmargin=0.803em, label={$\circ$}, itemsep=0.2em]\footnotesize
+					\item 3 generations
+                    \item Left-handed doublets:
+                    $$
+					  Q_L = \begin{pmatrix}
+						q_{u} \\ q_{d}
+					  \end{pmatrix}_L; 
+					  \quad
+					  L_L = \begin{pmatrix}
+						\ell \\
+						\nu_{\ell}
+					  \end{pmatrix}_L
+					$$
+					\item Right-handed singlets: $q_{uR}, q_{dR}$; $\ell_R$
+                    \item Flavor structure from  CKM mixing
+                    \item Initially, $\nu_R$ not required (no mass)
+                \end{itemize}
+
+				\vspace{0.5em}
+                \item \textbf{Gauge Group:} 
+                \begin{itemize}[leftmargin=0.803em, label={$\circ$}, itemsep=0.2em]\footnotesize
+					\item $SU(3)_C \times SU(2)_L \times U(1)_Y$
+                    \item Strong force: $SU(3)_C$ (QCD)
+                    \item Electroweak: $SU(2)_L \times U(1)_Y$
+                \end{itemize}
+                
+                \vspace{0.5em}
+                \item \textbf{Higgs Mechanism:}
+                \begin{itemize}[leftmargin=0.803em, label={$\circ$}, itemsep=0.2em]\footnotesize
+                    \item $SU(2)_L \times U(1)_Y \to U(1)_{\text{EM}}$
+                    \item Masses to $W^\pm$, $Z^0$ bosons 
+					\item Massless $\gamma$
+                    \item Fermion masses via Yukawa couplings
+                    \item Higgs boson $h$ discovered (LHC 2012)
+                \end{itemize}
+            \end{itemize}
+        \end{block}
+    \end{minipage}
+
 \end{frame}
 
 \subsection{Deficiencies of the SM}
@@ -131,9 +189,9 @@
     \begin{minipage}[t]{0.43\linewidth}
         \textbf{The SM cannot be complete:}
         \begin{itemize}
-            \item Neutrino masses require extension
+            \item Unexplained $\nu$ masses
             \item No explanation for DM
-            \item Matter-antimatter asymmetry unsolved
+            \item Matter-antimatter asymmetry \\unsolved
             \item Gravity not included
         \end{itemize}
 
@@ -159,11 +217,11 @@
 
 \begin{frame}{The Large Hadron Collider (LHC)}
     \begin{minipage}{.6\linewidth}
+		\textbf{World's largest particle collider:}
         \includegraphics[width=1\textwidth]{../Images/LHC.png}
     \end{minipage}
     \hfill
     \begin{minipage}{.38\linewidth}
-        \textbf{World's largest particle collider:}
         \begin{itemize}
             \item 27 km circumference ring
             \item Proton-proton collisions at $\sqrt{s} = 13.6$ TeV
@@ -220,6 +278,7 @@
 \end{frame}
 
 \begin{frame}{What Do We Look For at the LHC?}
+	\vspace{-.4em}
     \begin{block}{Three Complementary Approaches}
         \begin{itemize}
 
@@ -245,7 +304,7 @@
 
         \end{itemize}
     \end{block}
-    
+    \vspace{-.4em}
     \begin{block}{Key Types of Measurements}
         \begin{minipage}{0.48\linewidth}
             \textbf{Direct Signatures:}
@@ -294,6 +353,7 @@
 	\end{center}
 \end{frame}
 
+\subsection{Hypothesis Testing \& Statistical Significance}
 \begin{frame}{Statistical Significance}
     The statistical significance for discovery is defined as:
     \begin{equation}
