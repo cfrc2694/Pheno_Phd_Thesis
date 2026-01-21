@@ -470,11 +470,15 @@
 
 \subsection{Hypothesis Testing \& Statistical Significance}
 \begin{frame}{Statistical Significance}
-    The statistical significance for discovery is defined as:
+    The statistical significance for discovery is a parametric test defined as:
     \begin{equation}
         \kappa = \frac{\Braket{t}_{B} - \Braket{t}_{S+B}}{\sigma_{S+B}}
     \end{equation}
-    where $t = -2\ln[\mathcal{L}(n|S+B)/\mathcal{L}(n|B)]$ is the optimal test statistic, with $\mathcal{L}$ the likelihood for Poisson-distributed event counts $n$ in each bin.
+    where $t = -2\ln[\mathcal{L}(n|S+B)/\mathcal{L}(n|B)]\sim \chi^2$ is the optimal test statistic.
+	
+	\vspace{1.0em}
+
+	And with $\mathcal{L}$ the likelihood for Poisson-distributed event counts $n$ in each bin.
 
 	\vspace{1.0em}
 
