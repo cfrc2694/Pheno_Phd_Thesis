@@ -347,16 +347,72 @@
 \end{frame}
 \fi
 
+\subsection{Monte-Carlo Pipeline}
 
-\subsection{Madgraph-Pythia-Delphes}
-\begin{frame}
+\begin{frame}{From Theory to Simulation: FeynRules}
+	\begin{minipage}{0.60\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/Feynrules.png}
+        \begin{block}{Why Simulate New Physics Models?}
+            \footnotesize
+            \begin{itemize}
+                \item \textbf{Predict signals} for experimental searches
+                \item \textbf{Test theoretical consistency} (unitarity, constraints)
+                \item \textbf{Optimize analyses} before data collection
+                \item \textbf{Interpret potential discoveries} from LHC data
+                \item \textbf{Compare predictions} across different models
+            \end{itemize}
+        \end{block}
+    \end{minipage}
+	\hfill
+    \begin{minipage}{0.35\textwidth}
+        \begin{block}{Input: \texttt{.fr} Model File}
+            \begin{itemize}\footnotesize
+                \item Lagrangian $\mathcal{L}$ terms 
+                \item Particle definitions: F, V, S fields
+                \item Gauge symmetries: $SU(N)$, $U(1)$
+                \item Parameters: masses, couplings
+                \item Mixing matrices, constraints
+            \end{itemize}
+        \end{block}
+        
+        
+        \begin{block}{Output: UFO Format}
+            \begin{itemize}\footnotesize
+                \item Complete Feynman rules (vertices)
+                \item Lorentz and color structures
+                \item Parameter definitions
+                \item Ready to simulate
+            \end{itemize}
+        \end{block}
+        
+        
+        
+        \begin{block}{Features}
+            \begin{itemize}\footnotesize
+                \item[$\nearrow$] \textbf{Standardized} UFO format
+                \item[$\nearrow$] \textbf{Flexible} for BSM models
+                \item[$\nearrow$] \textbf{Community-driven}
+                
+                \vspace{0.2em}
+                \item[$\searrow$] \textbf{NLO complexity}
+                \item[$\searrow$] \textbf{Poor debugging}
+                \item[$\searrow$] \textbf{Performance issues}
+            \end{itemize}
+        \end{block}
+    \end{minipage}
+    
+\end{frame}
 
+\begin{frame}{Madgraph-Pythia-Delphes}{Ecosystem for Event Simulation}
+	
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[yshift=-2cm] at (current page.center) {
+			\includegraphics[width=\paperwidth,height=0.7\paperheight,keepaspectratio]{../Images/sim_workflow_flat.png}
+		};
+	\end{tikzpicture}
 \end{frame}
-\begin{frame}{Feynrules}
-	\begin{center}
-		\includegraphics[width=.99\linewidth]{../Images/Feynrules.png}
-	\end{center}
-\end{frame}
+
 
 \subsection{Hypothesis Testing \& Statistical Significance}
 \begin{frame}{Statistical Significance}
