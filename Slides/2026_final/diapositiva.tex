@@ -564,6 +564,73 @@
         \end{block}
 \end{frame}
 
+\begin{frame}{How does teh binary classifier work?}
+	\begin{center}
+		\includegraphics[width=0.90\textwidth]{../../Images/logistic_regression_explanation.pdf}
+	\end{center}
+	\begin{center}
+      \textbf{Be aware:} The real performance is the same for both algorithms in terms of classification accuracy. The difference lies in interpretability and probabilistic output.		
+	\end{center}
+\end{frame}
+
+\begin{frame}{A New Distribution Emerges}
+	\begin{center}
+		\includegraphics[width=\textwidth]{../../Images/logistic_regression_distribution.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Bosted Decision Trees vs Neural Networks}
+	\begin{minipage}{.65\textwidth}
+	\begin{center}
+		\includegraphics[width=\textwidth]{../Images/BDTvsNN.jpg}
+	\end{center}	
+	\vspace{-1em}
+			\begin{block}{BDTs}
+			\textbf{Strengths:}
+			\begin{itemize}\footnotesize
+				\item \textbf{Interpretable}: Feature importance rankings
+				\item \textbf{Robust}: Handle missing data well
+				\item \textbf{Fast training}: Efficient on tabular data
+				\item \textbf{Low hyperparameter tuning}: Reasonable defaults work
+			\end{itemize}
+			
+			\textbf{Limitations:}
+			\begin{itemize}\footnotesize
+				\item \textbf{Extrapolation}: Poor outside training range
+				\item \textbf{High-dimensional}: Can struggle with many features
+				\item \textbf{Discontinuous}: Piecewise constant predictions
+			\end{itemize}
+		\end{block}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.32\textwidth}
+		
+		\begin{block}{Deep NNs}
+			\textbf{Strengths:}
+			\begin{itemize}\footnotesize
+				\item \textbf{Flexible}: \\ Can learn complex non-linearities
+				\item \textbf{High-dimensional}: \\Excel with many features
+				\item \textbf{Continuous}: \\Smooth function approximations
+				\item \textbf{Transfer learning}: \\Pretrained models possible
+			\end{itemize}
+			
+			\textbf{Limitations:}
+			\begin{itemize}\footnotesize
+				\item \textbf{Black box}: \\Difficult to interpret
+				\item \textbf{Data hungry}: \\Need large training sets
+				\item \textbf{Computational}: \\Require GPUs for large networks
+				\item \textbf{Sensitive}: \\Require careful hyperparameter tuning
+			\end{itemize}
+		\end{block}
+		\vspace{-1em}
+		\begin{block}{HEP Use Cases}
+			\footnotesize
+        	\textbf{BDTs}: 	Preferred for $\sim 10-100$ features \\
+        	\textbf{NNs}: 	Preferred for low-level data (images, graphs)
+		\end{block}
+	\end{minipage}
+	
+\end{frame}
 
 \begin{frame}{Feasibility Studies Workflow}
 	\includegraphics[width=1.0\linewidth]{../Images/Workflow.png}
