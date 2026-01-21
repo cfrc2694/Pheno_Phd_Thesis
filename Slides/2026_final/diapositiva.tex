@@ -521,8 +521,51 @@
 
 
 \subsection{Machine Learning in High Energy Physics}
-\begin{frame}
+\begin{frame}{Machine Learning Revolution in HEP}
+    \begin{minipage}{0.48\textwidth}
+        \begin{block}{Why ML in Particle Physics?}
+            \begin{itemize}
+				\item \textbf{High-dimensional data}: \\Complex detector outputs
+                \item \textbf{Complex patterns}: \\Jet and event classification
+                \item \textbf{Rare signals}:\\ Need optimal background rejection
+                \item \textbf{Automation}: \\Reduce manual feature engineering
+                \item \textbf{Computational efficiency}: \\Speed up workflows
+            \end{itemize}
+        \end{block}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+		\begin{block}{Traditional vs ML Approaches}
+            \textbf{Traditional}:
+            \begin{itemize}
+                \item Manual cut-based analysis
+                \item Simple kinematic variables
+                \item Likelihood methods
+            \end{itemize}
+            \vspace{1.5em}
+            \textbf{Machine Learning}:
+            \begin{itemize}
+                \item Multivariate classifiers (BDT, NN)
+                \item Deep learning on raw data
+                \item Anomaly detection for BSM searches
+            \end{itemize}
+        \end{block}
+    \end{minipage}
 
+	\begin{block}{Typical Current Applications}
+            \begin{itemize}
+                \item \textbf{Event classification}: Signal/background separation
+                \item \textbf{Jet tagging}: $b/c/\tau$-jet identification
+                \item \textbf{Object reconstruction}: Particle flow, tracking
+                \item \textbf{Anomaly detection}: Model-agnostic BSM searches
+                \item \textbf{Simulation acceleration}: Fast calorimeter simulation
+            \end{itemize}
+        \end{block}
+\end{frame}
+
+
+\begin{frame}{Feasibility Studies Workflow}
+	\includegraphics[width=1.0\linewidth]{../Images/Workflow.png}
 \end{frame}
 
 \section{$U(1)_{T^3_R}$ Model}
