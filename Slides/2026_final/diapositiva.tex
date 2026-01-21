@@ -222,7 +222,7 @@
 	\end{center}
 	\begin{block}{World's largest particle collider:}
 		\vspace{-1.2em}
-		\begin{multicols*}{2}
+		\begin{multicols}{2}
 			\begin{itemize}
 				\item Located at CERN, at the France-Switzerland border
 				\item 27 km circumference ring
@@ -233,7 +233,7 @@
 				\item Key tool for testing SM and exploring new physics scenarios
 				\item Now searching for physics \textbf{beyond the Standard Model}
 			\end{itemize}
-		\end{multicols*}
+		\end{multicols}
 	\end{block}
 \end{frame}
 
@@ -374,9 +374,10 @@
                 \item Parameters: masses, couplings
                 \item Mixing matrices, constraints
             \end{itemize}
+			\vspace{-0.3em}
         \end{block}
         
-        
+        \vspace{-0.5em}
         \begin{block}{Output: UFO Format}
             \begin{itemize}\footnotesize
                 \item Complete Feynman rules (vertices)
@@ -384,21 +385,21 @@
                 \item Parameter definitions
                 \item Ready to simulate
             \end{itemize}
+			\vspace{-0.2em}
         \end{block}
         
-        
+        \vspace{-0.5em}
         
         \begin{block}{Features}
             \begin{itemize}\footnotesize
                 \item[$\nearrow$] \textbf{Standardized} UFO format
                 \item[$\nearrow$] \textbf{Flexible} for BSM models
                 \item[$\nearrow$] \textbf{Community-driven}
-                
-                \vspace{0.2em}
                 \item[$\searrow$] \textbf{NLO complexity}
                 \item[$\searrow$] \textbf{Poor debugging}
                 \item[$\searrow$] \textbf{Performance issues}
             \end{itemize}
+			\vspace{-0.2em}
         \end{block}
     \end{minipage}
     
@@ -407,12 +408,21 @@
 \begin{frame}{Madgraph-Pythia-Delphes}{Ecosystem for Event Simulation}
 	
 	\begin{tikzpicture}[remember picture,overlay]
-		\node[yshift=-2cm] at (current page.center) {
+		% Main simulation workflow image
+		\node[yshift=-2cm] (simimage) at (current page.center) {
 			\includegraphics[width=\paperwidth,height=0.7\paperheight,keepaspectratio]{../Images/sim_workflow_flat.png}
+		};
+		
+		% Description of each component
+		\node[above=-0.2cm of simimage, text width=1.0\textwidth, align=left] (description) {
+			\textbf{Goal:} Produce realistic simulated data comparable to experimental observations \\
+			\textbf{Input:} BSM model in UFO format, collider setup, process definitions, parameters \\
+			\textbf{Pipeline:} UFO model → LHE (parton) → HEPMC (hadron) → ROOT (detector) \\
+			\textbf{Output:} Simulated events in ROOT format, ready for physics analysis \\
+			\textbf{Automated:} Cross-sections, widths, branching ratios calculated automatically
 		};
 	\end{tikzpicture}
 \end{frame}
-
 
 \subsection{Hypothesis Testing \& Statistical Significance}
 \begin{frame}{Statistical Significance}
