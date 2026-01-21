@@ -312,11 +312,11 @@
 		};
 		
 		% Description of each component
-		\node[above=-0.2cm of simimage, text width=1.0\textwidth, align=left] (description) {
-			\textbf{Goal:} Produce realistic simulated data comparable to experimental observations \\
-			\textbf{Input:} BSM model in UFO format, collider setup, process definitions, parameters \\
-			\textbf{Pipeline:} UFO model → LHE (parton) → HEPMC (hadron) → ROOT (detector) \\
-			\textbf{Output:} Simulated events in ROOT format, ready for physics analysis \\
+		\node[above=-0.5cm of simimage, text width=1.0\textwidth, align=left] (description) {
+			\textbf{Goal:} Produce realistic simulated data comparable to experimental observations \\[0.2em]
+			\textbf{Input:} BSM model in UFO format, collider setup, process definitions, parameters \\[0.2em]
+			\textbf{Pipeline:} UFO model → LHE (parton) → HEPMC (hadron) → ROOT (detector) \\[0.2em]
+			\textbf{Output:} Simulated events in ROOT format, ready for physics analysis \\[0.2em]
 			\textbf{Automated:} Cross-sections, widths, branching ratios calculated automatically
 		};
 	\end{tikzpicture}
@@ -428,9 +428,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Feasibility Studies Workflow}
-	\includegraphics[width=1.0\linewidth]{../Images/Workflow.png}
-\end{frame}
+
 
 \section{$U(1)-{T^3_R}$ Model}
 
@@ -517,6 +515,7 @@
 \end{frame}
 
 \begin{frame}{{The Universal Seesaw Mechanism}}
+	\vspace{-1.5em}
 	\begin{block}{Modifications to the Scalar and Fermion Sectors}
 			\begin{itemize}
 				\item We need two scalar fields:
@@ -533,59 +532,84 @@
 	\end{block}
 	
 	\vfill 
-	The terms in the Lagrangian density that contribute to the mass of physical fermions are,
-\begin{equation}
-    \begin{aligned}
-        -\mathcal{L}&\supset 
-    Y_{f_L} \bar{f}_L' \chi_{fR}' H 
-    +Y_{f_R} \bar\chi_{fL}' f'_R  \phi^* 
-    + m_{\chi_f'} \bar{\chi}_{f L}' \chi_{f R}'+\text { h.c.}
-    \end{aligned}
-\end{equation}
-Therefore, in the vacuum, the mass matrix is
-\begin{equation}
-    M_f=
-    \begin{pmatrix}
-    0 & Y_{f_L} v_h /\sqrt2\\
-    Y_{f_R} v_\phi /\sqrt2 & m_{\chi_f'}    
-    \end{pmatrix}, 
-	\quad \implies 
-	\begin{cases}
-		m_f m_{\chi_f} = \frac{ Y_{f_L} v_h Y_{f_R} v_\phi }{2}\\
-		m_f^2 + m_{\chi_f}^2 = m_{\chi_f'}^2 + \frac{1}{2} \left( Y_{f_L}^2 v_h^2 + Y_{f_R}^2 v_\phi^2 \right),
-	\end{cases}
-\end{equation}
+	\only<1>{
+		% Primera parte: Términos de masa de fermiones (Yukawa)
+		The terms in the Lagrangian density that contribute to the mass of physical fermions are,
+		\begin{equation}
+			\begin{aligned}
+				-\mathcal{L}&\supset 
+			Y_{f_L} \bar{f}_L' \chi_{fR}' H 
+			+Y_{f_R} \bar\chi_{fL}' f'_R  \phi^* 
+			+ m_{\chi_f'} \bar{\chi}_{f L}' \chi_{f R}'+\text { h.c.}
+			\end{aligned}
+		\end{equation}
+		Therefore, in the vacuum, the mass matrix for each fermion $f$ is given by
+		\begin{equation}
+			M_f=
+			\begin{pmatrix}
+			0 & Y_{f_L} v_h /\sqrt2\\
+			Y_{f_R} v_\phi /\sqrt2 & m_{\chi_f'}    
+			\end{pmatrix}, 
+			\quad \implies 
+			\begin{cases}
+				m_f m_{\chi_f} = \frac{ Y_{f_L} v_h Y_{f_R} v_\phi }{2}\\
+				m_f^2 + m_{\chi_f}^2 = m_{\chi_f'}^2 + \frac{1}{2} \left( Y_{f_L}^2 v_h^2 + Y_{f_R}^2 v_\phi^2 \right),
+			\end{cases}
+		\end{equation}
 
-The masses will rise from diagonalizing this matrix.
+		The masses will rise from diagonalizing this matrix.
+	}
+	\only<2>{
+		After spontaneous symmetry breaking
+		\begin{equation}
+			H  = \begin{pmatrix}
+				G_{+} \\
+				\frac{1}{\sqrt{2}}\left(v_h + \rho_0 + i G_{0}\right)
+			\end{pmatrix}, \quad\phi  = \frac{1}{\sqrt{2}}\left(v_\phi + \rho_\phi + i G_{\phi}\right),
+		\end{equation}
+		where $G^\pm$, $G^0$ are the Goldstone bosons eaten by $W^\pm$ and $Z^0$, and $G_\phi$ is the Goldstone boson eaten by the new $Z'$/dark photon. 
+		
+		While the scalar parts $\rho_0$ and $\rho_\phi$ mix to get the physical mass eigenstates $h$ and $\phi'$ 
+		\begin{equation}
+			M_{\text{scalar}}^2 = 
+			\begin{pmatrix}
+				2 \lambda_H v_h^2 & \lambda_{H\phi} v_h v_\phi \\
+				\lambda_{H\phi} v_h v_\phi & 2 \lambda_\phi v_\phi^2
+			\end{pmatrix}
+			\implies 
+			\begin{cases}
+				m^2_{h} - m^2_{\phi'} = \sqrt{(4 \lambda_{H\phi}^2 v_h^2 v_\phi^2) + (\lambda_H v_h^2 - \lambda_\phi v_\phi^2)^2} \\
+				m^2_{h} + m^2_{\phi'} =\lambda_H v_h^2 + \lambda_\phi v_\phi^2
+			\end{cases}
+		\end{equation}
+		
+	}
 
 \end{frame}
 
 \begin{frame}{{The Universal Seesaw Mechanism}}
 
-For real parameters, the physical masses and mixing angles are given by:
-\begin{gather}
-    m_f m_{\chi_f} = \frac{ Y_{f_L} v_h Y_{f_R} v_\phi }{2}, \label{eq:prodmass} \\
-    m_f^2 + m_{\chi_f}^2 = m_{\chi_f'}^2 + \frac{1}{2} \left( Y_{f_L}^2 v_h^2 + Y_{f_R}^2 v_\phi^2 \right), \label{eq:summass} \\
-    \tan \theta_{f_{L,R}} = \frac{\sqrt{2}}{m_{\chi_f'}} \left( \frac{Y_{f_{L,R}} v_{h,\phi}}{2} - \frac{m_f^2}{Y_{f_{L,R}} v_{h,\phi}} \right).
-\end{gather}
-\vfill \pause
 	The Yukawa interactions of the physical fermions with the scalar bosons have the form
-\begin{equation}
-    -\mathcal{L}_{\text{yuk}} 
-    = h \bar\psi_{f_L} \mathcal{Y}_{h}\psi_{f_R} + \phi' \bar\psi_{f_L} \mathcal{Y}_{\phi}\psi_{f_R},
-\end{equation} 
-with $\psi_{f} = (f,\chi_{f})^T$, and $\mathcal{Y}_{f_{L,R}}$ are $2\times 2$ yukawa masses after rotation to the mass basis.
+	\begin{equation}
+		-\mathcal{L}_{\text{yuk}} 
+		= h \bar\psi_{f_L} \mathcal{Y}_{h}\psi_{f_R} + \phi' \bar\psi_{f_L} \mathcal{Y}_{\phi}\psi_{f_R},
+	\end{equation} 
+	with $\psi_{f} = (f,\chi_{f})^T$, and $\mathcal{Y}_{f_{L,R}}$ are $2\times 2$ yukawa masses after rotation to the mass basis.
 
-So, you have new vertex like 
-\begin{center}
-	\includegraphics[height=0.3\textheight]{../Images/seesaw.png}
-\end{center}
+	So, you have new vertex like 
+	\begin{center}
+		\includegraphics[height=0.3\textheight]{../Images/seesaw.png}
+		TO DO ADD THE OTHER VERTEX ()
+	\end{center}
 \end{frame}
 
 \subsection{Production Channel}
 
-\begin{frame}
-	To do ADD production channel diagrams
+\begin{frame}{Production Channel}
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{../Images/prod_1_u1t3r.png}
+		TO ADD THE OTHER DIAGRAM
+	\end{center}
 \end{frame}
 \begin{frame}{Feasible Experimental Signatures}{Cross Section}
 	\begin{figure}
@@ -720,9 +744,107 @@ So, you have new vertex like
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Leptoquark Production at pp Colliders}
-    \includegraphics[width=.48\textwidth]{../Images/BR.png}
-    \raisebox{-1.0em}{\includegraphics[width=.51\textwidth]{../Images/XS.png}}
+
+\section{Formalism of the gauge $U_1$ leptoquark}
+\begin{frame}%{Formalism of the gauge $U_1$ leptoquark}
+    Where the SM charges for the leptoquark, in the $Y=2(Q-T_3)$ convention, are
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline & $\bar{q}_{L}$ & $\ell_{L}^{j}$ & $\bar{q}_{L}\gamma_{\mu} \ell_{L}$ & $U_{1}^{\mu}$ \\
+			\hline$U(1)$ & $-1 / 3$ & $-1 $ & $-4 / 3$ & $+4 / 3$ \\
+			\hline $\mathrm{SU}(2)$ & $\overline{\mathbf 2}$ & $\mathbf{2}$ & $\mathbf{1}$ & $\mathbf{1}$ \\
+			\hline $\mathrm{SU}(3)$ & $\overline{\mathbf 3}$ & $\mathbf{1}$ & $\overline{\mathbf3}$ & $\mathbf{3}$ \\
+			\hline
+		\end{tabular}	
+	\end{center}
+	Then, the leptoquark $U_1 \sim \left(\mathbf{3}_{C}, \mathbf{1}_{I}, 4 / 3_{Y}\right)$. 
+
+    \pause
+    $$ $$
+    The full Lagrangian for the vector leptoquark is
+	\begin{align*}
+		\mathcal{L}_{U}=&-\frac{1}{2} U_{\mu \nu}^{\dagger} U^{\mu \nu}+M_{U}^{2} U_{\mu}^{\dagger} U^{\mu}-i g_{s}U_{\mu}^{\dagger} T^{a} U_{\nu} G^{\mu \nu}_a -\frac{2 i}{3} g' U_{\mu}^{\dagger} U_{\nu} B^{\mu \nu}\\
+		&+\frac{g_{U}}{\sqrt{2}}\left[U_{1}^{\mu}\left(\beta_{L}^{i j} \bar{q}_{L}^{i} \gamma_{\mu} e_{L}^{j}+\beta_{R}^{i j} \bar{d}_{R}^{i} \gamma_{\mu} e_{R}^{j}
+		%+\beta_{N}^{i} \bar{u}_{R}^{i} \gamma_{\mu} N_{R}
+		\right)+\text { h.c. }\right]
+	\end{align*}
+	where $U_{\mu \nu}=\mathcal D_{\mu} U_{\nu}-\mathcal D_{\nu} U_{\mu}$, $\mathcal D_{\mu}=\partial_{\mu}-i g_{s} G_{\mu}^{a} T^{a}-i \frac{2}{3} g_{Y} B_{\mu}$, and the couplings $\beta_{L}$ and $\beta_{R}$ are complex $3 \times 3$ matrices in flavor space. 
+
+    \pause 
+    $$ $$
+    Constraints from $\Delta F=2$ and lepton flavor violation impose a hierarchy with dominant third generation couplings: 
+    
+    \begin{equation}
+     \left|\beta_L^{11}\right|, \left|\beta_L^{12}\right|, \left|\beta_L^{21}\right|, \left|\beta_L^{22}\right|, \left|\beta_L^{31}\right| \ll \left|\beta_L^{13}\right| \ll\left|\beta_L^{23}\right|,\left|\beta_L^{32}\right| \ll\left|\beta_R^{33}\right|,\left|\beta_L^{33}\right|=\mathcal{O}(1)   ,
+    \end{equation}
+    where $\beta_R$ is diagonal.
+\end{frame}
+
+
+\begin{frame}{Leptoquark Production Mechanisms at 13 TeV}
+    \centering
+    \textbf{Cross Sections for $g_U = 1.8$, $\sqrt{s} = 13$ TeV}
+    
+    \vspace{0.3cm}
+    
+    \begin{minipage}{0.58\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/XS.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.38\textwidth}
+        \begin{block}{Production Channels}
+            \begin{itemize}
+                \item {\textbf{d$\text{LQ}$}}: Pair production \\ QCD-mediated \\ $\beta_R$ independent
+                \vspace{0.3em}
+                \item {\textbf{s$\text{LQ}$}}: Single production \\ $\beta_R$ sensitive \\ $\times 2$ enhancement
+                \vspace{0.3em}
+                \item {\textbf{non-res}}: Non-resonant \\ $\beta_R$ sensitive \\ $\times 10$ enhancement
+            \end{itemize}
+        \end{block}
+        
+        \vspace{0.5em}
+        
+        \begin{block}{Cross-over Point}
+            $\sigma_{\text{s}\text{LQ}} > \sigma_{\text{d}\text{LQ}}$ for $M_{\text{LQ}} \gtrsim 1.5$ TeV \\
+            \textit{(exact value depends on $g_U$)}
+        \end{block}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Leptoquark Branching Fractions}
+    \centering
+    \textbf{Branching Ratios vs. $\beta_R$ Parameter}
+    
+    \vspace{0.3cm}
+    
+    \begin{minipage}{0.58\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/BR.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.38\textwidth}
+        \begin{block}{Main Decay Channels}
+            \begin{itemize}
+                \item $\text{LQ} \to b\tau$: Dominant \\ Primary for $R(D^{(*)})$ anomalies
+                \vspace{0.3em}
+                \item $\text{LQ} \to t\nu_\tau$: Competing \\ Affects total width
+                \vspace{0.3em}
+                \item $\text{LQ} \to c\tau$, $s\nu_\tau$: Subdominant
+            \end{itemize}
+        \end{block}
+        
+        \vspace{0.5em}
+        
+        \begin{block}{$\beta_R$ Dependence}
+            Controls right-handed couplings:
+            \begin{itemize}
+                \item $\beta_R = 0$: Pure left-handed
+                \item $\beta_R > 0$: Mixed chirality
+                \item Affects collider signatures
+            \end{itemize}
+        \end{block}
+    \end{minipage}
 \end{frame}
 
 \subsection{Kinematic Feature Eng.}
@@ -1209,6 +1331,10 @@ so the interference has the form
 		\end{block}
 	\end{minipage}
 	
+\end{frame}
+
+\begin{frame}{Feasibility Studies Workflow}
+	\includegraphics[width=1.0\linewidth]{../Images/Workflow.png}
 \end{frame}
 
 \section{Formalism of the gauge $U_1$ leptoquark}
