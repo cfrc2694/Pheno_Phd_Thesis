@@ -566,7 +566,7 @@
 	
 \end{frame}
 
-\begin{frame}{{The Universal Seesaw Mechanism}}
+\begin{frame}{{Mass mechanism in the $U(1)_{T^3_R}$ Model}}
 	\vspace{-1.5em}
 	\begin{block}{Modifications to the Scalar and Fermion Sectors}
 			\begin{itemize}
@@ -646,13 +646,27 @@
 		-\mathcal{L}_{\text{yuk}} 
 		= h \bar\psi_{f_L} \mathcal{Y}_{h}\psi_{f_R} + \phi' \bar\psi_{f_L} \mathcal{Y}_{\phi}\psi_{f_R},
 	\end{equation} 
-	with $\psi_{f} = (f,\chi_{f})^T$, and $\mathcal{Y}_{f_{L,R}}$ are $2\times 2$ yukawa masses after rotation to the mass basis.
+	with $\psi_{f} = (f,\chi_{f})^T$, and $\mathcal{Y}_{f_{L,R}}$ are $2\times 2$ yukawa masses after rotation to the mass basis.\vfill
 
-	So, you have new vertex like 
-	\begin{center}
-		\includegraphics[height=0.3\textheight]{../Images/seesaw.png}
-		TO DO ADD THE OTHER VERTEX ()
-	\end{center}
+	
+
+	\begin{minipage}{.45\textwidth}
+		So, you have new vertex like 
+		\begin{center}
+			\includegraphics[width=\linewidth]{../Images/u1t3r_v1.pdf}
+		\end{center}
+		that converts a SM fermion to a heavy vector-like fermion via the emission of a $\phi'$ boson...
+	\end{minipage}
+	\hfill
+	\pause 
+	\hfill
+	\begin{minipage}{.45\textwidth}
+		... in addition to the vertex
+		\begin{center}
+			\includegraphics[width=\linewidth]{../Images/u1t3r_v2.pdf}
+		\end{center}
+		that involves a top-like quark decay via the emission of a $W$ boson.
+	\end{minipage}
 \end{frame}
 
 \subsection{Production Channel}
@@ -663,7 +677,7 @@
 		TO ADD THE OTHER DIAGRAM
 	\end{center}
 \end{frame}
-\begin{frame}{Feasible Experimental Signatures}{Cross Section}
+\begin{frame}{Production Cross Section}
 	\begin{figure}
 		\centering
 		\includegraphics[width=.7\linewidth]{../Images/cross_section_by_masses.pdf}
@@ -699,24 +713,27 @@
 \subsection{Kinematic Variables}
 
 \begin{frame}{Feasible Experimental Signatures}{Kinematic Variables}
-	\begin{figure}
-	\centering
+	\begin{center}
 	\includegraphics[width=.6\linewidth]{../Images/M_mu_1_2.pdf}
-	\caption{Invariant mass distribution of the muon pair with the highest and second highest transverse momentum. The distributions are shown for the two main SM background processes and two signal benchmark points.\label{fig:_mu12}}
-	\end{figure}
+	Invariant mass distribution of the muon pair with the highest and second highest transverse momentum. The distributions are shown for the two main SM background processes and two signal benchmark points.
+	\end{center}
 \end{frame}
 
 \subsection{Gradient Boosting}
-\begin{frame}{Feasible Experimental Signatures}{Gradient Boosting}
-	\begin{figure}
-		\centering
-		\includegraphics[width=.6\linewidth]{../Images/feature_importance.pdf}
-		\caption{Relative importance of features in training for a benchmark signal scenario with $m(\phi')=325\, \mathrm{GeV}$ and $m(\chi_\mathrm{u})=2000\, \mathrm{GeV}$.}
-		\label{fig:feature_importance}
-	\end{figure}
+\begin{frame}{Feature Importance}
+	\vspace{-.3em}
+	\begin{center}
+		\includegraphics[width=.71\linewidth]{../Images/feature_importance.pdf}
+	\end{center}
+	{\large
+		\begin{itemize}
+			\item Benchmark signal scenario with $m(\phi')=325\, \mathrm{GeV}$ and $m(\chi_\mathrm{u})=2000\, \mathrm{GeV}$.
+			\item Main Features: boosted  $\mu_1$ and $b_1$ jet, angular correlated muons and resonant $\phi'$ decay.
+		\end{itemize}
+	}
 \end{frame}
 
-\begin{frame}{Feasible Experimental Signatures}{Gradient Boosting}
+\begin{frame}{Optimal Discriminantor Output}
 	\begin{figure}
 	\centering
 		\centering  \includegraphics[width=.6\linewidth]{../Images/XGB_output.pdf}
