@@ -538,9 +538,9 @@
         $q_L$                    & \bf{3} & \bf{2} & 1/6 & 0\\
         $\ell_L$                 & \bf{1} & \bf{2} & -1/2 & 0\\
         \hline
-        $u_R^{  c}$          & \bf{3} & \bf{1} & -2/3 & -1\\
-        $d_R^{  c}$          & \bf{3} & \bf{1} & 1/3 & 1\\
-        $\ell_R^{  c}$       & \bf{1} & \bf{1} & 1 & 1\\
+        $u_R^{  c}$          & \bf{3} & \bf{1} & -2/3 & -1/2\\
+        $d_R^{  c}$          & \bf{3} & \bf{1} & 1/3 & 1/2\\
+        $\ell_R^{  c}$       & \bf{1} & \bf{1} & 1 & 1/2\\
     \hline
     \hline
     \end{tabular}
@@ -912,31 +912,33 @@
     \end{minipage}
 \end{frame}
 
-\begin{frame}{Kinematic Features of leptoquark signals}
+\begin{frame}
 	\vspace{-1.8em}
-\begin{minipage}[t]{0.48\textwidth}
-    \begin{block}{$S_T^{\text{MeT}}$ observable}
-	\vspace{-1.8em}
-    \centering
-    \[S_T^{\text{MeT}}=\text{MeT} + \sum_i\left|p_{T}^i\right|\]
-    \vspace{-1.2em}
-    \includegraphics[width=\linewidth]{../Images/sTTeV_semileptonic_sLQ_wRHC.pdf}
-    \end{block}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\textwidth}
-    \begin{block}{$\Delta R$ Separation}
-	\vspace{-1.2em}
-    \centering
-    \[\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}\]
-    \includegraphics[width=\linewidth]{../Images/DeltaR_semileptonic_sLQ_wRHC.pdf}
-    \end{block}
-\end{minipage}
-\vfill
-\begin{itemize}
-		\item Separation of sLQ and dLQ with the main backgrounds enhanced via $S_T^{\text{MeT}}$.
-		\item Separation of non-res with the main backgrounds enhanced via $\Delta R$ between the $\tau$-jet and the lepton.
+	\begin{minipage}[t]{0.47\textwidth}
+		\begin{block}{$S_T^{\text{MeT}}$ observable}
+		\vspace{-1.8em}
+		\centering
+		\[S_T^{\text{MeT}}=\text{MeT} + \sum_i\left|p_{T}^i\right|\]
+		\vspace{-1.2em}
+		\includegraphics[width=\linewidth]{../Images/sTTeV_semileptonic_sLQ_wRHC.pdf}
+		\end{block}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.47\textwidth}
+		\begin{block}{$\Delta R$ Separation}
+		\vspace{-1.2em}
+		\centering
+		\[\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}\]
+		\includegraphics[width=\linewidth]{../Images/DeltaR_semileptonic_sLQ_wRHC.pdf}
+		\end{block}
+	\end{minipage}
+	\vfill
+	{\large
+	\begin{itemize}
+		\item Separation of sLQ and dLQ with the backgrounds enhanced via $S_T^{\text{MeT}}$, a measure of the boostedness of the event.
+		\item Separation of non-resonant production with the backgrounds enhanced via $\Delta R$ between the $\tau$ candidates.
 	\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{XGB-output}
@@ -944,11 +946,12 @@
 	\begin{center}
 		\includegraphics[width=.68\linewidth]{../Images/ML_semileptonic_sLQ_wRHC.pdf}
 	\end{center}
+	{\large
 	\begin{itemize}
 		\item We can evaluate a score for the signal and background events using the discriminator algorithm.
-		\item Each production channel has contributions in each detection channel.
-		\item We have six different discriminators, one for each detection channel. 
+		\item Each production channel has contributions in each one of the six detection channels.
 	\end{itemize}
+	}
 \end{frame}
 
 \subsection{Single Channels Sensitivity Reach}
@@ -1003,10 +1006,12 @@
 		\includegraphics[width=.49\linewidth]{../Images/Significance_Curves_13TeV_L137_summary_all_sigmas_woRHC.pdf}
 		\includegraphics[width=.49\linewidth]{../Images/Significance_Curves_Summary_by_BR.pdf}
 	\end{center}
+	{\large
 	\begin{itemize}
 		\item A combined analysis of the three production channels suggests better sensitivity for high coupling constants.
 		\item Depending on the benchmark $\beta_L$, $\beta_R$ values, the branching ratio to $b \tau$ can vary, affecting the sensitivity reach.
 	\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{ATLAS Results}{Left-handed currents only}
