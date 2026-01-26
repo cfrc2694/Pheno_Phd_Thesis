@@ -909,29 +909,40 @@
     \end{minipage}
 \end{frame}
 
-\subsection{Kinematic Feature Eng.}
-\begin{frame}{$S_T^{\text{meT}}=\text{met} + \sum_i\left|p_{T}^i\right|$}
-	\begin{center}
-		\includegraphics[width=.65\linewidth]{../Images/sTTeV_semileptonic_sLQ_wRHC.pdf}
-	\end{center}
-	
-\end{frame}
-
-\begin{frame}{$\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}$}
-	\begin{center}
-		\includegraphics[width=.65\linewidth]{../Images/DeltaR_semileptonic_sLQ_wRHC.pdf}	
-	\end{center}
-	
+\begin{frame}{Kinematic Features of leptoquark signals}
+	\vspace{-1.8em}
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{block}{$S_T^{\text{MeT}}$ observable}
+	\vspace{-1.8em}
+    \centering
+    \[S_T^{\text{MeT}}=\text{MeT} + \sum_i\left|p_{T}^i\right|\]
+    \vspace{-1.2em}
+    \includegraphics[width=\linewidth]{../Images/sTTeV_semileptonic_sLQ_wRHC.pdf}
+    \end{block}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{block}{$\Delta R$ Separation}
+	\vspace{-1.2em}
+    \centering
+    \[\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2}\]
+    \includegraphics[width=\linewidth]{../Images/DeltaR_semileptonic_sLQ_wRHC.pdf}
+    \end{block}
+\end{minipage}
+\vfill
+\begin{itemize}
+		\item Separation of sLQ and dLQ with the main backgrounds enhanced via $S_T^{\text{MeT}}$.
+		\item Separation of non-res with the main backgrounds enhanced via $\Delta R$ between the $\tau$-jet and the lepton.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{The optimized observable}{XGB-output}
-
-	We can evaluate a score for the signal and background events using the discriminator algorithm. 
-
 	\begin{center}
 		\includegraphics[width=.75\linewidth]{../Images/ML_semileptonic_sLQ_wRHC.pdf}
 	\end{center}
-		
+	\begin{itemize}
+		\item We can evaluate a score for the signal and background events using the discriminator algorithm. 
+	\end{itemize}
 \end{frame}
 
 \subsection{Single Channels Sensitivity Reach}
@@ -943,9 +954,10 @@
 	\begin{minipage}{.68\linewidth}
 		\includegraphics[width=\linewidth]{../Images/Significance_Heatmap_13TeV_L137_dLQ_combined_woRHC.pdf}
 	\end{minipage}
-	{\large
-	  Double leptoquark production is sensitive to the leptoquark mass, its production depends only on the QCD coupling constant and the available energy.
-	}
+	\begin{itemize}
+		\item dLQ production depends only on $\alpha_{\text{QCD}}$ and the available energy.
+		\item So, the potential reach is independent of the global coupling constant $g_U$.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Single leptoquark production}{The Sensitivity Reach / only left-handed currents}
@@ -974,19 +986,35 @@
 \end{frame}
 
 \subsection{Combined Sensitivity Reach}
-\begin{frame}{Combined Sensitivity Reach}{The Sensitivity Reach / only left-handed currents}
+\begin{frame}{Combined Sensitivity Reach}
 	\begin{center}
-		\includegraphics[width=.41\linewidth]{../Images/Significance_Curves_13TeV_L137_summary_all_sigmas_woRHC.pdf}
-		\pause
-		\includegraphics[width=.55\linewidth]{../Images/Significance_Heatmap_13TeV_L137_all_combined_woRHC.pdf}
+		\includegraphics[width=.49\linewidth]{../Images/Significance_Curves_13TeV_L137_summary_all_sigmas_woRHC.pdf}
+		\includegraphics[width=.49\linewidth]{../Images/Significance_Curves_Summary_by_BR.pdf}
+	\end{center}
+	\begin{itemize}
+		\item A combined analysis of the three production channels suggests better sensitivity for high coupling constants.
+		\item Depending on the benchmark $\beta_L$, $\beta_R$ values, the branching ratio to $b \tau$ can vary, affecting the sensitivity reach.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{ATLAS Results}{Left-handed currents only}
+	\begin{center}
+		\includegraphics[width=.9\linewidth]{../Images/altas_lq.png}
+	\end{center}
+	\begin{itemize}
+		\item In parallel ATLAS relased a search following a similar approach [ArXiv:2305.15962]. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{../Images/Significance_Heatmap_13TeV_L137_all_combined_woRHC.pdf}
 	\end{center}
 	{\large
-		The sensitivity of
-		all signal production processes combined compares
-		our expected exclusion region with the latest one from
-		the ATLAS Collaboration [ArXiv:2305.15962], but we suggest better sensitivity for high coupling constants.
+		\begin{itemize}
+			\item Our ML-based analysis suggests better sensitivity for high coupling constants.
+		\end{itemize}
 	}
-	
 \end{frame}
 
 \begin{frame}{Combined Sensitivity Reach}{The Sensitivity Reach / only right-handed currents}
@@ -1128,9 +1156,18 @@ so the interference has the form
 
 \end{frame}
 
-\begin{frame}{Outlook}
+\begin{frame}{Related Research Projects}
+	\begin{center}
+		\includegraphics[width=\linewidth]{../Images/scoto_paper.png}
+		\pause\vfill
+		\includegraphics[width=.9\linewidth]{../Images/ditaus_paper.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Future explorations}
 	\begin{itemize}
 		\item We will explore the neutrino sector in the $U(1)_{T^3_R}$ model, including possible connections to dark matter, through a intensive study of the parameter space.
+		\item We has been exploring models with new scalar doublets that exposes an alternative hypotesis for toponium-like psudoscalar resonance observed at the LHC.
 		\item 
 	\end{itemize}
 \end{frame}
@@ -1421,7 +1458,7 @@ so the interference has the form
     where $\beta_R$ is diagonal.
 \end{frame}
 
-\section*{Two body scattering}
+\section{Two body scattering}
 \begin{frame}{Two body scattering}{CM-Frame}
     Consider the process
     \begin{equation}
