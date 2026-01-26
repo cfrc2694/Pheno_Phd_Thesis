@@ -1275,23 +1275,19 @@ so the interference has the form
 \begin{frame}{Future explorations}
 
 	{\large
-	\begin{itemize}
-		\item We will explore the neutrino sector in the $U(1)_{T^3_R}$ model, including possible connections to dark matter, through a intensive study of the parameter space.
-		\vfill
-		\item Extended study of the $R(D)$, $R(D^*)$ anomalies in the context of the $U(1)_{T^3_R}$ model including right-handed neutrinos.
-		\vfill
-		\item We has been exploring models with new scalar doublets and singlets that exposes an alternative hypotesis for toponium-like psudoscalar resonance observed at the LHC.
-		\vfill
-		\item 
-	\end{itemize}
+		\begin{itemize}
+			\item Extended study of the $R(D)$, $R(D^*)$ anomalies in the context of the $U(1)_{T^3_R}$ model including right-handed neutrinos.
+			\vfill
+			\item We will explore the neutrino sector in the $U(1)_{T^3_R}$ model, including possible connections to dark matter, through a intensive study of the parameter space.
+			\vfill
+			\item We has been exploring models with new scalar doublets and singlets that exposes an alternative hypothesis for toponium-like pseudoscalar resonance observed at the LHC.
+			\vfill
+			\item Extend feasibility studies for DM motivated models at the LHC using machine learning techniques.
+		\end{itemize}
 	}
 \end{frame}
 
-\begin{frame}{Thank you for your attention!}
-	% \begin{center}
-	% 	\includegraphics[width=0.4\textwidth]{../Images/thank_you.png}
-	% \end{center}
-\end{frame}
+
 %ADD a slide marker for backlog frames
 \section{Backup}
 \ifsectiondividers
@@ -1303,7 +1299,100 @@ so the interference has the form
 	\end{frame}
 \fi
 \appendix
+\begin{frame}{$U(1)_{T^3_R}$ Field Content}
+	\begin{table}[h]
+    \centering
+	\large
+    \begin{tabular}{ccccc}
+    \hline
+    \hline
+        Field & $SU(3)_C$  & $SU(2)_L$ & $U(1)_Y$ & $U(1)_{T^3_R}$ \\
+    \hline\hline
+        $q_L$                    & \bf{3} & \bf{2} & 1/6 & 0\\
+        $\ell_L$                 & \bf{1} & \bf{2} & -1/2 & 0\\
+        $H$                         & \bf{1} & \bf{2} & 1/2 & 0\\
+        \hline
+        $u_R^{  c}$          & \bf{3} & \bf{1} & -2/3 & -1\\
+        $d_R^{  c}$          & \bf{3} & \bf{1} & 1/3 & 1\\
+        $\ell_R^{  c}$       & \bf{1} & \bf{1} & 1 & 1\\
+        $\nu_R^{  c}$        & \bf{1} & \bf{1} & 0 & -1\\
+        $\phi$                      & \bf{1} & \bf{1} & 0 & 1\\
+        \hline
+        $\chi_{u_L}'$               & \bf{3} & \bf{1} & 2/3 & 0\\
+        $\chi_{u_R}^{  c}$     & \bf{3} & \bf{1} & -2/3 & 0\\
+        $\chi_{d_L}'$               & \bf{3} & \bf{1} & -1/3 & 0\\
+        $\chi_{d_R}^{  c}$     & \bf{3} & \bf{1} & 1/3 & 0\\
+        $\chi_{\ell_L}'$            & \bf{1} & \bf{1} & -1 & 0\\
+        $\chi_{\ell_R}^{  c}$  & \bf{1} & \bf{1} & 1 & 0\\
+        $\chi_{\nu_L}'$             & \bf{1} & \bf{1} & 0 & 0\\
+        $\chi_{\nu_R}^{  c}$   & \bf{1} & \bf{1} & 0 & 0\\
+    \hline
+    \hline
+    \end{tabular}
+    % \caption{Minimal field content of the model and their representations under the SM and $U(1)_{T^3_R}$ gauge groups.}
+    % \label{tab:QMnumbers}
+\end{table}
+\end{frame}
 
+\begin{frame}{{The Universal Seesaw Mechanism}}
+	The Yukawa interactions of the physical fermions with the scalar bosons have the form
+\begin{equation}
+    -\mathcal{L}_{\text{yuk}} 
+    = h \bar\psi_{f_L} \mathcal{Y}_{h}\psi_{f_R} + \phi' \bar\psi_{f_L} \mathcal{Y}_{\phi}\psi_{f_R},
+\end{equation} 
+with $\psi_{f} = (f,\chi_{f})^T$, and the matrices $\mathcal{Y}_{f_{L,R}}$ given by
+\begin{align}
+    \mathcal{Y}_{h} &= \frac{1}{\sqrt{2}}
+    \mathcal{R}(\theta_{f_L})
+    \left(
+        Y_{f_L}\sigma_+ \cos\alpha 
+    - 
+    Y_{f_R}\sigma_-\sin\alpha
+    \right)
+    \mathcal{R}^{-1}(\theta_{f_R})\label{eq:YukawaL}
+    \\
+    \mathcal{Y}_{\phi} &= \frac{1}{\sqrt{2}}
+    \mathcal{R}(\theta_{f_L})
+    \left(
+    Y_{f_L}\sigma_+ \sin\alpha
+    +
+    Y_{f_R}\sigma_-\cos\alpha
+    \right)
+    \mathcal{R}^{-1}(\theta_{f_R}),\label{eq:YukawaR}
+\end{align}
+where $\sigma_{\pm}=(\sigma_1\pm i\sigma_2)/2$ are the ladder Pauli matrices.
+
+
+So, you have new vertex like 
+\begin{center}
+	\includegraphics[height=0.3\textheight]{../Images/seesaw.png}
+\end{center}
+\end{frame}
+\begin{frame}{Preselection Criteria Leptoquark Search}
+	\begin{center}
+	\begin{tabular}{|c|cccccc|}
+\hline
+\multirow{2}{*}{\textbf{Variable}} & \multicolumn{6}{c|}{\textbf{Threshold}} \bigstrut\\ 
+\cline{2-7} 
+                                   & \multicolumn{1}{c|}{$\tau_{h} \tau_{h}$} & \multicolumn{1}{c|}{$b \tau_{h} \tau_{h}$} & \multicolumn{1}{c|}{$b b \tau_{h} \tau_{h}$} & \multicolumn{1}{c|}{$\tau_{h} \tau_{\ell}$} & \multicolumn{1}{c|}{$b \tau_{h} \tau_{\ell}$} & $b b \tau_{h} \tau_{\ell}$ \bigstrut\\ \hline \hline
+
+
+$N(b)$                             & \multicolumn{1}{c|}{= 0} & \multicolumn{1}{c|}{= 1} & \multicolumn{1}{c|}{$\geq 2$} & \multicolumn{1}{c|}{= 0}& \multicolumn{1}{c|}{= 1} & $\geq 2$ \bigstrut\\ \hline
+$p_T(b)$                         & \multicolumn{1}{c|}{-} & \multicolumn{2}{c|}{$\geq 30 \textrm{GeV}$ } & \multicolumn{1}{c|}{-} & \multicolumn{2}{c|}{$\geq 30 \textrm{GeV}$ } \bigstrut\\ \hline
+$|\eta(b)|$                        & \multicolumn{1}{c|}{-} &\multicolumn{2}{c|}{$\leq 2.4$} & \multicolumn{1}{c|}{-} &\multicolumn{2}{c|}{$\leq 2.4$} \bigstrut\\ \hline
+                                  
+$N (\ell)$                         & \multicolumn{3}{c|}{= 0}  & \multicolumn{3}{c|}{= 1} \bigstrut\\ \hline
+$N(\tau_{h})$                      & \multicolumn{3}{c|}{ $= 2$} & \multicolumn{3}{c|}{= 1} \bigstrut\\ \hline
+$p_T(\ell)$                         & \multicolumn{3}{c|}{-} & \multicolumn{3}{c|}{$\geq 35 \textrm{GeV}$} \bigstrut\\ \hline
+$p_T(\mu)$                       & \multicolumn{3}{c|}{-} & \multicolumn{3}{c|}{$\geq 30 \textrm{GeV}$} \bigstrut\\ \hline
+$|\eta(\ell)|$                     & \multicolumn{3}{c|}{-} & \multicolumn{3}{c|}{$\leq 2.4$} \bigstrut\\ \hline
+$p_T(\tau_h)$                    & \multicolumn{6}{c|}{$\geq 50$ GeV} \bigstrut\\ \hline
+$|\eta(\tau_h)|$                   & \multicolumn{6}{c|}{$\leq 2.3$} \bigstrut\\ \hline
+$\Delta R(p_{i}, p_{j})$           & \multicolumn{6}{c|}{$\geq 0.3$} \bigstrut\\ \hline
+
+\end{tabular}
+\end{center}
+\end{frame}
 \begin{frame}{What Do We Look For at the LHC?}
 	\vspace{-.4em}
     \begin{block}{Three Complementary Approaches}
