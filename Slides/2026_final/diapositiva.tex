@@ -1261,20 +1261,20 @@ so the interference has the form
 \fi
 
 \begin{frame}{Summary and Conclusions}
+
+	{%\large
     \begin{itemize}
         \item The Standard Model is incomplete. Anomalies in flavor physics, like $R(D^{(*)})$, hint at new physics coupled to the third generation.
         \item The LHC is a key tool for probing this physics, using both direct searches and precision measurements.
-        \item Advanced simulation tools combined with Machine Learning techniques are essential for discovery.
+        \item Advanced simulation tools combined with Machine Learning techniques are essential for discovery. A combined theoretical, simulation, and data analysis effort is crucial for discovering new physics at the LHC.
     \end{itemize}
 	\pause\vfill
     \begin{itemize}
-        \item \textbf{$U(1)_{T^3_R}$ Model:} Explains mass hierarchies and offers a dark matter candidate. HL-LHC analyses can probe low-mass regions of its new scalar.
-        \item \textbf{Vector Leptoquark ($U_1$) Model:} Explains flavor anomalies. Multivariate analysis extends discovery reach up to $\sim5$ TeV.
+        \item \textbf{$U(1)_{T^3_R}$ Model:} Restores a right-handed isospin symmetry, giving an alternative explanation for fermion mass hierarchies, flavor anomalies, and a thermal dark matter candidate. We proposed an alternative,  ML-based, LHC search strategy to probe challenging mass regions for vector-like top partners.
+        \item \textbf{Vector Leptoquark ($U_1$) Model:} Explains flavor anomalies. We have proposed a comprehensive LHC search strategy using ML, extending sensitivity to higher masses and couplings for different coupling structures.
+		\item \textbf{$Z'$ Interference Effects:} In gauge $U_1$ leptoquark models, $Z'$ bosons are required. We had shown that interference effects can significantly impact LHC sensitivity, especially at high couplings. 
     \end{itemize}
-	\pause\vfill
-    \begin{itemize}
-        \item A combined theoretical, simulation, and data analysis effort is crucial for discovering new physics at the HL-LHC.
-    \end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{Related Research Projects}
@@ -1348,6 +1348,60 @@ so the interference has the form
     % \caption{Minimal field content of the model and their representations under the SM and $U(1)_{T^3_R}$ gauge groups.}
     % \label{tab:QMnumbers}
 \end{table}
+\end{frame}
+
+\begin{frame}{A new electroweak symmetry breaking scale is needed, a new scalar $\phi$ is needed.}
+
+		\begin{equation}
+    \begin{aligned}
+        \mathcal V(\phi,H)
+				&= \mu_H^2 H^{\dagger} H 
+				+\mu_\phi^2 \phi^* \phi
+				\\
+				&+\lambda\left(H^{\dagger} H\right)\left(\phi^* \phi\right)
+				+\lambda_H\left(H^{\dagger} H\right)^2
+				+\lambda_\phi\left(\phi^* \phi\right)^2.
+				\end{aligned}
+		\end{equation}
+		\pause
+		Both scalars have independent vacuum expectation values (VEVs), $\expval{H}=v_h/\sqrt2$ and $\expval\phi =v_\phi/\sqrt2$, allowing us to express the doublet and singlet Higgs fields, following a Kibble parametrization, as 
+		\begin{align}
+				H & = \begin{pmatrix}
+						G_{+} \\
+						\frac{1}{\sqrt{2}}\left(v_h+\rho_0+i G_{0}\right)
+				\end{pmatrix}\label{eq:higgskibblepara1}
+				\\
+				\phi & =\frac{1}{\sqrt{2}}\left(v_\phi + \rho_\phi+i G_{\phi}\right). \label{eq:higgskibblepara2}
+		\end{align}
+		\pause
+		This give us a matrix mass term for the scalar fields:
+		\begin{equation}
+			m_{m H}=\left(\begin{array}{cc}
+			2 \lambda_H v_h^2 & \lambda_{\phi h}  v_h v_\phi \\
+			\lambda v_h v_\phi & 2 \lambda_\phi v_\phi^{ }
+			\end{array}\right)
+		\end{equation}
+		\pause
+		The $\rho_h$ and $\rho_\phi$ are an orthogonal mixture of the SM Higgs boson and the dark Higgs
+		\begin{equation}
+				\begin{pmatrix}
+						h
+						\\
+						\phi'
+				\end{pmatrix}
+				=
+				\begin{pmatrix}
+						\cos\alpha & -\sin\alpha
+						\\
+						\sin\alpha & \cos\alpha
+				\end{pmatrix}
+				\begin{pmatrix}
+						\rho_0
+						\\
+						\rho_\phi
+				\end{pmatrix},
+		\end{equation}
+		that results from the diagonalization of the mass matrix.	
 \end{frame}
 
 \begin{frame}{{The Universal Seesaw Mechanism}}
