@@ -16,6 +16,8 @@ We explore the performance of a diverse set of machine learning models, specific
 
 The training and evaluation of the Neural Networks and BDTs were carried out in a high-performance computing environment. Specifically, an Nvidia A100 GPU was used. The canonical \texttt{PyTorch}~\parencite{paszke2019} deep learning framework was employed for configuring, training, and evaluating the neural networks. PyTorch is well-regarded for its flexibility and performance in deep learning applications.
 
+For the neural network architectures, we explored three different configurations of fully-connected (FC) layers: Neural Network 1 (NN1) consists of 3 FC layers with widths 32, 64, and 1; Neural Network 2 (NN2) implements 4 FC layers with widths 64, 128, 128, and 1; and Neural Network 3 (NN3) utilizes a deeper architecture with 5 FC layers of widths 64, 128, 512, 128, and 1. These architectures represent increasing levels of complexity, allowing us to assess the trade-off between model depth and classification performance.
+
 For the BDT algorithm, we used hyperparameters $\eta=0.3$, $\gamma = 0$, and $\texttt{max\_depth} = 6$. The \texttt{XGBoost}~\parencite{chen_xgboost_2016} library was used for the implementation of the Boosted Decision Tree algorithm. It offers high efficiency, optimization, and interpretability, making it a suitable choice for this particular task. 
 
 
