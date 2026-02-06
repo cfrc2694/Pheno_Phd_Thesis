@@ -337,15 +337,14 @@
 
 % Define dedication environment for book class
 \newenvironment{dedication}%
-{\cleardoublepage\null\vfill\begin{center}\phantomsection\addcontentsline{toc}{chapter}{Dedication}%
-\bfseries Dedication\end{center}\vspace{1em}}%
-{\vfill\null}
+{\cleardoublepage\null\vfill\begin{flushright}\itshape}%
+{\end{flushright}\vfill\null}
 
 % Define acknowledgements environment for book class
 \newenvironment{acknowledgements}%
-{\cleardoublepage\null\vfill\begin{center}\phantomsection\addcontentsline{toc}{chapter}{Acknowledgements}%
-\bfseries Acknowledgements\end{center}\vspace{1em}}%
-{\vfill\null}
+{\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Acknowledgements}%
+\begin{center}\bfseries Acknowledgements\end{center}\vspace{2em}}%
+{}
 
 % Redefine \maketitle for thesis format
 \renewcommand{\maketitle}{%
