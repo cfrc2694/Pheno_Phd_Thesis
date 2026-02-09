@@ -44,16 +44,41 @@ These $\beta_R$ dependencies follow naturally from production diagrams in Fig.~\
 Addressing the $R_{D^{(*)}}$ anomaly imposes constraints on the Wilson coefficient $C_U\equiv g^2_U\,v^2_{SM}/(4\,M^2_U)$, with allowed ranges depending on $\beta_{R}$ as demonstrated in~\cite{Cornella:2021sby}. Consequently, viable $g_{U}$ values correlate with both $M_{U}$ and $\beta_{R}$, necessitating exploration across this multi-dimensional parameter space.
 
 
-Our investigation incorporates $\zb'$ boson effects on $\mathrm{pp}\to\tau\tau$ production, motivated by theoretical arguments presented in~\cite{Baker:2019sli} and elsewhere. Minimal SM extensions accommodating massive gauge $U_1$ leptoquarks employ gauge group $SU(4)\times SU(3)^{\prime}\times SU(2)_L \times U(1)_{T_R^3}$, whose spontaneous breaking to SM gauge structure necessarily generates additional massive states: a $\zb^{\prime}$ boson and color-octet vector $G'$ (see App.~\ref{sec:4321}). \marginpar{Schematically: leptoquarks emerge from $SU(4)\to SU(3)_{[4]}\times U(1)_{B-L}$ breaking, $G'$ from $SU(3)_{[4]}\times SU(3)'\to SU(3)_c$, and $Z'$ from $U(1)_{B-L}\times U(1)_{T_R^3}\to U(1)_Y$. Breaking patterns and resulting mass/coupling relations depend on scalar potential details.} The $\zb'$ significantly impacts $\lq$ discovery prospects through s-channel contributions to $\mathrm{pp}\to\tau\tau$ (both resonant and virtual). To quantify these effects, we augment Eq.~(\ref{eq:BasicLagrangian}) with $\zb'$ interactions, assuming exclusive third-generation fermion couplings:
+Our investigation incorporates $\zb'$ boson effects on $\mathrm{pp}\to\tau\tau$ production, motivated by theoretical constructions in~\cite{Baker:2019sli} and the 4321 framework~\cite{DiLuzio:2017vat,GINO_PhysRevD.102.115015}. Minimal SM extensions hosting massive gauge $U_1$ leptoquarks utilize gauge group $SU(4)\times SU(3)^{\prime}\times SU(2)_L \times U(1)_{T_R^3}$, whose spontaneous breaking to SM structure inevitably produces additional massive vectors: a $\zb^{\prime}$ boson and color-octet $G'$ (details in App.~\ref{sec:4321}). \marginpar{Breaking origins: leptoquarks from $SU(4)\to SU(3)_{[4]}\times U(1)_{B-L}$, coloron $G'$ from $SU(3)_{[4]}\times SU(3)'\to SU(3)_c$, and $Z'$ from $U(1)_{B-L}\times U(1)_{T_R^3}\to U(1)_Y$. Mass and coupling relations emerge from scalar potential structure.} The $\zb'$ substantially influences $\lq$ discovery through s-channel $\mathrm{pp}\to\tau\tau$ contributions (resonant and virtual). We augment Eq.~(\ref{eq:BasicLagrangian}) with $\zb'$ interactions:
 \begin{eqnarray}
     \label{eq:BasicLagrangianZp}
         \mathcal{L}_{Z^{\prime}}&= & -\frac{1}{4} Z_{\mu \nu}^{\prime} Z^{\prime \mu \nu}+\frac{1}{2} M_{Z^{\prime}}^2 Z_\mu^{\prime} Z^{\prime \mu} \nonumber \\
-        && + \frac{g_{Z^{\prime}}}{2 \sqrt{6}} Z^{\prime \mu} (\zeta_q \bar{Q}_3 \gamma_\mu Q_3 \nonumber +\zeta_t \bar{t}_R \gamma_\mu t_R \\
-        &&  +\zeta_b \bar{b}_R \gamma_\mu b_R-3 \zeta_{\ell} \bar{L}_3 \gamma_\mu L_3-3 \zeta_\tau \bar{\tau}_R \gamma_\mu \tau_R)
+        && + \frac{g_{Z^{\prime}}}{2 \sqrt{6}} Z^{\prime \mu} (\zeta_q \bar{Q}_3 \gamma_\mu Q_3 +\zeta_t \bar{t}_R \gamma_\mu t_R \nonumber \\
+        &&  +\zeta_b \bar{b}_R \gamma_\mu b_R-3 \zeta_{\ell} \bar{L}_3 \gamma_\mu L_3-3 \zeta_\tau \bar{\tau}_R \gamma_\mu \tau_R),
 \end{eqnarray}
-where $M_{\zb^{\prime}}$, $g_{Z^{\prime}}$, $\zeta_q $, $\zeta_t $, $\zeta_b$, $\zeta_{\ell}$, $\zeta_\tau$ are model-dependent parameters.
+where $M_{\zb^{\prime}}$ denotes the $\zb'$ mass, $g_{Z^{\prime}}$ its gauge coupling, and $\zeta_q$, $\zeta_t$, $\zeta_b$, $\zeta_{\ell}$, $\zeta_\tau$ represent generation-dependent flavor couplings.
 
-Following~\cite{GINO_PhysRevD.102.115015}, we examine two mass hierarchy scenarios: $M_{\zb'} = \sqrt{\tfrac{1}{2}}M_U<M_U$ and $M_{\zb'} = \sqrt{\tfrac{3}{2}}M_U>M_U$, assuming exclusive left-handed couplings ($\zeta_q=\zeta_\ell= 1$, $\zeta_t=\zeta_b=\zeta_\tau=0$). Fig.~\ref{fig:xsinterference} displays $\zb'$ impact on $\tau\tau$ production cross sections with $g_U = 1$, $\beta_R=0$, and varying $g_{\zb^{\prime}}$:
+Following~\cite{GINO_PhysRevD.102.115015}, to connect this phenomenological Lagrangian to the underlying 4321 theory, we review the gauge coupling relations. The fundamental couplings ($g_4$, $g_3$, $g_1$) map to SM observables ($g_s$, $g_Y$) via~\cite{DiLuzio2018}:
+\begin{equation}
+\label{eq:coupling_matching}
+g_s = \frac{g_4 g_3}{\sqrt{g_4^2 + g_3^2}}, \qquad
+g_Y = \frac{g_4 g_1}{\sqrt{g_4^2 + \tfrac{2}{3} g_1^2}}.
+\end{equation}
+At $\mu=2$ TeV, RGE evolution yields $g_s = 1.02$ and $g_Y = 0.363$. Since matching relations enforce $g_s \leq g_{4,3}$ and $g_Y \leq \sqrt{\tfrac{3}{2}} g_{4}$, $g_{1}$, the observed hierarchy $g_s \gg g_Y$ propagates to fundamental couplings: $g_{4,3} \gg g_Y \simeq g_1$. The massive gauge boson spectrum reflects both gauge coupling and VEV hierarchies. Assuming scalar VEV ordering $v_3 \gg v_1 \gg v_{15}$ alongside gauge coupling parity $g_4 \sim g_3$, the mass expressions (App.~\ref{sec:4321})
+\begin{align}
+M^2_{U} &= \frac{1}{4} g_4^2 \left(v_1^2 + v_3^2 + \tfrac{4}{3} v_{15}^2\right),\label{eq:mass_expressions_a}\\
+M^2_{g'} &= \frac{1}{2}  (g_4^2 + g_3^2) v_3^2, \label{eq:mass_expressions_b}\\
+M^2_{Z'} &= \frac{1}{8} \left( g_4^2 + \tfrac{2}{3} g_1^2 \right) \left(3v_1^2 + v_3^2 \right)    \label{eq:mass_expressions_c}
+\end{align}
+simplify under the stated hierarchies: neglecting $v_{15}$ and using $g_{4,3} \gg g_1$, we obtain
+\begin{align*}
+M_U^2 &\simeq \frac{1}{4} g_4^2 (v_1^2 + v_3^2), &
+M_{Z'}^2 &\simeq \frac{1}{8} g_4^2 (3v_1^2 + v_3^2).
+\end{align*}
+The ratio $2(M_{Z'}/M_U)^2$ then becomes
+\[
+2\left(\frac{M_{Z'}}{M_U}\right)^2 \simeq \frac{3v_1^2 + v_3^2}{v_1^2 + v_3^2} = \frac{3r+1}{r+1},
+\]
+where $r \equiv v_1^2/v_3^2 > 0$. This function increases monotonically with $r$, ranging from $1$ (when $r\to 0$, i.e. $v_3 \gg v_1$) to $3$ (when $r\to \infty$, i.e. $v_1 \gg v_3$). Hence, we obtain the inequality chain
+\[
+1 \;<\; 2\left(\frac{M_{Z'}}{M_U}\right)^2 \;<\; 3,
+\]
+which brackets the theoretically allowed range of $M_{Z'}$ relative to $M_U$. The naive limit $v_3 \gg v_1$ yields $M_{g'} \simeq \sqrt{2} M_U$ and $M_{Z'} \simeq M_U/\sqrt{2}$ (corresponding to the lower bound), while the opposite hierarchy $v_1 \gg v_3$ gives $M_{Z'} \simeq \sqrt{3/2}\,M_U$ (the upper bound). Motivated by this range—though permitting model-dependent deviations—we examine two $\zb'$ mass hierarchy benchmarks: light and heavy scenarios that bracket the theoretically allowed region. Throughout, we assume exclusive left-handed couplings ($\zeta_q=\zeta_\ell= 1$, $\zeta_t=\zeta_b=\zeta_\tau=0$) consistent with 4321 chiral structure. Fig.~\ref{fig:xsinterference} quantifies $\zb'$ impact on $\tau\tau$ production cross sections at fixed $g_U = 1$, $\beta_R=0$, scanning $g_{\zb^{\prime}}$ coupling strength:
 
 \textbf{Light $\zb'$ case ($M_{\zb'} = \sqrt{\tfrac{1}{2}}M_U$, left panel):} Inclusive production ($g_{\zb'} \neq 0$) systematically exceeds $\lq$-only rates ($g_{\zb'} = 0$, blue curve), with enhancements scaling with $g_{\zb'}$ and reaching two orders of magnitude at maximum evaluated couplings.
 
@@ -74,8 +99,14 @@ Following~\cite{GINO_PhysRevD.102.115015}, we examine two mass hierarchy scenari
 \end{center}
 Fig.~\ref{fig:interference} quantifies interference effects through the relative kinematic interference parameter ($\mathrm{RKI}$) versus reconstructed $m_{\tau\tau}$ for $g_{\zb^{\prime}} = 1$ across multiple $M_U$ values, defined as:
 \begin{equation}
+\label{eq:RKI}
     \mathrm{RKI}(m_{\tau\tau})=\frac{1}{\sigma_{\lq+\zb'}}\left[\frac{d\sigma_{\lq+\zb'}}{dm_{\tau\tau}}-\left(\frac{d\sigma_{\lq}}{dm_{\tau\tau}}+\frac{d\sigma_{\zb'}}{dm_{\tau\tau}}\right)\right],
 \end{equation}
-where $\sigma_{X}$ denotes production cross section from particle set $X$. The inclusive cross section $\sigma_{\lq+\zb'}$ incorporates both virtual $\lq$ and s-channel $\zb'$ amplitudes. Both mass hierarchies exhibit pronounced RKI minima as $m_{\tau\tau}\to0$, signaling destructive $\lq$-$\zb'$ interference. This quantum interference suppresses differential cross sections at low $m_{\tau\tau}$, consequently reducing integrated rates.
+where $\sigma_{X}$ denotes production cross section from particle set $X$. The inclusive cross section $\sigma_{\lq+\zb'}$ incorporates both virtual $\lq$ and s-channel $\zb'$ amplitudes. 
 
-These interference patterns align with comprehensive resonant and non-resonant $\mathrm{p}\,\mathrm{p}\to\tq \bar{\tq}$ production studies in~\cite{Djouadi:2019cbm}.
+The interference structure emerges from distinct Mandelstam-variable dependencies: non-resonant leptoquark production proceeds via t-channel exchange with amplitude $\mathcal{M}_{U_1} \sim (t-m_{U_1}^2 + i m_{U_1} \Gamma_{U_1})^{-1}$, while resonant $\zb'$ production utilizes s-channel propagation with amplitude $\mathcal{M}_{Z'} \sim (s-m_{Z'}^2 + i m_{Z'} \Gamma_{Z'})^{-1}$. The interference contribution to the differential cross section scales as:
+\begin{equation}
+\label{eq:interference_formula}
+\frac{d\sigma_{\rm int}}{dm_{\tau\tau}} \sim \frac{g_{Z'}g_{U}}{s}\frac{ m_{U}m_{Z'}\Gamma_{U}\Gamma_{Z'} - (t-m_{U}^2)(s-m_{Z'}^2)}{\left[(t-m_{U}^2)^2 + m_{U}^2\Gamma_{U}^2\right]\left[(s-m_{Z'}^2)^2 + m_{Z'}^2\Gamma_{Z'}^2\right]}.
+\end{equation}
+In the narrow-width approximation, the term $m_{U}m_{Z'}\Gamma_{U}\Gamma_{Z'}$ is negligible. Since $(t-m_{U}^2) < 0$ for physical kinematics, the sign of the interference is governed by $- (t-m_{U}^2)(s-m_{Z'}^2)$. Below the $\zb'$ resonance ($s < m_{Z'}^2$), $(s-m_{Z'}^2) < 0$, yielding a positive product $(t-m_{U}^2)(s-m_{Z'}^2) > 0$ and thus destructive interference (negative numerator). Above the resonance ($s > m_{Z'}^2$), $(s-m_{Z'}^2) > 0$ leads to $(t-m_{U}^2)(s-m_{Z'}^2) < 0$, producing constructive interference (positive numerator). The $1/s$ prefactor suppresses interference at large $m_{\tau\tau}$, while near $m_{\tau\tau} \to 0$ the denominator enhances destructive effects. Consequently, both mass hierarchies exhibit pronounced RKI minima at low $m_{\tau\tau}$, signaling destructive $\lq$-$\zb'$ interference that suppresses differential cross sections and reduces integrated rates. These interference patterns align with comprehensive resonant and non-resonant $\mathrm{p}\,\mathrm{p}\to\tq \bar{\tq}$ production studies in~\cite{Djouadi:2019cbm}.
